@@ -9,7 +9,7 @@ public class AudioController
 
 	protected struct SoundData {
 
-		public SoundData(AudioSource audioSource = null, SoundEvents.Group soundGroup = SoundEvents.Group.SOUND, float volume = 1.0f) {
+		public SoundData(AudioSource audioSource = null, SoundEvents.Group soundGroup = SoundEvents.Group.SOUND, float volume = 1.0f) : this() {
 			this.audioSource = audioSource;
 			this.soundGroup = soundGroup;
 			this.volume = volume;

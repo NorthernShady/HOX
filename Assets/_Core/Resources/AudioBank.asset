@@ -11,4 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46d3930662c94cd493c92818e42a8bc, type: 3}
   m_Name: AudioBank
   m_EditorClassIdentifier: 
-  Audios: []
+  Audios:
+  - ID: 0
+    Clip: {fileID: 8300000, guid: 373f59d9e0f9dc14ebe8b67b12975f79, type: 3}
+    volume: 1
+    pitch: 1
+  - ID: 10
+    Clip: {fileID: 8300000, guid: 20317692b3e435e4c909d5a8d999d3ba, type: 3}
+    volume: 1
+    pitch: 1
