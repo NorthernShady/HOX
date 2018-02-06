@@ -50,6 +50,8 @@ public class RectangularGrid : MonoBehaviour {
 
 		m_mesh.triangles = triangles;
 		m_mesh.RecalculateNormals();
+
+		GetComponent<MeshCollider>().sharedMesh = m_mesh;
 	}
 
 	void OnDrawGizmos()
