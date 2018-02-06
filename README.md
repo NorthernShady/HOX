@@ -1,1 +1,1 @@
-# HOX
+# HOX (Heroes of Xandriah)
