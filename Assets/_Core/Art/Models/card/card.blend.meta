@@ -1,67 +1,16 @@
 fileFormatVersion: 2
-guid: e2ed004383d6a4ed89599060e403b219
-timeCreated: 1517995649
+guid: d153f2466885f43faabbc7c67f0c6d0c
+timeCreated: 1518022551
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube_002
-    100004: Cylinder
-    100006: Cylinder_001
-    100008: Cylinder_002
-    100010: Cylinder_003
-    100012: Cylinder_004
-    100014: Cylinder_005
-    100016: Cylinder_006
-    100018: Cylinder_008
-    100020: //RootNode
-    400000: Cube
-    400002: Cube_002
-    400004: Cylinder
-    400006: Cylinder_001
-    400008: Cylinder_002
-    400010: Cylinder_003
-    400012: Cylinder_004
-    400014: Cylinder_005
-    400016: Cylinder_006
-    400018: Cylinder_008
-    400020: //RootNode
-    2100000: limb
-    2100002: hand
-    2100004: foot
-    2100006: Material_002
-    2100008: Material
-    2300000: Cube
-    2300002: Cube_002
-    2300004: Cylinder
-    2300006: Cylinder_001
-    2300008: Cylinder_002
-    2300010: Cylinder_003
-    2300012: Cylinder_004
-    2300014: Cylinder_005
-    2300016: Cylinder_006
-    2300018: Cylinder_008
-    3300000: Cube
-    3300002: Cube_002
-    3300004: Cylinder
-    3300006: Cylinder_001
-    3300008: Cylinder_002
-    3300010: Cylinder_003
-    3300012: Cylinder_004
-    3300014: Cylinder_005
-    3300016: Cylinder_006
-    3300018: Cylinder_008
-    4300000: Cylinder_006
-    4300002: Cylinder_002
-    4300004: Cube_002
-    4300006: Cylinder_008
-    4300008: Cylinder_005
-    4300010: Cylinder_001
-    4300012: Cube
-    4300014: Cylinder_004
-    4300016: Cylinder_003
-    4300018: Cylinder
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -90,7 +39,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
