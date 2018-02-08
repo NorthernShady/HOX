@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : MonoBehaviour {
+public class MainMenuPlayButton : MonoBehaviour {
 
 	void onClick()
 	{
-		SceneManager.LoadScene(k.Scenes.GAME_SCENE);
+		SceneManager.LoadScene(k.Scenes.HERO_PICK);
 	}
 }
