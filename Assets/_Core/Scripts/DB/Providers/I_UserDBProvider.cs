@@ -5,6 +5,6 @@ using UnityEngine;
 public interface I_UserDBProvider {
 	User getUser ();
 	XPLevel getXPLevel (int levelId);
-	CreepsConfig getCreepsConfig(string creepName, int level);
-	HeroesConfig getHeroesConfig(string heroName, int level);
+	CreepConfig getCreepConfig(string creepName, int level);
+	HeroConfig getHeroConfig(string heroName, int level);
 }

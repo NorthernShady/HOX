@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SQLite4Unity3d;
 
-public class HeroesConfig {
+public class HeroConfig {
 
 	[PrimaryKey, AutoIncrement]
 	public int Id { get; set; }
