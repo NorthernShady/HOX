@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInputController : MonoBehaviour {
 
@@ -35,9 +36,8 @@ public class GameInputController : MonoBehaviour {
 
 	void onMultiTap(Tap tap)
 	{
-		Ray ray = Camera.main.ScreenPointToRay(tap.pos);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << k.Layers.MAP)) {
+		if (raycast(tap.pos, out hit, 1 << k.Layers.MAP)) {
 			if (OnTap != null)
 				OnTap(hit.point);
 		}
@@ -49,10 +49,8 @@ public class GameInputController : MonoBehaviour {
 
 	void onDraggingStarted(DragInfo dragInfo)
 	{
-		Ray ray = Camera.main.ScreenPointToRay(dragInfo.pos);
 		RaycastHit hit;
-
-		if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << k.Layers.MAP)) {
+		if (raycast(dragInfo.pos, out hit, 1 << k.Layers.MAP)) {
 			if (OnDraggingStarted != null)
 				OnDraggingStarted(dragInfo.pos, dragInfo.index);
 		}
@@ -70,5 +68,29 @@ public class GameInputController : MonoBehaviour {
 	{
 		if (OnDraggingFinished != null)
 			OnDraggingFinished(dragInfo.pos, dragInfo.index);
+	}
+
+	bool raycast(Vector2 position, out RaycastHit hit, int layerMask = Physics.DefaultRaycastLayers)
+	{
+		if (isUiTouch(-1)) {
+			hit = new RaycastHit();
+			return false;
+		}
+
+		Ray ray = Camera.main.ScreenPointToRay(position);
+		return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
+	}
+
+	public static bool isUiTouch(int touchId)
+	{
+		var eventSystem = UnityEngine.EventSystems.EventSystem.current;
+		bool isPointerOverGameObject = eventSystem.IsPointerOverGameObject() || eventSystem.IsPointerOverGameObject(touchId);
+		if (isPointerOverGameObject && eventSystem.currentSelectedGameObject != null) {
+			Button button = eventSystem.currentSelectedGameObject.GetComponent<Button>();
+			if (button != null)
+				return true;
+		}
+
+		return false;
 	}
 }

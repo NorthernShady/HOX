@@ -10,6 +10,7 @@ public class CameraFollower : MonoBehaviour {
 
 	void Awake() {
 		m_position = transform.position;
+		FindObjectOfType<CameraController>().setFollower(this);
 	}
 
 	void Start() {
