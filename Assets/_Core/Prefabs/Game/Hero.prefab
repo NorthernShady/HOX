@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 5
+  m_healthBarPrefab: {fileID: 114606914754130214, guid: 5073b0ddcb8d248aaab7e5576e906315,
+    type: 2}
   m_heroVisual:
     keys: 00000000010000000200000003000000
     values:
