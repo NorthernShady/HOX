@@ -27,6 +27,6 @@ public class HealthBar : MonoBehaviour {
 	{
 		var percent = 0.8f;
 		var rect = new Rect(0.0f, 0.0f, m_texture.width * percent, m_texture.height);
-		m_fill.sprite = Sprite.Create(m_texture, rect, new Vector2(0.5f, 0.5f));
+		m_fill.sprite = Sprite.Create(m_texture, rect, new Vector2(0.0f, 0.0f));
 	}
 }
