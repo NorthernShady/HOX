@@ -4,49 +4,29 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "DataAssetsHolder", menuName = "DataAssetsHolder")]
 public class DataAssetsHolder : ScriptableObject {
+
 	[SerializeField] UserRepresentation userRepresentationAsset;
-	[SerializeField] GeneralConfigRepresentation generalRepresentationAsset;
+	[SerializeField] GeneralRepresentation generalRepresentationAsset;
+	[SerializeField] HeroesRepresentation heroesRepresentationAsset;
+	[SerializeField] CreepsRepresentation creepsRepresentationAsset;
 
-	[SerializeField] XPLevelRepresentation xpLevelRepresentationAsset;
-
-	[SerializeField] InAppItemRepresentation inAppItemRepresentation;
-
-	[SerializeField] NotificationsRepresentation notificationsRepresentationAsset;
-
-	[SerializeField] LevelListRepresentation levelListRepresentationAsset;
-
-	[SerializeField] BoosterConfigRepresentation boosterConfigRepresentationAsset;
-
-	public UserRepresentation getUserRepresentationAsset ()
+	public UserRepresentation getUserRepresentationAsset()
 	{
 		return userRepresentationAsset;
 	}
 
-	public GeneralConfigRepresentation getGeneralConfigRepresentationAsset ()
+	public GeneralRepresentation getGeneralRepresentationAsset()
 	{
 		return generalRepresentationAsset;
 	}
 
-	public XPLevelRepresentation getXPLevelRepresentationAsset ()
+	public HeroesRepresentation getHeroesRepresentationAsset()
 	{
-		return xpLevelRepresentationAsset;
+		return heroesRepresentationAsset;
 	}
 
-	public InAppItemRepresentation getInAppItemRepresentation() {
-		return inAppItemRepresentation;
-	}
-
-	public NotificationsRepresentation getNotificationsRepresentationAsset() {
-		return notificationsRepresentationAsset;
-	}
-
-	public LevelListRepresentation getLevelListRepresentationAsset ()
+	public CreepsRepresentation getCreepsRepresentationAsset()
 	{
-		return levelListRepresentationAsset;
-	}
-
-	public BoosterConfigRepresentation getBoosterConfigRepresentationAsset()
-	{
-		return boosterConfigRepresentationAsset;
+		return creepsRepresentationAsset;
 	}
 }

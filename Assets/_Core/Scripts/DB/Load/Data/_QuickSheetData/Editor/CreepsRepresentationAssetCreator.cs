@@ -8,12 +8,12 @@ using UnityQuickSheet;
 /// 
 public partial class GoogleDataAssetUtility
 {
-    [MenuItem("Assets/Create/Google/UserRepresentation")]
-    public static void CreateUserAssetFile()
+    [MenuItem("Assets/Create/Google/CreepsRepresentation")]
+    public static void CreateCreepsAssetFile()
     {
-        UserRepresentation asset = QuickSheet.CustomAssetUtility.CreateAsset<UserRepresentation>();
+        CreepsRepresentation asset = QuickSheet.CustomAssetUtility.CreateAsset<CreepsRepresentation>();
         asset.SheetName = "HOX";
-        asset.WorksheetName = "User";
+        asset.WorksheetName = "Creeps";
         EditorUtility.SetDirty(asset);        
     }
     

@@ -10,17 +10,4 @@ public class User {
 	public int Id { get; set; }
 	public string Name { get; set; }
 	public int XP { get; set; }
-	public int CurrentLevel { get; set; }
-	public int SoftCurrency { get; set; }
-	public int HardCurrency { get; set; }
-	public int ShuffleBoosterCount { get; set; }
-	public int HammerBoosterCount { get; set; }
-	public int RocketBoosterCount { get; set; }
-	public int Lives { get; set; }
-	public int MaxLives { get; set; }
-	public long LifeRestorationTime { get; set; }
-	public long LastLifeUpdateTime { get; set; }
-	public bool NewMechanicsShown { get; set; }
-	public bool TutorialInGameBoostersGiven { get; set; }
-	public bool LastLevelCompleted { get; set; }
 }

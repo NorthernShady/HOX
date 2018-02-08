@@ -52,7 +52,6 @@ public class LoadDBData
 		}
 		
 		T targetData = tableAsset;
-//		targetData.SheetName = "MP2";
 		var client = new DatabaseClient ("", "");
 		string error = string.Empty;
 		var db = client.GetDatabase (targetData.SheetName, ref error);	
@@ -81,13 +80,8 @@ public class LoadDBData
 		m_dataAssetsHolder = null;//Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
 		m_configSheetAccessor = new ConfigSheetAccessor (m_dataAssetsHolder);
 
-		loadGeneralConfigData (dataService);
-
-		loadXPLevel (dataService);
-		loadInAppItem (dataService);
-		loadAnalyticsData (dataService);
-		loadUserData (dataService);
-		loadBoosterConfig(dataService);
+		loadGeneralData(dataService);
+		loadUserData(dataService);
 
 		PlayerPrefs.DeleteAll ();
 	}
@@ -95,31 +89,24 @@ public class LoadDBData
 	public static void downloadAllGoogleSheetsData ()
 	{
 		m_dataAssetsHolder = null;//Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
-		loadGoogleSheet<UserRepresentation, UserRepresentationData> (m_dataAssetsHolder.getUserRepresentationAsset ());
-
-		loadGoogleSheet<GeneralConfigRepresentation, GeneralConfigRepresentationData> (m_dataAssetsHolder.getGeneralConfigRepresentationAsset ());
-		loadGoogleSheet<XPLevelRepresentation, XPLevelRepresentationData> (m_dataAssetsHolder.getXPLevelRepresentationAsset ());
-
-		loadGoogleSheet<InAppItemRepresentation, InAppItemRepresentationData> (m_dataAssetsHolder.getInAppItemRepresentation ());
-		loadGoogleSheet<BoosterConfigRepresentation, BoosterConfigRepresentationData>(m_dataAssetsHolder.getBoosterConfigRepresentationAsset());
-
-		loadGoogleSheet<NotificationsRepresentation, NotificationsRepresentationData> (m_dataAssetsHolder.getNotificationsRepresentationAsset ());
-
-		loadGoogleSheet<LevelListRepresentation, LevelListRepresentationData> (m_dataAssetsHolder.getLevelListRepresentationAsset ());
+		loadGoogleSheet<UserRepresentation, UserRepresentationData> (m_dataAssetsHolder.getUserRepresentationAsset());
+		loadGoogleSheet<GeneralRepresentation, GeneralRepresentationData> (m_dataAssetsHolder.getGeneralRepresentationAsset());
+		loadGoogleSheet<HeroesRepresentation, HeroesRepresentationData>(m_dataAssetsHolder.getHeroesRepresentationAsset());
+		loadGoogleSheet<CreepsRepresentation, CreepsRepresentationData>(m_dataAssetsHolder.getCreepsRepresentationAsset());
 	}
 
-	static void loadGeneralConfigData (DataService dataService)
+	static void loadGeneralData (DataService dataService)
 	{
-		var generalConfigRepresentation = m_dataAssetsHolder.getGeneralConfigRepresentationAsset ();
+		var generalRepresentation = m_dataAssetsHolder.getGeneralRepresentationAsset ();
 
-		foreach (var row in generalConfigRepresentation.dataArray) {
+		foreach (var row in generalRepresentation.dataArray) {
 			if (row.Name.Length == 0)
 				continue;
 			dataService.connection.InsertAll (new[] {
 				new Config {
 					ConfigId = row.Configid,
 					Name = row.Name,
-					Data = row.Data,
+					Data = row.Data
 				},
 			});
 		}
@@ -135,138 +122,70 @@ public class LoadDBData
 			dataService.connection.InsertAll (new[] {
 				new User {
 					Id = row.Id,
+					Name = row.Name
+				},
+			});
+		}
+	}
+
+	static void loadHeroesData(DataService dataService)
+	{
+		var heroesDataRepresentation = m_dataAssetsHolder.getHeroesRepresentationAsset();
+
+		foreach (var row in heroesDataRepresentation.dataArray) {
+			if (row.Name.Length == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new HeroesConfig {
+					Id = row.Id,
 					Name = row.Name,
-					CurrentLevel = 0,
-					SoftCurrency = row.Softcurrency,
-					HardCurrency = row.Hardcurrency,
-					ShuffleBoosterCount = 0,
-					HammerBoosterCount = 0,
-					RocketBoosterCount = 0,
-					Lives = row.Lives,
-					MaxLives = row.Maxlives,
-					LifeRestorationTime = row.Liferestorationtime,
-					LastLifeUpdateTime = 0,
-					NewMechanicsShown = false,
-					TutorialInGameBoostersGiven = false,
-					LastLevelCompleted = false,
-				},
+					Level = row.Level,
+					HP = row.HP,
+					Attack = row.Attack,
+					Defence = row.Defence
+				}
 			});
 		}
 	}
 
-
-	static void loadXPLevel (DataService dataService)
+	static void loadCreepsData(DataService dataService)
 	{
-		var xpLevelRepresentation = m_dataAssetsHolder.getXPLevelRepresentationAsset ();
+		var creepsDataRepresentation = m_dataAssetsHolder.getCreepsRepresentationAsset();
 
-		// I substract previous xp to get only xp needed to achive the next level.
-		// This allows me use convinient representation of xp in code and conviniet
-		// representation of data in google sheets for Jorge.
-		// for exapmle, 1000/2000/5000 is transformed to 1000/1000/3000
-		int previousXP = 0;
-
-		foreach (var item in xpLevelRepresentation.dataArray) {
-			dataService.connection.InsertAll (new[] {
-				new XPLevel {
-					Id = item.Xplevel,
-					RequiredXP = item.Requiredxp - previousXP
-				},
-			});
-			previousXP = item.Requiredxp;
-		}
-	}
-
-	static void loadInAppItem (DataService dataService)
-	{
-		var inAppItemRepresentation = m_dataAssetsHolder.getInAppItemRepresentation ();
-
-		foreach (var item in inAppItemRepresentation.dataArray) {
-			dataService.connection.InsertAll (new[] {
-				new InAppItem {
-					Id = item.Id,
-					Name = item.Name,
-					RewardType = item.Rewardtype,
-					RewardAmount = item.Rewardamount,
-					GooglePlayId = item.Googleplayid,
-					PriceUSD = item.Priceusd
-				},
+		foreach (var row in creepsDataRepresentation.dataArray) {
+			if (row.Name.Length == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new CreepsConfig {
+					Id = row.Id,
+					Name = row.Name,
+					Level = row.Level,
+					HP = row.HP,
+					Attack = row.Attack,
+					Defence = row.Defence
+				}
 			});
 		}
 	}
 
-	static void loadAnalyticsData (DataService dataService)
-	{
-
-		UserRepresentation userRepresentation = m_dataAssetsHolder.getUserRepresentationAsset ();
-		var user = userRepresentation.dataArray.ToList ().Find (x => x.Id == 0);
-
-		dataService.connection.InsertAll (new[] {
-			new AnalyticsData {
-				Id = 0,
-				Uuid = "",
-				Last_time_login = 0,
-				Days_after_install = 0,
-				Current_free_hard = user.Hardcurrency,
-				Current_free_soft = user.Softcurrency,
-				Total_free_hard_got = user.Hardcurrency,
-				Total_hard_got = user.Hardcurrency,
-				Total_free_soft_got = user.Softcurrency,
-				Total_soft_got = user.Softcurrency,
-				Hard_boosters_state = ""
-			},
-		});
-	}
-
-	static void loadBoosterConfig(DataService dataService)
-	{
-		var boosterConfigRepresentation = m_dataAssetsHolder.getBoosterConfigRepresentationAsset();
-
-		foreach (var item in boosterConfigRepresentation.dataArray) {
-			dataService.connection.InsertAll (new[] {
-				new BoosterConfig {
-					Id = item.Id,
-					Name = item.Name,
-					UnlockLevel = item.Unlocklevel,
-					PurchaseAmount = item.Purchaseamount,
-					Cost = item.Cost,
-				},
-			});
-		}
-	}
-
-//	static void loadLevelListData ()
+//	static void loadXPLevel (DataService dataService)
 //	{
-//		var levelListDataRepresentation = m_dataAssetsHolder.getLevelListRepresentationAsset ();
+////		var xpLevelRepresentation = m_dataAssetsHolder.getXPLevelRepresentationAsset ();
 //
-//		LevelList gameLevelList = Resources.Load<LevelList> (k.Resources.LEVEL_LIST);
+//		// I substract previous xp to get only xp needed to achive the next level.
+//		// This allows me use convinient representation of xp in code and conviniet
+//		// representation of data in google sheets for Jorge.
+//		// for exapmle, 1000/2000/5000 is transformed to 1000/1000/3000
+////		int previousXP = 0;
 //
-//		gameLevelList.gameLevels = new List<GameLevelInfo> ();
-//
-//		foreach (var row in levelListDataRepresentation.dataArray) {
-//			if (row.Levelname == "")
-//				continue;
-//			GameLevelInfo levelInfo = new GameLevelInfo ();
-//			levelInfo.levelBackName = new string[row.Levelbackname.Length];
-//			Array.Copy (row.Levelbackname, levelInfo.levelBackName, row.Levelbackname.Length);
-//			levelInfo.levelDataName = new string[row.Leveldataname.Length];
-//			Array.Copy (row.Leveldataname, levelInfo.levelDataName, row.Leveldataname.Length);
-//			levelInfo.levelTopologyName = new string[row.Leveltopologyname.Length];
-//			Array.Copy (row.Leveltopologyname, levelInfo.levelTopologyName, row.Leveltopologyname.Length);
-//			levelInfo.levelName = row.Levelname;
-//			levelInfo.tutorialImageName = row.Tutorialimagename;
-//			levelInfo.newElement = row.Newelements;
-//
-//			if (row.Tutorialprefab != "") {
-//				GameObject tutorialPrefab = AssetDatabase.LoadAssetAtPath<GameObject> (TUTORIAL_PREFABS_PATH + row.Tutorialprefab + ".prefab");
-//				if (tutorialPrefab == null) {
-//					Debug.LogError ("WRONG TUTORIAL PREFAB NAME IN LEVEL LIST -> " + row.Tutorialprefab);
-//				}
-//				levelInfo.tutorialPrefab = tutorialPrefab;
-//			}
-//			gameLevelList.gameLevels.Add (levelInfo);
-//		}
-//
-//		EditorUtility.SetDirty (gameLevelList);
-//		AssetDatabase.SaveAssets ();
+////		foreach (var item in xpLevelRepresentation.dataArray) {
+////			dataService.connection.InsertAll (new[] {
+////				new XPLevel {
+////					Id = item.Xplevel,
+////					RequiredXP = item.Requiredxp - previousXP
+////				},
+////			});
+////			previousXP = item.Requiredxp;
+////		}
 //	}
 }

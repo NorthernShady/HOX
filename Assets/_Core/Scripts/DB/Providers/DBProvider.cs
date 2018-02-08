@@ -49,24 +49,16 @@ public partial class DBProvider : I_DBProvider
 
 	public virtual void createDB ()
 	{
-
 		DataService dataService = new DataService (getDBName());
-//		dataService.connection.DropTable <TestTable> ();
 
 		dataService.connection.DropTable<User> ();
 		dataService.connection.DropTable<Config> ();
 		dataService.connection.DropTable<XPLevel> ();
-		dataService.connection.DropTable<InAppItem> ();
-		dataService.connection.DropTable<AnalyticsData> ();
-		dataService.connection.DropTable<BoosterConfig>();
 
 
 		dataService.connection.CreateTable<User> ();
 		dataService.connection.CreateTable<Config> ();
 		dataService.connection.CreateTable<XPLevel> ();
-		dataService.connection.CreateTable<InAppItem> ();
-		dataService.connection.CreateTable<AnalyticsData> ();
-		dataService.connection.CreateTable<BoosterConfig>();
 	}
 
 	public virtual void backupDB()

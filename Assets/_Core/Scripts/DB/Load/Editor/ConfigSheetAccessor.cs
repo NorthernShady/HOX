@@ -12,16 +12,16 @@ public class ConfigSheetAccessor {
 	}
 
 	public int[] getIntArrayFromConfigTable(string name) {
-		var generalConfigRepresentation = m_dataAssetsHolder.getGeneralConfigRepresentationAsset ();
-		var row = System.Array.Find (generalConfigRepresentation.dataArray, item => item.Name == name);
+		var generalRepresentation = m_dataAssetsHolder.getGeneralRepresentationAsset();
+		var row = System.Array.Find (generalRepresentation.dataArray, item => item.Name == name);
 		var stringArray = row.Data.Split (',');
 		var intArray = System.Array.ConvertAll (stringArray, item => int.Parse (item));
 		return intArray;
 	}
 
 	public int getIntFromConfigTable(string name) {
-		var generalConfigRepresentation = m_dataAssetsHolder.getGeneralConfigRepresentationAsset ();
-		var row = System.Array.Find (generalConfigRepresentation.dataArray, item => item.Name == name);
+		var generalRepresentation = m_dataAssetsHolder.getGeneralRepresentationAsset ();
+		var row = System.Array.Find (generalRepresentation.dataArray, item => item.Name == name);
 		return int.Parse(row.Data);
 	}
 

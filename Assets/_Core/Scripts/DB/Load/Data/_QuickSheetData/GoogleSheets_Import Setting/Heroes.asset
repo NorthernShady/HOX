@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdb4931813a361148a6651be452ff88e, type: 3}
-  m_Name: User
+  m_Name: Heroes
   m_EditorClassIdentifier: 
   templatePath: QuickSheet/GDataPlugin/Templates
   scriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Representation
   editorScriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Editor
   sheetName: HOX
-  workSheetName: User
+  workSheetName: Heroes
   columnHeaderList:
   - type: 3
     name: Id
@@ -23,6 +23,22 @@ MonoBehaviour:
     isArray: 0
   - type: 1
     name: Name
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: Level
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: HP
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: Attack
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: Defence
     isEnable: 0
     isArray: 0
   AccessCode: 

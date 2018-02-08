@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfb765d431c34e049ad361336b12c93, type: 3}
+  m_Name: DataAssetsHolder
+  m_EditorClassIdentifier: 
+  userRepresentationAsset: {fileID: 11400000, guid: bff8d5f7194d840dd8dbfafd2d46b055,
+    type: 2}
+  generalRepresentationAsset: {fileID: 11400000, guid: 6b8b74eaf589b43218e114e87032e3e1,
+    type: 2}
+  heroesRepresentationAsset: {fileID: 11400000, guid: 54da0e2e5a2a14d63b121de8713e1f5b,
+    type: 2}
+  creepsRepresentationAsset: {fileID: 11400000, guid: 8a69c2d6ac8534514b1c85a0ce43c0f1,
+    type: 2}

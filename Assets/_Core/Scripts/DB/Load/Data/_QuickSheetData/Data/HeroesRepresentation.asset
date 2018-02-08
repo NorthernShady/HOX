@@ -8,11 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d5b3379a99b42f585097c91cba7567, type: 3}
-  m_Name: UserRepresentation
+  m_Script: {fileID: 11500000, guid: 01820c80925004ec18156b5b2b11fee1, type: 3}
+  m_Name: HeroesRepresentation
   m_EditorClassIdentifier: 
   SheetName: HOX
-  WorksheetName: User
-  dataArray:
-  - id: 0
-    name: Geo
+  WorksheetName: Heroes
+  dataArray: []
