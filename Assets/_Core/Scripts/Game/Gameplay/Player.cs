@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Player : Character {
+[RequireComponent(typeof(CameraFollower))]
+public class Player : MonoBehaviour {
 
 	GameInputController m_gameInputController = null;
 
@@ -29,6 +30,6 @@ public class Player : Character {
 	
 	void onTap(Vector3 position)
 	{
-		moveTo(position);
+		GetComponent<Hero>().moveTo(position);
 	}
 }

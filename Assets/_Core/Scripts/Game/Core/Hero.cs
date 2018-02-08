@@ -21,6 +21,16 @@ public class Hero : Character {
 		}
 	}
 
+	public GameData.HeroType type {
+		get {
+			return m_type;
+		}
+		set {
+			m_type = value;
+			updateVisual();
+		}
+	}
+
 	public int team {
 		get {
 			return m_team;
