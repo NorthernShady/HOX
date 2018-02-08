@@ -14,14 +14,14 @@ MonoBehaviour:
   RuntimePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Representation
   EditorPath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Editor
   OAuth2Data:
-    client_id: 592158494939-a7ogc0homu6b1gr1rn84g5h2d7lvb00c.apps.googleusercontent.com
+    client_id: 443846234619-mgc4d72ua7on7svujltblsu6felcp6kl.apps.googleusercontent.com
     auth_uri: https://accounts.google.com/o/oauth2/auth
     token_uri: https://accounts.google.com/o/oauth2/token
     auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
-    client_secret: 57dKabFwpG0BeKB0o2dIirwk
+    client_secret: N7B0NjnD2Q7_dA-JRD98sad3
     redirect_uris:
     - urn:ietf:wg:oauth:2.0:oob
     - http://localhost
-  _AccessCode: 4/cMdPI9ZM1_OeLCUeqYolAmXJWuvOAJdICTy1wPEyRwY
-  _RefreshToken: 1/Sx8Ffov3Xi_1ysqOYLXVkCxZb5eQUvoFNRHY2t9UiqI
-  _AccessToken: ya29.GltNBIfBdNCn6YUw6Dp7ykNGUzTG8BLLqnzoVmd7LwvX5g733nnZ_Wb8eEfokdhv2aeJTtn253MWLs2B2i-oLwh32VijGhuBA6p138jlcrJlIDfMSDn4ZgHGZ5kX
+  _AccessCode: 4/AABp6GGCCxfb2mZl90EYNsGDnGeqPq-iIKOOLm8UPeCwGDNwl7sYk3I
+  _RefreshToken: 1/DhqoZQ_GgloAseMZxkGh-6AKoIE56Eyh4Kk6R3tJ-zU
+  _AccessToken: ya29.GltcBcSskAVoaCXog3XuQjbg5PJ2GNl5cYUUeqqd9wS0dBzydq7b6jcIeiDuSfBS1LQFiHNa0ljCpuPA7EFcYn8hbjeks0ACb-TNX8WMQrWDp_1D4KiRLSkyzqdw
