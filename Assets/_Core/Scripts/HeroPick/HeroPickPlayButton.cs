@@ -7,6 +7,6 @@ public class HeroPickPlayButton : MonoBehaviour {
 
 	void onClick()
 	{
-		SceneManager.LoadScene(k.Scenes.LOBBY);
+		SceneManager.LoadScene(k.Scenes.GAME_SCENE);
 	}
 }
