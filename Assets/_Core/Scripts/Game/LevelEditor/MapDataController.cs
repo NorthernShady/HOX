@@ -38,6 +38,12 @@ public class MapDataController : MonoBehaviour {
 		mapData.heroesStartData = heroesStartData;
 	}
 
+	public void loadMapData(string mapDataName)
+	{
+		m_mapDataName = m_mapDataName;
+		loadMapData();
+	}
+
 	public void loadMapData()
 	{
 		clear();
