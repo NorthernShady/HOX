@@ -70,7 +70,7 @@ namespace Core {
 			var result = new Shape();
 
 			var clipper = new ClipperOffset();
-			clipper.AddPaths(points, JoinType.jtMiter, type);
+			clipper.AddPaths(points, JoinTypeOld.jtMiter, type);
 			clipper.Execute(ref result.points, value * Casting.INT_SCALE);
 
 			return result;

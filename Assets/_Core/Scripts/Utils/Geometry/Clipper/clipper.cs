@@ -128,7 +128,7 @@ namespace ClipperLib {
 		internal PolyNode m_Parent;
 		internal Path m_polygon = new Path();
 		internal int m_Index;
-		internal JoinType m_jointype;
+		internal JoinTypeOld m_jointype;
 		internal EndType m_endtype;
 		internal List<PolyNode> m_Childs = new List<PolyNode>();
 
@@ -446,7 +446,7 @@ namespace ClipperLib {
 	;
 
 
-	public enum JoinType {
+	public enum JoinTypeOld {
 		jtSquare,
 		jtRound,
 		jtMiter}
@@ -4203,7 +4203,7 @@ dRightToLeft,
 		}
 		//------------------------------------------------------------------------------
 
-		public void AddPath(Path path, JoinType joinType, EndType endType) {
+		public void AddPath(Path path, JoinTypeOld joinType, EndType endType) {
 			int highI = path.Count - 1;
 			if (highI < 0)
 				return;
@@ -4247,7 +4247,7 @@ dRightToLeft,
 		}
 		//------------------------------------------------------------------------------
 
-		public void AddPaths(Paths paths, JoinType joinType, EndType endType) {
+		public void AddPaths(Paths paths, JoinTypeOld joinType, EndType endType) {
 			foreach (Path p in paths)
 				AddPath(p, joinType, endType);
 		}
@@ -4340,7 +4340,7 @@ dRightToLeft,
 				m_destPoly = new Path();
 
 				if (len == 1) {
-					if (node.m_jointype == JoinType.jtRound) {
+					if (node.m_jointype == JoinTypeOld.jtRound) {
 						double X = 1.0, Y = 0.0;
 						for (int j = 1; j <= steps; j++) {
 							m_destPoly.Add(new IntPoint(Round(m_srcPoly[0].X + X * delta), Round(m_srcPoly[0].Y + Y * delta)));
@@ -4512,7 +4512,7 @@ dRightToLeft,
 		}
 		//------------------------------------------------------------------------------
 
-		void OffsetPoint(int j, ref int k, JoinType jointype) {
+		void OffsetPoint(int j, ref int k, JoinTypeOld jointype) {
 			//cross product ...
 			m_sinA = (m_normals[k].X * m_normals[j].Y - m_normals[j].X * m_normals[k].Y);
 
@@ -4535,7 +4535,7 @@ dRightToLeft,
 				m_destPoly.Add(new IntPoint(Round(m_srcPoly[j].X + m_normals[j].X * m_delta), Round(m_srcPoly[j].Y + m_normals[j].Y * m_delta)));
 			} else
 				switch (jointype) {
-					case JoinType.jtMiter:
+			case JoinTypeOld.jtMiter:
 						{
 							double r = 1 + (m_normals[j].X * m_normals[k].X +
 							                  m_normals[j].Y * m_normals[k].Y);
@@ -4545,10 +4545,10 @@ dRightToLeft,
 								DoSquare(j, k);
 							break;
 						}
-					case JoinType.jtSquare:
+			case JoinTypeOld.jtSquare:
 						DoSquare(j, k);
 						break;
-					case JoinType.jtRound:
+			case JoinTypeOld.jtRound:
 						DoRound(j, k);
 						break;
 				}
