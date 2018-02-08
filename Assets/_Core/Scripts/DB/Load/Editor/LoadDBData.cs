@@ -136,7 +136,7 @@ public class LoadDBData
 			if (row.Name.Length == 0)
 				continue;
 			dataService.connection.InsertAll(new[] {
-				new HeroesConfig {
+				new HeroConfig {
 					Id = row.Id,
 					Name = row.Name,
 					Level = row.Level,
@@ -156,7 +156,7 @@ public class LoadDBData
 			if (row.Name.Length == 0)
 				continue;
 			dataService.connection.InsertAll(new[] {
-				new CreepsConfig {
+				new CreepConfig {
 					Id = row.Id,
 					Name = row.Name,
 					Level = row.Level,
