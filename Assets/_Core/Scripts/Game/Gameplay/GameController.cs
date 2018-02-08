@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
 
 		initialize();
-		addPlayer();
+		addPlayer(m_gameDataProxy.team);
 	}
 
 	void initialize()
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour {
 	void addPlayer(int team = 0)
 	{
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
-		Vector3 pos;
+		Vector3 pos = new Vector3(0,0,0);
 		if (team != 0) {
 			pos = new Vector3 (5, 5, 0);
 		}

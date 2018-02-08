@@ -6,6 +6,7 @@ public class GameDataProxy : MonoBehaviour {
 
 	public string mapDataName;
 	public GameData.HeroType heroType;
+	public int team;
 
 	void Awake()
 	{
