@@ -28,14 +28,17 @@ public class CameraController : MonoBehaviour {
 	{
 		m_cameraShift = transform.position.y / Mathf.Tan(transform.eulerAngles.x * Mathf.Deg2Rad);
 		transform.position = new Vector3(0.0f, transform.position.y, -m_cameraShift);
+		onUpdatePosition();
 
 		m_gameInputController = FindObjectOfType<GameInputController>();
 	}
 
 	void OnEnable()
 	{
-		if (m_follower != null)
+		if (m_follower != null) {
+			m_follower.OnPositionChanged -= onUpdatePosition;
 			m_follower.OnPositionChanged += onUpdatePosition;
+		}
 
 		m_gameInputController.OnDraggingStarted += onDraggingStarted;
 		m_gameInputController.OnDragging += onDragging;
@@ -55,6 +58,7 @@ public class CameraController : MonoBehaviour {
 	public void setFollower(CameraFollower follower) {
 		m_follower = follower;
 		follower.OnPositionChanged += onUpdatePosition;
+		onUpdatePosition();
 	}
 
 	public void setCameraType(CameraType cameraType) {
@@ -63,6 +67,12 @@ public class CameraController : MonoBehaviour {
 		if (m_cameraType == CameraType.FOLLOWING && m_follower != null) {
 			onUpdatePosition(m_follower.transform.position);
 		}
+	}
+
+	void onUpdatePosition()
+	{
+		if (m_follower != null)
+			onUpdatePosition(m_follower.transform.position);
 	}
 
 	void onUpdatePosition(Vector3 position)
