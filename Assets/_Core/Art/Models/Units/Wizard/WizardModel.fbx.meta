@@ -29,6 +29,9 @@ ModelImporter:
     400020: Cylinder_008
     2100000: unnamed
     2100002: Material
+    2100004: hand
+    2100006: fot
+    2100008: body
     2300000: //RootNode
     2300002: Cube
     2300004: Cube_002
@@ -69,6 +72,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 8a30ca36e61564fd196cfd419ff36069, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 51049f90d98014f64b93ec3ff6811b44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fot
+    second: {fileID: 2100000, guid: 05a493721187e4658900a3cee2f7edd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hand
+    second: {fileID: 2100000, guid: 9dd0bb72f7a7d418e8ea58263879bd22, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -34,6 +34,9 @@ ModelImporter:
     2100000: tusk
     2100002: Material
     2100004: unnamed
+    2100006: hand
+    2100008: foot
+    2100010: body
     2300000: Cube
     2300002: Cube_002
     2300004: Cylinder
@@ -80,6 +83,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 99d6c11f4d68e47ccba29fbd48752ca3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 58fc7edaa289b41b8816ce90c21ae52a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foot
+    second: {fileID: 2100000, guid: 2bf5ba170804b4ce1962dffa3cfa8e82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hand
+    second: {fileID: 2100000, guid: e4dc1cc4155a94aa886ccb6a66b67fd1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

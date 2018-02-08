@@ -29,6 +29,9 @@ ModelImporter:
     400020: Sphere
     2100000: Material
     2100002: unnamed
+    2100004: hand
+    2100006: foot
+    2100008: body
     2300000: Cube
     2300002: Cube_002
     2300004: Cylinder_001
@@ -69,6 +72,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 1ede1d22d89a341e5988528389d6f60e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 9eca15846f4f04d4d82c86caf9e3c94a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foot
+    second: {fileID: 2100000, guid: a37d5237263a14c26b7703a1b624330f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hand
+    second: {fileID: 2100000, guid: b619fe8da2e5041e2ae627b18b1ef2ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
