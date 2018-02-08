@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300342, g: 0.4921959, b: 0.57192576, a: 1}
+  m_IndirectSpecularColor: {r: 0.4430033, g: 0.49219584, b: 0.5719252, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1849,6 +1849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fakeGameDataProxy: {fileID: 1205350453}
+  heroPrefab: {fileID: 1292640982848116, guid: c9a33e4ff6f4745e492d9089f3e0ad83, type: 2}
 --- !u!4 &632411793
 Transform:
   m_ObjectHideFlags: 0
@@ -2735,6 +2736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapDataName: MapData/MapData
   heroType: 0
+  team: 0
 --- !u!4 &1205350454
 Transform:
   m_ObjectHideFlags: 0

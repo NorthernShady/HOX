@@ -8,8 +8,9 @@ namespace k
 		public const string MAIN_MENU = "MainMenu";
 		public const string HERO_PICK = "HeroPick";
 		public const string GAME_SCENE = "GameScene";
+		public const string LOBBY = "Lobby";
 
-		public const int TOTAL_SCENES = 5;
+		public const int TOTAL_SCENES = 6;
 
 
 		public static int nextSceneIndex()

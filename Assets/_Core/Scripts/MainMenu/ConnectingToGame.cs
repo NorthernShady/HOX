@@ -56,6 +56,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	void createRoom()
 	{
+		GameObject.FindObjectOfType<GameDataProxy> ().team = 0;
 		joinButton.SetActive (false);
 		createButton.SetActive (false);
 		string roomName = "name_";
@@ -69,6 +70,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	void findRoom()
 	{
+		GameObject.FindObjectOfType<GameDataProxy> ().team = 1;
 		joinButton.SetActive (false);
 		createButton.SetActive (false);
 		updateRooms ();
