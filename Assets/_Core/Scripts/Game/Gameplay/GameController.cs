@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour {
 	void addPlayer(int team = 0)
 	{
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
-		Vector3 pos;
+		Vector3 pos = Vector3.zero;
 		if (team != 0) {
 			pos = new Vector3 (5, 5, 0);
 		}
