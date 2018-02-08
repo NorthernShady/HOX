@@ -6,9 +6,10 @@ namespace k
 		public const string LAUNCH_SCREEN = "LaunchScreen";
 		public const string INITIALIZE = "Initialize";
 		public const string MAIN_MENU = "MainMenu";
+		public const string HERO_PICK = "HeroPick";
 		public const string GAME_SCENE = "GameScene";
 
-		public const int TOTAL_SCENES = 4;
+		public const int TOTAL_SCENES = 5;
 
 
 		public static int nextSceneIndex()

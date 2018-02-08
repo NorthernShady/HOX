@@ -15,5 +15,8 @@ EditorBuildSettings:
     path: Assets/_Core/Scenes/MainMenu.unity
     guid: acff03aa66b963145a80c375317bad2c
   - enabled: 1
+    path: Assets/_Core/Scenes/HeroPick.unity
+    guid: 360d358775cda4f9d9a2bc3b2a182220
+  - enabled: 1
     path: Assets/_Core/Scenes/GameScene.unity
     guid: 1179214b095ed7a4f9960b6e828bbdff
