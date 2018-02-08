@@ -12,7 +12,7 @@ namespace GameData
 		NONE
 	}
 
-	public enum CharacterType
+	public enum HeroType
 	{
 		WARRIOR,
 		ROGUE,

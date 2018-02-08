@@ -31,7 +31,7 @@ public class Creep : Character {
 	public void updateVisual()
 	{
 		if (m_activeVisual != null)
-			Destroy(m_activeVisual.gameObject);
+			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 	}
