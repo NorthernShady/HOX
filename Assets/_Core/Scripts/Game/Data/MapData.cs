@@ -15,7 +15,7 @@ public class MapData : ScriptableObject {
 	public class HeroStartData
 	{
 		[SerializeField]
-		public List<Vector2> positions;
+		public List<Vector2> positions = new List<Vector2>();
 	}
 
 	[SerializeField]

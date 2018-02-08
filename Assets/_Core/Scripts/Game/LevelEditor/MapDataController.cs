@@ -32,8 +32,10 @@ public class MapDataController : MonoBehaviour {
 		mapData.mapCreepData = mapCreepData;
 
 		var heroes = FindObjectsOfType<Hero>();
+		var heroesStartData = new MapData.HeroStartData[2] { new MapData.HeroStartData(), new MapData.HeroStartData() };
 		foreach (var hero in heroes)
-			mapData.heroesStartData[hero.team].positions.Add(hero.startPosition);
+			heroesStartData[hero.team].positions.Add(hero.startPosition);
+		mapData.heroesStartData = heroesStartData;
 	}
 
 	public void loadMapData()

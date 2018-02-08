@@ -25,7 +25,6 @@ MonoBehaviour:
     position: {x: -3.7000008, y: 2.619999}
   heroesStartData:
   - positions:
-    - {x: -0.79999924, y: -0.34999847}
     - {x: 5.5099983, y: -0.34999847}
     - {x: -0.79999924, y: -0.34999847}
   - positions: []
