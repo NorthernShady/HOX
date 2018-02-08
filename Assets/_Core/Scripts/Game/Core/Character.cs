@@ -8,6 +8,9 @@ public class Character : Photon.MonoBehaviour {
 	[SerializeField]
 	float m_speed = 1.0f;
 
+	[SerializeField]
+	HealthBar m_healthBar = null;
+
 	public virtual void moveTo(Vector3 position)
 	{
 		if (!photonView.isMine && PhotonNetwork.connected) {
@@ -20,7 +23,7 @@ public class Character : Photon.MonoBehaviour {
 		//transform.DOMove(position, m_speed).SetSpeedBased();
 
 		position.y = GetComponent<Rigidbody>().position.y;
-		GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(transform.position - position, Vector3.up);
+		GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(transform.position - position));
 		GetComponent<Rigidbody>().DOMove(position, m_speed).SetSpeedBased();
 	}
 
@@ -29,6 +32,10 @@ public class Character : Photon.MonoBehaviour {
 	}
 
 	protected void doCycleAnimation(Vector3 endPosition)
+	{
+	}
+
+	void createHealthBar()
 	{
 	}
 }

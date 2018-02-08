@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapDataController : MonoBehaviour {
 
@@ -58,17 +59,18 @@ public class MapDataController : MonoBehaviour {
 
 		var map = GameObject.Instantiate(m_mapPrefab, Vector3.zero, Quaternion.identity);
 		map.createGrid(mapData.gridData);
+		map.gameObject.isStatic = true;
 
-		foreach (var creepData in mapData.mapCreepData) {
-			var creep = GameObject.Instantiate(m_creepPrefab, map.transform, false);
-			creep.initialize(creepData);
-		}
-			
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
 				var hero = GameObject.Instantiate(m_heroPrefab, map.transform, false);
 				hero.initialize(startPosition, team);
 			}
+
+		foreach (var creepData in mapData.mapCreepData) {
+			var creep = GameObject.Instantiate(m_creepPrefab, map.transform, false);
+			creep.initialize(creepData);
+		}
 	}
 
 	void clear()
