@@ -6,18 +6,18 @@ using UnityEngine;
 public class MapData : ScriptableObject {
 
 	[SerializeField]
-	GridData gridData;
+	public GridData gridData;
 
 	[SerializeField]
-	List<MapCreepData> mapCreepData;
+	public List<MapCreepData> mapCreepData;
 
 	[System.Serializable]
-	class HeroStartData
+	public class HeroStartData
 	{
 		[SerializeField]
 		public List<Vector2> positions;
 	}
 
 	[SerializeField]
-	HeroStartData[] heroesStartData = new HeroStartData[2];
+	public HeroStartData[] heroesStartData = new HeroStartData[2];
 }

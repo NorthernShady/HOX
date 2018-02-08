@@ -22,5 +22,7 @@ namespace k
 		public const string LIGHT_SKIN_BOX = "lightSkinBox";
 		public const string SPINE_ASSET_DATABASE_MARKER = "SpineAssetDatabaseMarker";
 		public const string AUDIO_BANK = "AudioBank";
+		public const string MAP_DATA = "MapData/MapData";
+		public const string CREEP = "Prefabs/Creep";
 	}
 }
