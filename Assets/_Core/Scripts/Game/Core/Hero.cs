@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable] class HeroVisual : TypedMap<GameData.HeroType, GameObject> {}
 
-public class Hero : Character {
+public class Hero : Character, IPunObservable {
 
 	[SerializeField]
 	HeroVisual m_heroVisual = null;
@@ -55,4 +55,14 @@ public class Hero : Character {
 		m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
 	}
 
+	#region IPunObservable implementation
+	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (photonView.isMine) {
+			stream.SendNext (team);
+		} else {
+			m_team = (int)stream.ReceiveNext ();
+		}
+	}
+	#endregion
 }

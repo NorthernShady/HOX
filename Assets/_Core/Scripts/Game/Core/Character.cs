@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Character : MonoBehaviour {
+public class Character : Photon.MonoBehaviour {
 
 	[SerializeField]
 	float m_speed = 1.0f;
