@@ -839,6 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_follower: {fileID: 2116753273}
+  m_cameraSpeed: 0.01
 --- !u!1001 &1974648900
 Prefab:
   m_ObjectHideFlags: 0
@@ -1016,6 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc2b0c3d2eca93429761ed946cb95d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_speed: 5
 --- !u!114 &2116753273
 MonoBehaviour:
   m_ObjectHideFlags: 0

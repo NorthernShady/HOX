@@ -29,9 +29,6 @@ public class Player : Character {
 	
 	void onTap(Vector3 position)
 	{
-		transform.DOKill();
-		
-		position.y = transform.position.y;
-		transform.DOMove(position, 5.0f).SetSpeedBased();
+		moveTo(position);
 	}
 }
