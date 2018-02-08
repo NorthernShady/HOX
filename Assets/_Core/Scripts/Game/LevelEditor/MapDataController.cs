@@ -10,6 +10,12 @@ public class MapDataController : MonoBehaviour {
 	[SerializeField]
 	BasicGrid m_mapPrefab;
 
+	[SerializeField]
+	Hero m_heroPrefab;
+
+	[SerializeField]
+	Creep m_creepPrefab;
+
 	public string mapDataName
 	{
 		get {
@@ -40,7 +46,7 @@ public class MapDataController : MonoBehaviour {
 
 	public void loadMapData(string mapDataName)
 	{
-		m_mapDataName = m_mapDataName;
+		m_mapDataName = mapDataName;
 		loadMapData();
 	}
 
@@ -53,16 +59,14 @@ public class MapDataController : MonoBehaviour {
 		var map = GameObject.Instantiate(m_mapPrefab, Vector3.zero, Quaternion.identity);
 		map.createGrid(mapData.gridData);
 
-		var creepPrefab = Resources.Load<Creep>(k.Resources.CREEP);
 		foreach (var creepData in mapData.mapCreepData) {
-			var creep = GameObject.Instantiate(creepPrefab, map.transform, false);
+			var creep = GameObject.Instantiate(m_creepPrefab, map.transform, false);
 			creep.initialize(creepData);
 		}
-
-		var heroPrefab = Resources.Load<Hero>(k.Resources.HERO);
+			
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				var hero = GameObject.Instantiate(heroPrefab, map.transform, false);
+				var hero = GameObject.Instantiate(m_heroPrefab, map.transform, false);
 				hero.initialize(startPosition, team);
 			}
 	}

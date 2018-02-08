@@ -34,5 +34,11 @@ public class Creep : Character {
 			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
+
+		runAnimation();
+	}
+
+	void runAnimation()
+	{
 	}
 }
