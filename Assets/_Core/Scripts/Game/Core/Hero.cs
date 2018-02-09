@@ -101,19 +101,17 @@ public class Hero : Character, IPunObservable {
 
 	public override void OnPhotonInstantiate(PhotonMessageInfo info) 
 	{
-		if (!photonView.isMine) {
-			return;
-		}
 		var gameDataProxy = FindObjectOfType<GameDataProxy>();
 		int team = gameDataProxy.team;
 		Vector3 pos = Vector3.zero;
 		if (team != 0) {
 			pos = new Vector3 (10, 0, 10);
 		}
+		this.initialize(pos, team);
 		gameObject.transform.position = pos;
 		var hero = gameObject.GetComponent<Hero> ();
 		hero.gameObject.AddComponent<Player>();
 		hero.type = gameDataProxy.heroType;
-		this.initialize(pos, team);
+
 	}
 }
