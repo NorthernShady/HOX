@@ -132,4 +132,10 @@ public class ConnectingToGame : Photon.PunBehaviour {
 		joinButton.SetActive (true);
 		createButton.SetActive (true);
 	}
+
+	public void playBotGame()
+	{
+		createRoom();
+		PhotonNetwork.LoadLevel(levelName);
+	}
 }
