@@ -14,6 +14,8 @@ public class Creep : Character, IPunObservable {
 	MapCreepData m_creepData;
 	Transform m_hero = null;
 
+	bool isInit = false;
+
 	void Awake()
 	{
 		m_hero = GameObject.FindGameObjectWithTag("Player").transform;
@@ -35,6 +37,7 @@ public class Creep : Character, IPunObservable {
 		initialize(new CharacterData(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)));
 
 		updateVisual();
+		isInit = true;
 	}
 
 	public void updateVisual()
@@ -68,11 +71,13 @@ public class Creep : Character, IPunObservable {
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting) {
-			stream.SendNext (m_creepData.type);
+			stream.SendNext (m_creepData);
 		}
 		if (stream.isReading) {
-			m_creepData.type = (GameData.CreepType)stream.ReceiveNext ();
-			updateVisual ();
+			m_creepData = (MapCreepData)stream.ReceiveNext ();
+			if (!isInit) {
+				initialize (m_creepData);
+			}
 		}
 	}
 

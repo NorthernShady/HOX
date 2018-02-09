@@ -75,9 +75,6 @@ public class MapDataController : MonoBehaviour {
 	IEnumerator loadCharCoroutine(GameObject map)
 	{
 		yield return new WaitForSeconds (1.5f);
-		if (!PhotonNetwork.isMasterClient) {
-			yield break;
-		}
 		var proxyData = FindObjectOfType<GameDataProxy> ();
 		MapData mapData = Resources.Load<MapData> (m_mapDataName);
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
@@ -90,10 +87,13 @@ public class MapDataController : MonoBehaviour {
 			}
 		}
 
-		foreach (var creepData in mapData.mapCreepData) {
-			var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
-			creep.GetComponent<Creep>().initialize(creepData);
+		if (PhotonNetwork.isMasterClient) {
+			foreach (var creepData in mapData.mapCreepData) {
+				var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
+				creep.GetComponent<Creep>().initialize(creepData);
+			}
 		}
+
 			
 	}
 }
