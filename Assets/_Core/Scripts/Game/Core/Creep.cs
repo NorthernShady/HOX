@@ -54,7 +54,7 @@ public class Creep : Character {
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject == m_attackTarget.gameObject) {
+		if (m_attackTarget != null && other.gameObject == m_attackTarget.gameObject) {
 			m_attackTarget = null;
 		}
 	}
