@@ -78,7 +78,7 @@ public class Hero : Character, IPunObservable {
 	protected override void onDeathAnimation()
 	{
 		GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
-		Destroy(gameObject);
+		base.onDeathAnimation();
 	}
 
 	#region IPunObservable implementation

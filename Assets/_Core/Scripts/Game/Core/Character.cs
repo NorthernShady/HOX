@@ -55,6 +55,8 @@ public class Character : Photon.MonoBehaviour {
 	public void attack(Character target)
 	{
 		m_attackTimer = 0.0f;
+		onAttackAnimation();
+
 		target.takeDamage(this, m_data.attack);
 	}
 
@@ -81,9 +83,13 @@ public class Character : Photon.MonoBehaviour {
 
 	protected virtual void onDeathAnimation()
 	{
+		Destroy(gameObject);
 	}
 
 	protected virtual void onAttackAnimation()
 	{
+		var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
+		var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
+		Destroy(attack, 0.5f);
 	}
 }
