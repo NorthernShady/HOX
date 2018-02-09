@@ -14,6 +14,8 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	public GameObject joinButton;
 	public GameObject createButton;
 
+	public tk2dTextMesh nameField;
+
 
 	List<LobbyRoomButton> m_roomButtons;
 
@@ -23,6 +25,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 		m_roomButtons = new List<LobbyRoomButton> ();
 		joinButton.SetActive (false);
 		createButton.SetActive (false);
+		nameField.text = "";
 	}
 	
 	// Update is called once per frame
@@ -42,12 +45,21 @@ public class ConnectingToGame : Photon.PunBehaviour {
 		}
 		m_roomButtons.Clear ();
 		var roomsInfo = PhotonNetwork.GetRoomList ();
-		float x = 320.0f;
-		float y = 75.0f;
-		float dy = 100.0f;
+		float x = -2.21f;
+		float y = 1.32f;
+		float dy = -1.0f;
+		float dx = 3.0f;
+		int index = 0;
 		foreach (var roomInfo in roomsInfo) {
+			index++;
 			var lobbyButton = Instantiate (lobbyButtonPrefab, new Vector3(x, y, 0), Quaternion.identity);
-			y += dy;
+			if (index % 3 == 0) {
+				y += dy;
+				x = -2.21f;
+			} else {
+				x += dx;
+			}
+
 			lobbyButton.setName (roomInfo.Name);
 			m_roomButtons.Add (lobbyButton);
 		}
@@ -64,6 +76,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 		for (int i = 0; i < Random.Range (5, 9); i++) {
 			roomName += Random.Range (0, 10).ToString ();
 		}
+		nameField.text = roomName;
 		RoomOptions roomOptions = new RoomOptions ();
 		roomOptions.MaxPlayers = 2;
 		PhotonNetwork.CreateRoom (roomName, roomOptions, null);
