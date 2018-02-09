@@ -61,16 +61,7 @@ public class MapDataController : MonoBehaviour {
 		map.createGrid(mapData.gridData);
 		map.gameObject.isStatic = true;
 
-		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
-			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				var hero = GameObject.Instantiate(m_heroPrefab, map.transform, false);
-				hero.initialize(startPosition, team);
-			}
 
-		foreach (var creepData in mapData.mapCreepData) {
-			var creep = GameObject.Instantiate(m_creepPrefab, map.transform, false);
-			creep.initialize(creepData);
-		}
 	}
 
 	void clear()
@@ -78,5 +69,25 @@ public class MapDataController : MonoBehaviour {
 		var mapGrid = FindObjectOfType<BasicGrid>();
 		if (mapGrid != null)
 			DestroyImmediate(mapGrid.gameObject);
+	}
+
+	IEnumerator loadCharCoroutine(GameObject map)
+	{
+		yield return new WaitForSeconds (2);
+		if (!PhotonNetwork.isMasterClient) {
+			return;
+		}
+		MapData mapData = Resources.Load<MapData>(m_mapDataName);
+		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
+			foreach (var startPosition in mapData.heroesStartData[team].positions) {
+				var hero = PhotonNetwork.Instantiate (m_heroPrefab.name, startPosition, Quaternion.identity, 0);
+				hero.GetComponent<Hero>().initialize(startPosition, team);
+			}
+
+		foreach (var creepData in mapData.mapCreepData) {
+			var creep = PhotonNetwork.Instantiate (m_creepPrefab, map.transform, false);
+			creep.GetComponent<Creep>().initialize(creepData);
+		}
+			
 	}
 }
