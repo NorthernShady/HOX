@@ -8,8 +8,6 @@ public class Character : Photon.MonoBehaviour {
 	public System.Action<float> OnHealthChanged;
 	public System.Action<Character> OnDeath;
 
-	HealthBar m_healthBar = null;
-
 	protected CharacterData m_data = null;
 	float m_health = 0.0f;
 	float m_attackTimer = 0.0f;
@@ -18,17 +16,6 @@ public class Character : Photon.MonoBehaviour {
 	protected bool m_shouldAttack = false;
 
 	protected Character m_attackTarget = null;
-
-	void Start()
-	{
-//		createHealthBar();
-	}
-
-//	void OnDelete()
-//	{
-//		if (m_healthBar != null)
-//			Destroy(m_healthBar);
-//	}
 
 	protected void initialize(CharacterData characterData)
 	{
@@ -42,10 +29,6 @@ public class Character : Photon.MonoBehaviour {
 			return;
 		}
 		transform.DOKill();
-
-		position.y = transform.position.y;
-		//transform.rotation = Quaternion.LookRotation(transform.position - position, Vector3.up);
-		//transform.DOMove(position, m_speed).SetSpeedBased();
 
 		position.y = GetComponent<Rigidbody>().position.y;
 		GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(transform.position - position));
@@ -97,6 +80,10 @@ public class Character : Photon.MonoBehaviour {
 	}
 
 	protected virtual void onDeathAnimation()
+	{
+	}
+
+	protected virtual void onAttackAnimation()
 	{
 	}
 }
