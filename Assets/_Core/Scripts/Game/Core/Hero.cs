@@ -114,5 +114,6 @@ public class Hero : Character, IPunObservable {
 		var hero = gameObject.GetComponent<Hero> ();
 		hero.gameObject.AddComponent<Player>();
 		hero.type = gameDataProxy.heroType;
+		this.initialize(pos, team);
 	}
 }
