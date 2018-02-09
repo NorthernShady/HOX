@@ -76,6 +76,12 @@ public class Hero : Character, IPunObservable {
 		}
 	}
 
+	protected override void onDeathAnimation()
+	{
+		GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+	}
+
 	#region IPunObservable implementation
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
