@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 		m_mapDataController.loadMapData(m_gameDataProxy.mapDataName);
 	}
 
-	IEnumerable addPlayer(int team = 0)
+	IEnumerator addPlayer(int team = 0)
 	{
 		yield return new WaitForSeconds (3);
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
