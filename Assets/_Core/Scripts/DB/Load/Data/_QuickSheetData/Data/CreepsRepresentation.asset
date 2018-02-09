@@ -13,4 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: HOX
   WorksheetName: Creeps
-  dataArray: []
+  dataArray:
+  - id: 0
+    name: SKELETON
+    level: 1
+    hp: 1
+    attack: 1
+    defence: 0

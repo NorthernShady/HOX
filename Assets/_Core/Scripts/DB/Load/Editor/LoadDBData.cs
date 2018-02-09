@@ -77,7 +77,7 @@ public class LoadDBData
 	{
 		const int userId = 0;
 
-		m_dataAssetsHolder = null;//Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
+		m_dataAssetsHolder = Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
 		m_configSheetAccessor = new ConfigSheetAccessor (m_dataAssetsHolder);
 
 		loadGeneralData(dataService);
@@ -88,7 +88,7 @@ public class LoadDBData
 
 	public static void downloadAllGoogleSheetsData ()
 	{
-		m_dataAssetsHolder = null;//Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
+		m_dataAssetsHolder = Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
 		loadGoogleSheet<UserRepresentation, UserRepresentationData> (m_dataAssetsHolder.getUserRepresentationAsset());
 		loadGoogleSheet<GeneralRepresentation, GeneralRepresentationData> (m_dataAssetsHolder.getGeneralRepresentationAsset());
 		loadGoogleSheet<HeroesRepresentation, HeroesRepresentationData>(m_dataAssetsHolder.getHeroesRepresentationAsset());

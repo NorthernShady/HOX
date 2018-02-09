@@ -21,15 +21,15 @@ public class HeroesRepresentationData
   public int Level { get {return level; } set { level = value;} }
   
   [SerializeField]
-  int hp;
-  public int HP { get {return hp; } set { hp = value;} }
+  float hp;
+  public float HP { get {return hp; } set { hp = value;} }
   
   [SerializeField]
-  int attack;
-  public int Attack { get {return attack; } set { attack = value;} }
+  float attack;
+  public float Attack { get {return attack; } set { attack = value;} }
   
   [SerializeField]
-  int defence;
-  public int Defence { get {return defence; } set { defence = value;} }
+  float defence;
+  public float Defence { get {return defence; } set { defence = value;} }
   
 }

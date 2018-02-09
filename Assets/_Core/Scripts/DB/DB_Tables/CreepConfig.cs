@@ -9,7 +9,7 @@ public class CreepConfig {
 	public int Id { get; set; }
 	public string Name { get; set; }
 	public int Level { get; set; }
-	public int HP { get; set; }
-	public int Attack { get; set; }
-	public int Defence { get; set; }
+	public float HP { get; set; }
+	public float Attack { get; set; }
+	public float Defence { get; set; }
 }
