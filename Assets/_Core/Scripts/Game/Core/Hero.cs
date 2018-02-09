@@ -60,8 +60,11 @@ public class Hero : Character, IPunObservable {
 	{
 		if (stream.isWriting) {
 			stream.SendNext (team);
-		} else {
+			stream.SendNext (type);
+		}
+		if (stream.isReading) {
 			m_team = (int)stream.ReceiveNext ();
+			type = (GameData.HeroType)stream.ReceiveNext ();
 		}
 	}
 	#endregion
@@ -75,7 +78,7 @@ public class Hero : Character, IPunObservable {
 		int team = gameDataProxy.team;
 		Vector3 pos = Vector3.zero;
 		if (team != 0) {
-			pos = new Vector3 (5, 5, 0);
+			pos = new Vector3 (10, 10, 0);
 		}
 		gameObject.transform.position = pos;
 		var hero = gameObject.GetComponent<Hero> ();
