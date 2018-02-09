@@ -87,7 +87,7 @@ public class MapDataController : MonoBehaviour {
 			}
 		}
 
-		if (PhotonNetwork.isMasterClient) {
+		if (!PhotonNetwork.connected || PhotonNetwork.isMasterClient) {
 			foreach (var creepData in mapData.mapCreepData) {
 				var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
 				creep.GetComponent<Creep>().initialize(creepData);

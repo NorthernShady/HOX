@@ -28,7 +28,7 @@ public class Character : Photon.PunBehaviour {
 
 	public virtual void moveTo(Vector3 position)
 	{
-		if (!photonView.isMine) {
+		if (!photonView.isMine && PhotonNetwork.connected) {
 			return;
 		}
 		transform.DOKill();
