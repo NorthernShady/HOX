@@ -290,7 +290,7 @@ MonoBehaviour:
     polygonCollider2D: []
     edgeCollider2D: []
     attachPoints: []
-  premultipliedAlpha: 0
+  premultipliedAlpha: 1
   material: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 87e931a8293d74b40bb1c75829ebd9d5, type: 2}
@@ -307,7 +307,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 50
-  buildKey: 1116914910
+  buildKey: 263318543
   dataGuid: e93888f40fe8d47e19f3aa92cad933d9
   managedSpriteCollection: 0
   hasPlatformData: 0
