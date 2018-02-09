@@ -41,8 +41,8 @@ public class GameController : MonoBehaviour {
 		}
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
 //		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
-		var hero = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
-		hero.GetComponent<Hero>().initialize(pos, team);
+//		var hero = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
+//		hero.GetComponent<Hero>().initialize(pos, team);
 	}
 
 	public	void onPlayerDeath(Character character)

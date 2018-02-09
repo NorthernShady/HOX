@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 [System.Serializable] class CreepVisual : TypedMap<GameData.CreepType, GameObject> {}
 
-public class Creep : Character {
+public class Creep : Character, IPunObservable {
 
 	[SerializeField]
 	CreepVisual m_creepVisual = null;
@@ -62,4 +62,19 @@ public class Creep : Character {
 	void runAnimation()
 	{
 	}
+
+	#region IPunObservable implementation
+
+	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting) {
+			stream.SendNext (m_creepData.type);
+		}
+		if (stream.isReading) {
+			m_creepData.type = (GameData.CreepType)stream.ReceiveNext ();
+			updateVisual ();
+		}
+	}
+
+	#endregion
 }
