@@ -49,6 +49,9 @@ public class Character : Photon.PunBehaviour {
 
 	bool updateAttackTime()
 	{
+		if (!photonView.isMine) {
+			return false;
+		}
 		if (m_attackTimer > m_data.attackSpeed)
 			return true;
 
@@ -101,7 +104,7 @@ public class Character : Photon.PunBehaviour {
 	{
 		if (stream.isWriting) {
 			if (m_shouldSendAttack) {
-				stream.SendNext (m_shouldAttack);
+				stream.SendNext (m_shouldSendAttack);
 			}
 			m_shouldSendAttack = false;
 		}
