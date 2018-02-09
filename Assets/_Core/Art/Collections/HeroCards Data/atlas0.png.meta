@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 2355b7568481247fe8c2a72f0fb4094d
-timeCreated: 1518180378
-=======
-guid: 0e752ca7e761043b8977f60dd1a204d9
-timeCreated: 1518180015
->>>>>>> 3722f2397e2eae9c19bc6c36c8fc0f4c460d3719
+guid: ab2eae58da33e419fa432b8be7023669
+timeCreated: 1518178044
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -13,7 +8,7 @@ TextureImporter:
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -36,12 +31,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
+    filterMode: 1
+    aniso: 1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -65,7 +60,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
