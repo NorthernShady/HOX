@@ -13,4 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: HOX
   WorksheetName: General
-  dataArray: []
+  dataArray:
+  - configid: 0
+    name: 
+    data: 0
+    comment: General config
