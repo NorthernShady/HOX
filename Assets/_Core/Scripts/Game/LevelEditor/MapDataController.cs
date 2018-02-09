@@ -61,6 +61,7 @@ public class MapDataController : MonoBehaviour {
 		map.createGrid(mapData.gridData);
 		map.gameObject.isStatic = true;
 
+		StartCoroutine (loadCharCoroutine (map.gameObject));
 
 	}
 
@@ -73,9 +74,9 @@ public class MapDataController : MonoBehaviour {
 
 	IEnumerator loadCharCoroutine(GameObject map)
 	{
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1.5f);
 		if (!PhotonNetwork.isMasterClient) {
-			return;
+			yield break;
 		}
 		MapData mapData = Resources.Load<MapData>(m_mapDataName);
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
@@ -85,7 +86,7 @@ public class MapDataController : MonoBehaviour {
 			}
 
 		foreach (var creepData in mapData.mapCreepData) {
-			var creep = PhotonNetwork.Instantiate (m_creepPrefab, map.transform, false);
+			var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
 			creep.GetComponent<Creep>().initialize(creepData);
 		}
 			
