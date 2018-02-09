@@ -58,6 +58,20 @@ public class Hero : Character, IPunObservable {
 		m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		var character = other.gameObject.GetComponent<Character>();
+		if (character != null)
+			m_attackTarget = character;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == m_attackTarget.gameObject) {
+			m_attackTarget = null;
+		}
+	}
+
 	#region IPunObservable implementation
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{

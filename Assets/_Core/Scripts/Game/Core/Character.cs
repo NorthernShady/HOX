@@ -56,7 +56,7 @@ public class Character : Photon.MonoBehaviour {
 	{
 		var canAttack = updateAttackTime();
 
-		if (canAttack && m_attackTarget != null)
+		if (canAttack && m_attackTarget != null && !m_isDead)
 			attack(m_attackTarget);
 	}
 
@@ -75,7 +75,7 @@ public class Character : Photon.MonoBehaviour {
 		target.takeDamage(this, m_data.attack);
 	}
 
-	public void takeDamage(Character target, float amount)
+	public bool takeDamage(Character target, float amount)
 	{
 		var damage = Mathf.Max(amount - m_data.defence, 1.0f);
 		m_health = Mathf.Max(0.0f, m_health - damage);
@@ -87,6 +87,12 @@ public class Character : Photon.MonoBehaviour {
 			m_isDead = true;
 			if (OnDeath != null)
 				OnDeath(this);
+
+			Destroy(gameObject);
+
+			return true;
 		}
+
+		return false;
 	}
 }

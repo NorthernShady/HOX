@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114956543842741576}
   - component: {fileID: 54381843678028458}
   - component: {fileID: 136692460387170048}
+  - component: {fileID: 135208233800961984}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -185,8 +186,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114956543842741576}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 3
+  instantiationId: 3
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114956543842741576
@@ -265,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb88a1d7d9f7640b68ade1433414358b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_heroVisual:
     keys: 00000000010000000200000003000000
     values:
@@ -275,6 +275,18 @@ MonoBehaviour:
     - {fileID: 0}
   m_type: 0
   m_team: 0
+--- !u!135 &135208233800961984
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292640982848116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!136 &136692460387170048
 CapsuleCollider:
   m_ObjectHideFlags: 1

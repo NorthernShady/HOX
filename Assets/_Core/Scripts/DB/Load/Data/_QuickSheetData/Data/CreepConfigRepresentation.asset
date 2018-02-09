@@ -17,6 +17,6 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: 1
+    hp: 5
     attack: 1
     defence: 0
