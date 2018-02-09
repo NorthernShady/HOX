@@ -96,7 +96,7 @@ public class Character : Photon.PunBehaviour {
 
 	protected virtual void onDeathAnimation()
 	{
-		Destroy(gameObject);
+		PhotonNetwork.Destroy(gameObject);
 	}
 
 	protected virtual void onAttackAnimation()
