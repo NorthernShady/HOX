@@ -12,26 +12,26 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-[CustomEditor(typeof(HeroesRepresentation))]
-public class HeroesRepresentationEditor : BaseGoogleEditor<HeroesRepresentation>
+[CustomEditor(typeof(HeroConfigRepresentation))]
+public class HeroConfigRepresentationEditor : BaseGoogleEditor<HeroConfigRepresentation>
 {	    
     public override bool Load()
     {        
-        HeroesRepresentation targetData = target as HeroesRepresentation;
+        HeroConfigRepresentation targetData = target as HeroConfigRepresentation;
         
         var client = new DatabaseClient("", "");
         string error = string.Empty;
         var db = client.GetDatabase(targetData.SheetName, ref error);	
-        var table = db.GetTable<HeroesRepresentationData>(targetData.WorksheetName) ?? db.CreateTable<HeroesRepresentationData>(targetData.WorksheetName);
+        var table = db.GetTable<HeroConfigRepresentationData>(targetData.WorksheetName) ?? db.CreateTable<HeroConfigRepresentationData>(targetData.WorksheetName);
         
-        List<HeroesRepresentationData> myDataList = new List<HeroesRepresentationData>();
+        List<HeroConfigRepresentationData> myDataList = new List<HeroConfigRepresentationData>();
         
         var all = table.FindAll();
         foreach(var elem in all)
         {
-            HeroesRepresentationData data = new HeroesRepresentationData();
+            HeroConfigRepresentationData data = new HeroConfigRepresentationData();
             
-            data = Cloner.DeepCopy<HeroesRepresentationData>(elem.Element);
+            data = Cloner.DeepCopy<HeroConfigRepresentationData>(elem.Element);
             myDataList.Add(data);
         }
                 

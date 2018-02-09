@@ -8,15 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01820c80925004ec18156b5b2b11fee1, type: 3}
-  m_Name: HeroesRepresentation
+  m_Script: {fileID: 11500000, guid: a76d6913251704a9fb521002fafc157e, type: 3}
+  m_Name: CreepConfigRepresentation
   m_EditorClassIdentifier: 
   SheetName: HOX
-  WorksheetName: Heroes
+  WorksheetName: CreepConfig
   dataArray:
   - id: 0
-    name: WARRIOR
+    name: SKELETON
     level: 1
-    hp: 10
+    hp: 5
     attack: 1
     defence: 0

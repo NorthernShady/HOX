@@ -38,4 +38,11 @@ public class GameController : MonoBehaviour {
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
 		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
 	}
+
+	public	void onPlayerDeath(Character character)
+	{
+		character.OnDeath -= onPlayerDeath;
+		GameObject.Instantiate(m_gameOver, FindObjectOfType<Canvas>().transform);
+		FindObjectOfType<GameInputController>().allowGameTouches = false;
+	}
 }

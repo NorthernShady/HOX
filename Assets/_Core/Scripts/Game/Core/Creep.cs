@@ -14,8 +14,6 @@ public class Creep : Character {
 	MapCreepData m_creepData;
 	Transform m_hero = null;
 
-	Hero m_targetHero = null;
-
 	void Awake()
 	{
 		m_hero = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,6 +32,8 @@ public class Creep : Character {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
+		initialize(new CharacterData(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)));
+
 		updateVisual();
 	}
 
@@ -45,23 +45,18 @@ public class Creep : Character {
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 	}
 
-	void Update()
-	{
-	}
-
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == k.Tags.PLAYER) {
-			m_targetHero = other.GetComponent<Hero>();
+			m_attackTarget = other.GetComponent<Character>();
 		}
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject == m_targetHero.gameObject) {
-			m_targetHero = null;
+		if (other.gameObject == m_attackTarget.gameObject) {
+			m_attackTarget = null;
 		}
-			
 	}
 
 	void runAnimation()

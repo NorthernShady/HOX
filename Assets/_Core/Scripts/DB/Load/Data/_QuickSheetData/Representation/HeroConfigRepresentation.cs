@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// can be serialized onto an asset data file.
 /// 
 [System.Serializable]
-public class HeroesRepresentation : BaseScriptableObject<HeroesRepresentationData> 
+public class HeroConfigRepresentation : BaseScriptableObject<HeroConfigRepresentationData> 
 {   
     void OnEnable()
     {
@@ -23,13 +23,13 @@ public class HeroesRepresentation : BaseScriptableObject<HeroesRepresentationDat
         //    because OnEnable is called whenever Unity builds.
         // 
         if (dataArray == null)
-            dataArray = new HeroesRepresentationData[0];
+            dataArray = new HeroConfigRepresentationData[0];
     }
     
     //
     // Write a proper query methods for retrieving data.
     //
-    //public HeroesRepresentationData FindByKey(string key)
+    //public HeroConfigRepresentationData FindByKey(string key)
     //{
     //    return Array.Find(dataArray, d => d.Key == key);
     //}

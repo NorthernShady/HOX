@@ -44,6 +44,13 @@ public class Hero : Character, IPunObservable {
 		m_type = type;
 		m_team = team;
 		transform.position = new Vector3(position.x, 0.0f, position.y);
+
+		initialize(new CharacterData(CharacterConfigDBHelper.getHeroConfig(type, 1)));
+
+
+		var gameController = FindObjectsOfType<GameController>();
+		hero.OnDeath += gameController.onPlayerDeath
+
 		updateVisual();
 	}
 
@@ -53,6 +60,20 @@ public class Hero : Character, IPunObservable {
 			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		var character = other.gameObject.GetComponent<Character>();
+		if (character != null)
+			m_attackTarget = character;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == m_attackTarget.gameObject) {
+			m_attackTarget = null;
+		}
 	}
 
 	#region IPunObservable implementation

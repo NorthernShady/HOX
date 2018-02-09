@@ -6,7 +6,7 @@ using System.Collections;
 /// !!! DO NOT CHANGE Tabs to Spaces !!!
 ///
 [System.Serializable]
-public class CreepsRepresentationData
+public class HeroConfigRepresentationData
 {
   [SerializeField]
   int id;
