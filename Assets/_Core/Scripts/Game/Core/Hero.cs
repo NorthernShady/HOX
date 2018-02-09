@@ -10,6 +10,9 @@ public class Hero : Character, IPunObservable {
 	HeroVisual m_heroVisual = null;
 
 	[SerializeField]
+	GameObject m_deathAnimationPrefab;
+
+	[SerializeField]
 	GameData.HeroType m_type = GameData.HeroType.WARRIOR;
 
 	[SerializeField]
@@ -56,6 +59,26 @@ public class Hero : Character, IPunObservable {
 			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		var character = other.gameObject.GetComponent<Character>();
+		if (character != null)
+			m_attackTarget = character;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == m_attackTarget.gameObject) {
+			m_attackTarget = null;
+		}
+	}
+
+	protected override void onDeathAnimation()
+	{
+		GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+		Destroy(gameObject);
 	}
 
 	#region IPunObservable implementation

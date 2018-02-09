@@ -57,7 +57,6 @@ public class Creep : Character {
 		if (other.gameObject == m_attackTarget.gameObject) {
 			m_attackTarget = null;
 		}
-			
 	}
 
 	void runAnimation()
