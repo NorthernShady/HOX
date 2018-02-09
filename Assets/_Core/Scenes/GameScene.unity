@@ -348,7 +348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb88a1d7d9f7640b68ade1433414358b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_heroVisual:
     keys: 00000000010000000200000003000000
     values:
@@ -398,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d692c5456024010418455e8817d295da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowGameTouches: 1
 --- !u!1 &76140422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fakeGameDataProxy: {fileID: 1205350453}
+  m_gameOver: {fileID: 114860278801428174, guid: e2b1baecb963046a88e7f26485cd1f5d,
+    type: 2}
   heroPrefab: {fileID: 1292640982848116, guid: c9a33e4ff6f4745e492d9089f3e0ad83, type: 2}
 --- !u!4 &632411793
 Transform:
@@ -1510,7 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b136efb2f7cf46a6b4ed0ac85d059b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_creepVisual:
     keys: 0000000001000000
     values:
@@ -1827,7 +1828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb88a1d7d9f7640b68ade1433414358b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_heroVisual:
     keys: 00000000010000000200000003000000
     values:
@@ -4496,7 +4496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b136efb2f7cf46a6b4ed0ac85d059b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_creepVisual:
     keys: 0000000001000000
     values:

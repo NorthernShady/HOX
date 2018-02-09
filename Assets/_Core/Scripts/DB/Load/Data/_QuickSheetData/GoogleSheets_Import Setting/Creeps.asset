@@ -15,7 +15,7 @@ MonoBehaviour:
   scriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Representation
   editorScriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Editor
   sheetName: HOX
-  workSheetName: Creeps
+  workSheetName: CreepConfig
   columnHeaderList:
   - type: 3
     name: Id

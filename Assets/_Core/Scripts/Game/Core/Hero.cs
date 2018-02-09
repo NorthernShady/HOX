@@ -44,6 +44,9 @@ public class Hero : Character, IPunObservable {
 		m_type = type;
 		m_team = team;
 		transform.position = new Vector3(position.x, 0.0f, position.y);
+
+		initialize(new CharacterData(CharacterConfigDBHelper.getHeroConfig(type, 1)));
+
 		updateVisual();
 	}
 

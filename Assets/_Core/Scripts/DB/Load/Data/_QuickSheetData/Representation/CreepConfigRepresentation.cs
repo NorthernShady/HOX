@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// can be serialized onto an asset data file.
 /// 
 [System.Serializable]
-public class CreepsRepresentation : BaseScriptableObject<CreepsRepresentationData> 
+public class CreepConfigRepresentation : BaseScriptableObject<CreepConfigRepresentationData> 
 {   
     void OnEnable()
     {
@@ -23,13 +23,13 @@ public class CreepsRepresentation : BaseScriptableObject<CreepsRepresentationDat
         //    because OnEnable is called whenever Unity builds.
         // 
         if (dataArray == null)
-            dataArray = new CreepsRepresentationData[0];
+            dataArray = new CreepConfigRepresentationData[0];
     }
     
     //
     // Write a proper query methods for retrieving data.
     //
-    //public CreepsRepresentationData FindByKey(string key)
+    //public CreepConfigRepresentationData FindByKey(string key)
     //{
     //    return Array.Find(dataArray, d => d.Key == key);
     //}

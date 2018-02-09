@@ -12,26 +12,26 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-[CustomEditor(typeof(CreepsRepresentation))]
-public class CreepsRepresentationEditor : BaseGoogleEditor<CreepsRepresentation>
+[CustomEditor(typeof(CreepConfigRepresentation))]
+public class CreepConfigRepresentationEditor : BaseGoogleEditor<CreepConfigRepresentation>
 {	    
     public override bool Load()
     {        
-        CreepsRepresentation targetData = target as CreepsRepresentation;
+        CreepConfigRepresentation targetData = target as CreepConfigRepresentation;
         
         var client = new DatabaseClient("", "");
         string error = string.Empty;
         var db = client.GetDatabase(targetData.SheetName, ref error);	
-        var table = db.GetTable<CreepsRepresentationData>(targetData.WorksheetName) ?? db.CreateTable<CreepsRepresentationData>(targetData.WorksheetName);
+        var table = db.GetTable<CreepConfigRepresentationData>(targetData.WorksheetName) ?? db.CreateTable<CreepConfigRepresentationData>(targetData.WorksheetName);
         
-        List<CreepsRepresentationData> myDataList = new List<CreepsRepresentationData>();
+        List<CreepConfigRepresentationData> myDataList = new List<CreepConfigRepresentationData>();
         
         var all = table.FindAll();
         foreach(var elem in all)
         {
-            CreepsRepresentationData data = new CreepsRepresentationData();
+            CreepConfigRepresentationData data = new CreepConfigRepresentationData();
             
-            data = Cloner.DeepCopy<CreepsRepresentationData>(elem.Element);
+            data = Cloner.DeepCopy<CreepConfigRepresentationData>(elem.Element);
             myDataList.Add(data);
         }
                 

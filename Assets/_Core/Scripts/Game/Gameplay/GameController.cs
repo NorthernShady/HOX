@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
 	[SerializeField]
 	GameDataProxy m_fakeGameDataProxy = null;
+
+	[SerializeField]
+	Text m_gameOver = null;
 
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
@@ -26,6 +30,9 @@ public class GameController : MonoBehaviour {
 	void initialize()
 	{
 		m_mapDataController.loadMapData(m_gameDataProxy.mapDataName);
+
+		foreach (var hero in FindObjectsOfType<Hero>())
+			hero.OnDeath += onPlayerDeath;
 	}
 
 	void addPlayer(int team = 0)
@@ -39,5 +46,12 @@ public class GameController : MonoBehaviour {
 //		var hero = heroObj.GetComponent<Hero> ();
 		hero.gameObject.AddComponent<Player>();
 		hero.type = m_gameDataProxy.heroType;
+	}
+
+	void onPlayerDeath(Character character)
+	{
+		character.OnDeath -= onPlayerDeath;
+		GameObject.Instantiate(m_gameOver, FindObjectOfType<Canvas>().transform);
+		FindObjectOfType<GameInputController>().allowGameTouches = false;
 	}
 }

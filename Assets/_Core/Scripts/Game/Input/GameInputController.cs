@@ -10,6 +10,8 @@ public class GameInputController : MonoBehaviour {
 	public System.Action<Vector2, int> OnDragging;
 	public System.Action<Vector2, int> OnDraggingFinished;
 
+	public bool allowGameTouches = true;
+
 	void OnEnable()
 	{
 		IT_Gesture.onMultiTapE += onMultiTap;
@@ -72,7 +74,7 @@ public class GameInputController : MonoBehaviour {
 
 	bool raycast(Vector2 position, out RaycastHit hit, int layerMask = Physics.DefaultRaycastLayers)
 	{
-		if (isUiTouch(-1)) {
+		if (isUiTouch(-1) || !allowGameTouches) {
 			hit = new RaycastHit();
 			return false;
 		}
