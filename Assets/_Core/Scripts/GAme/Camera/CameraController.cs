@@ -30,6 +30,12 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
+	public Vector3 mapPosition {
+		get {
+			return new Vector3(transform.position.x, 0.0f, transform.position.z + m_cameraShift);
+		}
+	}
+
 	void Awake()
 	{
 		m_cameraShift = transform.position.y / Mathf.Tan(transform.eulerAngles.x * Mathf.Deg2Rad);

@@ -8,12 +8,12 @@ public class GameController : MonoBehaviour {
 	[SerializeField]
 	GameDataProxy m_fakeGameDataProxy = null;
 
+	[SerializeField]
+	GameObject m_gameOverPrefab;
+
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
 	public GameObject heroPrefab;
-
-	[SerializeField]
-	Text m_gameOver = null;
 
 	void Awake()
 	{
@@ -50,3 +50,4 @@ public class GameController : MonoBehaviour {
 		FindObjectOfType<GameInputController>().allowGameTouches = false;
 	}
 }
+
