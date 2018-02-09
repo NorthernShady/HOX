@@ -8,8 +8,6 @@ public class Character : Photon.PunBehaviour {
 	public System.Action<float> OnHealthChanged;
 	public System.Action<Character> OnDeath;
 
-	HealthBar m_healthBar = null;
-
 	protected CharacterData m_data = null;
 	float m_health = 0.0f;
 	float m_attackTimer = 0.0f;
@@ -18,17 +16,6 @@ public class Character : Photon.PunBehaviour {
 	protected bool m_shouldAttack = false;
 
 	protected Character m_attackTarget = null;
-
-	void Start()
-	{
-//		createHealthBar();
-	}
-
-//	void OnDelete()
-//	{
-//		if (m_healthBar != null)
-//			Destroy(m_healthBar);
-//	}
 
 	protected void initialize(CharacterData characterData)
 	{
@@ -42,10 +29,6 @@ public class Character : Photon.PunBehaviour {
 			return;
 		}
 		transform.DOKill();
-
-		position.y = transform.position.y;
-		//transform.rotation = Quaternion.LookRotation(transform.position - position, Vector3.up);
-		//transform.DOMove(position, m_speed).SetSpeedBased();
 
 		position.y = GetComponent<Rigidbody>().position.y;
 		GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(transform.position - position));
@@ -72,6 +55,8 @@ public class Character : Photon.PunBehaviour {
 	public void attack(Character target)
 	{
 		m_attackTimer = 0.0f;
+		onAttackAnimation();
+
 		target.takeDamage(this, m_data.attack);
 	}
 
@@ -98,5 +83,13 @@ public class Character : Photon.PunBehaviour {
 
 	protected virtual void onDeathAnimation()
 	{
+		Destroy(gameObject);
+	}
+
+	protected virtual void onAttackAnimation()
+	{
+		var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
+		var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
+		Destroy(attack, 0.5f);
 	}
 }

@@ -50,7 +50,6 @@ public class Hero : Character, IPunObservable {
 
 		initialize(new CharacterData(CharacterConfigDBHelper.getHeroConfig(type, 1)));
 
-
 		var gameController = FindObjectOfType<GameController>();
 		this.OnDeath += gameController.onPlayerDeath;
 
@@ -82,10 +81,10 @@ public class Hero : Character, IPunObservable {
 	protected override void onDeathAnimation()
 	{
 		GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
-		Destroy(gameObject);
+		base.onDeathAnimation();
 	}
 
-	#region IPunObservable implementation
+#region IPunObservable implementation
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting) {
@@ -115,5 +114,4 @@ public class Hero : Character, IPunObservable {
 		hero.gameObject.AddComponent<Player>();
 		hero.type = gameDataProxy.heroType;
 	}
-		
 }

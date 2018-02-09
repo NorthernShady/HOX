@@ -25,6 +25,9 @@ namespace k
 		public const string DATA_ASSETS_HOLDER = "DataAssetsHolder";
 		public const string MAP_DATA = "MapData/MapData";
 		public const string CREEP_OLD = "Prefabs/CreepOld";
+		public const string FXRECIVE_DAMAGE = "VisualEffects/FXReciveDamage";
+		public const string GAME_OVER = "VisualEffects/GameOver";
 		public const string HEALTH_BAR = "VisualEffects/HealthBar";
+		public const string VFXHIT = "VisualEffects/VFXHit";
 	}
 }

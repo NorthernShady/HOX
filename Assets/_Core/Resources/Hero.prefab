@@ -187,8 +187,8 @@ MonoBehaviour:
   - {fileID: 114956543842741576}
   - {fileID: 114956895477243784}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 3
-  instantiationId: 3
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114956543842741576
@@ -274,6 +274,8 @@ MonoBehaviour:
     - {fileID: 100018, guid: 2bffc4b5958484cc9aaa107fdc3c5154, type: 3}
     - {fileID: 100000, guid: ad1719eddb57c47ac964ddac714e92b5, type: 3}
     - {fileID: 0}
+  m_deathAnimationPrefab: {fileID: 1795494933461536, guid: 77b658bf71bae4cbfb1165a32584447f,
+    type: 2}
   m_type: 0
   m_team: 0
 --- !u!135 &135208233800961984
