@@ -31,7 +31,11 @@ public class GameController : MonoBehaviour {
 	IEnumerator addPlayer(int team = 0)
 	{
 		yield return new WaitForSeconds (3);
+		Vector3 pos = Vector3.zero;
+		if (team != 0) {
+			pos = new Vector3 (5, 5, 0);
+		}
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
-		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, new Vector3(0,0,0), Quaternion.identity, 0);
+		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
 	}
 }
