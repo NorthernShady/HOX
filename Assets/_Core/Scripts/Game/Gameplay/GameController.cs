@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
 	GameDataProxy m_fakeGameDataProxy = null;
 
 	[SerializeField]
-	Text m_gameOver = null;
+	GameObject m_gameOverPrefab;
 
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour {
 	void onPlayerDeath(Character character)
 	{
 		character.OnDeath -= onPlayerDeath;
-		GameObject.Instantiate(m_gameOver, FindObjectOfType<Canvas>().transform);
+		GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
 		FindObjectOfType<GameInputController>().allowGameTouches = false;
 	}
 }

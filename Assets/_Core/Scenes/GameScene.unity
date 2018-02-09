@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fakeGameDataProxy: {fileID: 1205350453}
-  m_gameOver: {fileID: 114860278801428174, guid: e2b1baecb963046a88e7f26485cd1f5d,
+  m_gameOverPrefab: {fileID: 1650343918040798, guid: 78ebed18e254343cbaaee39f0bdd2b9d,
     type: 2}
   heroPrefab: {fileID: 1292640982848116, guid: c9a33e4ff6f4745e492d9089f3e0ad83, type: 2}
 --- !u!4 &632411793
