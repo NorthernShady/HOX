@@ -119,6 +119,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	public void onBackButtonClick()
 	{
+		PhotonNetwork.Disconnect ();
 		SceneManager.LoadScene(k.Scenes.HERO_PICK);
 	}
 }
