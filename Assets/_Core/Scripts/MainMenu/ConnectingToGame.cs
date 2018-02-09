@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ConnectingToGame : Photon.PunBehaviour {
 
@@ -101,5 +102,10 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	{
 		joinButton.SetActive (true);
 		createButton.SetActive (true);
+	}
+
+	public void onBackButtonClick()
+	{
+		SceneManager.LoadScene(k.Scenes.HERO_PICK);
 	}
 }
