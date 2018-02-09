@@ -39,6 +39,9 @@ public class Character : Photon.PunBehaviour {
 
 	void Update()
 	{
+		if (photonView != null && !photonView.isMine) {
+			return;
+		}
 		var canAttack = updateAttackTime();
 
 		if (canAttack && m_attackTarget != null && !m_isDead) {
@@ -49,12 +52,9 @@ public class Character : Photon.PunBehaviour {
 
 	bool updateAttackTime()
 	{
-		if (photonView != null && !photonView.isMine) {
-			return false;
-		}
 		if (m_attackTimer > m_data.attackSpeed)
 			return true;
-
+		
 		m_attackTimer += Time.deltaTime;
 		return false;
 	}

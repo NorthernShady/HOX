@@ -57,24 +57,24 @@ MonoBehaviour:
   spriteDefinitions:
   - name: button_idle
     boundsData:
-    - {x: 0, y: -0.004999995, z: 0}
-    - {x: 1.14, y: 1.13, z: 0}
+    - {x: 0.004999995, y: -0.004999995, z: 0}
+    - {x: 1.13, y: 1.0699999, z: 0}
     untrimmedBoundsData:
-    - {x: 0, y: -0.004999995, z: 0}
-    - {x: 1.14, y: 1.13, z: 0}
+    - {x: 0.004999995, y: -0.004999995, z: 0}
+    - {x: 1.13, y: 1.0699999, z: 0}
     texelSize: {x: 0.01, y: 0.01}
     positions:
-    - {x: -0.57, y: -0.57, z: 0}
-    - {x: 0.57, y: -0.57, z: 0}
-    - {x: -0.57, y: 0.56, z: 0}
-    - {x: 0.57, y: 0.56, z: 0}
+    - {x: -0.56, y: -0.53999996, z: 0}
+    - {x: 0.57, y: -0.53999996, z: 0}
+    - {x: -0.56, y: 0.53, z: 0}
+    - {x: 0.57, y: 0.53, z: 0}
     normals: []
     tangents: []
     uvs:
     - {x: 0.015632812, y: 0.015632812}
-    - {x: 0.9062422, y: 0.015632812}
-    - {x: 0.015632812, y: 0.8984297}
-    - {x: 0.9062422, y: 0.8984297}
+    - {x: 0.8984297, y: 0.015632812}
+    - {x: 0.015632812, y: 0.8515547}
+    - {x: 0.8984297, y: 0.8515547}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 50
-  buildKey: 1030297343
+  buildKey: 1306192635
   dataGuid: cbeb85c8debfed147afad78cee962003
   managedSpriteCollection: 0
   hasPlatformData: 0
