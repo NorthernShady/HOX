@@ -77,7 +77,7 @@ public class Hero : Character, IPunObservable {
 		if (team != 0) {
 			pos = new Vector3 (5, 5, 0);
 		}
-		gameObject.transform.position = pos ();
+		gameObject.transform.position = pos;
 		var hero = gameObject.GetComponent<Hero> ();
 		hero.gameObject.AddComponent<Player>();
 		hero.type = gameDataProxy.heroType;
