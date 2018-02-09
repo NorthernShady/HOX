@@ -17,6 +17,8 @@ public class Character : Photon.PunBehaviour {
 
 	protected Character m_attackTarget = null;
 
+	bool m_shouldSendAttack = false;
+
 	protected void initialize(CharacterData characterData)
 	{
 		m_data = characterData;
@@ -39,8 +41,10 @@ public class Character : Photon.PunBehaviour {
 	{
 		var canAttack = updateAttackTime();
 
-		if (canAttack && m_attackTarget != null && !m_isDead)
-			attack(m_attackTarget);
+		if (canAttack && m_attackTarget != null && !m_isDead) {
+			attack (m_attackTarget);
+			m_shouldSendAttack = true;
+		}
 	}
 
 	bool updateAttackTime()
@@ -91,5 +95,20 @@ public class Character : Photon.PunBehaviour {
 		var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
 		var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
 		Destroy(attack, 0.5f);
+	}
+
+	protected void photonUpdate (PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting) {
+			if (m_shouldSendAttack) {
+				stream.SendNext (m_shouldAttack);
+			}
+			m_shouldSendAttack = false;
+		}
+		if (stream.isReading) {
+			if ((bool)stream.ReceiveNext () && m_attackTarget != null && !m_isDead) {
+				attack (m_attackTarget);
+			}
+		}
 	}
 }
