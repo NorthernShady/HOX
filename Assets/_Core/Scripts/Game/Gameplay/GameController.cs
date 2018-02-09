@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds (3);
 		Vector3 pos = Vector3.zero;
 		if (team != 0) {
-			pos = new Vector3 (10, 10, 0);
+			pos = new Vector3 (10, 0, 10);
 		}
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
 		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, pos, Quaternion.identity, 0);
