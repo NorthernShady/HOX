@@ -48,8 +48,8 @@ public class Hero : Character, IPunObservable {
 		initialize(new CharacterData(CharacterConfigDBHelper.getHeroConfig(type, 1)));
 
 
-		var gameController = FindObjectsOfType<GameController>();
-		hero.OnDeath += gameController.onPlayerDeath;
+		var gameController = FindObjectOfType<GameController>();
+		this.OnDeath += gameController.onPlayerDeath;
 
 		updateVisual();
 	}
