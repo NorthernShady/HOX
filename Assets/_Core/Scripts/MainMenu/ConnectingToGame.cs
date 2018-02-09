@@ -16,6 +16,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	public tk2dTextMesh nameField;
 
+	bool isFindRooms = false;
 
 	List<LobbyRoomButton> m_roomButtons;
 
@@ -40,10 +41,10 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	void updateRooms()
 	{
-		foreach (var room in m_roomButtons) {
-			Destroy (room);
-		}
-		m_roomButtons.Clear ();
+//		foreach (var room in m_roomButtons) {
+//			Destroy (room);
+//		}
+//		m_roomButtons.Clear ();
 		var roomsInfo = PhotonNetwork.GetRoomList ();
 		float x = -2.21f;
 		float y = 1.32f;
@@ -84,6 +85,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	void findRoom()
 	{
+		isFindRooms = true;
 		GameObject.FindObjectOfType<GameDataProxy> ().team = 1;
 		joinButton.SetActive (false);
 		createButton.SetActive (false);
@@ -96,8 +98,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 			Debug.Log ("No connection");
 			return;
 		}
-		joinButton.SetActive (true);
-		createButton.SetActive (true);
+		PhotonNetwork.JoinLobby ();
 	}
 
 	override public void OnReceivedRoomListUpdate ()
@@ -121,5 +122,18 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	{
 		PhotonNetwork.Disconnect ();
 		SceneManager.LoadScene(k.Scenes.HERO_PICK);
+	}
+
+	void Update()
+	{
+		if (isFindRooms) {
+			updateRooms ();
+		}
+	}
+
+	public override void OnJoinedLobby()
+	{
+		joinButton.SetActive (true);
+		createButton.SetActive (true);
 	}
 }
