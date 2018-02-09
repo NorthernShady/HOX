@@ -71,10 +71,17 @@ public class Creep : Character, IPunObservable {
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting) {
-			stream.SendNext (m_creepData);
+			stream.SendNext (m_creepData.domaine);
+			stream.SendNext (m_creepData.level);
+			stream.SendNext (m_creepData.position);
+			stream.SendNext (m_creepData.type);
 		}
 		if (stream.isReading) {
-			m_creepData = (MapCreepData)stream.ReceiveNext ();
+			m_creepData = new MapCreepData ();
+			m_creepData.domaine = (GameData.DomaineType)stream.ReceiveNext ();
+			m_creepData.level = (int)stream.ReceiveNext ();
+			m_creepData.position = (Vector2)stream.ReceiveNext ();
+			m_creepData.type = (GameData.CreepType)stream.ReceiveNext ();
 			if (!isInit) {
 				initialize (m_creepData);
 			}
