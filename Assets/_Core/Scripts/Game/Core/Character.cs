@@ -14,6 +14,7 @@ public class Character : Photon.PunBehaviour {
 
 	protected bool m_isDead = false;
 	protected bool m_shouldAttack = false;
+	protected bool m_shouldDestroy = false;
 
 	protected Character m_attackTarget = null;
 
@@ -67,6 +68,15 @@ public class Character : Photon.PunBehaviour {
 		target.takeDamage(this, m_data.attack);
 	}
 
+	void whenHpZero()
+	{
+		m_isDead = true;
+		if (OnDeath != null) {
+			OnDeath (this);
+		}
+		onDeathAnimation ();
+	}
+
 	public bool takeDamage(Character target, float amount)
 	{
 		var damage = Mathf.Max(amount - m_data.defence, 1.0f);
@@ -75,13 +85,9 @@ public class Character : Photon.PunBehaviour {
 		if (OnHealthChanged != null)
 			OnHealthChanged(m_health / m_data.maxHealth);
 
-		if (m_health <= 0.01f) {
-			m_isDead = true;
-			if (OnDeath != null)
-				OnDeath(this);
-
-			onDeathAnimation();
-
+		if (m_health <= 0.01f && photonView.isMine) {
+			whenHpZero ();
+			m_shouldDestroy = true;
 			return true;
 		}
 
@@ -104,12 +110,22 @@ public class Character : Photon.PunBehaviour {
 	{
 		if (stream.isWriting) {
 			stream.SendNext (m_shouldSendAttack);
+			stream.SendNext (m_shouldDestroy);
+			stream.SendNext (m_health);
 			m_shouldSendAttack = false;
+			m_shouldDestroy = false;
 		}
 		if (stream.isReading) {
 			if ((bool)stream.ReceiveNext () && m_attackTarget != null && !m_isDead) {
 				attack (m_attackTarget);
 			}
+			bool m_shouldDestroy = (bool)stream.ReceiveNext ();
+			if (m_shouldDestroy) {
+				whenHpZero ();
+			}
+			m_shouldDestroy = false;
+			m_health = (float)stream.ReceiveNext ();
+			OnHealthChanged(m_health / m_data.maxHealth);
 		}
 	}
 }

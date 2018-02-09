@@ -70,6 +70,7 @@ public class Creep : Character, IPunObservable {
 
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
+		base.photonUpdate (stream, info);
 		if (stream.isWriting) {
 			stream.SendNext (m_creepData.domaine);
 			stream.SendNext (m_creepData.level);
