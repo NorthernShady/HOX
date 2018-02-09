@@ -15,6 +15,8 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	public GameObject createButton;
 
 
+
+
 	List<LobbyRoomButton> m_roomButtons;
 
 	// Use this for initialization
