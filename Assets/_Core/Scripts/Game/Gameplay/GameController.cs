@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
 
 		initialize();
-		addPlayer(m_gameDataProxy.team);
+		StartCoroutine (addPlayer (m_gameDataProxy.team));
 	}
 
 	void initialize()
@@ -28,8 +28,9 @@ public class GameController : MonoBehaviour {
 		m_mapDataController.loadMapData(m_gameDataProxy.mapDataName);
 	}
 
-	void addPlayer(int team = 0)
+	IEnumerable addPlayer(int team = 0)
 	{
+		yield return new WaitForSeconds (3);
 //		var hero = System.Array.Find(FindObjectsOfType<Hero>(), x => x.team == team);
 		var heroObj = PhotonNetwork.Instantiate (heroPrefab.name, new Vector3(0,0,0), Quaternion.identity, 0);
 	}
