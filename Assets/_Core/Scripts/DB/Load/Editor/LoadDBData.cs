@@ -144,7 +144,9 @@ public class LoadDBData
 					Level = row.Level,
 					HP = row.HP,
 					Attack = row.Attack,
-					Defence = row.Defence
+					Defence = row.Defence,
+					Speed = row.Speed,
+					AttackSpeed = row.Attackspeed
 				}
 			});
 		}
@@ -164,7 +166,9 @@ public class LoadDBData
 					Level = row.Level,
 					HP = row.HP,
 					Attack = row.Attack,
-					Defence = row.Defence
+					Defence = row.Defence,
+					Speed = row.Speed,
+					AttackSpeed = row.Attackspeed
 				}
 			});
 		}

@@ -16,8 +16,8 @@ public class CharacterData {
 		maxHealth = config.HP;
 		attack = config.Attack;
 		defence = config.Defence;
-		attackSpeed = 0.5f;
-		moveSpeed = 5.0f;
+		attackSpeed = config.AttackSpeed;
+		moveSpeed = config.Speed;
 	}
 
 	public CharacterData(HeroConfig config)
@@ -25,7 +25,7 @@ public class CharacterData {
 		maxHealth = config.HP;
 		attack = config.Attack;
 		defence = config.Defence;
-		attackSpeed = 0.5f;
-		moveSpeed = 5.0f;
+		attackSpeed = config.AttackSpeed;
+		moveSpeed = config.Speed;
 	}
 }
