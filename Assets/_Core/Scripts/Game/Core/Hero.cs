@@ -49,7 +49,7 @@ public class Hero : Character, IPunObservable {
 
 
 		var gameController = FindObjectsOfType<GameController>();
-		hero.OnDeath += gameController.onPlayerDeath
+		hero.OnDeath += gameController.onPlayerDeath;
 
 		updateVisual();
 	}
