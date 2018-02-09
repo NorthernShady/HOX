@@ -49,7 +49,7 @@ public class Character : Photon.PunBehaviour {
 
 	bool updateAttackTime()
 	{
-		if (!photonView.isMine) {
+		if (photonView != null && !photonView.isMine) {
 			return false;
 		}
 		if (m_attackTimer > m_data.attackSpeed)

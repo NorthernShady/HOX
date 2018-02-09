@@ -108,7 +108,7 @@ public class Hero : Character, IPunObservable {
 		int team = gameDataProxy.team;
 		Vector3 pos = Vector3.zero;
 		if (team != 0) {
-			pos = new Vector3 (10, 10, 0);
+			pos = new Vector3 (10, 0, 10);
 		}
 		gameObject.transform.position = pos;
 		var hero = gameObject.GetComponent<Hero> ();
