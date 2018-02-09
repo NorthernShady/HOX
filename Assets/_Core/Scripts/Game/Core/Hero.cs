@@ -10,6 +10,9 @@ public class Hero : Character, IPunObservable {
 	HeroVisual m_heroVisual = null;
 
 	[SerializeField]
+	GameObject m_deathAnimationPrefab;
+
+	[SerializeField]
 	GameData.HeroType m_type = GameData.HeroType.WARRIOR;
 
 	[SerializeField]
