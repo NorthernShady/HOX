@@ -88,11 +88,15 @@ public class Character : Photon.MonoBehaviour {
 			if (OnDeath != null)
 				OnDeath(this);
 
-			Destroy(gameObject);
+			onDeathAnimation();
 
 			return true;
 		}
 
 		return false;
+	}
+
+	protected virtual void onDeathAnimation()
+	{
 	}
 }
