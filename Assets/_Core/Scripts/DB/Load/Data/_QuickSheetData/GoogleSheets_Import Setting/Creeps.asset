@@ -29,15 +29,15 @@ MonoBehaviour:
     name: Level
     isEnable: 0
     isArray: 0
-  - type: 3
+  - type: 5
     name: HP
     isEnable: 0
     isArray: 0
-  - type: 3
+  - type: 5
     name: Attack
     isEnable: 0
     isArray: 0
-  - type: 3
+  - type: 5
     name: Defence
     isEnable: 0
     isArray: 0

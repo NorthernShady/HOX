@@ -14,6 +14,8 @@ public class Creep : Character {
 	MapCreepData m_creepData;
 	Transform m_hero = null;
 
+	Hero m_targetHero = null;
+
 	void Awake()
 	{
 		m_hero = GameObject.FindGameObjectWithTag("Player").transform;
@@ -45,6 +47,21 @@ public class Creep : Character {
 
 	void Update()
 	{
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == k.Tags.PLAYER) {
+			m_targetHero = other.GetComponent<Hero>();
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == m_targetHero.gameObject) {
+			m_targetHero = null;
+		}
+			
 	}
 
 	void runAnimation()
