@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Character : Photon.MonoBehaviour, IPunObservable {
+public class Character : Photon.MonoBehaviour {
 
 	public System.Action<float> OnHealthChanged;
 	public System.Action<Character> OnDeath;
@@ -100,9 +100,8 @@ public class Character : Photon.MonoBehaviour, IPunObservable {
 		Destroy(attack, 0.5f);
 	}
 
-	#region IPunObservable implementation
 
-	protected void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
+	protected void photonUpdate (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting) {
 			if (m_shouldAttack) {
@@ -116,6 +115,4 @@ public class Character : Photon.MonoBehaviour, IPunObservable {
 			}
 		}
 	}
-
-	#endregion
 }
