@@ -125,7 +125,9 @@ public class Character : Photon.PunBehaviour {
 			}
 			m_shouldDestroy = false;
 			m_health = (float)stream.ReceiveNext ();
-			OnHealthChanged(m_health / m_data.maxHealth);
+			if (m_data != null) {
+				OnHealthChanged (m_health / m_data.maxHealth);
+			}
 		}
 	}
 }
