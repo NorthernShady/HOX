@@ -103,9 +103,7 @@ public class Character : Photon.PunBehaviour {
 	protected void photonUpdate (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting) {
-			if (m_shouldSendAttack) {
-				stream.SendNext (m_shouldSendAttack);
-			}
+			stream.SendNext (m_shouldSendAttack);
 			m_shouldSendAttack = false;
 		}
 		if (stream.isReading) {
@@ -115,3 +113,4 @@ public class Character : Photon.PunBehaviour {
 		}
 	}
 }
+
