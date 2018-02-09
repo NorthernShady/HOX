@@ -110,8 +110,12 @@ public class Hero : Character, IPunObservable {
 		this.initialize(pos, team);
 		gameObject.transform.position = pos;
 		var hero = gameObject.GetComponent<Hero> ();
-		hero.gameObject.AddComponent<Player>();
 		hero.type = gameDataProxy.heroType;
+		if (photonView.isMine) {
+			hero.gameObject.AddComponent<Player>();
+		}
+
+		
 
 	}
 }
