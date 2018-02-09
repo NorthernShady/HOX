@@ -58,7 +58,7 @@ public class Hero : Character, IPunObservable {
 	#region IPunObservable implementation
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
-		if (photonView.isMine) {
+		if (stream.isWriting) {
 			stream.SendNext (team);
 		} else {
 			m_team = (int)stream.ReceiveNext ();

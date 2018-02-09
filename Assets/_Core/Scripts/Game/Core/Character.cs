@@ -23,7 +23,7 @@ public class Character : Photon.MonoBehaviour {
 
 	public virtual void moveTo(Vector3 position)
 	{
-		if (!photonView.isMine && PhotonNetwork.connected) {
+		if (!photonView.isMine) {
 			return;
 		}
 		transform.DOKill();
