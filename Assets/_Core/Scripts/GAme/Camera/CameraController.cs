@@ -24,6 +24,12 @@ public class CameraController : MonoBehaviour {
 
 	GameInputController m_gameInputController = null;
 
+	public Vector3 position {
+		get {
+			return new Vector3(0.0f, transform.position.y, -m_cameraShift);
+		}
+	}
+
 	void Awake()
 	{
 		m_cameraShift = transform.position.y / Mathf.Tan(transform.eulerAngles.x * Mathf.Deg2Rad);

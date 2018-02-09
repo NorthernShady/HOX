@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [System.Serializable] class CreepVisual : TypedMap<GameData.CreepType, GameObject> {}
 
@@ -11,6 +12,12 @@ public class Creep : Character {
 
 	[SerializeField]
 	MapCreepData m_creepData;
+	Transform m_hero = null;
+
+	void Awake()
+	{
+		m_hero = GameObject.FindGameObjectWithTag("Player").transform;
+	}
 
 	public MapCreepData creepData {
 		get {
@@ -34,5 +41,13 @@ public class Creep : Character {
 			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
+	}
+
+	void Update()
+	{
+	}
+
+	void runAnimation()
+	{
 	}
 }

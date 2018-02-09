@@ -24,7 +24,7 @@ namespace k
 		public const string AUDIO_BANK = "AudioBank";
 		public const string DATA_ASSETS_HOLDER = "DataAssetsHolder";
 		public const string MAP_DATA = "MapData/MapData";
-		public const string CREEP = "Prefabs/Creep";
-		public const string HERO = "Prefabs/Hero";
+		public const string CREEP_OLD = "Prefabs/CreepOld";
+		public const string HEALTH_BAR = "VisualEffects/HealthBar";
 	}
 }
