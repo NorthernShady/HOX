@@ -17,13 +17,13 @@ public partial class DBProvider : I_UserDBProvider  {
 
 	public CreepConfig getCreepConfig(string creepName, int level)
 	{
-		string cmdText = "SELECT * FROM Creeps WHERE Name = ? AND Level = ?";
+		string cmdText = "SELECT * FROM CreepConfig WHERE Name = ? AND Level = ?";
 		return dataService.connection.Query<CreepConfig>(cmdText, creepName, level)[0];
 	}
 
 	public HeroConfig getHeroConfig(string heroName, int level)
 	{
-		string cmdText = "SELECT * FROM Creeps WHERE Name = ? AND Level = ?";
+		string cmdText = "SELECT * FROM HeroConfig WHERE Name = ? AND Level = ?";
 		return dataService.connection.Query<HeroConfig>(cmdText, heroName, level)[0];
 	}
 }

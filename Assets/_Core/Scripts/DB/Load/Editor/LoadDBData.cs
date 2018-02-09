@@ -82,6 +82,8 @@ public class LoadDBData
 
 		loadGeneralData(dataService);
 		loadUserData(dataService);
+		loadHeroesData(dataService);
+		loadCreepsData(dataService);
 
 		PlayerPrefs.DeleteAll ();
 	}
@@ -91,8 +93,8 @@ public class LoadDBData
 		m_dataAssetsHolder = Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
 		loadGoogleSheet<UserRepresentation, UserRepresentationData> (m_dataAssetsHolder.getUserRepresentationAsset());
 		loadGoogleSheet<GeneralRepresentation, GeneralRepresentationData> (m_dataAssetsHolder.getGeneralRepresentationAsset());
-		loadGoogleSheet<HeroesRepresentation, HeroesRepresentationData>(m_dataAssetsHolder.getHeroesRepresentationAsset());
-		loadGoogleSheet<CreepsRepresentation, CreepsRepresentationData>(m_dataAssetsHolder.getCreepsRepresentationAsset());
+		loadGoogleSheet<HeroConfigRepresentation, HeroConfigRepresentationData>(m_dataAssetsHolder.getHeroRepresentationAsset());
+		loadGoogleSheet<CreepConfigRepresentation, CreepConfigRepresentationData>(m_dataAssetsHolder.getCreepRepresentationAsset());
 	}
 
 	static void loadGeneralData (DataService dataService)
@@ -130,9 +132,9 @@ public class LoadDBData
 
 	static void loadHeroesData(DataService dataService)
 	{
-		var heroesDataRepresentation = m_dataAssetsHolder.getHeroesRepresentationAsset();
+		var heroDataRepresentation = m_dataAssetsHolder.getHeroRepresentationAsset();
 
-		foreach (var row in heroesDataRepresentation.dataArray) {
+		foreach (var row in heroDataRepresentation.dataArray) {
 			if (row.Name.Length == 0)
 				continue;
 			dataService.connection.InsertAll(new[] {
@@ -150,9 +152,9 @@ public class LoadDBData
 
 	static void loadCreepsData(DataService dataService)
 	{
-		var creepsDataRepresentation = m_dataAssetsHolder.getCreepsRepresentationAsset();
+		var creepDataRepresentation = m_dataAssetsHolder.getCreepRepresentationAsset();
 
-		foreach (var row in creepsDataRepresentation.dataArray) {
+		foreach (var row in creepDataRepresentation.dataArray) {
 			if (row.Name.Length == 0)
 				continue;
 			dataService.connection.InsertAll(new[] {
