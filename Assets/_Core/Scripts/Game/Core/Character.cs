@@ -10,16 +10,18 @@ public class Character : Photon.MonoBehaviour {
 
 	HealthBar m_healthBar = null;
 
+	public System.Action<float> OnHealthChanged;
+
 	void Start()
 	{
-		createHealthBar();
+//		createHealthBar();
 	}
 
-	void OnDelete()
-	{
-		if (m_healthBar != null)
-			Destroy(m_healthBar);
-	}
+//	void OnDelete()
+//	{
+//		if (m_healthBar != null)
+//			Destroy(m_healthBar);
+//	}
 
 	public virtual void moveTo(Vector3 position)
 	{
@@ -45,11 +47,18 @@ public class Character : Photon.MonoBehaviour {
 	{
 	}
 
-	void createHealthBar()
+//	void createHealthBar()
+//	{
+//		var m_healthBarPrefab = Resources.Load<HealthBar>(k.Resources.HEALTH_BAR);
+//		m_healthBar = GameObject.Instantiate(m_healthBarPrefab, transform, false);
+//		m_healthBar.initialize();
+//	}
+
+	public void attack(Character target)
 	{
-		var m_healthBarPrefab = Resources.Load<HealthBar>(k.Resources.HEALTH_BAR);
-		m_healthBar = GameObject.Instantiate(m_healthBarPrefab, transform, false);
-		//m_healthBar.transform.position += new Vector3(0.0f, 10.0f, 10.0f);
-		m_healthBar.initialize();
+	}
+
+	public void takeDamage(Character target, int amount)
+	{
 	}
 }

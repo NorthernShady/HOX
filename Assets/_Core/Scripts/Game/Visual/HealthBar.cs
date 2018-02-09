@@ -11,21 +11,32 @@ public class HealthBar : MonoBehaviour {
 	[SerializeField]
 	Texture2D m_texture = null;
 
+	[SerializeField]
+	Character m_character = null;
+
 	Vector3 m_cameraVector = Vector3.up;
 
-	// Use this for initialization
+	void OnEnable()
+	{
+		m_character.OnHealthChanged += onHealthChanged;
+	}
+
+	void OnDisable()
+	{
+		m_character.OnHealthChanged -= onHealthChanged;
+	}
+
 	void Start () {
+		onHealthChanged(1.0f);
 		m_cameraVector = FindObjectOfType<CameraController>().position;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		transform.rotation = Quaternion.LookRotation(m_cameraVector);
 	}
 
-	public void initialize()
+	void onHealthChanged(float percent)
 	{
-		var percent = 0.8f;
 		var rect = new Rect(0.0f, 0.0f, m_texture.width * percent, m_texture.height);
 		m_fill.sprite = Sprite.Create(m_texture, rect, new Vector2(0.0f, 0.0f));
 	}
