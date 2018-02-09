@@ -159,11 +159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b136efb2f7cf46a6b4ed0ac85d059b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
   m_creepVisual:
-    keys: 0000000001000000
+    keys: 0000000001000000020000000300000004000000
     values:
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
+    - {fileID: 100000, guid: f5593cb0f236a400abcfc6cc10096b21, type: 3}
+    - {fileID: 100006, guid: f933531ac22954bf580309b0a87add66, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
   m_creepData:
     type: 0
