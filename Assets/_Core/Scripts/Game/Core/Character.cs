@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Character : Photon.MonoBehaviour, IPunObservable {
+public class Character : Photon.MonoBehaviour {
 
 	public System.Action<float> OnHealthChanged;
 	public System.Action<Character> OnDeath;
-
-	bool shouldSendAttack = false;
 
 	protected CharacterData m_data = null;
 	float m_health = 0.0f;
@@ -39,15 +37,10 @@ public class Character : Photon.MonoBehaviour, IPunObservable {
 
 	void Update()
 	{
-		if (!photonView.isMine) {
-			return;
-		}
 		var canAttack = updateAttackTime();
 
-		if (canAttack && m_attackTarget != null && !m_isDead) {
-			attack (m_attackTarget);
-			m_shouldAttack = true;
-		}
+		if (canAttack && m_attackTarget != null && !m_isDead)
+			attack(m_attackTarget);
 	}
 
 	bool updateAttackTime()
@@ -99,23 +92,4 @@ public class Character : Photon.MonoBehaviour, IPunObservable {
 		var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
 		Destroy(attack, 0.5f);
 	}
-
-	#region IPunObservable implementation
-
-	protected void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
-	{
-		if (stream.isWriting) {
-			if (m_shouldAttack) {
-				stream.SendNext (m_shouldAttack);
-			}
-			m_shouldAttack = false;
-		}
-		if (stream.isReading) {
-			if ((bool)stream.ReceiveNext () && m_attackTarget != null && !m_isDead) {
-				attack (m_attackTarget);
-			}
-		}
-	}
-
-	#endregion
 }
