@@ -20,3 +20,21 @@ MonoBehaviour:
     hp: 5
     attack: 1
     defence: 0
+  - id: 1
+    name: PEASANT
+    level: 1
+    hp: 5
+    attack: 1
+    defence: 0
+  - id: 2
+    name: SPIDER
+    level: 1
+    hp: 10
+    attack: 3
+    defence: 1
+  - id: 3
+    name: DRAGON
+    level: 1
+    hp: 20
+    attack: 5
+    defence: 3

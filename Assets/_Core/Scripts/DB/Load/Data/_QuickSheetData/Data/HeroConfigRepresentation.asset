@@ -20,3 +20,15 @@ MonoBehaviour:
     hp: 10
     attack: 1
     defence: 0
+  - id: 1
+    name: ROGUE
+    level: 1
+    hp: 10
+    attack: 1
+    defence: 0
+  - id: 2
+    name: MAGE
+    level: 1
+    hp: 10
+    attack: 1
+    defence: 0

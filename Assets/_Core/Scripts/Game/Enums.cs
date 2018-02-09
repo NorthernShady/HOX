@@ -23,6 +23,9 @@ namespace GameData
 	public enum CreepType
 	{
 		SKELETON,
+		PEASANT,
+		SPIDER,
+		DRAGON,
 		NONE
 	}
 }
