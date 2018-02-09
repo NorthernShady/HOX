@@ -41,10 +41,10 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	void updateRooms()
 	{
-//		foreach (var room in m_roomButtons) {
-//			Destroy (room);
-//		}
-//		m_roomButtons.Clear ();
+		foreach (var room in m_roomButtons) {
+			Destroy (room);
+		}
+		m_roomButtons.Clear ();
 		var roomsInfo = PhotonNetwork.GetRoomList ();
 		float x = -2.21f;
 		float y = 1.32f;
@@ -103,6 +103,9 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	override public void OnReceivedRoomListUpdate ()
 	{
+		if (!isFindRooms) {
+			return;
+		}
 		updateRooms ();
 	}
 
@@ -122,13 +125,6 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	{
 		PhotonNetwork.Disconnect ();
 		SceneManager.LoadScene(k.Scenes.HERO_PICK);
-	}
-
-	void Update()
-	{
-		if (isFindRooms) {
-			updateRooms ();
-		}
 	}
 
 	public override void OnJoinedLobby()

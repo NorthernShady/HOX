@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LobbyRoomButton : MonoBehaviour {
 
+	public tk2dTextMesh textField;
+
 	string m_name;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +20,7 @@ public class LobbyRoomButton : MonoBehaviour {
 	public void setName(string name)
 	{
 		m_name = name;
+		textField.text = m_name;
 	}
 
 	public void onClick()
