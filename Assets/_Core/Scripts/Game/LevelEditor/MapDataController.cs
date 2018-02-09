@@ -78,12 +78,13 @@ public class MapDataController : MonoBehaviour {
 		if (!PhotonNetwork.isMasterClient) {
 			yield break;
 		}
-		MapData mapData = Resources.Load<MapData>(m_mapDataName);
-		for (var team = 0; team < mapData.heroesStartData.Length; ++team)
-			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				var hero = PhotonNetwork.Instantiate (m_heroPrefab.name, startPosition, Quaternion.identity, 0);
-				hero.GetComponent<Hero>().initialize(startPosition, team);
-			}
+//		MapData mapData = Resources.Load<MapData> (m_mapDataName);
+//		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
+//			foreach (var startPosition in mapData.heroesStartData[team].positions) {
+//				var hero = PhotonNetwork.Instantiate (m_heroPrefab.name, startPosition, Quaternion.identity, 0);
+//				hero.GetComponent<Hero> ().initialize (startPosition, team);
+//			}
+//		}
 
 		foreach (var creepData in mapData.mapCreepData) {
 			var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
