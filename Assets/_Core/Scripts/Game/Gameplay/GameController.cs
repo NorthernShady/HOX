@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class GameController : MonoBehaviour {
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
 	public GameObject heroPrefab;
+
+	[SerializeField]
+	Text m_gameOver = null;
 
 	void Awake()
 	{
