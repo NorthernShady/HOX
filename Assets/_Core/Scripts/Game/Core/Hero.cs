@@ -54,6 +54,9 @@ public class Hero : Character, IPunObservable {
 		this.OnDeath += gameController.onPlayerDeath;
 
 		updateVisual();
+
+		if (!PhotonHelper.isConnected())
+			gameObject.AddComponent<Player>();
 	}
 
 	public void updateVisual()

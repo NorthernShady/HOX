@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterConfigDBHelper : MonoBehaviour {
+public class CharacterConfigDBHelper {
 
 	public static HeroConfig getHeroConfig(GameData.HeroType type, int level) {
 		return DBProvider.instance<I_UserDBProvider>().getHeroConfig(type.ToString(), level);

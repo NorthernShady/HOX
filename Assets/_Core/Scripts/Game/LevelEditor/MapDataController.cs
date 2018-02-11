@@ -82,18 +82,16 @@ public class MapDataController : MonoBehaviour {
 				if (proxyData.team != team) {
 					continue;
 				}
-				var hero = PhotonNetwork.Instantiate (m_heroPrefab.name, startPosition, Quaternion.identity, 0);
+				var hero = PhotonHelper.Instantiate (m_heroPrefab, startPosition, Quaternion.identity, 0);
 				hero.GetComponent<Hero> ().initialize (startPosition, team);
 			}
 		}
 
-		if (!PhotonNetwork.connected || PhotonNetwork.isMasterClient) {
+		if (PhotonHelper.isMaster()) {
 			foreach (var creepData in mapData.mapCreepData) {
-				var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
+				var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
 				creep.GetComponent<Creep>().initialize(creepData);
 			}
 		}
-
-			
 	}
 }
