@@ -79,11 +79,11 @@ public class MapDataController : MonoBehaviour {
 		MapData mapData = Resources.Load<MapData> (m_mapDataName);
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				if (proxyData.team != team) {
+				if (!proxyData.isBotGame && proxyData.team != team) {
 					continue;
 				}
-				var hero = PhotonHelper.Instantiate (m_heroPrefab, startPosition, Quaternion.identity, 0);
-				hero.GetComponent<Hero> ().initialize (startPosition, team);
+				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
+				hero.GetComponent<Hero>().initialize(startPosition, team, proxyData.heroType, proxyData.isBotGame && proxyData.team == team);
 			}
 		}
 

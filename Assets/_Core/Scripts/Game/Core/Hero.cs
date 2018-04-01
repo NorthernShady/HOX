@@ -42,7 +42,7 @@ public class Hero : Character, IPunObservable {
 
 	GameObject m_activeVisual = null;
 
-	public void initialize(Vector2 position, int team, GameData.HeroType type = GameData.HeroType.WARRIOR)
+	public void initialize(Vector2 position, int team, GameData.HeroType type, bool isPlayer = false)
 	{
 		m_type = type;
 		m_team = team;
@@ -55,7 +55,7 @@ public class Hero : Character, IPunObservable {
 
 		updateVisual();
 
-		if (!PhotonHelper.isConnected())
+		if (isPlayer)
 			gameObject.AddComponent<Player>();
 	}
 
@@ -87,7 +87,8 @@ public class Hero : Character, IPunObservable {
 		base.onDeathAnimation();
 	}
 
-#region IPunObservable implementation
+	#region IPunObservable implementation
+
 	void IPunObservable.OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		base.photonUpdate(stream, info);
@@ -100,18 +101,16 @@ public class Hero : Character, IPunObservable {
 			type = (GameData.HeroType)stream.ReceiveNext ();
 		}
 	}
-	#endregion
 
 	public override void OnPhotonInstantiate(PhotonMessageInfo info) 
 	{
 		if (photonView.isMine) {
 			gameObject.AddComponent<Player> ();
 		} else {
-			initialize (new Vector2 (0, 0), 0);
+			//initialize (new Vector2 (0, 0), 0);
 		}
-
-		
-
 	}
+
+	#endregion
 }
 

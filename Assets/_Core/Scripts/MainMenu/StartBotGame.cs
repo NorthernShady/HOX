@@ -7,6 +7,7 @@ public class StartBotGame : MonoBehaviour {
 
 	void onClick()
 	{
+		FindObjectOfType<GameDataProxy>().isBotGame = true;
 		SceneManager.LoadScene(k.Scenes.GAME_SCENE);
 	}
 }
