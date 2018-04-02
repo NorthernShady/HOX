@@ -83,7 +83,8 @@ public class MapDataController : MonoBehaviour {
 					continue;
 				}
 				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
-				hero.GetComponent<Hero>().initialize(startPosition, team, proxyData.heroType, proxyData.isBotGame && proxyData.team == team);
+				var heroType = (proxyData.team == team) ? proxyData.heroType : getRandomHeroType();
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, proxyData.isBotGame && proxyData.team == team);
 			}
 		}
 
@@ -93,5 +94,11 @@ public class MapDataController : MonoBehaviour {
 				creep.GetComponent<Creep>().initialize(creepData);
 			}
 		}
+	}
+
+	GameData.HeroType getRandomHeroType()
+	{
+		var values = System.Enum.GetValues(typeof(GameData.HeroType));
+		return (GameData.HeroType)values.GetValue(Random.Range(0, values.Length - 2));
 	}
 }
