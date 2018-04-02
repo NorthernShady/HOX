@@ -85,6 +85,7 @@ public class MapDataController : MonoBehaviour {
 				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
 				var heroType = (proxyData.team == team) ? proxyData.heroType : getRandomHeroType();
 				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, proxyData.isBotGame && proxyData.team == team);
+				hero.transform.SetParent(map.transform, true);
 			}
 		}
 
@@ -92,6 +93,7 @@ public class MapDataController : MonoBehaviour {
 			foreach (var creepData in mapData.mapCreepData) {
 				var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
 				creep.GetComponent<Creep>().initialize(creepData);
+				creep.transform.SetParent(map.transform, true);
 			}
 		}
 	}
