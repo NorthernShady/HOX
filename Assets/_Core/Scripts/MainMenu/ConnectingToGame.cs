@@ -111,9 +111,8 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	override public void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 	{
-		PhotonNetwork.LoadLevel (levelName);
+		PhotonNetwork.LoadLevel(levelName);
 	}
-		
 
 	override public void OnConnectedToPhoton ()
 	{
