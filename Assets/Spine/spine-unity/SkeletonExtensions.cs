@@ -41,6 +41,8 @@ namespace Spine.Unity {
 		public static Color GetColor (this Skeleton s) { return new Color(s.r, s.g, s.b, s.a); }
 		public static Color GetColor (this RegionAttachment a) { return new Color(a.r, a.g, a.b, a.a); }
 		public static Color GetColor (this MeshAttachment a) { return new Color(a.r, a.g, a.b, a.a); }
+		public static Color GetColor (this Slot s) { return new Color(s.r, s.g, s.b, s.a); }
+		public static Color GetColorTintBlack (this Slot s) { return new Color(s.r2, s.g2, s.b2, 1f); }
 
 		public static void SetColor (this Skeleton skeleton, Color color) {
 			skeleton.A = color.a;
@@ -150,22 +152,6 @@ namespace Spine.Unity {
 			return new Quaternion(0, 0, Mathf.Sin(halfRotation), Mathf.Cos(halfRotation));
 		}
 
-		/// <summary>Gets the PointAttachment's Unity World position using its Spine GameObject Transform.</summary>
-		public static Vector3 GetWorldPosition (this PointAttachment attachment, Slot slot, Transform spineGameObjectTransform) {
-			Vector3 skeletonSpacePosition;
-			skeletonSpacePosition.z = 0;
-			attachment.ComputeWorldPosition(slot.bone, out skeletonSpacePosition.x, out skeletonSpacePosition.y);
-			return spineGameObjectTransform.TransformPoint(skeletonSpacePosition);
-		}
-
-		/// <summary>Gets the PointAttachment's Unity World position using its Spine GameObject Transform.</summary>
-		public static Vector3 GetWorldPosition (this PointAttachment attachment, Bone bone, Transform spineGameObjectTransform) {
-			Vector3 skeletonSpacePosition;
-			skeletonSpacePosition.z = 0;
-			attachment.ComputeWorldPosition(bone, out skeletonSpacePosition.x, out skeletonSpacePosition.y);
-			return spineGameObjectTransform.TransformPoint(skeletonSpacePosition);
-		}
-
 		/// <summary>Gets the internal bone matrix as a Unity bonespace-to-skeletonspace transformation matrix.</summary>
 		public static Matrix4x4 GetMatrix4x4 (this Bone bone) {
 			return new Matrix4x4 {
@@ -210,14 +196,11 @@ namespace Spine.Unity {
 		#region Attachments
 		public static Material GetMaterial (this Attachment a) {
 			object rendererObject = null;
-			var regionAttachment = a as RegionAttachment;
-			if (regionAttachment != null)
-				rendererObject = regionAttachment.RendererObject;
-
-			var meshAttachment = a as MeshAttachment;
-			if (meshAttachment != null)
-				rendererObject = meshAttachment.RendererObject;
-
+			var renderableAttachment = a as IHasRendererObject;
+			if (renderableAttachment != null) {
+				rendererObject = renderableAttachment.RendererObject;
+			}
+			
 			if (rendererObject == null)
 				return null;
 			
@@ -282,6 +265,22 @@ namespace Spine.Unity {
 
 			return buffer;
 		}
+
+		/// <summary>Gets the PointAttachment's Unity World position using its Spine GameObject Transform.</summary>
+		public static Vector3 GetWorldPosition (this PointAttachment attachment, Slot slot, Transform spineGameObjectTransform) {
+			Vector3 skeletonSpacePosition;
+			skeletonSpacePosition.z = 0;
+			attachment.ComputeWorldPosition(slot.bone, out skeletonSpacePosition.x, out skeletonSpacePosition.y);
+			return spineGameObjectTransform.TransformPoint(skeletonSpacePosition);
+		}
+
+		/// <summary>Gets the PointAttachment's Unity World position using its Spine GameObject Transform.</summary>
+		public static Vector3 GetWorldPosition (this PointAttachment attachment, Bone bone, Transform spineGameObjectTransform) {
+			Vector3 skeletonSpacePosition;
+			skeletonSpacePosition.z = 0;
+			attachment.ComputeWorldPosition(bone, out skeletonSpacePosition.x, out skeletonSpacePosition.y);
+			return spineGameObjectTransform.TransformPoint(skeletonSpacePosition);
+		}
 		#endregion
 	}
 }
@@ -295,7 +294,7 @@ namespace Spine {
 		}
 
 		public static bool IsRenderable (this Attachment a) {
-			return a is RegionAttachment || a is MeshAttachment;
+			return a is IHasRendererObject;
 		}
 
 		#region Transform Modes
