@@ -126,8 +126,8 @@ namespace Spine.Unity.Editor {
 
 			for (int i = 0; i < materials.arraySize; i++) {
 				SerializedProperty prop = materials.GetArrayElementAtIndex(i);
-				Material mat = (Material)prop.objectReferenceValue;
-				if (mat == null) {
+				var material = (Material)prop.objectReferenceValue;
+				if (material == null) {
 					EditorGUILayout.HelpBox("Materials cannot be null.", MessageType.Error);
 					return;
 				}

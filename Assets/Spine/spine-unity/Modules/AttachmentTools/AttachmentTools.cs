@@ -37,13 +37,9 @@ namespace Spine.Unity.Modules.AttachmentTools {
 		/// <summary>
 		/// Tries to get the region (image) of a renderable attachment. If the attachment is not renderable, it returns null.</summary>
 		public static AtlasRegion GetRegion (this Attachment attachment) {
-			var regionAttachment = attachment as RegionAttachment;
-			if (regionAttachment != null)
-				return regionAttachment.RendererObject as AtlasRegion;
-
-			var meshAttachment = attachment as MeshAttachment;
-			if (meshAttachment != null)
-				return meshAttachment.RendererObject as AtlasRegion;
+			var renderableAttachment = attachment as IHasRendererObject;
+			if (renderableAttachment != null)
+				return renderableAttachment.RendererObject as AtlasRegion;
 
 			return null;
 		}
@@ -418,7 +414,7 @@ namespace Spine.Unity.Modules.AttachmentTools {
 				var newAttachment = originalAttachment.GetClone(true);
 				if (IsRenderable(newAttachment)) {
 
-					var region = newAttachment.GetAtlasRegion();
+					var region = newAttachment.GetRegion();
 					int existingIndex;
 					if (existingRegions.TryGetValue(region, out existingIndex)) {
 						regionIndexes.Add(existingIndex); // Store the region index for the eventual new attachment.
@@ -486,6 +482,7 @@ namespace Spine.Unity.Modules.AttachmentTools {
 		/// Creates and populates a duplicate skin with cloned attachments that are backed by a new packed texture atlas comprised of all the regions from the original skin.</summary>
 		/// <remarks>No Spine.Atlas object is created so there is no way to find AtlasRegions except through the Attachments using them.</remarks>
 		public static Skin GetRepackedSkin (this Skin o, string newName, Shader shader, out Material outputMaterial, out Texture2D outputTexture, int maxAtlasSize = 1024, int padding = 2, TextureFormat textureFormat = SpineTextureFormat, bool mipmaps = UseMipMaps, Material materialPropertySource = null, bool clearCache = false) {
+			if (o == null) throw new System.NullReferenceException("Skin was null");
 			var skinAttachments = o.Attachments;
 			var newSkin = new Skin(newName);
 
@@ -502,7 +499,7 @@ namespace Spine.Unity.Modules.AttachmentTools {
 				var newAttachment = kvp.Value.GetClone(true);
 				if (IsRenderable(newAttachment)) {
 
-					var region = newAttachment.GetAtlasRegion();
+					var region = newAttachment.GetRegion();
 					int existingIndex;
 					if (existingRegions.TryGetValue(region, out existingIndex)) {
 						regionIndexes.Add(existingIndex); // Store the region index for the eventual new attachment.
@@ -626,7 +623,7 @@ namespace Spine.Unity.Modules.AttachmentTools {
 		}
 
 		static bool IsRenderable (Attachment a) {
-			return a is RegionAttachment || a is MeshAttachment;
+			return a is IHasRendererObject;
 		}
 
 		/// <summary>
@@ -716,20 +713,6 @@ namespace Spine.Unity.Modules.AttachmentTools {
 
 				rotate = rotate
 			};
-		}
-
-		/// <summary>
-		/// Tries to get the backing AtlasRegion of an attachment if it is renderable. Returns null for non-renderable attachments.</summary>
-		static AtlasRegion GetAtlasRegion (this Attachment a) {
-			var regionAttachment = a as RegionAttachment;
-			if (regionAttachment != null)
-				return (regionAttachment.RendererObject) as AtlasRegion;
-
-			var meshAttachment = a as MeshAttachment;
-			if (meshAttachment != null)
-				return (meshAttachment.RendererObject) as AtlasRegion;
-
-			return null;
 		}
 
 		/// <summary>
