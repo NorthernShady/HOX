@@ -12,6 +12,7 @@ public class Creep : Character, IPunObservable {
 
 	[SerializeField]
 	MapCreepData m_creepData;
+	
 	Transform m_hero = null;
 
 	bool isInit = false;
