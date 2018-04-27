@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour {
 
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
-	public GameObject heroPrefab;
 
 	void Awake()
 	{

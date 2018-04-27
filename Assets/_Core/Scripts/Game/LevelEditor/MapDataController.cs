@@ -17,6 +17,8 @@ public class MapDataController : MonoBehaviour {
 	[SerializeField]
 	Creep m_creepPrefab;
 
+	GameDataProxy m_dataProxy = null;
+
 	public string mapDataName
 	{
 		get {
@@ -61,8 +63,9 @@ public class MapDataController : MonoBehaviour {
 		map.createGrid(mapData.gridData);
 		map.gameObject.isStatic = true;
 
-		StartCoroutine (loadCharCoroutine (map.gameObject));
+		m_dataProxy = FindObjectOfType<GameDataProxy>();
 
+		StartCoroutine(loadCharCoroutine(mapData, map.gameObject));
 	}
 
 	void clear()
@@ -72,19 +75,23 @@ public class MapDataController : MonoBehaviour {
 			DestroyImmediate(mapGrid.gameObject);
 	}
 
-	IEnumerator loadCharCoroutine(GameObject map)
+	IEnumerator loadCharCoroutine(MapData mapData, GameObject map)
 	{
-		yield return new WaitForSeconds (1.5f);
-		var proxyData = FindObjectOfType<GameDataProxy> ();
-		MapData mapData = Resources.Load<MapData> (m_mapDataName);
+		if (!m_dataProxy.isBotGame)
+			yield return new WaitForSeconds (1.5f);
+		loadCharacters(mapData, map);
+	}
+
+	void loadCharacters(MapData mapData, GameObject map)
+	{
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				if (!proxyData.isBotGame && proxyData.team != team) {
+				if (!m_dataProxy.isBotGame && m_dataProxy.team != team) {
 					continue;
 				}
 				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
-				var heroType = (proxyData.team == team) ? proxyData.heroType : getRandomHeroType();
-				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, proxyData.isBotGame && proxyData.team == team);
+				var heroType = (m_dataProxy.team == team) ? m_dataProxy.heroType : getRandomHeroType();
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, m_dataProxy.isBotGame && m_dataProxy.team == team);
 				hero.transform.SetParent(map.transform, true);
 			}
 		}
