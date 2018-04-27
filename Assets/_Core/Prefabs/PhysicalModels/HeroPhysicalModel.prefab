@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135801079105629042}
   - component: {fileID: 114226109847996530}
   m_Layer: 0
-  m_Name: SmallPhysicalModel
+  m_Name: HeroPhysicalModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +79,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
-  m_Center: {x: 0, y: 1.6, z: 0}
+  m_Radius: 1.4
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!136 &136920221778846686
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -90,7 +90,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.1
-  m_Height: 3
+  m_Radius: 1
+  m_Height: 2.6
   m_Direction: 1
-  m_Center: {x: 0, y: 1.6, z: 0}
+  m_Center: {x: 0, y: 1.4, z: 0}

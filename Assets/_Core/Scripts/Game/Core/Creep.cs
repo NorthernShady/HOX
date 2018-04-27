@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [System.Serializable] class CreepVisual : TypedMap<GameData.CreepType, GameObject> {}
+[System.Serializable] class CreepPhysics : TypedMap<GameData.CreepType, BasicPhysicalModel> {}
 
 public class Creep : Character, IPunObservable {
+
+	[SerializeField]
+	CreepPhysics m_creepPhysics = null;
 
 	[SerializeField]
 	CreepVisual m_creepVisual = null;
@@ -30,6 +34,15 @@ public class Creep : Character, IPunObservable {
 	}
 
 	GameObject m_activeVisual = null;
+	BasicPhysicalModel m_activePhysics = null;
+
+	void unsubscribe()
+	{
+		if (m_activePhysics != null) {
+			m_activePhysics.OnEnterTrigger -= onTriggerEnter;
+			m_activePhysics.OnExitTrigger -= onTriggerExit;
+		}
+	}
 
 	public void initialize(MapCreepData creepData)
 	{
@@ -46,17 +59,23 @@ public class Creep : Character, IPunObservable {
 		if (m_activeVisual != null)
 			DestroyImmediate(m_activeVisual.gameObject);
 
+		unsubscribe();
+
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
+		m_activePhysics = GameObject.Instantiate(m_creepPhysics[m_creepData.type], transform, false);
+
+		m_activePhysics.OnEnterTrigger += onTriggerEnter;
+		m_activePhysics.OnExitTrigger += onTriggerExit;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void onTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == k.Tags.PLAYER) {
 			m_attackTarget = other.GetComponent<Character>();
 		}
 	}
 
-	void OnTriggerExit(Collider other)
+	void onTriggerExit(Collider other)
 	{
 		if (m_attackTarget != null && other.gameObject == m_attackTarget.gameObject) {
 			m_attackTarget = null;

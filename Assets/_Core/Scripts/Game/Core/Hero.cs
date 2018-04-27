@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] class HeroVisual : TypedMap<GameData.HeroType, GameObject> {}
+[System.Serializable] class HeroPhysics : TypedMap<GameData.HeroType, BasicPhysicalModel> {}
 
 public class Hero : Character, IPunObservable {
+
+	[SerializeField]
+	HeroPhysics m_heroPhysics = null;
 
 	[SerializeField]
 	HeroVisual m_heroVisual = null;
@@ -41,6 +45,15 @@ public class Hero : Character, IPunObservable {
 	}
 
 	GameObject m_activeVisual = null;
+	BasicPhysicalModel m_activePhysics = null;
+
+	void unsubscribe()
+	{
+		if (m_activePhysics != null) {
+			m_activePhysics.OnEnterTrigger -= onTriggerEnter;
+			m_activePhysics.OnExitTrigger -= onTriggerExit;
+		}
+	}
 
 	public void initialize(Vector2 position, int team, GameData.HeroType type, bool isPlayer = false)
 	{
@@ -64,17 +77,23 @@ public class Hero : Character, IPunObservable {
 		if (m_activeVisual != null)
 			DestroyImmediate(m_activeVisual.gameObject);
 
+		unsubscribe();
+
 		m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
+		m_activePhysics = GameObject.Instantiate(m_heroPhysics[m_type], transform, false);
+
+		m_activePhysics.OnEnterTrigger += onTriggerEnter;
+		m_activePhysics.OnExitTrigger += onTriggerExit;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void onTriggerEnter(Collider other)
 	{
 		var character = other.gameObject.GetComponent<Character>();
 		if (character != null)
 			m_attackTarget = character;
 	}
 
-	void OnTriggerExit(Collider other)
+	void onTriggerExit(Collider other)
 	{
 		if (m_attackTarget != null && other.gameObject == m_attackTarget.gameObject) {
 			m_attackTarget = null;
