@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class BasicPhysicalModel : MonoBehaviour {
 
-	public System.Action<Collider> OnEnterTrigger;
-	public System.Action<Collider> OnExitTrigger;
+	public System.Action<Collider, GameObject> OnEnterTrigger;
+	public System.Action<Collider, GameObject> OnExitTrigger;
+
+	private GameObject m_targetObject = null;
+
+	public GameObject targetObject {
+		set {
+			m_targetObject = value;
+		}
+		get {
+			return m_targetObject;
+		}
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
+		var physicalModel = other.GetComponent<BasicPhysicalModel>();
 		if (OnEnterTrigger != null)
-			OnEnterTrigger(other);
+			OnEnterTrigger(other, physicalModel != null ? physicalModel.targetObject : other.gameObject);
 	}
 
 	void OnTriggerExit(Collider other)
 	{
+		var physicalModel = other.GetComponent<BasicPhysicalModel>();
 		if (OnExitTrigger != null)
-			OnExitTrigger(other);
+			OnExitTrigger(other, physicalModel != null ? physicalModel.targetObject : other.gameObject);
 	}
 }

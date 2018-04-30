@@ -64,20 +64,21 @@ public class Creep : Character, IPunObservable {
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 		m_activePhysics = GameObject.Instantiate(m_creepPhysics[m_creepData.type], transform, false);
 
+		m_activePhysics.targetObject = gameObject;
 		m_activePhysics.OnEnterTrigger += onTriggerEnter;
 		m_activePhysics.OnExitTrigger += onTriggerExit;
 	}
 
-	void onTriggerEnter(Collider other)
+	void onTriggerEnter(Collider other, GameObject otherObject)
 	{
-		if (other.gameObject.tag == k.Tags.PLAYER) {
-			m_attackTarget = other.GetComponent<Character>();
+		if (otherObject.tag == k.Tags.PLAYER) {
+			m_attackTarget = otherObject.GetComponent<Character>();
 		}
 	}
 
-	void onTriggerExit(Collider other)
+	void onTriggerExit(Collider other, GameObject otherObject)
 	{
-		if (m_attackTarget != null && other.gameObject == m_attackTarget.gameObject) {
+		if (m_attackTarget != null && otherObject == m_attackTarget.gameObject) {
 			m_attackTarget = null;
 		}
 	}
