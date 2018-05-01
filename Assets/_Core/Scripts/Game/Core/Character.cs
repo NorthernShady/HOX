@@ -133,7 +133,7 @@ public class Character : Photon.PunBehaviour
     protected virtual void onAttackAnimation()
     {
         var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
-        var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
+        var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
         Destroy(attack, 0.5f);
     }
 
