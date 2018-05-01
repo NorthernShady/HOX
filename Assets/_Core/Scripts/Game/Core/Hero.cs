@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [System.Serializable] class HeroVisual : TypedMap<GameData.HeroType, GameObject> { }
 [System.Serializable] class HeroPhysics : TypedMap<GameData.HeroType, BasicPhysicalModel> { }

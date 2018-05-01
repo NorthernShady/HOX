@@ -21,8 +21,9 @@ public class Creep : Character, IPunObservable {
 
 	bool isInit = false;
 
-	void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		m_hero = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
@@ -63,6 +64,9 @@ public class Creep : Character, IPunObservable {
 
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 		m_activePhysics = GameObject.Instantiate(m_creepPhysics[m_creepData.type], transform, false);
+
+		// m_activeVisual.transform.SetParent(transform, false);
+		// m_activePhysics.transform.SetParent(transform, false);
 
 		m_activePhysics.targetObject = gameObject;
 		m_activePhysics.OnEnterTrigger += onTriggerEnter;
