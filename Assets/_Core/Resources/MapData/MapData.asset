@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -18,15 +18,15 @@ MonoBehaviour:
   - type: 2
     domaine: 3
     level: 1
-    position: {x: -6.1100006, y: -4.5200005}
-  - type: 0
-    domaine: 3
-    level: 1
-    position: {x: -11.939999, y: 5.4799995}
+    position: {x: -3.4500008, y: 3.0900002}
   - type: 1
     domaine: 3
     level: 1
-    position: {x: -3.4500008, y: 3.0900002}
+    position: {x: -11.939999, y: 5.4799995}
+  - type: 3
+    domaine: 3
+    level: 1
+    position: {x: -6.1100006, y: -4.5200005}
   heroesStartData:
   - positions:
     - {x: 5.5099983, y: -0.34999847}

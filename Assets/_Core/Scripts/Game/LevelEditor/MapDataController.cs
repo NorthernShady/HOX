@@ -108,6 +108,6 @@ public class MapDataController : MonoBehaviour {
 	GameData.HeroType getRandomHeroType()
 	{
 		var values = System.Enum.GetValues(typeof(GameData.HeroType));
-		return (GameData.HeroType)values.GetValue(Random.Range(0, values.Length - 2));
+		return (GameData.HeroType)values.GetValue(Random.Range(1, values.Length));
 	}
 }

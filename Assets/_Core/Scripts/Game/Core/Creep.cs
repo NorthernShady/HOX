@@ -49,7 +49,7 @@ public class Creep : Character, IPunObservable {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
-		initialize(new CharacterData(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)));
+		initialize(new CommonTraits(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)));
 
 		updateVisual();
 		isInit = true;

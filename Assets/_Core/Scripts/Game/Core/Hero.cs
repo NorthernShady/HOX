@@ -71,7 +71,7 @@ public class Hero : Character, IPunObservable
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
 
-        initialize(new CharacterData(CharacterConfigDBHelper.getHeroConfig(type, 1)));
+        initialize(new CommonTraits(CharacterConfigDBHelper.getHeroConfig(type, 1)));
 
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;

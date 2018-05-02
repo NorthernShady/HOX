@@ -283,14 +283,14 @@ MonoBehaviour:
     - {fileID: 114226109847996530, guid: 991556251d7b54052a5901ea1413e5c9, type: 2}
     - {fileID: 114226109847996530, guid: 991556251d7b54052a5901ea1413e5c9, type: 2}
     - {fileID: 114226109847996530, guid: 991556251d7b54052a5901ea1413e5c9, type: 2}
-    - {fileID: 0}
+    - {fileID: 114226109847996530, guid: 991556251d7b54052a5901ea1413e5c9, type: 2}
   m_heroVisual:
     keys: 00000000010000000200000003000000
     values:
     - {fileID: 100024, guid: 708da160796094a2f813be6bd8d0773a, type: 3}
+    - {fileID: 100024, guid: 708da160796094a2f813be6bd8d0773a, type: 3}
     - {fileID: 100018, guid: 2bffc4b5958484cc9aaa107fdc3c5154, type: 3}
     - {fileID: 100000, guid: ad1719eddb57c47ac964ddac714e92b5, type: 3}
-    - {fileID: 0}
   m_deathAnimationPrefab: {fileID: 1795494933461536, guid: 77b658bf71bae4cbfb1165a32584447f,
     type: 2}
   m_type: 0

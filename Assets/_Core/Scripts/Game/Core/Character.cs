@@ -16,7 +16,7 @@ public class Character : Photon.PunBehaviour
         }
     }
 
-    protected CharacterData m_data = null;
+    protected CommonTraits m_data = null;
     float m_health = 0.0f;
     float m_attackTimer = 0.0f;
 
@@ -33,7 +33,7 @@ public class Character : Photon.PunBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
     }
 
-    protected void initialize(CharacterData characterData)
+    protected void initialize(CommonTraits characterData)
     {
         m_data = characterData;
         m_health = m_data.maxHealth;

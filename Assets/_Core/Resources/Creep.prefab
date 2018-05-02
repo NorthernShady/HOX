@@ -164,16 +164,16 @@ MonoBehaviour:
     values:
     - {fileID: 114226109847996530, guid: 8e8eac139840f49a9a20cfcf461ad8ae, type: 2}
     - {fileID: 114226109847996530, guid: 8e8eac139840f49a9a20cfcf461ad8ae, type: 2}
+    - {fileID: 114226109847996530, guid: 8e8eac139840f49a9a20cfcf461ad8ae, type: 2}
     - {fileID: 114389238783496502, guid: 1edefce8f865b45daaaa8063dddb1baa, type: 2}
-    - {fileID: 0}
     - {fileID: 0}
   m_creepVisual:
     keys: 0000000001000000020000000300000004000000
     values:
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
+    - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
     - {fileID: 100000, guid: f5593cb0f236a400abcfc6cc10096b21, type: 3}
     - {fileID: 100006, guid: f933531ac22954bf580309b0a87add66, type: 3}
-    - {fileID: 0}
     - {fileID: 0}
   m_creepData:
     type: 0

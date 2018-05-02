@@ -84,6 +84,7 @@ public class LoadDBData
 		loadUserData(dataService);
 		loadHeroesData(dataService);
 		loadCreepsData(dataService);
+		loadItemsData(dataService);
 
 		PlayerPrefs.DeleteAll ();
 	}
@@ -95,6 +96,7 @@ public class LoadDBData
 		loadGoogleSheet<GeneralRepresentation, GeneralRepresentationData> (m_dataAssetsHolder.getGeneralRepresentationAsset());
 		loadGoogleSheet<HeroConfigRepresentation, HeroConfigRepresentationData>(m_dataAssetsHolder.getHeroRepresentationAsset());
 		loadGoogleSheet<CreepConfigRepresentation, CreepConfigRepresentationData>(m_dataAssetsHolder.getCreepRepresentationAsset());
+		loadGoogleSheet<ItemConfigRepresentation, ItemConfigRepresentationData>(m_dataAssetsHolder.getItemRepresentationAsset());
 	}
 
 	static void loadGeneralData (DataService dataService)
@@ -161,6 +163,28 @@ public class LoadDBData
 				continue;
 			dataService.connection.InsertAll(new[] {
 				new CreepConfig {
+					Id = row.Id,
+					Name = row.Name,
+					Level = row.Level,
+					HP = row.HP,
+					Attack = row.Attack,
+					Defence = row.Defence,
+					Speed = row.Speed,
+					AttackSpeed = row.Attackspeed
+				}
+			});
+		}
+	}
+
+	static void loadItemsData(DataService dataService)
+	{
+		var itemDataRepresentation = m_dataAssetsHolder.getItemRepresentationAsset();
+
+		foreach (var row in itemDataRepresentation.dataArray) {
+			if (row.Name.Length == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new ItemConfig {
 					Id = row.Id,
 					Name = row.Name,
 					Level = row.Level,

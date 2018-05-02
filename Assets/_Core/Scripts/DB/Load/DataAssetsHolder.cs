@@ -9,6 +9,7 @@ public class DataAssetsHolder : ScriptableObject {
 	[SerializeField] GeneralRepresentation generalRepresentationAsset;
 	[SerializeField] HeroConfigRepresentation heroRepresentationAsset;
 	[SerializeField] CreepConfigRepresentation creepRepresentationAsset;
+	[SerializeField] ItemConfigRepresentation itemRepresentationAsset;
 
 	public UserRepresentation getUserRepresentationAsset()
 	{
@@ -28,5 +29,10 @@ public class DataAssetsHolder : ScriptableObject {
 	public CreepConfigRepresentation getCreepRepresentationAsset()
 	{
 		return creepRepresentationAsset;
+	}
+
+	public ItemConfigRepresentation getItemRepresentationAsset()
+	{
+		return itemRepresentationAsset;
 	}
 }

@@ -15,15 +15,21 @@ public partial class DBProvider : I_UserDBProvider  {
 		return dataService.connection.Query<XPLevel> (cmdText, levelId)[0];
 	}
 
-	public CreepConfig getCreepConfig(string creepName, int level)
+	public CommonConfig getCreepConfig(string creepName, int level)
 	{
 		string cmdText = "SELECT * FROM CreepConfig WHERE Name = ? AND Level = ?";
 		return dataService.connection.Query<CreepConfig>(cmdText, creepName, level)[0];
 	}
 
-	public HeroConfig getHeroConfig(string heroName, int level)
+	public CommonConfig getHeroConfig(string heroName, int level)
 	{
 		string cmdText = "SELECT * FROM HeroConfig WHERE Name = ? AND Level = ?";
 		return dataService.connection.Query<HeroConfig>(cmdText, heroName, level)[0];
+	}
+
+	public CommonConfig getItemConfig(string itemName)
+	{
+		string cmdText = "SELECT * FROM ItemConfig WHERE Name = ?";
+		return dataService.connection.Query<ItemConfig>(cmdText, itemName)[0];
 	}
 }

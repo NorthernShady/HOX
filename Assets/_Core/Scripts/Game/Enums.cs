@@ -6,26 +6,41 @@ namespace GameData
 {
 	public enum DomaineType
 	{
+		NONE,
 		RED,
 		GREEN,
 		BLUE,
-		NONE
 	}
 
 	public enum HeroType
 	{
+		NONE,
 		WARRIOR,
 		ROGUE,
-		MAGE,
-		NONE
+		MAGE
 	}
 
 	public enum CreepType
 	{
+		NONE,
 		SKELETON,
 		PEASANT,
 		SPIDER,
-		DRAGON,
-		NONE
+		DRAGON
+	}
+
+	public enum ItemType
+	{
+		NONE,
+		AXE,
+		DAGGER,
+		HAMMER,
+		SPEAR,
+		SWORD,
+		SHIELD,
+		HELMET,
+		CUIRASS,
+		PANTS,
+		BOOTS
 	}
 }
