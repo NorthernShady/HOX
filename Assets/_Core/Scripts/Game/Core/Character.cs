@@ -9,10 +9,19 @@ public class Character : Photon.PunBehaviour
     public System.Action<float> OnHealthChanged;
     public System.Action<Character> OnDeath;
 
+    protected Services m_services = null;
+
     protected Rigidbody m_rigidbody = null;
     public Rigidbody rigidbody {
         get {
             return m_rigidbody;
+        }
+    }
+
+    protected Inventory m_inventory = null;
+    public Inventory inventory {
+        get {
+            return m_inventory;
         }
     }
 
@@ -31,12 +40,14 @@ public class Character : Photon.PunBehaviour
     protected virtual void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        m_services = FindObjectOfType<Services>();
     }
 
-    protected void initialize(CommonTraits characterData)
+    protected void initialize(CommonTraits characterData, Inventory inventory)
     {
         m_data = characterData;
         m_health = m_data.maxHealth;
+        m_inventory = inventory;
     }
 
     public virtual void moveTo(Vector3 position)
@@ -100,6 +111,7 @@ public class Character : Photon.PunBehaviour
             OnDeath(this);
         }
         onDeathAnimation();
+        onDeathAction();
     }
 
     protected void turnTo(Vector3 position)
@@ -125,9 +137,17 @@ public class Character : Photon.PunBehaviour
         return false;
     }
 
+    protected virtual void onDeathAction()
+    {
+    }
+
     protected virtual void onDeathAnimation()
     {
         PhotonHelper.Destroy(gameObject);
+    }
+
+    public virtual void onTargetKilled(Character target)
+    {
     }
 
     protected virtual void onAttackAnimation()

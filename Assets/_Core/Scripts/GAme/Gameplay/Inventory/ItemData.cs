@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ItemData
-{
-	public GameData.ItemType type = GameData.ItemType.NONE;
-	public GameData.DomaineType domaineType = GameData.DomaineType.NONE;
+[CreateAssetMenu(fileName = "ItemData", menuName = "Game/Create ItemData")]
+public class ItemData : ScriptableObject {
+
+	[System.Serializable] public class DomaineColor : TypedMap<GameData.DomaineType, Color> { }
+	[System.Serializable] public class ItemImage : TypedMap<GameData.ItemType, Sprite> { }
+
+	[SerializeField]
+	public DomaineColor domaineColor = null;
+
+	[SerializeField]
+	public ItemImage itemImage = null;
 }

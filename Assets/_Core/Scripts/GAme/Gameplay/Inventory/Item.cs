@@ -2,15 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour {
+[System.Serializable]
+public class Item {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Item(GameData.ItemType type, GameData.DomaineType domaineType, CommonTraits data)
+	{
+		this.type = type;
+		this.domaineType = domaineType;
+		this.data = data;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public Item(GameData.ItemType type, GameData.DomaineType domaineType)
+	{
+		this.type = type;
+		this.domaineType = domaineType;
+		this.data = new CommonTraits(CharacterConfigDBHelper.getItemConfig(type));
 	}
+
+	public Item() {}
+
+	public GameData.ItemType type = GameData.ItemType.NONE;
+	public GameData.DomaineType domaineType = GameData.DomaineType.NONE;
+
+	public CommonTraits data = new CommonTraits();
 }

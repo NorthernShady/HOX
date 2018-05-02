@@ -11,4 +11,8 @@ public class CharacterConfigDBHelper {
 	public static CommonConfig getCreepConfig(GameData.CreepType type, int level) {
 		return DBProvider.instance<I_UserDBProvider>().getCreepConfig(type.ToString(), level);
 	}
+
+	public static CommonConfig getItemConfig(GameData.ItemType type) {
+		return DBProvider.instance<I_UserDBProvider>().getItemConfig(type.ToString());
+	}
 }

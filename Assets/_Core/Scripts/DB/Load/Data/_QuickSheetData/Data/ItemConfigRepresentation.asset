@@ -23,6 +23,22 @@ MonoBehaviour:
     speed: 0
     attackspeed: 0.8
   - id: 1
+    name: DAGGER
+    level: 1
+    hp: 0
+    attack: 0.5
+    defence: 0
+    speed: 0
+    attackspeed: 0.4
+  - id: 2
+    name: HAMMER
+    level: 1
+    hp: 0
+    attack: 1
+    defence: 0
+    speed: 0
+    attackspeed: 1.2
+  - id: 3
     name: SPEAR
     level: 1
     hp: 0
@@ -30,7 +46,7 @@ MonoBehaviour:
     defence: 0
     speed: 0
     attackspeed: 1
-  - id: 2
+  - id: 4
     name: SWORD
     level: 1
     hp: 0
@@ -38,3 +54,43 @@ MonoBehaviour:
     defence: 0
     speed: 0
     attackspeed: 0.7
+  - id: 5
+    name: SHIELD
+    level: 1
+    hp: 0
+    attack: 0
+    defence: 4
+    speed: 0
+    attackspeed: 1.1
+  - id: 6
+    name: HELMET
+    level: 1
+    hp: 0
+    attack: 0
+    defence: 2
+    speed: 0
+    attackspeed: 1
+  - id: 7
+    name: CUIRASS
+    level: 1
+    hp: 10
+    attack: 0
+    defence: 8
+    speed: -2
+    attackspeed: 2
+  - id: 8
+    name: PANTS
+    level: 1
+    hp: 5
+    attack: 0
+    defence: 5
+    speed: -1
+    attackspeed: 1.5
+  - id: 9
+    name: BOOTS
+    level: 1
+    hp: 0
+    attack: 0
+    defence: 1
+    speed: 3
+    attackspeed: 1

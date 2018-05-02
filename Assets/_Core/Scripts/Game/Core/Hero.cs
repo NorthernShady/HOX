@@ -71,15 +71,17 @@ public class Hero : Character, IPunObservable
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
 
-        initialize(new CommonTraits(CharacterConfigDBHelper.getHeroConfig(type, 1)));
+        initialize(new CommonTraits(CharacterConfigDBHelper.getHeroConfig(type, 1)), new Inventory());
 
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
 
         updateVisual();
 
-        if (isPlayer)
+        if (isPlayer) {
             gameObject.AddComponent<Player>();
+            m_services.getService<InventoryObserver>().initialize(m_inventory);
+        }
     }
 
     public void updateVisual()
@@ -109,6 +111,14 @@ public class Hero : Character, IPunObservable
         if (m_attackTarget != null && otherObject == m_attackTarget.gameObject) {
             m_attackTarget = null;
         }
+    }
+
+    public override void onTargetKilled(Character target)
+    {
+        var items = target.inventory.items;
+        
+        if (m_inventory.freeSpace >= items.Count)
+            m_inventory.addItems(items);
     }
 
     protected override void onDeathAnimation()

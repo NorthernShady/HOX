@@ -43,4 +43,9 @@ namespace GameData
 		PANTS,
 		BOOTS
 	}
+
+	public static class EnumExtensions
+	{
+		//public static ItemType Random(this ItemType enum)
+	}
 }

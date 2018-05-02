@@ -49,7 +49,7 @@ public class Creep : Character, IPunObservable {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
-		initialize(new CommonTraits(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)));
+		initialize(new CommonTraits(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)), createInventory());
 
 		updateVisual();
 		isInit = true;
@@ -87,8 +87,24 @@ public class Creep : Character, IPunObservable {
 		}
 	}
 
+	protected override void onDeathAction()
+    {
+        base.onDeathAction();
+		m_attackTarget.onTargetKilled(this);
+    }
+
 	void runAnimation()
 	{
+	}
+
+	Inventory createInventory()
+	{
+		var items = new List<Item>();
+
+		var itemType = (GameData.ItemType)Random.RandomRange(1, 11);
+
+		items.Add(new Item(itemType, m_creepData.domaine));
+		return new Inventory(items);
 	}
 
 	#region IPunObservable implementation

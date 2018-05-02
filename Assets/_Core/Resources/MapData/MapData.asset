@@ -19,14 +19,14 @@ MonoBehaviour:
     domaine: 3
     level: 1
     position: {x: -3.4500008, y: 3.0900002}
-  - type: 1
-    domaine: 3
-    level: 1
-    position: {x: -11.939999, y: 5.4799995}
   - type: 3
-    domaine: 3
+    domaine: 2
     level: 1
     position: {x: -6.1100006, y: -4.5200005}
+  - type: 1
+    domaine: 1
+    level: 1
+    position: {x: -11.939999, y: 5.4799995}
   heroesStartData:
   - positions:
     - {x: 5.5099983, y: -0.34999847}
