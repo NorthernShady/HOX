@@ -21,7 +21,10 @@ public class GameController : MonoBehaviour {
 
 		m_mapDataController = FindObjectOfType<MapDataController>();
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
+	}
 
+	void Start()
+	{
 		initialize();
 		StartCoroutine (addPlayer (m_gameDataProxy.team));
 	}
