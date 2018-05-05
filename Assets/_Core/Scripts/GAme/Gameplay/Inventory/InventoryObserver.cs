@@ -9,6 +9,12 @@ public class InventoryObserver : MonoBehaviour {
 
 	private Inventory m_inventory = null;
 
+	public Inventory inventory {
+		get {
+			return m_inventory;
+		}
+	}
+
 	void Awake()
 	{
 		FindObjectOfType<Services>().addService(this);

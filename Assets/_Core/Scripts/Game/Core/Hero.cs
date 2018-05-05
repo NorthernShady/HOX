@@ -115,10 +115,7 @@ public class Hero : Character, IPunObservable
 
     public override void onTargetKilled(Character target)
     {
-        var items = target.inventory.items;
-        
-        if (m_inventory.freeSpace >= items.Count)
-            m_inventory.addItems(items);
+        m_services.getService<CanvasController>().openLootPopup(this, target);
     }
 
     protected override void onDeathAnimation()

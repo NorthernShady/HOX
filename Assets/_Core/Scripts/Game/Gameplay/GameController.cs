@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour {
 
 		m_mapDataController = FindObjectOfType<MapDataController>();
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
+
+		FindObjectOfType<Services>().addService(this);
 	}
 
 	void Start()

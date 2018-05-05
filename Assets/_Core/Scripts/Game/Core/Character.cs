@@ -105,13 +105,16 @@ public class Character : Photon.PunBehaviour
 
     void whenHpZero()
     {
+        if (m_isDead)
+            return;
+
         m_isDead = true;
         if (OnDeath != null)
         {
             OnDeath(this);
         }
-        onDeathAnimation();
         onDeathAction();
+        onDeathAnimation();
     }
 
     protected void turnTo(Vector3 position)
@@ -143,6 +146,13 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onDeathAnimation()
     {
+        //PhotonHelper.Destroy(gameObject);
+        StartCoroutine(destroyIn(0.5f));
+    }
+
+    IEnumerator destroyIn(float time)
+    {
+        yield return new WaitForSeconds(time);
         PhotonHelper.Destroy(gameObject);
     }
 
