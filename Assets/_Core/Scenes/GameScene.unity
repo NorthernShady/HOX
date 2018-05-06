@@ -5175,7 +5175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5619cad6a94b3dc4696aad944dcb8a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lootPopupPrefab: {fileID: 114692183884584622, guid: 2444e3e836d286144a9d5b080a05237e,
+  m_lootPopupPrefab: {fileID: 114692834904164330, guid: 2444e3e836d286144a9d5b080a05237e,
     type: 2}
 --- !u!1 &1341023735
 GameObject:
