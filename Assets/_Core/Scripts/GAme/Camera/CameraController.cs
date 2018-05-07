@@ -93,12 +93,12 @@ public class CameraController : MonoBehaviour {
 			transform.position = new Vector3(position.x, transform.position.y, position.z - m_cameraShift);
 	}
 
-	void onDraggingStarted(Vector2 position, int index)
+	void onDraggingStarted(Vector2 position, int index, GameObject targetObject)
 	{
-		m_cameraType = CameraType.FREE;
-
-		if (m_dragIndex != -1)
+		if (m_dragIndex != -1 || targetObject.layer != k.Layers.MAP)
 			return;
+
+		m_cameraType = CameraType.FREE;
 
 		m_drag = position;
 		m_dragIndex = index;

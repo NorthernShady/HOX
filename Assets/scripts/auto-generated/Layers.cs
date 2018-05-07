@@ -9,6 +9,7 @@ namespace k
 		public const int WATER = 4;
 		public const int UI = 5;
 		public const int MAP = 8;
+		public const int POPUP = 9;
 
 
 		public static int onlyIncluding( params int[] layers )
