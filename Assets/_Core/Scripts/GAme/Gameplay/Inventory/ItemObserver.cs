@@ -9,21 +9,29 @@ public class ItemObserver : MonoBehaviour {
 
 	[SerializeField]
 	ItemData m_itemData = null;
+	
+	Item m_item = null;
+
+	public Item item {
+		get {
+			return m_item;
+		}
+	}
 
 	void Awake()
 	{
-		setEmptyItem();
 	}
 
 	public void setItem(Item item)
 	{
-		m_image.sprite = m_itemData.itemImage[item.type];
-		m_image.color = m_itemData.domaineColor[item.domaineType];
-	}
+		bool hasItem = item != null && item.type != GameData.ItemType.NONE;
+		
+		m_item = item;
+		m_image.gameObject.SetActive(hasItem);
 
-	public void setEmptyItem()
-	{
-		m_image.sprite = m_itemData.itemImage[GameData.ItemType.NONE];
-		m_image.color = m_itemData.domaineColor[GameData.DomaineType.NONE];
+		if (hasItem) {
+			m_image.sprite = m_itemData.itemImage[item.type];
+			m_image.color = m_itemData.domaineColor[item.domaineType];
+		}
 	}
 }

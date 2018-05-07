@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryObserver : MonoBehaviour {
 
 	[SerializeField]
-	private List<ItemObserver> m_items = null;
+	InventoryVisual m_inventoryVisual = null;
 
 	private Inventory m_inventory = null;
 
@@ -27,12 +27,7 @@ public class InventoryObserver : MonoBehaviour {
 
 	private void onInventoryUpdated(List<Item> items)
 	{
-		var numberOfItems = Mathf.Min(m_items.Count, items.Count);
-		for (var i = 0; i < numberOfItems; ++i)
-			m_items[i].setItem(items[i]);
-
-		for (var i = numberOfItems; i < m_items.Count; ++i)
-			m_items[i].setEmptyItem();
+		m_inventoryVisual.setItems(items);
 	}
 
 	public void initialize(Inventory inventory)
