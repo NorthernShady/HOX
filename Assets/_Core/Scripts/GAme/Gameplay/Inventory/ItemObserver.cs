@@ -5,6 +5,9 @@ using UnityEngine;
 public class ItemObserver : MonoBehaviour {
 
 	[SerializeField]
+	GameObject m_gameObject = null;
+
+	[SerializeField]
 	UnityEngine.UI.Image m_image = null;
 
 	[SerializeField]
@@ -25,9 +28,9 @@ public class ItemObserver : MonoBehaviour {
 	public void setItem(Item item)
 	{
 		bool hasItem = item != null && item.type != GameData.ItemType.NONE;
-		
+
 		m_item = item;
-		m_image.gameObject.SetActive(hasItem);
+		m_gameObject.SetActive(hasItem);
 
 		if (hasItem) {
 			m_image.sprite = m_itemData.itemImage[item.type];

@@ -25,7 +25,7 @@ public class InventoryVisual : MonoBehaviour {
 
 	private void setItem(GameObject itemPlace, Item item)
 	{
-		var itemObserver = itemPlace.GetComponentInChildren<ItemObserver>();
+		var itemObserver = itemPlace.GetComponentInChildren<ItemObserver>(true);
 		itemObserver.setItem(item);
 	}
 

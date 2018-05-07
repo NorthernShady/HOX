@@ -5,10 +5,10 @@ using UnityEngine;
 public class LootPopup : BasePopup {
 
 	[SerializeField]
-	InventoryObserver m_inventory = null;
+	InventoryVisual m_inventory = null;
 
 	[SerializeField]
-	InventoryObserver m_enemyDrop = null;
+	InventoryVisual m_enemyDrop = null;
 
 	private Inventory m_heroInventory;
 
@@ -19,8 +19,8 @@ public class LootPopup : BasePopup {
 		m_heroInventory = hero.inventory;
 		m_enemyInventory = enemy.inventory;
 
-		m_inventory.initialize(m_heroInventory);
-		m_enemyDrop.initialize(m_enemyInventory);
+		m_inventory.setItems(m_heroInventory.items);
+		m_enemyDrop.setItems(m_enemyInventory.items);
 	}
 
 	public void takeAll()
