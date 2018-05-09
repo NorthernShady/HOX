@@ -163,8 +163,8 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onDeathAnimation()
     {
-        //PhotonHelper.Destroy(gameObject);
-        StartCoroutine(destroyIn(0.5f));
+        PhotonHelper.Destroy(gameObject);
+        // StartCoroutine(destroyIn(0.5f));
     }
 
     IEnumerator destroyIn(float time)

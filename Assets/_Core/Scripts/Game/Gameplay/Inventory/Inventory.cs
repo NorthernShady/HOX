@@ -54,7 +54,10 @@ public class Inventory {
 
 	public void setItems(List<Item> items)
 	{
-		m_items = items;
+		m_items = new List<Item>();
+		foreach (var item in items)
+			if (item != null)
+				m_items.Add(item);
 		broadcastUpdate();
 	}
 
