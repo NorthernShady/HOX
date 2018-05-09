@@ -21,6 +21,15 @@ public class GameInputController : MonoBehaviour
 	}
 
 	private int m_layerMask = 1 << k.Layers.MAP;
+    public void AddLayerMask(int layerMask)
+    {
+        m_layerMask |= layerMask;
+    }
+
+    public void RemoveLayerMask(int layerMask)
+    {
+        m_layerMask &= ~layerMask;
+    }
 
     void OnEnable()
     {

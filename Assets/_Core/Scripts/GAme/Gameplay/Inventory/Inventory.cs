@@ -52,6 +52,12 @@ public class Inventory {
 		broadcastUpdate();
 	}
 
+	public void setItems(List<Item> items)
+	{
+		m_items = items;
+		broadcastUpdate();
+	}
+
 	public void addItems(List<Item> items)
 	{
 		m_items.AddRange(items);

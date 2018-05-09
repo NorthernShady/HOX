@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 222041590783770236}
   - component: {fileID: 114630795036175802}
   - component: {fileID: 114545432489504316}
-  m_Layer: 5
+  - component: {fileID: 114831656473655872}
+  - component: {fileID: 225305536071711040}
+  m_Layer: 9
   m_Name: LootPopupItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +41,7 @@ GameObject:
   - component: {fileID: 224778732586832802}
   - component: {fileID: 222074665564881622}
   - component: {fileID: 114109717565163784}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +116,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114831656473655872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475166805162740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973320674dfdf40fc8e426c335f1cc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222041590783770236
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -165,3 +178,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225305536071711040
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475166805162740}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

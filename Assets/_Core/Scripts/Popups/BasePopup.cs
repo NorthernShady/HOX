@@ -6,7 +6,7 @@ public class BasePopup : MonoBehaviour {
 
 	protected GameInputController m_gameInputController = null;
 
-	void Awake()
+	protected virtual void Awake()
 	{
 		m_gameInputController = FindObjectOfType<GameInputController>();
 
