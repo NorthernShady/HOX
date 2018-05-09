@@ -6,7 +6,7 @@ namespace BrainiacEditor
 {
 	public class BTEditorCanvas
 	{
-		private const int DRAG_MOUSE_BUTTON = 2;
+		private const int DRAG_MOUSE_BUTTON = 1;
 		
 		public event UnityAction OnRepaint;
 		
@@ -104,12 +104,13 @@ namespace BrainiacEditor
 				canvasArea.yMax = windowSize.y;
 			}
 
-			if(Event.current.type == EventType.MouseDrag && Event.current.button == DRAG_MOUSE_BUTTON)
+			if(Event.current.type == EventType.MouseDrag)
 			{
-				if(screenRect.Contains(Event.current.mousePosition))
-				{
-					canvasPosition += Event.current.delta;
-					Event.current.Use();
+				if (Event.current.button == DRAG_MOUSE_BUTTON && Event.current.alt) {
+					if (screenRect.Contains (Event.current.mousePosition)) {
+						canvasPosition += Event.current.delta;
+						Event.current.Use ();
+					}
 				}
 			}
 

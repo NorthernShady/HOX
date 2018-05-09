@@ -51,6 +51,7 @@ namespace BrainiacEditor
 			{
 				EditorGUILayout.HelpBox("There are no values to display!", MessageType.Error);
 			}
+			DrawDefaultInspector ();
 		}
 	}
 }
