@@ -21,6 +21,11 @@ public class Creep : Character, IPunObservable {
 
 	bool isInit = false;
 
+	public override GameData.CharacterType getType()
+    {
+        return GameData.CharacterType.CREEP;
+    }
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -36,6 +41,11 @@ public class Creep : Character, IPunObservable {
 
 	GameObject m_activeVisual = null;
 	BasicPhysicalModel m_activePhysics = null;
+
+	public override BasicPhysicalModel getPhysicalModel()
+    {
+        return m_activePhysics;
+    }
 
 	void unsubscribe()
 	{

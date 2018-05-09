@@ -24,6 +24,11 @@ public class Hero : Character, IPunObservable
     [SerializeField]
     int m_team = 0;
 
+    public override GameData.CharacterType getType()
+    {
+        return GameData.CharacterType.HERO;
+    }
+
     public Vector2 startPosition
     {
         get
@@ -55,6 +60,11 @@ public class Hero : Character, IPunObservable
 
     GameObject m_activeVisual = null;
     BasicPhysicalModel m_activePhysics = null;
+
+    public override BasicPhysicalModel getPhysicalModel()
+    {
+        return m_activePhysics;
+    }
 
     void unsubscribe()
     {

@@ -18,6 +18,11 @@ public class BasicPhysicalModel : MonoBehaviour {
 		}
 	}
 
+	public virtual Vector3 getHealthPosition()
+	{
+		return new Vector3(0.0f, 4.0f, -0.2f);
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		var physicalModel = other.GetComponent<BasicPhysicalModel>();

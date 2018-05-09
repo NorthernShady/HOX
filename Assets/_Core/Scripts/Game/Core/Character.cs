@@ -9,6 +9,16 @@ public class Character : Photon.PunBehaviour
     public System.Action<float> OnHealthChanged;
     public System.Action<Character> OnDeath;
 
+    public virtual GameData.CharacterType getType()
+    {
+        return GameData.CharacterType.NONE;
+    }
+
+    public virtual BasicPhysicalModel getPhysicalModel()
+    {
+        return null;
+    }
+
     protected Services m_services = null;
 
     protected Rigidbody m_rigidbody = null;
@@ -26,6 +36,12 @@ public class Character : Photon.PunBehaviour
     }
 
     protected CommonTraits m_data = null;
+    public CommonTraits data {
+        get {
+            return m_data;
+        }
+    }
+
     float m_health = 0.0f;
     float m_attackTimer = 0.0f;
 
@@ -100,7 +116,8 @@ public class Character : Photon.PunBehaviour
         m_attackTimer = 0.0f;
         onAttackAnimation();
 
-        target.takeDamage(this, m_data.attack);
+        var damage = m_services.getService<LogicController>().countDamage(this, target);
+        target.takeDamage(this, damage);
     }
 
     void whenHpZero()
@@ -124,8 +141,8 @@ public class Character : Photon.PunBehaviour
 
     public bool takeDamage(Character target, float amount)
     {
-        var damage = Mathf.Max(amount - m_data.defence, 1.0f);
-        m_health = Mathf.Max(0.0f, m_health - damage);
+        Debug.Log(string.Format("{0} took {1} damage", getType(), amount));
+        m_health = Mathf.Max(0.0f, m_health - amount);
 
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_data.maxHealth);

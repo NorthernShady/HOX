@@ -29,6 +29,8 @@ public class HealthBar : MonoBehaviour {
 	void Start () {
 		onHealthChanged(1.0f);
 		m_cameraVector = FindObjectOfType<CameraController>().position;
+
+		transform.localPosition = m_character.getPhysicalModel().getHealthPosition();
 	}
 
 	void Update () {

@@ -26,7 +26,7 @@ public class LootPopup : BasePopup {
 		m_inventory.setItems(m_heroInventory.items);
 		m_enemyDrop.setItems(m_enemyInventory.items);
 
-		m_takeAllButton.SetActive(m_heroInventory.freeSpace >= m_enemyInventory.items.Count);
+		// m_takeAllButton.SetActive(m_heroInventory.freeSpace >= m_enemyInventory.items.Count);
 	}
 
 	public override void onClose()

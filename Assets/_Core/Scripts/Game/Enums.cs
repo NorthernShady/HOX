@@ -12,6 +12,13 @@ namespace GameData
 		BLUE,
 	}
 
+	public enum CharacterType
+	{
+		NONE,
+		CREEP,
+		HERO
+	}
+
 	public enum HeroType
 	{
 		NONE,
