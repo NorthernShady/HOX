@@ -678,7 +678,7 @@ PlayerSettings:
     Build: 1
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 9e93ef22-e64a-4784-b220-d3e1d1844731
   projectName: HOX
   organizationId: daemonicall

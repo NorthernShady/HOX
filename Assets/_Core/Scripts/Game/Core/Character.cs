@@ -42,6 +42,8 @@ public class Character : Photon.PunBehaviour
         }
     }
 
+    protected CommonTraits m_totalData = null;
+
     float m_health = 0.0f;
     float m_attackTimer = 0.0f;
 
@@ -59,11 +61,20 @@ public class Character : Photon.PunBehaviour
         m_services = FindObjectOfType<Services>();
     }
 
+    void OnDisable()
+    {
+        if (m_inventory != null)
+            m_inventory.OnItemsChanged -= onInventoryUpdated;
+    }
+
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
         m_data = characterData;
+        m_totalData = m_data;
         m_health = m_data.maxHealth;
         m_inventory = inventory;
+
+        m_inventory.OnItemsChanged += onInventoryUpdated;
     }
 
     public virtual void moveTo(Vector3 position)
@@ -83,7 +94,7 @@ public class Character : Photon.PunBehaviour
 				m_rigidbody.position;
 		}
 
-		GetComponent<Rigidbody>().DOMove(position, m_data.moveSpeed).SetSpeedBased();
+		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
     }
 
     void Update()
@@ -145,7 +156,7 @@ public class Character : Photon.PunBehaviour
         m_health = Mathf.Max(0.0f, m_health - amount);
 
         if (OnHealthChanged != null)
-            OnHealthChanged(m_health / m_data.maxHealth);
+            OnHealthChanged(m_health / m_totalData.maxHealth);
 
         if (m_health <= 0.01f && PhotonHelper.isMine(this))
         {
@@ -165,6 +176,11 @@ public class Character : Photon.PunBehaviour
     {
         PhotonHelper.Destroy(gameObject);
         // StartCoroutine(destroyIn(0.5f));
+    }
+
+    protected virtual void onInventoryUpdated(List<Item> items)
+    {
+        m_totalData = m_data + m_services.getService<LogicController>().countInventory(this);
     }
 
     IEnumerator destroyIn(float time)

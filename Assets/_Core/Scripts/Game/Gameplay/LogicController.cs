@@ -17,7 +17,7 @@ public class LogicController : MonoBehaviour
 		return Mathf.Max(attack.attack - defence.defence, 1.0f);
 	}
 
-	private CommonTraits countInventory(Character character)
+	public CommonTraits countInventory(Character character)
 	{
 		var traits = new CommonTraits();
 
