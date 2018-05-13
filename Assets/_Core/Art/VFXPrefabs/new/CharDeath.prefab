@@ -32535,7 +32535,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726711233754126}
   serializedVersion: 5
-  lengthInSec: 0.3
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -32660,7 +32660,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 7
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -33180,7 +33180,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 3.922423
+      value: 5.52
       mode: 0
       spread: 0
       speed:
@@ -33237,7 +33237,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 172.12523
+      value: 174.40094
       mode: 0
       spread: 0
       speed:
@@ -33473,7 +33473,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.52264404
+          value: 0.9303131
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -33481,8 +33481,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.50337243
-          value: 0.8745575
+          time: 0.50114465
+          value: 0.9790878
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -33528,25 +33528,25 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 4
+      scalar: 8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
+          value: 0.6864095
+          inSlope: 1.66493
+          outSlope: 1.66493
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.27647513
         - serializedVersion: 3
-          time: 0.35349473
-          value: 0.8118458
-          inSlope: 1.2911777
-          outSlope: 1.2911777
+          time: 0.23465748
+          value: 1
+          inSlope: -0.18078902
+          outSlope: -0.18078902
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
