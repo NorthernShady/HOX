@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum TraitsType
 {
-	EXP,
 	MAX_HEALTH,
 	ATTACK,
 	DEFENCE,
@@ -18,6 +17,7 @@ public enum TraitsType
 [System.Serializable]
 public class CommonTraits
 {
+	int m_exp = 0;
 	private float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
 
 	public float this[TraitsType type]
@@ -30,9 +30,9 @@ public class CommonTraits
 		}
 	}
 
-	publi float exp {
+	public int exp {
 		get {
-			return m_traits[(int)TraitsType.EXP];
+			return m_exp;
 		}
 	}
 
