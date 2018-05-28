@@ -139,6 +139,8 @@ public class LoadDBData
 		var characterNormDataRepresentation = m_dataAssetsHolder.getCharacterNormRepresentationAsset();
 
 		foreach (var row in characterNormDataRepresentation.dataArray) {
+			if (row.Level == 0)
+				continue;
 			dataService.connection.InsertAll(new[] {
 				new CharacterNorm {
 					Level = row.Level,

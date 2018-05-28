@@ -4,11 +4,14 @@ using UnityEngine;
 
 public enum TraitsType
 {
+	EXP,
 	MAX_HEALTH,
 	ATTACK,
 	DEFENCE,
 	ATTACK_SPEED,
 	MOVE_SPEED,
+	CRITICAL_CHANCE,
+	CRITICAL_MODIFIER,
 	TRAITS_COUNT
 }
 
@@ -24,6 +27,12 @@ public class CommonTraits
 		}
 		set {
 			m_traits[(int)type] = value;
+		}
+	}
+
+	publi float exp {
+		get {
+			return m_traits[(int)TraitsType.EXP];
 		}
 	}
 
@@ -54,6 +63,18 @@ public class CommonTraits
 	public float moveSpeed {
 		get {
 			return m_traits[(int)TraitsType.MOVE_SPEED];
+		}
+	}
+
+	public float criticalChance {
+		get {
+			return m_traits[(int)TraitsType.CRITICAL_CHANCE];
+		}
+	}
+
+	public float criticalModifier {
+		get {
+			return m_traits[(int)TraitsType.CRITICAL_MODIFIER];
 		}
 	}
 
