@@ -25,11 +25,11 @@ MonoBehaviour:
     defencepercent: 0
     speed: 5
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.5
     attackspeedpercent: 0
-    criticalchance: 0
+    criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 0
+    criticalmodifier: 1.1
   - id: 1
     name: ROGUE
     level: 1
@@ -41,11 +41,11 @@ MonoBehaviour:
     defencepercent: 0
     speed: 5
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.5
     attackspeedpercent: 0
-    criticalchance: 0
+    criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 0
+    criticalmodifier: 1.1
   - id: 2
     name: MAGE
     level: 1
@@ -57,8 +57,8 @@ MonoBehaviour:
     defencepercent: 0
     speed: 5
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.5
     attackspeedpercent: 0
-    criticalchance: 0
+    criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 0
+    criticalmodifier: 1.1

@@ -25,7 +25,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.8
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -36,13 +36,13 @@ MonoBehaviour:
     level: 1
     hp: 0
     hppercent: 0
-    attack: 0
+    attack: 0.5
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.4
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 1.2
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 0.7
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 1.1
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: -1
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 1.5
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
