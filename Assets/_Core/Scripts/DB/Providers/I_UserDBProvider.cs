@@ -5,7 +5,8 @@ using UnityEngine;
 public interface I_UserDBProvider {
 	User getUser ();
 	XPLevel getXPLevel (int levelId);
+	CharacterNorm getCharacterNorm(int level);
 	CommonConfig getCreepConfig(string creepName, int level);
 	CommonConfig getHeroConfig(string heroName, int level);
-	CommonConfig getItemConfig(string itemName);
+	ItemConfig getItemConfig(string itemName);
 }
