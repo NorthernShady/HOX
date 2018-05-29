@@ -107,7 +107,15 @@ public class GameInputController : MonoBehaviour
 
     bool isUiCameraTouch(Vector2 position, out RaycastHit hit)
     {
-        int layerMask = 1 << k.Layers.UI | 1 << k.Layers.POPUP;
+        // if (tk2dUIManager.Instance.PressedUIItem != null)
+        // {
+        //     Debug.Log("pressedUiItem!");
+        //     hit = new RaycastHit();
+        //     return false;
+        // }
+
+        // Try to avoid raycasting!
+
         var camera = FindObjectOfType<tk2dUICamera>();
         Ray ray = camera.HostCamera.ScreenPointToRay(position);
         return Physics.Raycast(ray, out hit, camera.HostCamera.farClipPlane - camera.HostCamera.nearClipPlane, camera.FilteredMask);
