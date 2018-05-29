@@ -19,18 +19,18 @@ public class HealthBar : MonoBehaviour {
 	void OnEnable()
 	{
 		m_character.OnHealthChanged += onHealthChanged;
+		m_character.OnPhysicsInitialized += onPhysicsInitialized;
 	}
 
 	void OnDisable()
 	{
 		m_character.OnHealthChanged -= onHealthChanged;
+		m_character.OnPhysicsInitialized -= onPhysicsInitialized;
 	}
 
 	void Start () {
 		onHealthChanged(1.0f);
 		m_cameraVector = FindObjectOfType<CameraController>().position;
-
-		transform.localPosition = m_character.getPhysicalModel().getHealthPosition();
 	}
 
 	void Update () {
@@ -41,5 +41,10 @@ public class HealthBar : MonoBehaviour {
 	{
 		var rect = new Rect(0.0f, 0.0f, m_texture.width * percent, m_texture.height);
 		m_fill.sprite = Sprite.Create(m_texture, rect, new Vector2(0.0f, 0.0f));
+	}
+
+	void onPhysicsInitialized(BasicPhysicalModel physicalModel)
+	{
+		transform.localPosition = physicalModel.getHealthPosition();
 	}
 }

@@ -59,7 +59,7 @@ public class Creep : Character, IPunObservable {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
-		initialize(new CommonTraits(CharacterConfigDBHelper.getCreepConfig(m_creepData.type, m_creepData.level)), createInventory());
+		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
 
 		updateVisual();
 		isInit = true;
@@ -81,6 +81,9 @@ public class Creep : Character, IPunObservable {
 		m_activePhysics.targetObject = gameObject;
 		m_activePhysics.OnEnterTrigger += onTriggerEnter;
 		m_activePhysics.OnExitTrigger += onTriggerExit;
+
+		if (OnPhysicsInitialized != null)
+            OnPhysicsInitialized(m_activePhysics);
 	}
 
 	void onTriggerEnter(Collider other, GameObject otherObject)
@@ -111,7 +114,8 @@ public class Creep : Character, IPunObservable {
 	{
 		var items = new List<Item>();
 
-		var itemType = (GameData.ItemType)Random.RandomRange(1, 11);
+		var itemType = EnumHelper.Random<GameData.ItemType>();
+		//(GameData.ItemType)Random.Range(1, 11);
 
 		items.Add(new Item(itemType, m_creepData.domaine));
 		return new Inventory(items);

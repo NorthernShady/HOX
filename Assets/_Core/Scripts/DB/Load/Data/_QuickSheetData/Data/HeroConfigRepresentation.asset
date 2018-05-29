@@ -17,48 +17,48 @@ MonoBehaviour:
   - id: 0
     name: WARRIOR
     level: 1
-    hp: 10
+    hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 1
     defencepercent: 0
-    speed: 5
+    speed: 0
     speedpercent: 0
-    attackspeed: 0.5
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 1.1
+    criticalmodifier: 0.1
   - id: 1
     name: ROGUE
     level: 1
-    hp: 10
+    hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 1
     defencepercent: 0
-    speed: 5
+    speed: 0
     speedpercent: 0
-    attackspeed: 0.5
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 1.1
+    criticalmodifier: 0.1
   - id: 2
     name: MAGE
     level: 1
-    hp: 10
+    hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 1
     defencepercent: 0
-    speed: 5
+    speed: 0
     speedpercent: 0
-    attackspeed: 0.5
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0.1
     criticalchancepercent: 0
-    criticalmodifier: 1.1
+    criticalmodifier: 0.1

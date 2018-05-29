@@ -20,8 +20,8 @@ MonoBehaviour:
     attack: 1
     defence: 0
     speed: 5
-    attackspeed: 1
-    criticalchance: 0
+    attackspeed: 0.5
+    criticalchance: 1
     criticalmodifier: 1
   - level: 2
     exp: 100
@@ -29,8 +29,8 @@ MonoBehaviour:
     attack: 1
     defence: 0
     speed: 5
-    attackspeed: 1
-    criticalchance: 0
+    attackspeed: 0.5
+    criticalchance: 1
     criticalmodifier: 1
   - level: 3
     exp: 300
@@ -38,6 +38,6 @@ MonoBehaviour:
     attack: 1
     defence: 0
     speed: 5
-    attackspeed: 1
-    criticalchance: 0
+    attackspeed: 0.5
+    criticalchance: 1
     criticalmodifier: 1
