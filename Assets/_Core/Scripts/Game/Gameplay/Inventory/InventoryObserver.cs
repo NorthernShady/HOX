@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryObserver : MonoBehaviour {
 
 	[SerializeField]
-	InventoryVisual m_inventoryVisual = null;
+	Tk2dInventoryVisual m_inventoryVisual = null;
 
 	private Inventory m_inventory = null;
 

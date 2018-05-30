@@ -72,6 +72,22 @@ public static class StringExtensions
 
 public static class EnumExtensions
 {
+	public static string AsSprite(this GameData.ItemType enumValue)
+	{
+		switch (enumValue) {
+			case GameData.ItemType.AXE: return "ax";
+			case GameData.ItemType.DAGGER: return "dagger";
+			case GameData.ItemType.HAMMER: return "hammer";
+			case GameData.ItemType.SPEAR: return "spear";
+			case GameData.ItemType.SWORD: return "sword";
+			case GameData.ItemType.SHIELD: return "shield";
+			case GameData.ItemType.HELMET: return "helmet";
+			case GameData.ItemType.CUIRASS: return "kirsa";
+			case GameData.ItemType.PANTS: return "pants";
+			case GameData.ItemType.BOOTS: return "boots";
+			default: return "sword";
+		}
+	}
 }
 
 public static class EnumHelper
