@@ -48,7 +48,8 @@ namespace GameData
 		HELMET,
 		CUIRASS,
 		PANTS,
-		BOOTS
+		BOOTS,
+		POTION_HEAL
 	}
 }
 

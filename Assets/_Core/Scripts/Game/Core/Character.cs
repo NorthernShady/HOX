@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
-
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
     public System.Action<Character> OnDeath;
@@ -72,7 +71,7 @@ public class Character : Photon.PunBehaviour
     {
         m_data = characterData;
         m_totalData = m_data.resolve();
-        m_health = m_data.maxHealth;
+        m_health = m_totalData.maxHealth;
         m_inventory = inventory;
 
         m_inventory.OnItemsChanged += onInventoryUpdated;
@@ -130,6 +129,25 @@ public class Character : Photon.PunBehaviour
 
         var attack = m_services.getService<LogicController>().countDamage(this, target);
         target.takeDamage(this, attack.Item2, attack.Item1);
+    }
+
+    public void useItem(Item item)
+    {
+        if (item.type == GameData.ItemType.POTION_HEAL)
+            heal(item);
+
+        m_inventory.consumeItem(item);
+    }
+
+    public void heal(Item item)
+    {
+        Debug.Log("heal = " + item.data.maxHealth);
+        m_health = Mathf.Min(m_health + item.data.maxHealth, m_totalData.maxHealth);
+
+        if (OnHealthChanged != null)
+            OnHealthChanged(m_health / m_totalData.maxHealth);
+
+        onHealAnimation();
     }
 
     void whenHpZero()
@@ -200,6 +218,10 @@ public class Character : Photon.PunBehaviour
         var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
         var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
         Destroy(attack, 0.5f);
+    }
+
+    protected virtual void onHealAnimation()
+    {
     }
 
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)

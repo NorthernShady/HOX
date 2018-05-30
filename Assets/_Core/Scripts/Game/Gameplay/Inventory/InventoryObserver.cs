@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class InventoryObserver : MonoBehaviour {
 
+	public System.Action<Item> OnItemUsed;
+
 	[SerializeField]
 	Tk2dInventoryVisual m_inventoryVisual = null;
 
-	private Inventory m_inventory = null;
+	private Character m_character = null;
 
-	public Inventory inventory {
-		get {
-			return m_inventory;
-		}
-	}
+	// public Inventory inventory {
+	// 	get {
+	// 		return m_inventory;
+	// 	}
+	// }
 
 	void Awake()
 	{
 		FindObjectOfType<Services>().addService(this);
 	}
 
-	void Disable()
+	void OnEnable()
 	{
-		m_inventory.OnItemsChanged -= onInventoryUpdated;
+		var itemControllers = m_inventoryVisual.getItemControllers();
+
+		foreach (var controller in itemControllers)
+			controller.OnItemUsed += onItemUsed;
+	}
+
+	void OnDisable()
+	{
+		m_character.inventory.OnItemsChanged -= onInventoryUpdated;
+
+		var itemControllers = m_inventoryVisual.getItemControllers();
+
+		foreach (var controller in itemControllers)
+			controller.OnItemUsed += onItemUsed;
 	}
 
 	private void onInventoryUpdated(List<Item> items)
@@ -30,13 +45,20 @@ public class InventoryObserver : MonoBehaviour {
 		m_inventoryVisual.setItems(items);
 	}
 
-	public void initialize(Inventory inventory)
+	public void initialize(Character character)
 	{
-		m_inventory = inventory;
+		m_character = character;
 
-		m_inventory.OnItemsChanged -= onInventoryUpdated;
-		m_inventory.OnItemsChanged += onInventoryUpdated;
+		var inventory = m_character.inventory;
 
-		onInventoryUpdated(m_inventory.items);
+		inventory.OnItemsChanged -= onInventoryUpdated;
+		inventory.OnItemsChanged += onInventoryUpdated;
+
+		onInventoryUpdated(inventory.items);
+	}
+
+	void onItemUsed(Item item)
+	{
+		m_character.useItem(item);
 	}
 }

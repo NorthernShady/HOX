@@ -44,6 +44,12 @@ public class CommonTraits
 		}
 	}
 
+	public bool isConsumable {
+		get {
+			return m_isConsumable;
+		}
+	}
+
 	public float maxHealth {
 		get {
 			return m_traits[(int)TraitsType.MAX_HEALTH];

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tk2dItemObserver : MonoBehaviour {
 
+	public System.Action<bool> OnItemSet;
+
 	[SerializeField]
 	GameObject m_gameObject = null;
 
@@ -21,11 +23,7 @@ public class Tk2dItemObserver : MonoBehaviour {
 		}
 	}
 
-	void Awake()
-	{
-	}
-
-	public void setItem(Item item)
+	virtual public void setItem(Item item)
 	{
 		bool hasItem = item != null && item.type != GameData.ItemType.NONE;
 
@@ -36,5 +34,8 @@ public class Tk2dItemObserver : MonoBehaviour {
 			m_sprite.SetSprite(item.type.AsSprite());
 			m_sprite.color = m_itemData.domaineColor[item.domaineType];
 		}
+
+		if (OnItemSet != null)
+			OnItemSet(hasItem);
 	}
 }

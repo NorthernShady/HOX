@@ -90,7 +90,7 @@ public class Hero : Character, IPunObservable
 
         if (isPlayer) {
             gameObject.AddComponent<Player>();
-            m_services.getService<InventoryObserver>().initialize(m_inventory);
+            m_services.getService<InventoryObserver>().initialize(this);
         }
     }
 

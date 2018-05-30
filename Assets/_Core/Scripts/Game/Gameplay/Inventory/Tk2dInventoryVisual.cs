@@ -23,6 +23,11 @@ public class Tk2dInventoryVisual : MonoBehaviour {
 		return m_itemPlaces.ConvertAll(x => getItem(x));
 	}
 
+	public List<ItemController> getItemControllers()
+	{
+		return m_itemPlaces.ConvertAll(x => x.GetComponentInChildren<ItemController>(true));
+	}
+
 	private void setItem(GameObject itemPlace, Item item)
 	{
 		var itemObserver = itemPlace.GetComponentInChildren<Tk2dItemObserver>(true);

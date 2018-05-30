@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65147505202630872}
   - component: {fileID: 114334531832130644}
   - component: {fileID: 114564298001017148}
+  - component: {fileID: 114916385877556110}
   m_Layer: 5
   m_Name: Tk2dInventoryItem
   m_TagString: Untagged
@@ -278,7 +279,7 @@ MonoBehaviour:
   sendMessageTarget: {fileID: 1750698029386346}
   SendMessageOnDownMethodName: 
   SendMessageOnUpMethodName: 
-  SendMessageOnClickMethodName: 
+  SendMessageOnClickMethodName: onItemUsed
   SendMessageOnReleaseMethodName: 
   isChildOfAnotherUIItem: 0
   registerPressFromChildren: 0
@@ -299,3 +300,15 @@ MonoBehaviour:
   m_gameObject: {fileID: 1356839808195100}
   m_sprite: {fileID: 114221512655395172}
   m_itemData: {fileID: 11400000, guid: 5958cbd349efcc94891e57a55d69a06a, type: 2}
+--- !u!114 &114916385877556110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750698029386346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85341fe399f7c9745b4e82cb627a04eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collider: {fileID: 65147505202630872}

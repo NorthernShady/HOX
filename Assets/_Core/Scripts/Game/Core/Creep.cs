@@ -115,9 +115,9 @@ public class Creep : Character, IPunObservable {
 		var items = new List<Item>();
 
 		var itemType = EnumHelper.Random<GameData.ItemType>();
-		//(GameData.ItemType)Random.Range(1, 11);
 
 		items.Add(new Item(itemType, m_creepData.domaine));
+		items.Add(new Item(GameData.ItemType.POTION_HEAL, m_creepData.domaine));
 		return new Inventory(items);
 	}
 
