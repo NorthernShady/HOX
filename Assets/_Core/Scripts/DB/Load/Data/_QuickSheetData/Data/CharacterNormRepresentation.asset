@@ -15,29 +15,32 @@ MonoBehaviour:
   WorksheetName: CharacterNorm
   dataArray:
   - level: 1
-    exp: 0
-    hp: 10
-    attack: 1
-    defence: 0
-    speed: 5
-    attackspeed: 1
-    criticalchance: 0
-    criticalmodifier: 1
-  - level: 2
     exp: 100
     hp: 10
     attack: 1
     defence: 0
     speed: 5
-    attackspeed: 1
-    criticalchance: 0
+    attackspeed: 0.5
+    criticalchance: 1
     criticalmodifier: 1
-  - level: 3
+    fightexp: 50
+  - level: 2
     exp: 300
     hp: 10
     attack: 1
     defence: 0
     speed: 5
-    attackspeed: 1
-    criticalchance: 0
+    attackspeed: 0.5
+    criticalchance: 1
     criticalmodifier: 1
+    fightexp: 60
+  - level: 3
+    exp: -1
+    hp: 10
+    attack: 1
+    defence: 0
+    speed: 5
+    attackspeed: 0.5
+    criticalchance: 1
+    criticalmodifier: 1
+    fightexp: 70

@@ -81,7 +81,7 @@ public class Hero : Character, IPunObservable
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
 
-        initialize(new CommonTraits(CharacterConfigDBHelper.getHeroConfig(type, 1)), new Inventory());
+        initialize(CommonTraits.create(type, 1), new Inventory());
 
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
@@ -90,7 +90,7 @@ public class Hero : Character, IPunObservable
 
         if (isPlayer) {
             gameObject.AddComponent<Player>();
-            m_services.getService<InventoryObserver>().initialize(m_inventory);
+            m_services.getService<InventoryObserver>().initialize(this);
         }
     }
 
@@ -107,6 +107,9 @@ public class Hero : Character, IPunObservable
 		m_activePhysics.targetObject = gameObject;
         m_activePhysics.OnEnterTrigger += onTriggerEnter;
         m_activePhysics.OnExitTrigger += onTriggerExit;
+
+        if (OnPhysicsInitialized != null)
+            OnPhysicsInitialized(m_activePhysics);
     }
 
     void onTriggerEnter(Collider other, GameObject otherObject)
@@ -126,6 +129,13 @@ public class Hero : Character, IPunObservable
     public override void onTargetKilled(Character target)
     {
         m_services.getService<CanvasController>().openLootPopup(this, target);
+        base.onTargetKilled(target);
+    }
+
+    protected override void onLevelUp()
+    {
+        m_data = CommonTraits.create(type, m_data.level + 1);
+        base.onLevelUp();
     }
 
     protected override void onDeathAnimation()

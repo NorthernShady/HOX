@@ -184,3 +184,20 @@ MonoBehaviour:
     criticalchancepercent: 0
     criticalmodifier: 0
     isconsumable: 0
+  - id: 10
+    name: POTION_HEAL
+    level: 1
+    hp: 10
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 1

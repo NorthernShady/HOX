@@ -46,6 +46,12 @@ public class Inventory {
 		m_items = items;
 	}
 
+	public void consumeItem(Item item)
+	{
+		var itemIndex = m_items.FindIndex(x => x == item);
+		setItem(itemIndex, null);
+	}
+
 	public void setItem(int index, Item item)
 	{
 		m_items[index] = item;
@@ -63,6 +69,7 @@ public class Inventory {
 
 	public void addItems(List<Item> items)
 	{
+		m_items.RemoveAll(x => x == null);
 		m_items.AddRange(items);
 		broadcastUpdate();
 	}

@@ -22,6 +22,7 @@ public class CommonConfig
 	public float CriticalChance { get; set; }
 	public float CriticalChancePercent { get; set; }
 	public float CriticalModifier { get; set; }
+	public float FightExp { get; set; }
 }
 
 public class HeroConfig : CommonConfig {}

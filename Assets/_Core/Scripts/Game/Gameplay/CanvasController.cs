@@ -15,7 +15,8 @@ public class CanvasController : MonoBehaviour {
 	public void openLootPopup(Character hero, Character enemy)
 	{
 		var popup = GameObject.Instantiate(m_lootPopupPrefab, Vector3.zero, Quaternion.identity);
-		popup.transform.SetParent(transform, false);
+		popup.transform.position = new Vector3(0.0f, 0.0f, -5.0f);
+		//popup.transform.SetParent(transform, false);
 
 		popup.initialize(hero, enemy);
 	}

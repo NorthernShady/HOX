@@ -6,13 +6,13 @@ using System.Linq;
 public class LootPopup : BasePopup {
 
 	[SerializeField]
-	InventoryVisual m_inventory = null;
+	Tk2dInventoryVisual m_inventory = null;
 
 	[SerializeField]
-	InventoryVisual m_enemyDrop = null;
+	Tk2dInventoryVisual m_enemyDrop = null;
 
 	[SerializeField]
-	GameObject m_takeAllButton = null;
+	ButtonController m_takeAllButton = null;
 
 	private Inventory m_heroInventory;
 
@@ -27,13 +27,14 @@ public class LootPopup : BasePopup {
 		m_enemyDrop.setItems(m_enemyInventory.items);
 
 		bool enableTakeAllButton = m_heroInventory.freeSpace >= m_enemyInventory.items.Count;
-		m_takeAllButton.GetComponent<UnityEngine.UI.Button>().enabled = enableTakeAllButton;
-		m_takeAllButton.GetComponent<UnityEngine.UI.Image>().color = enableTakeAllButton ? Color.white : new Color(0.3f, 0.3f, 0.3f, 1.0f);
+		m_takeAllButton.isEnabled = enableTakeAllButton;
+		// m_takeAllButton.GetComponent<UnityEngine.UI.Button>().enabled = enableTakeAllButton;
+		// m_takeAllButton.GetComponent<UnityEngine.UI.Image>().color = enableTakeAllButton ? Color.white : new Color(0.3f, 0.3f, 0.3f, 1.0f);
 	}
 
 	public override void onClose()
 	{
-		m_heroInventory.setItems(m_inventory.GetComponentsInChildren<ItemObserver>(true).ToList().ConvertAll(x => x.item));
+		m_heroInventory.setItems(m_inventory.GetComponentsInChildren<Tk2dItemObserver>(true).ToList().ConvertAll(x => x.item));
 		base.onClose();
 	}
 

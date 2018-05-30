@@ -5,8 +5,9 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
-
+    public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
+    public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
     public System.Action<Character> OnDeath;
 
     public virtual GameData.CharacterType getType()
@@ -43,8 +44,14 @@ public class Character : Photon.PunBehaviour
     }
 
     protected CommonTraits m_totalData = null;
+    public CommonTraits totalData {
+        get {
+            return m_totalData;
+        }
+    }
 
     float m_health = 0.0f;
+    float m_exp = 0.0f;
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
@@ -70,11 +77,11 @@ public class Character : Photon.PunBehaviour
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
         m_data = characterData;
-        m_totalData = m_data;
-        m_health = m_data.maxHealth;
         m_inventory = inventory;
-
         m_inventory.OnItemsChanged += onInventoryUpdated;
+
+        updateParameters();
+        m_health = m_totalData.maxHealth;
     }
 
     public virtual void moveTo(Vector3 position)
@@ -115,7 +122,7 @@ public class Character : Photon.PunBehaviour
 
     bool updateAttackTime()
     {
-        if (m_attackTimer > m_data.attackSpeed)
+        if (m_attackTimer > 1.0f / m_totalData.attackSpeed)
             return true;
 
         m_attackTimer += Time.deltaTime;
@@ -127,8 +134,46 @@ public class Character : Photon.PunBehaviour
         m_attackTimer = 0.0f;
         onAttackAnimation();
 
-        var damage = m_services.getService<LogicController>().countDamage(this, target);
-        target.takeDamage(this, damage);
+        var attack = m_services.getService<LogicController>().countDamage(this, target);
+        target.takeDamage(this, attack.Item2, attack.Item1);
+    }
+
+    public void useItem(Item item)
+    {
+        if (item.type == GameData.ItemType.POTION_HEAL)
+            heal(item);
+
+        m_inventory.consumeItem(item);
+    }
+
+    public void heal(Item item)
+    {
+        Debug.Log("heal = " + item.data.maxHealth);
+        m_health = Mathf.Min(m_health + item.data.maxHealth, m_totalData.maxHealth);
+
+        if (OnHealthChanged != null)
+            OnHealthChanged(m_health / m_totalData.maxHealth);
+
+        onHealAnimation();
+    }
+
+    public void exping(Character target)
+    {
+        if (m_totalData.exp < 0)
+            return;
+
+        m_exp += target.totalData.fightExp;
+
+        Debug.Log("Exp: " + m_exp);
+
+        if (m_exp > m_totalData.exp) {
+            m_exp -= m_totalData.exp;
+            onLevelUp();
+            onLevelUpAnimation();
+        }
+
+        if (OnExpChanged != null)
+            OnExpChanged(m_data.level, m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp);
     }
 
     void whenHpZero()
@@ -150,9 +195,9 @@ public class Character : Photon.PunBehaviour
         m_rigidbody.MoveRotation(Quaternion.LookRotation(m_rigidbody.position - position));
     }
 
-    public bool takeDamage(Character target, float amount)
+    public bool takeDamage(Character target, float amount, bool isCritical)
     {
-        Debug.Log(string.Format("{0} took {1} damage", getType(), amount));
+        Debug.Log(string.Format("{0} took {1} damage, is critical = {2}", getType(), amount, isCritical));
         m_health = Mathf.Max(0.0f, m_health - amount);
 
         if (OnHealthChanged != null)
@@ -180,7 +225,13 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onInventoryUpdated(List<Item> items)
     {
-        m_totalData = m_data + m_services.getService<LogicController>().countInventory(this);
+        updateParameters();
+    }
+
+    protected virtual void updateParameters()
+    {
+        var data = m_data + m_services.getService<LogicController>().countInventory(this);
+        m_totalData = data.resolve();
     }
 
     IEnumerator destroyIn(float time)
@@ -191,7 +242,16 @@ public class Character : Photon.PunBehaviour
 
     public virtual void onTargetKilled(Character target)
     {
+        exping(target);
     }
+
+    protected virtual void onLevelUp()
+    {
+        updateParameters();
+        Debug.Log("Level up");
+    }
+
+    #region Action animations
 
     protected virtual void onAttackAnimation()
     {
@@ -199,6 +259,16 @@ public class Character : Photon.PunBehaviour
         var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
         Destroy(attack, 0.5f);
     }
+
+    protected virtual void onHealAnimation()
+    {
+    }
+
+    protected virtual void onLevelUpAnimation()
+    {
+    }
+
+    #endregion
 
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
     {
