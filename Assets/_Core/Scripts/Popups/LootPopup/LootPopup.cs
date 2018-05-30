@@ -34,7 +34,7 @@ public class LootPopup : BasePopup {
 
 	public override void onClose()
 	{
-		m_heroInventory.setItems(m_inventory.GetComponentsInChildren<ItemObserver>(true).ToList().ConvertAll(x => x.item));
+		m_heroInventory.setItems(m_inventory.GetComponentsInChildren<Tk2dItemObserver>(true).ToList().ConvertAll(x => x.item));
 		base.onClose();
 	}
 
