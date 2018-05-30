@@ -129,6 +129,13 @@ public class Hero : Character, IPunObservable
     public override void onTargetKilled(Character target)
     {
         m_services.getService<CanvasController>().openLootPopup(this, target);
+        base.onTargetKilled(target);
+    }
+
+    protected override void onLevelUp()
+    {
+        m_data = CommonTraits.create(type, m_data.level + 1);
+        base.onLevelUp();
     }
 
     protected override void onDeathAnimation()

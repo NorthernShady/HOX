@@ -15,4 +15,5 @@ public class CharacterNorm
 	public float AttackSpeed { get; set; }
 	public float CriticalChance { get; set; }
 	public float CriticalModifier { get; set; }
+	public float FightExp { get; set; }
 }

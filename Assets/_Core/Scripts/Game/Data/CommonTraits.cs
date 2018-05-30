@@ -17,12 +17,14 @@ public enum TraitsType
 	CRITICAL_CHANCE,
 	CRITICAL_CHANCE_PERCENT,
 	CRITICAL_MODIFIER,
+	FIGHT_EXP,
 	TRAITS_COUNT
 }
 
 [System.Serializable]
 public class CommonTraits
 {
+	int m_level = 1;
 	int m_exp = 0;
 	bool m_isConsumable = false;
 
@@ -35,6 +37,12 @@ public class CommonTraits
 		}
 		set {
 			m_traits[(int)type] = value;
+		}
+	}
+
+	public int level {
+		get {
+			return m_level;
 		}
 	}
 
@@ -92,6 +100,12 @@ public class CommonTraits
 		}
 	}
 
+	public float fightExp {
+		get {
+			return m_traits[(int)TraitsType.FIGHT_EXP];
+		}
+	}
+
 	public static CommonTraits create(GameData.HeroType type, int level)
 	{
 		return new CommonTraits(CharacterConfigDBHelper.getCharacterNorm(level),
@@ -109,23 +123,26 @@ public class CommonTraits
 		return new CommonTraits(CharacterConfigDBHelper.getItemConfig(type));
 	}
 
-	public CommonTraits() {}
+	public CommonTraits(int level = 0, int exp = 0)
+	{
+		m_level = level;
+		m_exp = exp;
+	}
 
 	public CommonTraits(CommonConfig config)
 	{
-		m_exp = 0;
 		fillCommonConfig(config);
 	}
 
 	public CommonTraits(ItemConfig config)
 	{
-		m_exp = 0;
 		m_isConsumable = config.IsConsumable;
 		fillCommonConfig(config);
 	}
 
 	public CommonTraits(CharacterNorm norm, CommonConfig config)
 	{
+		m_level = norm.Level;
 		m_exp = norm.Exp;
 		fillCommonConfig(config);
 		
@@ -136,11 +153,12 @@ public class CommonTraits
 		m_traits[(int)TraitsType.MOVE_SPEED] += norm.Speed;
 		m_traits[(int)TraitsType.CRITICAL_CHANCE] += norm.CriticalChance;
 		m_traits[(int)TraitsType.CRITICAL_MODIFIER] += norm.CriticalModifier;
+		m_traits[(int)TraitsType.FIGHT_EXP] += norm.FightExp;
 	}
 
 	public CommonTraits resolve()
 	{
-		var result = new CommonTraits();
+		var result = new CommonTraits(m_level, m_exp);
 
 		for (var i = 0; i < result.m_traits.Length; ++i)
 			result.m_traits[i] = m_traits[i];
@@ -157,6 +175,7 @@ public class CommonTraits
 
 	private void fillCommonConfig(CommonConfig config)
 	{
+		m_level = config.Level;
 		m_traits[(int)TraitsType.MAX_HEALTH] = config.HP;
 		m_traits[(int)TraitsType.MAX_HEALTH_PERCENT] = config.HpPercent;
 		m_traits[(int)TraitsType.ATTACK] = config.Attack;
@@ -170,11 +189,12 @@ public class CommonTraits
 		m_traits[(int)TraitsType.CRITICAL_CHANCE] = config.CriticalChance;
 		m_traits[(int)TraitsType.CRITICAL_CHANCE_PERCENT] = config.CriticalChancePercent;
 		m_traits[(int)TraitsType.CRITICAL_MODIFIER] = config.CriticalModifier;
+		m_traits[(int)TraitsType.FIGHT_EXP] = config.FightExp;
 	}
 
 	public static CommonTraits operator +(CommonTraits a, CommonTraits b)
 	{
-		var result = new CommonTraits();
+		var result = new CommonTraits(a.level, a.exp);
 
 		for (var i = 0; i < result.m_traits.Length; ++i)
 			result.m_traits[i] = a.m_traits[i] + b.m_traits[i];
@@ -184,7 +204,7 @@ public class CommonTraits
 
 	public static CommonTraits operator *(CommonTraits a, CommonTraits b)
 	{
-		var result = new CommonTraits();
+		var result = new CommonTraits(a.level, a.exp);
 
 		for (var i = 0; i < result.m_traits.Length; ++i)
 			result.m_traits[i] = a.m_traits[i] * b.m_traits[i];

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
+    public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
     public System.Action<Character> OnDeath;
@@ -43,8 +44,14 @@ public class Character : Photon.PunBehaviour
     }
 
     protected CommonTraits m_totalData = null;
+    public CommonTraits totalData {
+        get {
+            return m_totalData;
+        }
+    }
 
     float m_health = 0.0f;
+    float m_exp = 0.0f;
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
@@ -70,11 +77,11 @@ public class Character : Photon.PunBehaviour
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
         m_data = characterData;
-        m_totalData = m_data.resolve();
-        m_health = m_totalData.maxHealth;
         m_inventory = inventory;
-
         m_inventory.OnItemsChanged += onInventoryUpdated;
+
+        updateParameters();
+        m_health = m_totalData.maxHealth;
     }
 
     public virtual void moveTo(Vector3 position)
@@ -150,6 +157,25 @@ public class Character : Photon.PunBehaviour
         onHealAnimation();
     }
 
+    public void exping(Character target)
+    {
+        if (m_totalData.exp < 0)
+            return;
+
+        m_exp += target.totalData.fightExp;
+
+        Debug.Log("Exp: " + m_exp);
+
+        if (m_exp > m_totalData.exp) {
+            m_exp -= m_totalData.exp;
+            onLevelUp();
+            onLevelUpAnimation();
+        }
+
+        if (OnExpChanged != null)
+            OnExpChanged(m_data.level, m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp);
+    }
+
     void whenHpZero()
     {
         if (m_isDead)
@@ -199,6 +225,11 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onInventoryUpdated(List<Item> items)
     {
+        updateParameters();
+    }
+
+    protected virtual void updateParameters()
+    {
         var data = m_data + m_services.getService<LogicController>().countInventory(this);
         m_totalData = data.resolve();
     }
@@ -211,7 +242,16 @@ public class Character : Photon.PunBehaviour
 
     public virtual void onTargetKilled(Character target)
     {
+        exping(target);
     }
+
+    protected virtual void onLevelUp()
+    {
+        updateParameters();
+        Debug.Log("Level up");
+    }
+
+    #region Action animations
 
     protected virtual void onAttackAnimation()
     {
@@ -223,6 +263,12 @@ public class Character : Photon.PunBehaviour
     protected virtual void onHealAnimation()
     {
     }
+
+    protected virtual void onLevelUpAnimation()
+    {
+    }
+
+    #endregion
 
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
     {

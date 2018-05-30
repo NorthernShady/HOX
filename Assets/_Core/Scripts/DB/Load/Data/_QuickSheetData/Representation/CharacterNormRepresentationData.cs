@@ -44,4 +44,8 @@ public class CharacterNormRepresentationData
   float criticalmodifier;
   public float Criticalmodifier { get {return criticalmodifier; } set { criticalmodifier = value;} }
   
+  [SerializeField]
+  float fightexp;
+  public float Fightexp { get {return fightexp; } set { fightexp = value;} }
+  
 }

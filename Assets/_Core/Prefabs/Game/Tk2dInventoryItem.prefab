@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 4531060619564258}
   - component: {fileID: 114393000964100018}
   - component: {fileID: 65147505202630872}
-  - component: {fileID: 114334531832130644}
   - component: {fileID: 114564298001017148}
   - component: {fileID: 114916385877556110}
   m_Layer: 5
@@ -252,19 +251,6 @@ MonoBehaviour:
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
---- !u!114 &114334531832130644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1750698029386346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07e2813ed19c7346827e964f086f873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiItem: {fileID: 114393000964100018}
-  uiManager: {fileID: 0}
 --- !u!114 &114393000964100018
 MonoBehaviour:
   m_ObjectHideFlags: 1

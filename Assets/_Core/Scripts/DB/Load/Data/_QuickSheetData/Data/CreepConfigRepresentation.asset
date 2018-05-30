@@ -30,6 +30,7 @@ MonoBehaviour:
     criticalchance: 0
     criticalchancepercent: 0
     criticalmodifier: 0
+    fightexp: 0
   - id: 1
     name: PEASANT
     level: 1
@@ -46,6 +47,7 @@ MonoBehaviour:
     criticalchance: 0
     criticalchancepercent: 0
     criticalmodifier: 0
+    fightexp: 0
   - id: 2
     name: SPIDER
     level: 1
@@ -62,6 +64,7 @@ MonoBehaviour:
     criticalchance: 0
     criticalchancepercent: 0
     criticalmodifier: 0
+    fightexp: 0
   - id: 3
     name: DRAGON
     level: 1
@@ -78,3 +81,4 @@ MonoBehaviour:
     criticalchance: 0
     criticalchancepercent: 0
     criticalmodifier: 0
+    fightexp: 0

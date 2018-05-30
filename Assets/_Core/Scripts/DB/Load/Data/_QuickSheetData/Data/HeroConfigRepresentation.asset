@@ -30,6 +30,7 @@ MonoBehaviour:
     criticalchance: 0.1
     criticalchancepercent: 0
     criticalmodifier: 0.1
+    fightexp: 0
   - id: 1
     name: ROGUE
     level: 1
@@ -46,6 +47,7 @@ MonoBehaviour:
     criticalchance: 0.1
     criticalchancepercent: 0
     criticalmodifier: 0.1
+    fightexp: 0
   - id: 2
     name: MAGE
     level: 1
@@ -62,3 +64,4 @@ MonoBehaviour:
     criticalchance: 0.1
     criticalchancepercent: 0
     criticalmodifier: 0.1
+    fightexp: 0
