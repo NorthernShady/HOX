@@ -25,6 +25,7 @@ namespace k
 		public const string CREEP = "Creep";
 		public const string DATA_ASSETS_HOLDER = "DataAssetsHolder";
 		public const string HERO = "Hero";
+		public const string ITEM_DATA = "ItemData";
 		public const string MAP_DATA = "MapData/MapData";
 		public const string CREEP_OLD = "Prefabs/CreepOld";
 		public const string FXRECIVE_DAMAGE = "VisualEffects/FXReciveDamage";
