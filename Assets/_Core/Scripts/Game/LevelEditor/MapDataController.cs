@@ -65,7 +65,10 @@ public class MapDataController : MonoBehaviour {
 
 		m_dataProxy = FindObjectOfType<GameDataProxy>();
 
-		StartCoroutine(loadCharCoroutine(mapData, map.gameObject));
+		if (!Application.isPlaying)
+			loadCharactersEditor(mapData, map.gameObject);
+		else
+			StartCoroutine(loadCharCoroutine(mapData, map.gameObject));
 	}
 
 	void clear()
@@ -102,6 +105,24 @@ public class MapDataController : MonoBehaviour {
 				creep.GetComponent<Creep>().initialize(creepData);
 				creep.transform.SetParent(map.transform, true);
 			}
+		}
+	}
+
+	void loadCharactersEditor(MapData mapData, GameObject map)
+	{
+		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
+			foreach (var startPosition in mapData.heroesStartData[team].positions) {
+				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
+				var heroType = getRandomHeroType();
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, true);
+				hero.transform.SetParent(map.transform, true);
+			}
+		}
+
+		foreach (var creepData in mapData.mapCreepData) {
+			var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
+			creep.GetComponent<Creep>().initialize(creepData);
+			creep.transform.SetParent(map.transform, true);
 		}
 	}
 

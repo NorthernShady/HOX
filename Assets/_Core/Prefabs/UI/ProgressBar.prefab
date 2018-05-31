@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4305486841796602}
   - component: {fileID: 114157538144582380}
   - component: {fileID: 114043165580016852}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23850201705623272}
   - component: {fileID: 33893955712738754}
   - component: {fileID: 114553836728649384}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33015450976222718}
   - component: {fileID: 114532550946497096}
   - component: {fileID: 114001529226535464}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 18
+  _spriteId: 20
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -218,7 +218,7 @@ MonoBehaviour:
   _anchor: 3
   _borderOnly: 0
   legacyMode: 0
-  borderTop: 0.85882354
+  borderTop: 0.8588235
   borderBottom: 0.28058824
   borderLeft: 0.3529412
   borderRight: 0.3529412
@@ -319,7 +319,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 2
+  _spriteId: 20
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
