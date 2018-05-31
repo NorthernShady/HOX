@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ReturnToPlayer : MonoBehaviour {
 
-	CameraController m_cameraController = null;
+	List<CameraController> m_cameraControllers = null;
 
 	void Awake()
 	{
-		m_cameraController = FindObjectOfType<CameraController>();
+		m_cameraControllers = FindObjectsOfType<CameraController>().ToList();
 	}
 
 	public void onClick()
 	{
-		m_cameraController.setCameraType(CameraController.CameraType.FOLLOWING);
+		m_cameraControllers.ForEach(x => x.setCameraType(CameraController.CameraType.FOLLOWING));
 	}
 }
