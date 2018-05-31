@@ -28,7 +28,8 @@ public class CommonTraits
     protected int m_exp = 0;
     protected bool m_isConsumable = false;
 
-    protected float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
+    public float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
+
 
 	public float this[TraitsType type]
 	{
