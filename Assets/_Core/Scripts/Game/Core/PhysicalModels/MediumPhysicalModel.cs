@@ -6,6 +6,6 @@ public class MediumPhysicalModel : BasicPhysicalModel {
 
 	public override Vector3 getHealthPosition()
 	{
-		return new Vector3(0.0f, 6.0f, -0.2f);
+		return new Vector3(-1.1f, 4.5f, 0.0f);
 	}
 }

@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651647139304242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000059604645, y: -0.013240874, z: 0.000001527369}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4305486841796602}
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312171451835100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.562, z: -0.1}
+  m_LocalPosition: {x: 0.32, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4279260460836264}
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443420849042994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.026162207, z: -0.09999695}
+  m_LocalPosition: {x: 0, y: 0, z: -0.09999695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4305486841796602}
@@ -205,7 +205,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 20
+  _spriteId: 19
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -218,7 +218,7 @@ MonoBehaviour:
   _anchor: 3
   _borderOnly: 0
   legacyMode: 0
-  borderTop: 0.8588235
+  borderTop: 0.8588236
   borderBottom: 0.28058824
   borderLeft: 0.3529412
   borderRight: 0.3529412
@@ -280,7 +280,7 @@ MonoBehaviour:
   scalableBar: {fileID: 0}
   clippedSpriteBar: {fileID: 0}
   slicedSpriteBar: {fileID: 114553836728649384}
-  percent: 0.5
+  percent: 0
   sendMessageTarget: {fileID: 0}
   SendMessageOnProgressCompleteMethodName: 
 --- !u!114 &114532550946497096
