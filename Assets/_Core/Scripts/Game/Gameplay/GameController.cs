@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
 	public void onPlayerDeath(Character character)
 	{
 		character.OnDeath -= onPlayerDeath;
-		GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
+		//GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
 		FindObjectOfType<GameInputController>().allowGameTouches = false;
 	}
 }
