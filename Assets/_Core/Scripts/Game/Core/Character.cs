@@ -315,6 +315,10 @@ public class Character : Photon.PunBehaviour
         var dataString = (string)stream.ReceiveNext();
         if (dataString != "") {
             m_data = JsonUtility.FromJson<CommonTraits>(dataString);
+            if (m_data.m_traits == null) {
+                Debug.Log("MyDebug: null m_traits");
+                
+            }
         }
         var itemsCount = (int)stream.ReceiveNext();
         var items = new List<Item>();
