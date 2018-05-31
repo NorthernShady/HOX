@@ -144,6 +144,11 @@ public class Creep : Character, IPunObservable {
 		}
 	}
 
+    public override void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        base.photonInit();
+    }
+
 	#endregion
 }
 

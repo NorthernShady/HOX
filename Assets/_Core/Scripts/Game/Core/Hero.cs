@@ -164,14 +164,12 @@ public class Hero : Character, IPunObservable
 
     public override void OnPhotonInstantiate(PhotonMessageInfo info)
     {
+        base.photonInit();
         if (photonView.isMine)
         {
             gameObject.AddComponent<Player>();
         }
-        else
-        {
-            //initialize (new Vector2 (0, 0), 0);
-        }
+
     }
 
     #endregion

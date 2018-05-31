@@ -82,8 +82,6 @@ public class Character : Photon.PunBehaviour
 
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
-        var map = FindObjectOfType<BasicGrid>();
-        gameObject.transform.SetParent(map.gameObject.transform, false);
         m_data = characterData;
         m_inventory = inventory;
         m_inventory.OnItemsChanged += onInventoryUpdated;
@@ -306,6 +304,12 @@ public class Character : Photon.PunBehaviour
                 OnHealthChanged(m_health / m_data.maxHealth);
             }
         }
+    }
+
+    protected void photonInit()
+    {
+        var map = FindObjectOfType<BasicGrid>();
+        gameObject.transform.SetParent(map.gameObject.transform);
     }
 }
 
