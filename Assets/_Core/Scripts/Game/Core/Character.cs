@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
+    [SerializeField]
+    GameObject m_mainVisual;
+
     public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
@@ -100,19 +103,19 @@ public class Character : Photon.PunBehaviour
         if (!PhotonHelper.isMine(this))
             return;
 
-		m_rigidbody.DOKill();
+        m_rigidbody.DOKill();
         position.y = m_rigidbody.position.y;
         turnTo(position);
 
-		var direction = position - m_rigidbody.position;
-		var distance = direction.magnitude;
-		RaycastHit raycastHit;
-		if (Physics.Raycast(MathHelper.yShift(m_rigidbody.position, 1.2f), MathHelper.yShift(position - m_rigidbody.position, 1.2f), out raycastHit, (position - m_rigidbody.position).magnitude)) {
-			position = (raycastHit.distance > 0.5f) ? (raycastHit.distance - 0.5f) * (direction / distance) + m_rigidbody.position :
-				m_rigidbody.position;
-		}
+        var direction = position - m_rigidbody.position;
+        var distance = direction.magnitude;
+        RaycastHit raycastHit;
+        if (Physics.Raycast(MathHelper.yShift(m_rigidbody.position, 1.2f), MathHelper.yShift(position - m_rigidbody.position, 1.2f), out raycastHit, (position - m_rigidbody.position).magnitude)) {
+            position = (raycastHit.distance > 0.5f) ? (raycastHit.distance - 0.5f) * (direction / distance) + m_rigidbody.position :
+                m_rigidbody.position;
+        }
 
-		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
+        GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
     }
 
     void Update()
@@ -123,8 +126,7 @@ public class Character : Photon.PunBehaviour
 
         var canAttack = updateAttackTime();
 
-        if (canAttack && m_attackTarget != null && !m_isDead)
-        {
+        if (canAttack && m_attackTarget != null && !m_isDead) {
             turnTo(m_attackTarget.rigidbody.position);
             attack(m_attackTarget);
             m_shouldSendAttack = true;
@@ -195,7 +197,7 @@ public class Character : Photon.PunBehaviour
 
         if (domainePart == null)
             return;
-            
+
         var meshRenderer = domainePart.GetComponent<MeshRenderer>();
         meshRenderer.material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
     }
@@ -206,8 +208,7 @@ public class Character : Photon.PunBehaviour
             return;
 
         m_isDead = true;
-        if (OnDeath != null)
-        {
+        if (OnDeath != null) {
             OnDeath(this);
         }
         onDeathAction();
@@ -227,8 +228,7 @@ public class Character : Photon.PunBehaviour
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        if (m_health <= 0.01f && PhotonHelper.isMine(this))
-        {
+        if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
             whenHpZero();
             m_shouldDestroy = true;
             return true;
@@ -243,8 +243,18 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onDeathAnimation()
     {
-        PhotonHelper.Destroy(gameObject);
+        //PhotonHelper.Destroy(gameObject);
         // StartCoroutine(destroyIn(0.5f));
+        disableVisualAndLogic();
+        if (!PhotonHelper.isConnected()) {
+            PhotonHelper.Destroy(gameObject);
+        }
+    }
+
+    protected virtual void disableVisualAndLogic()
+    {
+        m_rigidbody.detectCollisions = false;
+        m_mainVisual.SetActive(false);
     }
 
     protected virtual void onInventoryUpdated(List<Item> items)
@@ -332,7 +342,7 @@ public class Character : Photon.PunBehaviour
 
         if (m_inventory != null) {
             m_inventory.resetItems();
-            foreach(var item in items) {
+            foreach (var item in items) {
                 m_inventory.addItem(item);
             }
         }
@@ -340,36 +350,36 @@ public class Character : Photon.PunBehaviour
 
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting)
-        {
+        if (stream.isWriting) {
             stream.SendNext(m_shouldSendAttack);
             stream.SendNext(m_shouldDestroy);
             stream.SendNext(m_health);
             traitsSerialization(stream);
 
+            StartCoroutine(timerCallback(0.5f, delegate {
+                PhotonHelper.Destroy(gameObject);
+            }));
+
             m_shouldSendAttack = false;
             m_shouldDestroy = false;
         }
-        if (stream.isReading)
-        {
+        if (stream.isReading) {
             bool shouldAttack = (bool)stream.ReceiveNext();
             bool shouldDestroy = (bool)stream.ReceiveNext();
             m_health = (float)stream.ReceiveNext();
             traitsDeserialization(stream);
 
-            if (shouldAttack && m_attackTarget != null && !m_isDead)
-            {
+            if (shouldAttack && m_attackTarget != null && !m_isDead) {
                 attack(m_attackTarget);
             }
 
-            if (shouldDestroy)
-            {
+            if (shouldDestroy) {
+                Debug.Log("Object destroyed");
                 whenHpZero();
             }
-            m_shouldDestroy = false;
+            shouldDestroy = false;
 
-            if (m_data != null)
-            {
+            if (m_data != null) {
                 OnHealthChanged(m_health / m_data.maxHealth);
             }
         }
@@ -380,5 +390,12 @@ public class Character : Photon.PunBehaviour
         var map = FindObjectOfType<BasicGrid>();
         gameObject.transform.SetParent(map.gameObject.transform);
     }
+
+    IEnumerator timerCallback(float time, System.Action callback)
+    {
+        yield return new WaitForSeconds(time);
+        callback();
+    }
+
 }
 

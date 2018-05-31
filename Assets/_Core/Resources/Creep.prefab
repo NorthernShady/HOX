@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b136efb2f7cf46a6b4ed0ac85d059b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_mainVisual: {fileID: 1832103970409594}
   m_creepPhysics:
     keys: 0000000001000000020000000300000004000000
     values:
