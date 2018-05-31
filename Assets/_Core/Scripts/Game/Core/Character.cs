@@ -292,27 +292,44 @@ public class Character : Photon.PunBehaviour
 
     void traitsSerialization(PhotonStream stream)
     {
-        var dataString = JsonUtility.ToJson(m_data);
-        stream.SendNext(dataString);
-        var items = m_inventory.items;
-        stream.SendNext(items.Count);
-        foreach (var item in items) {
-            var itemString = JsonUtility.ToJson(m_data);
-            stream.SendNext(itemString);
+        var dataString = "";
+        if (m_data != null) {
+            dataString = JsonUtility.ToJson(m_data);
         }
+        stream.SendNext(dataString);
+        if (m_inventory != null) {
+            var items = m_inventory.items;
+            stream.SendNext(items.Count);
+            foreach (var item in items) {
+                var itemString = JsonUtility.ToJson(m_data);
+                stream.SendNext(itemString);
+            }
+        } else {
+            stream.SendNext(0);
+        }
+
     }
 
     void traitsDeserialization(PhotonStream stream)
     {
         var dataString = (string)stream.ReceiveNext();
-        m_data = JsonUtility.FromJson<CommonTraits>(dataString);
+        if (dataString != "") {
+            m_data = JsonUtility.FromJson<CommonTraits>(dataString);
+        }
         var itemsCount = (int)stream.ReceiveNext();
-        m_inventory.resetItems();
+        var items = new List<Item>();
+
         for (int i = 0; i < itemsCount; i++) {
             var itemString = (string)stream.ReceiveNext();
             var item = JsonUtility.FromJson<Item>(itemString);
-            m_inventory.addItem(item);
+            items.Add(item);
+        }
 
+        if (m_inventory != null) {
+            m_inventory.resetItems();
+            foreach(var item in items) {
+                m_inventory.addItem(item);
+            }
         }
     }
 
