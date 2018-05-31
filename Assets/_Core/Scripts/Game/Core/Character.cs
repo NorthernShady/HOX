@@ -356,9 +356,12 @@ public class Character : Photon.PunBehaviour
             stream.SendNext(m_health);
             traitsSerialization(stream);
 
-            StartCoroutine(timerCallback(0.5f, delegate {
-                PhotonHelper.Destroy(gameObject);
-            }));
+            if (m_shouldDestroy) {
+                StartCoroutine(timerCallback(0.5f, delegate {
+                    PhotonHelper.Destroy(gameObject);
+                }));
+            }
+           
 
             m_shouldSendAttack = false;
             m_shouldDestroy = false;
