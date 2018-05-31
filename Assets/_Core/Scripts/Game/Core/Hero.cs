@@ -24,6 +24,8 @@ public class Hero : Character, IPunObservable
     [SerializeField]
     int m_team = 0;
 
+    bool m_isInit = false;
+
     public override GameData.CharacterType getType()
     {
         return GameData.CharacterType.HERO;
@@ -159,6 +161,10 @@ public class Hero : Character, IPunObservable
         {
             m_team = (int)stream.ReceiveNext();
             type = (GameData.HeroType)stream.ReceiveNext();
+            if (!m_isInit) {
+                initialize(Vector3.zero, m_team, type, false);
+                m_isInit = true;
+            }
         }
     }
 
