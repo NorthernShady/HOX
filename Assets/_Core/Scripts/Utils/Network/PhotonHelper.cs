@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PhotonHelper {
-
+    
 	public static T Instantiate<T>(T prefab, Vector3 position, Quaternion rotation, byte group = 0) where T:Object
 	{
-		var newPrefab = (PhotonNetwork.inRoom) ?
+        return (PhotonNetwork.inRoom) ?
             (Object)PhotonNetwork.Instantiate(prefab.name, position, rotation, group) as T :
-            GameObject.Instantiate(prefab, position, rotation);
-        return (T) newPrefab;
+                                 GameObject.Instantiate(prefab, position, rotation);
 			
 	}
+
+    public static GameObject InstantiateNew(string prefabName, Vector3 position, Quaternion rotation, byte group = 0)
+    {
+        return PhotonNetwork.Instantiate(prefabName, position, rotation, group);
+
+    }
 
 	public static void Destroy(GameObject targetObject)
 	{
@@ -36,3 +41,4 @@ public class PhotonHelper {
 		return PhotonNetwork.inRoom;
 	}
 }
+m
