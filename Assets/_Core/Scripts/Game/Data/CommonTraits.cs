@@ -61,7 +61,7 @@ public class CommonTraits
 
 	public float maxHealth {
 		get {
-			return m_traits[(int)TraitsType.MAX_HEALTH];
+            return m_traits != null ? m_traits[(int)TraitsType.MAX_HEALTH] : -1;
 		}
 	}
 

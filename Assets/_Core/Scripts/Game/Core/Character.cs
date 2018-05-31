@@ -363,7 +363,7 @@ public class Character : Photon.PunBehaviour
             traitsSerialization(stream);
 
             if (m_shouldDestroy) {
-                StartCoroutine(timerCallback(0.5f, delegate {
+                StartCoroutine(timerCallback(1.5f, delegate {
                     PhotonHelper.Destroy(gameObject);
                 }));
             }
@@ -383,7 +383,6 @@ public class Character : Photon.PunBehaviour
             }
 
             if (shouldDestroy) {
-                Debug.Log("Object destroyed");
                 whenHpZero();
             }
             shouldDestroy = false;
