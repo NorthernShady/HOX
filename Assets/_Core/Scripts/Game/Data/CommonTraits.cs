@@ -208,7 +208,7 @@ public class CommonTraits
 
 		for (var i = 0; i < result.m_traits.Length; ++i)
 			result.m_traits[i] = a.m_traits[i] * b.m_traits[i];
-
+        
 		return result;
 	}
 }

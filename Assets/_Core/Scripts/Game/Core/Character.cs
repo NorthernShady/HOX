@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Runtime.Serialization.Formatters.Binary
+using System.IO;
+using Newtonsoft.Json;
 
 public class Character : Photon.PunBehaviour
 {
@@ -290,6 +293,32 @@ public class Character : Photon.PunBehaviour
 
     #endregion
 
+    void traitsSerialization(PhotonStream stream)
+    {
+        var dataString = JsonConvert.SerializeObject(m_data);
+        stream.SendNext(dataString);
+        var items = m_inventory.items;
+        stream.SendNext(items.Count);
+        foreach (var item in items) {
+            var itemString = JsonConvert.SerializeObject(m_data);
+            stream.SendNext(itemString);
+        }
+    }
+
+    void traitsDeserialization(PhotonStream stream)
+    {
+        var dataString = (string)stream.ReceiveNext();
+        m_data = JsonConvert.DeserializeObject<CommonTraits>(dataString);
+        var itemsCount = (int)stream.ReceiveNext();
+        m_inventory.resetItems();
+        for (int i = 0; i < itemsCount; i++) {
+            var itemString = (string)stream.ReceiveNext();
+            var item = JsonConvert.DeserializeObject<Item>(itemString);
+            m_inventory.addItem(item);
+
+        }
+    }
+
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
@@ -297,6 +326,8 @@ public class Character : Photon.PunBehaviour
             stream.SendNext(m_shouldSendAttack);
             stream.SendNext(m_shouldDestroy);
             stream.SendNext(m_health);
+            traitsSerialization(stream);
+
             m_shouldSendAttack = false;
             m_shouldDestroy = false;
         }
@@ -305,6 +336,7 @@ public class Character : Photon.PunBehaviour
             bool shouldAttack = (bool)stream.ReceiveNext();
             bool shouldDestroy = (bool)stream.ReceiveNext();
             m_health = (float)stream.ReceiveNext();
+            traitsDeserialization(stream);
 
             if (shouldAttack && m_attackTarget != null && !m_isDead)
             {
