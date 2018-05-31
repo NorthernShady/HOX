@@ -2416,6 +2416,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114221512655395172, guid: 1d4c7dbcd7ca7054991dd944217f6387,
+        type: 2}
+      propertyPath: _spriteId
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4c7dbcd7ca7054991dd944217f6387, type: 2}
   m_IsPrefabAsset: 0
