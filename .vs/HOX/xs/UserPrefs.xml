@@ -1,13 +1,16 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Core/Character.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Item.cs">
     <Files>
-      <File FileName="Assets/_Core/Scripts/GAme/Data/CommonTraits.cs" Line="31" Column="56" />
+      <File FileName="Assets/_Core/Scripts/GAme/Data/CommonTraits.cs" Line="62" Column="15" />
       <File FileName="Assets/_Core/Scripts/GAme/Gameplay/GameController.cs" Line="43" Column="19" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="109" Column="31" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="112" Column="26" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="147" Column="58" />
       <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="15" Column="52" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="395" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="339" Column="31" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/PopupController.cs" Line="22" Column="13" />
+      <File FileName="Assets/_Core/Scripts/Popups/LootPopup/LootPopup.cs" Line="21" Column="14" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Item.cs" Line="6" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

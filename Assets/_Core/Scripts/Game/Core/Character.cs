@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
+
     [SerializeField]
     GameObject m_mainVisual;
 
@@ -330,7 +331,7 @@ public class Character : Photon.PunBehaviour
         var dataString = (string)stream.ReceiveNext();
         if (dataString != "") {
             var data = JsonUtility.FromJson<CommonTraits>(dataString);
-            if (data != null && m_data.m_traits != null) {
+            if (data != null && data.m_traits != null) {
                 m_data = data;
             }
         }
@@ -342,6 +343,8 @@ public class Character : Photon.PunBehaviour
             var item = JsonUtility.FromJson<Item>(itemString);
             items.Add(item);
         }
+
+        Debug.Log("items_count: " + itemsCount.ToString());
 
         if (m_inventory != null) {
             m_inventory.resetItems();
