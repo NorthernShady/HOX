@@ -1,11 +1,14 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Core/Hero.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Core/Character.cs">
     <Files>
-      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="94" Column="37" />
+      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="102" Column="35" />
       <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="15" Column="30" />
       <File FileName="Assets/_Core/Scripts/MainMenu/ConnectingToGame.cs" Line="126" Column="50" />
       <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="78" Column="17" />
+      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformView.cs" Line="23" Column="14" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="9" Column="28" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="6" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

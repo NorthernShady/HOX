@@ -82,6 +82,8 @@ public class Character : Photon.PunBehaviour
 
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
+        var map = FindObjectOfType<BasicGrid>();
+        gameObject.transform.SetParent(map.gameObject.transform, false);
         m_data = characterData;
         m_inventory = inventory;
         m_inventory.OnItemsChanged += onInventoryUpdated;
