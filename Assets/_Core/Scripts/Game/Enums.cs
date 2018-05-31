@@ -49,6 +49,7 @@ namespace GameData
 		CUIRASS,
 		PANTS,
 		BOOTS,
+		BOW,
 		POTION_HEAL
 	}
 }
@@ -96,6 +97,8 @@ public static class EnumExtensions
 			case GameData.ItemType.CUIRASS: return "kirsa";
 			case GameData.ItemType.PANTS: return "pants";
 			case GameData.ItemType.BOOTS: return "boots";
+			case GameData.ItemType.BOW: return "BOW";
+			case GameData.ItemType.POTION_HEAL: return "POTION_HEAL";
 			default: return "sword";
 		}
 	}
