@@ -73,6 +73,16 @@ public static class StringExtensions
 
 public static class EnumExtensions
 {
+	public static string AsSprite(this GameData.HeroType enumValue)
+	{
+		switch (enumValue) {
+			case GameData.HeroType.WARRIOR: return "icon_warrior";
+			case GameData.HeroType.ROGUE: return "icon_rogue";
+			case GameData.HeroType.MAGE: return "icon_wizard";
+			default: return "icon_warrior";
+		}
+	}
+
 	public static string AsSprite(this GameData.ItemType enumValue)
 	{
 		switch (enumValue) {

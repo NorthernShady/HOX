@@ -151,7 +151,8 @@ public class LoadDBData
 					Speed = row.Speed,
 					AttackSpeed = row.Attackspeed,
 					CriticalChance = row.Criticalchance,
-					CriticalModifier = row.Criticalmodifier
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
 				}
 			});
 		}
@@ -181,7 +182,8 @@ public class LoadDBData
 					AttackSpeedPercent = row.Attackspeedpercent,
 					CriticalChance = row.Criticalchance,
 					CriticalChancePercent = row.Criticalchancepercent,
-					CriticalModifier = row.Criticalmodifier
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
 				}
 			});
 		}
@@ -211,7 +213,8 @@ public class LoadDBData
 					AttackSpeedPercent = row.Attackspeedpercent,
 					CriticalChance = row.Criticalchance,
 					CriticalChancePercent = row.Criticalchancepercent,
-					CriticalModifier = row.Criticalmodifier
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
 				}
 			});
 		}

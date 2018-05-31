@@ -30,7 +30,7 @@ public class LogicController : MonoBehaviour
 
 		if (character.getType() == GameData.CharacterType.HERO)
 			foreach (var item in character.inventory.items)
-				if (item != null)
+				if (item != null && !item.data.isConsumable)
 					traits += item.data;
 
 		return traits;

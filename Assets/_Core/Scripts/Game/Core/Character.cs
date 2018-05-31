@@ -50,8 +50,14 @@ public class Character : Photon.PunBehaviour
         }
     }
 
-    float m_health = 0.0f;
     float m_exp = 0.0f;
+    public float expPercent {
+        get {
+            return m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp;
+        }
+    }
+
+    float m_health = 0.0f;
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
@@ -141,15 +147,14 @@ public class Character : Photon.PunBehaviour
     public void useItem(Item item)
     {
         if (item.type == GameData.ItemType.POTION_HEAL)
-            heal(item);
+            heal(item.data.maxHealth);
 
         m_inventory.consumeItem(item);
     }
 
-    public void heal(Item item)
+    private void heal(float health)
     {
-        Debug.Log("heal = " + item.data.maxHealth);
-        m_health = Mathf.Min(m_health + item.data.maxHealth, m_totalData.maxHealth);
+        m_health = Mathf.Min(m_health + health, m_totalData.maxHealth);
 
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
@@ -166,7 +171,7 @@ public class Character : Photon.PunBehaviour
 
         Debug.Log("Exp: " + m_exp);
 
-        if (m_exp > m_totalData.exp) {
+        if (m_exp >= m_totalData.exp) {
             m_exp -= m_totalData.exp;
             onLevelUp();
             onLevelUpAnimation();
@@ -248,6 +253,7 @@ public class Character : Photon.PunBehaviour
     protected virtual void onLevelUp()
     {
         updateParameters();
+        heal(m_totalData.maxHealth);
         Debug.Log("Level up");
     }
 

@@ -91,6 +91,7 @@ public class Hero : Character, IPunObservable
         if (isPlayer) {
             gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
+            m_services.getService<ExperienceObserver>().initialize(this);
         }
     }
 
@@ -128,7 +129,7 @@ public class Hero : Character, IPunObservable
 
     public override void onTargetKilled(Character target)
     {
-        m_services.getService<CanvasController>().openLootPopup(this, target);
+        m_services.getService<PopupController>().openLootPopup(this, target);
         base.onTargetKilled(target);
     }
 
