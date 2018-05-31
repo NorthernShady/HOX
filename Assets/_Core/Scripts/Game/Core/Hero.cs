@@ -31,6 +31,11 @@ public class Hero : Character, IPunObservable
         return GameData.CharacterType.HERO;
     }
 
+    public override Hero getHero()
+    {
+        return this;
+    }
+
     public Vector2 startPosition
     {
         get

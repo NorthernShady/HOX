@@ -15,6 +15,11 @@ public class Character : Photon.PunBehaviour
         return GameData.CharacterType.NONE;
     }
 
+    public virtual Hero getHero()
+    {
+        return null;
+    }
+
     public virtual BasicPhysicalModel getPhysicalModel()
     {
         return null;
