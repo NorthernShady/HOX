@@ -59,9 +59,13 @@ public class Creep : Character, IPunObservable {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
-		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
 
 		updateVisual();
+
+		if (!Application.isPlaying)
+			return;
+
+		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
 		isInit = true;
 	}
 

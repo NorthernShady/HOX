@@ -81,12 +81,15 @@ public class Hero : Character, IPunObservable
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
 
+        updateVisual();
+
+        if (!Application.isPlaying)
+            return;
+
         initialize(CommonTraits.create(type, 1), new Inventory());
 
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
-
-        updateVisual();
 
         if (isPlayer) {
             gameObject.AddComponent<Player>();
