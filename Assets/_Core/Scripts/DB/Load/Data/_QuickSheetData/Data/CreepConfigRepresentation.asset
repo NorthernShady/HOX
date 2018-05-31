@@ -17,9 +17,9 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: -5
+    hp: 1
     hppercent: 0
-    attack: 0
+    attack: 1
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -33,10 +33,10 @@ MonoBehaviour:
     fightexp: 0
   - id: 1
     name: PEASANT
-    level: 1
-    hp: -5
+    level: 2
+    hp: 1
     hppercent: 0
-    attack: 0
+    attack: 1
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -50,12 +50,12 @@ MonoBehaviour:
     fightexp: 0
   - id: 2
     name: SPIDER
-    level: 1
-    hp: 5
+    level: 3
+    hp: 1
     hppercent: 0
-    attack: 2
+    attack: 1
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -67,12 +67,12 @@ MonoBehaviour:
     fightexp: 0
   - id: 3
     name: DRAGON
-    level: 1
-    hp: 15
+    level: 4
+    hp: 1
     hppercent: 0
-    attack: 4
+    attack: 1
     attackpercent: 0
-    defence: 3
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
