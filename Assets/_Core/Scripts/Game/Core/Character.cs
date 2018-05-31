@@ -166,7 +166,7 @@ public class Character : Photon.PunBehaviour
 
         Debug.Log("Exp: " + m_exp);
 
-        if (m_exp > m_totalData.exp) {
+        if (m_exp >= m_totalData.exp) {
             m_exp -= m_totalData.exp;
             onLevelUp();
             onLevelUpAnimation();
