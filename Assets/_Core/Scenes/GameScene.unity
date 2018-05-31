@@ -3739,6 +3739,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1010838615}
   m_Mesh: {fileID: 4300008, guid: 2bffc4b5958484cc9aaa107fdc3c5154, type: 3}
+--- !u!1 &1025376099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 98e68c057badd6848ac979be1fd7eb24,
+    type: 2}
+  m_PrefabInternal: {fileID: 1039071160}
+--- !u!114 &1025376100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025376099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b897242beefc040558f0cb6f0812d8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1039071160
 Prefab:
   m_ObjectHideFlags: 0
@@ -3777,6 +3793,42 @@ Prefab:
     - target: {fileID: 400000, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: maxTapDisplacementAllowance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: maxMultiTapCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: rotationSmoothing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: minChargeTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: maxChargeTime
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
+      propertyPath: chargeMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98e68c057badd6848ac979be1fd7eb24, type: 2}
