@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CameraFollower : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class CameraFollower : MonoBehaviour {
 
 	void Awake() {
 		m_position = transform.position;
-		FindObjectOfType<CameraController>().setFollower(this);
+		System.Array.ForEach(FindObjectsOfType<CameraController>(), x => x.setFollower(this));
 	}
 
 	void Start() {
