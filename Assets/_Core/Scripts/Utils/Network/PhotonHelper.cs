@@ -6,9 +6,11 @@ public class PhotonHelper {
 
 	public static T Instantiate<T>(T prefab, Vector3 position, Quaternion rotation, byte group = 0) where T:Object
 	{
-		return (PhotonNetwork.inRoom) ?
-			(Object)PhotonNetwork.Instantiate(prefab.name, position, rotation, group) as T :
-			GameObject.Instantiate(prefab, position, rotation);
+		var newPrefab = (PhotonNetwork.inRoom) ?
+            (Object)PhotonNetwork.Instantiate(prefab.name, position, rotation, group) as T :
+            GameObject.Instantiate(prefab, position, rotation);
+        return (T) newPrefab;
+			
 	}
 
 	public static void Destroy(GameObject targetObject)
