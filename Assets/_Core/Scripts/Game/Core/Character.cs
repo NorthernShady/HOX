@@ -181,6 +181,20 @@ public class Character : Photon.PunBehaviour
             OnExpChanged(m_data.level, m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp);
     }
 
+    public void specializeDomaine(GameObject visual, GameData.DomaineType domaine)
+    {
+        if (domaine == GameData.DomaineType.NONE)
+            return;
+
+        var domainePart = visual.transform.Find("DomainePart");
+
+        if (domainePart == null)
+            return;
+            
+        var meshRenderer = domainePart.GetComponent<MeshRenderer>();
+        meshRenderer.material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
+    }
+
     void whenHpZero()
     {
         if (m_isDead)

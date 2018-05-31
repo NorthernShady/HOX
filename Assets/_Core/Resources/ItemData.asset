@@ -18,8 +18,15 @@ MonoBehaviour:
     - {r: 1, g: 0, b: 0, a: 1}
     - {r: 0, g: 1, b: 0, a: 1}
     - {r: 0, g: 0, b: 1, a: 1}
+  domaineMaterial:
+    keys: 00000000010000000200000003000000
+    values:
+    - {fileID: 0}
+    - {fileID: 2100000, guid: d9362255f40d44e5abb2d6b85b6b0b5b, type: 2}
+    - {fileID: 2100000, guid: e3248b10148fe453e98631ed3a5db6ac, type: 2}
+    - {fileID: 2100000, guid: 549ff2354bfee48e1b58bbd101960af1, type: 2}
   itemImage:
-    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
     values:
     - {fileID: 21300000, guid: 5e2453359df924cb1ac99a2b391abd10, type: 3}
     - {fileID: 21300000, guid: 6a0ef639dd63a4e1d8d04c46b2a7468a, type: 3}
@@ -32,3 +39,4 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ae92c00a601de4b9fade7247cfb5873e, type: 3}
     - {fileID: 21300000, guid: 4c53bdbaed89e449fa5ee281f1beae64, type: 3}
     - {fileID: 21300000, guid: 2014094d0754045ab9f5678fbce9317f, type: 3}
+    - {fileID: 0}

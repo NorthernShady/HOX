@@ -79,6 +79,8 @@ public class Creep : Character, IPunObservable {
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 		m_activePhysics = GameObject.Instantiate(m_creepPhysics[m_creepData.type], transform, false);
 
+		specializeDomaine(m_activeVisual, m_creepData.domaine);
+
 		// m_activeVisual.transform.SetParent(transform, false);
 		// m_activePhysics.transform.SetParent(transform, false);
 
