@@ -172,7 +172,7 @@ MonoBehaviour:
     values:
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
-    - {fileID: 100002, guid: b44a522c313644053a93d68ca791bca1, type: 3}
+    - {fileID: 0}
     - {fileID: 100006, guid: f933531ac22954bf580309b0a87add66, type: 3}
     - {fileID: 0}
   m_creepData:
@@ -4834,7 +4834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1198602271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6334,7 +6334,7 @@ MonoBehaviour:
     values:
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
     - {fileID: 100020, guid: f9de9ec22bfd342e5bab94155d4d4769, type: 3}
-    - {fileID: 100002, guid: b44a522c313644053a93d68ca791bca1, type: 3}
+    - {fileID: 0}
     - {fileID: 100006, guid: f933531ac22954bf580309b0a87add66, type: 3}
     - {fileID: 0}
   m_creepData:
