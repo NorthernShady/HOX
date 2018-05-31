@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4751483878808100}
   - component: {fileID: 114565455015453680}
+  - component: {fileID: 65721254957494178}
   m_Layer: 5
   m_Name: ResultPopup
   m_TagString: Untagged
@@ -97,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1535562882779908
 GameObject:
   m_ObjectHideFlags: 1
@@ -127,7 +128,6 @@ GameObject:
   - component: {fileID: 23886759372237292}
   - component: {fileID: 33622105530467098}
   - component: {fileID: 114179297370477752}
-  - component: {fileID: 65124514001989406}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -400,18 +400,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1339480665229676}
   m_Mesh: {fileID: 0}
---- !u!65 &65124514001989406
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1765520488142344}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 25, y: 18.4, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65532239631850292
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -435,6 +423,18 @@ BoxCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65721254957494178
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205081255448832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 18.4, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114017224830537472
 MonoBehaviour:
@@ -527,6 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a59725e18414edfa23a87e62826b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_popup: {fileID: 1451791257129254}
+  m_openDelay: 1
   m_resultSprite: {fileID: 114174471363811958}
   m_continueButton: {fileID: 1389947783653848}
 --- !u!114 &114644400664147030

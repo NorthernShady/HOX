@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class ResultPopup : BasePopup {
 
     [SerializeField]
+    GameObject m_popup = null;
+
+    [SerializeField]
+    float m_openDelay = 1.0f;
+
+    [SerializeField]
     tk2dSprite m_resultSprite = null;
 
     [SerializeField]
@@ -16,6 +22,7 @@ public class ResultPopup : BasePopup {
         bool hasWon = FindObjectOfType<GameDataProxy>().hasWon;
         m_resultSprite.SetSprite(hasWon ? "win" : "lose");
         m_continueButton.transform.localPosition = hasWon ? new Vector3(0.0f, -1.45f, -0.1f) : new Vector3(0.0f, -2.05f, -0.1f);
+        StartCoroutine(openPopup(m_openDelay, m_popup));
     }
 
     public override void onClose()

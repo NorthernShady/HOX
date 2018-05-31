@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -70,6 +70,7 @@ public class Character : Photon.PunBehaviour
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
+    protected bool m_isAttackAnimated = false;
     protected bool m_shouldAttack = false;
     protected bool m_shouldDestroy = false;
 
@@ -104,19 +105,19 @@ public class Character : Photon.PunBehaviour
         if (!PhotonHelper.isMine(this))
             return;
 
-        m_rigidbody.DOKill();
+		m_rigidbody.DOKill();
         position.y = m_rigidbody.position.y;
         turnTo(position);
 
-        var direction = position - m_rigidbody.position;
-        var distance = direction.magnitude;
-        RaycastHit raycastHit;
-        if (Physics.Raycast(MathHelper.yShift(m_rigidbody.position, 1.2f), MathHelper.yShift(position - m_rigidbody.position, 1.2f), out raycastHit, (position - m_rigidbody.position).magnitude)) {
-            position = (raycastHit.distance > 0.5f) ? (raycastHit.distance - 0.5f) * (direction / distance) + m_rigidbody.position :
-                m_rigidbody.position;
-        }
+		var direction = position - m_rigidbody.position;
+		var distance = direction.magnitude;
+		RaycastHit raycastHit;
+		if (Physics.Raycast(MathHelper.yShift(m_rigidbody.position, 1.2f), MathHelper.yShift(position - m_rigidbody.position, 1.2f), out raycastHit, (position - m_rigidbody.position).magnitude)) {
+			position = (raycastHit.distance > 0.5f) ? (raycastHit.distance - 0.5f) * (direction / distance) + m_rigidbody.position :
+				m_rigidbody.position;
+		}
 
-        GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
+		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
     }
 
     void Update()
@@ -126,8 +127,14 @@ public class Character : Photon.PunBehaviour
         //		if (photonView != null && !photonView.isMine)
 
         var canAttack = updateAttackTime();
+        var shouldAttack = m_attackTarget != null && !m_isDead;
 
-        if (canAttack && m_attackTarget != null && !m_isDead) {
+        if (shouldAttack && !m_isAttackAnimated) {
+            StartCoroutine(startAttackAnimation());
+        }
+
+        if (canAttack && shouldAttack)
+        {
             turnTo(m_attackTarget.rigidbody.position);
             attack(m_attackTarget);
             m_shouldSendAttack = true;
@@ -146,10 +153,13 @@ public class Character : Photon.PunBehaviour
     public void attack(Character target)
     {
         m_attackTimer = 0.0f;
-        onAttackAnimation();
+        // onAttackAnimation();
 
         var attack = m_services.getService<LogicController>().countDamage(this, target);
         target.takeDamage(this, attack.Item2, attack.Item1);
+
+        if (attack.Item1)
+            onCriticalAttackAnimation();
     }
 
     public void useItem(Item item)
@@ -198,7 +208,7 @@ public class Character : Photon.PunBehaviour
 
         if (domainePart == null)
             return;
-
+            
         var meshRenderer = domainePart.GetComponent<MeshRenderer>();
         meshRenderer.material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
     }
@@ -289,19 +299,49 @@ public class Character : Photon.PunBehaviour
 
     #region Action animations
 
+    IEnumerator startAttackAnimation()
+    {
+        var delay = new WaitForEndOfFrame();
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        m_isAttackAnimated = true;
+
+        while (m_attackTarget != null && !m_isDead) {
+            yield return delay;
+        }
+
+        m_isAttackAnimated = false;
+        Destroy(attackAnimation);
+    }
+
     protected virtual void onAttackAnimation()
     {
-        var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
-        var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
-        Destroy(attack, 0.5f);
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(attackAnimation, 1.0f);
+
+        // var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
+    }
+
+    protected virtual void onCriticalAttackAnimation()
+    {
+        var prefab = Resources.Load<GameObject>(k.Resources.CRITICAL_DAMAGE);
+        var criticalAttackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(criticalAttackAnimation, 1.0f);
     }
 
     protected virtual void onHealAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.HEALING_VFX);
+        var healAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(healAnimation, 1.0f);
     }
 
     protected virtual void onLevelUpAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.LEVEL_UP_VFX);
+        var levelUpAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(levelUpAnimation, 1.0f);
     }
 
     #endregion
