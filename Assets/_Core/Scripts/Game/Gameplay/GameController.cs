@@ -52,8 +52,9 @@ public class GameController : MonoBehaviour {
 	public void onPlayerDeath(Character character)
 	{
 		character.OnDeath -= onPlayerDeath;
-		//GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
-		FindObjectOfType<GameInputController>().allowGameTouches = false;
+		m_gameDataProxy.hasWon = character.getHero().team != m_gameDataProxy.team;
+
+		FindObjectOfType<Services>().getService<PopupController>().openResultPopup();
 	}
 }
 

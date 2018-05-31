@@ -3256,6 +3256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_lootPopupPrefab: {fileID: 114597531400111200, guid: ede74f51d5c528743a2155e6633de746,
     type: 2}
+  m_resultPopupPrefab: {fileID: 114565455015453680, guid: 464ecc4654ad74675a7a413efce8365a,
+    type: 2}
 --- !u!1 &668348736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5136,7 @@ MonoBehaviour:
   heroType: 1
   team: 0
   isBotGame: 1
+  hasWon: 0
 --- !u!4 &1205350454
 Transform:
   m_ObjectHideFlags: 0
@@ -5231,6 +5234,7 @@ GameObject:
   - component: {fileID: 1219051036}
   - component: {fileID: 1219051035}
   - component: {fileID: 1219051038}
+  - component: {fileID: 1219051039}
   m_Layer: 5
   m_Name: PlayerInfo
   m_TagString: Untagged
@@ -5334,6 +5338,18 @@ MonoBehaviour:
   m_progressBar: {fileID: 1573983348}
   m_levelText: {fileID: 1927377300}
   m_icon: {fileID: 590038276}
+--- !u!65 &1219051039
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219051033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.408, y: 1.1520001, z: 0}
+  m_Center: {x: -0.00000047683716, y: 0, z: 0}
 --- !u!1 &1222660651
 GameObject:
   m_ObjectHideFlags: 0
