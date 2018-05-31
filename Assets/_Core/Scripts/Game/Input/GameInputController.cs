@@ -33,26 +33,42 @@ public class GameInputController : MonoBehaviour
 
     void OnEnable()
     {
-        IT_Gesture.onMultiTapE += onMultiTap;
+        //IT_Gesture.onMultiTapE += onMultiTap;
+        IT_Gesture.onTouchDownPosE += onTap;
+        IT_Gesture.onMouse1DownE += onTap;
+        IT_Gesture.onTouchPosE += onTap;
+        IT_Gesture.onMouse1E += onTap;
+        // IT_Gesture.onChargeStartE += onTap;
         //		IT_Gesture.onSwipeE += onSwipe;
 
-        IT_Gesture.onDraggingStartE += onDraggingStarted;
-        IT_Gesture.onDraggingE += onDragging;
-        IT_Gesture.onDraggingEndE += onDraggingFinished;
+        IT_Gesture.onMFDraggingStartE += onDraggingStarted;
+        IT_Gesture.onMFDraggingE += onDragging;
+        IT_Gesture.onMFDraggingEndE += onDraggingFinished;
     }
 
     void OnDisable()
     {
-        IT_Gesture.onMultiTapE -= onMultiTap;
+        //IT_Gesture.onMultiTapE -= onMultiTap;
+        IT_Gesture.onTouchDownPosE -= onTap;
+        IT_Gesture.onMouse1DownE -= onTap;
+        IT_Gesture.onTouchPosE -= onTap;
+        IT_Gesture.onMouse1E -= onTap;
+        // IT_Gesture.onChargeStartE -= onTap;
         //		IT_Gesture.onSwipeE -= onSwipe;
 
-        IT_Gesture.onDraggingStartE -= onDraggingStarted;
-        IT_Gesture.onDraggingE -= onDragging;
-        IT_Gesture.onDraggingEndE -= onDraggingFinished;
+        IT_Gesture.onMFDraggingStartE -= onDraggingStarted;
+        IT_Gesture.onMFDraggingE -= onDragging;
+        IT_Gesture.onMFDraggingEndE -= onDraggingFinished;
     }
 
-    void onTap()
+    void onTap(Vector2 pos)
     {
+        RaycastHit hit;
+        if (raycast(pos, out hit, m_layerMask))
+        {
+            if (OnTap != null)
+                OnTap(hit.point);
+        }
     }
 
     void onMultiTap(Tap tap)
@@ -72,6 +88,8 @@ public class GameInputController : MonoBehaviour
     void onDraggingStarted(DragInfo dragInfo)
     {
         RaycastHit hit;
+
+        Debug.Log("Dragging started");
 
 		if (raycast(dragInfo.pos, out hit, m_layerMask))
 		{
