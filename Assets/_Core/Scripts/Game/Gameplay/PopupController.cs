@@ -7,6 +7,9 @@ public class PopupController : MonoBehaviour {
 	[SerializeField]
 	LootPopup m_lootPopupPrefab = null;
 
+	[SerializeField]
+	ResultPopup m_resultPopupPrefab = null;
+
 	void Awake()
 	{
 		FindObjectOfType<Services>().addService(this);
@@ -17,5 +20,10 @@ public class PopupController : MonoBehaviour {
 		var popup = GameObject.Instantiate(m_lootPopupPrefab, Vector3.zero, Quaternion.identity);
 		popup.transform.position = new Vector3(0.0f, 0.0f, -5.0f);
 		popup.initialize(hero, enemy);
+	}
+
+	public void openResultPopup()
+	{
+		GameObject.Instantiate(m_resultPopupPrefab, new Vector3(0.0f, 0.0f, -10.0f), Quaternion.identity);
 	}
 }

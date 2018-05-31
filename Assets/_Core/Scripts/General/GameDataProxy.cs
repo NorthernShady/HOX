@@ -8,6 +8,7 @@ public class GameDataProxy : MonoBehaviour {
 	public GameData.HeroType heroType;
 	public int team;
 	public bool isBotGame;
+	public bool hasWon;
 
 	void Awake()
 	{
