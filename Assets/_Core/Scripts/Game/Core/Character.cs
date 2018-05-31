@@ -152,6 +152,9 @@ public class Character : Photon.PunBehaviour
 
         var attack = m_services.getService<LogicController>().countDamage(this, target);
         target.takeDamage(this, attack.Item2, attack.Item1);
+
+        if (attack.Item1)
+            onCriticalAttackAnimation();
     }
 
     public void useItem(Item item)
@@ -301,10 +304,17 @@ public class Character : Photon.PunBehaviour
     protected virtual void onAttackAnimation()
     {
         var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
-        var attackAnimation = GameObject.Instantiate(prefab, m_attackTarget.rigidbody.position, Quaternion.identity);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
         Destroy(attackAnimation, 1.0f);
 
         // var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
+    }
+
+    protected virtual void onCriticalAttackAnimation()
+    {
+        var prefab = Resources.Load<GameObject>(k.Resources.CRITICAL_DAMAGE);
+        var criticalAttackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(criticalAttackAnimation, 1.0f);
     }
 
     protected virtual void onHealAnimation()

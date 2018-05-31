@@ -29,6 +29,7 @@ namespace k
 		public const string MAP_DATA = "MapData/MapData";
 		public const string CREEP_OLD = "Prefabs/CreepOld";
 		public const string ATTACK_VFX = "VisualEffects/AttackVFX";
+		public const string CRITICAL_DAMAGE = "VisualEffects/CriticalDamage";
 		public const string FXRECIVE_DAMAGE = "VisualEffects/FXReciveDamage";
 		public const string GAME_OVER = "VisualEffects/GameOver";
 		public const string HEALING_VFX = "VisualEffects/HealingVFX";
