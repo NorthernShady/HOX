@@ -136,6 +136,9 @@ public class Hero : Character, IPunObservable
 
     public override void onTargetKilled(Character target)
     {
+        if (!PhotonHelper.isMine(this)) {
+            return;
+        }
         m_services.getService<PopupController>().openLootPopup(this, target);
         base.onTargetKilled(target);
     }
