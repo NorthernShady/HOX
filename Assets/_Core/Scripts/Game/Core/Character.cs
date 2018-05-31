@@ -66,7 +66,7 @@ public class Character : Photon.PunBehaviour
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
-    protected bool m_shouldAttack = false;
+    protected bool m_isAttackAnimated = false;
     protected bool m_shouldDestroy = false;
 
     protected Character m_attackTarget = null;
@@ -122,8 +122,13 @@ public class Character : Photon.PunBehaviour
         //		if (photonView != null && !photonView.isMine)
 
         var canAttack = updateAttackTime();
+        var shouldAttack = m_attackTarget != null && !m_isDead;
 
-        if (canAttack && m_attackTarget != null && !m_isDead)
+        if (shouldAttack && !m_isAttackAnimated) {
+            StartCoroutine(startAttackAnimation());
+        }
+
+        if (canAttack && shouldAttack)
         {
             turnTo(m_attackTarget.rigidbody.position);
             attack(m_attackTarget);
@@ -143,7 +148,7 @@ public class Character : Photon.PunBehaviour
     public void attack(Character target)
     {
         m_attackTimer = 0.0f;
-        onAttackAnimation();
+        // onAttackAnimation();
 
         var attack = m_services.getService<LogicController>().countDamage(this, target);
         target.takeDamage(this, attack.Item2, attack.Item1);
@@ -243,8 +248,8 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onDeathAnimation()
     {
-        PhotonHelper.Destroy(gameObject);
-        // StartCoroutine(destroyIn(0.5f));
+        //PhotonHelper.Destroy(gameObject);
+        StartCoroutine(destroyIn(0.1f));
     }
 
     protected virtual void onInventoryUpdated(List<Item> items)
@@ -278,19 +283,42 @@ public class Character : Photon.PunBehaviour
 
     #region Action animations
 
+    IEnumerator startAttackAnimation()
+    {
+        var delay = new WaitForEndOfFrame();
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        m_isAttackAnimated = true;
+
+        while (m_attackTarget != null && !m_isDead) {
+            yield return delay;
+        }
+
+        m_isAttackAnimated = false;
+        Destroy(attackAnimation);
+    }
+
     protected virtual void onAttackAnimation()
     {
-        var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
-        var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
-        Destroy(attack, 0.5f);
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, m_attackTarget.rigidbody.position, Quaternion.identity);
+        Destroy(attackAnimation, 1.0f);
+
+        // var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
     }
 
     protected virtual void onHealAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.HEALING_VFX);
+        var healAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(healAnimation, 1.0f);
     }
 
     protected virtual void onLevelUpAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.LEVEL_UP_VFX);
+        var levelUpAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(levelUpAnimation, 1.0f);
     }
 
     #endregion

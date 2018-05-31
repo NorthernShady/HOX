@@ -17,9 +17,9 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: 1
+    hp: -5
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -34,9 +34,9 @@ MonoBehaviour:
   - id: 1
     name: PEASANT
     level: 2
-    hp: 1
+    hp: -5
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     level: 3
     hp: 1
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     level: 4
     hp: 1
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0

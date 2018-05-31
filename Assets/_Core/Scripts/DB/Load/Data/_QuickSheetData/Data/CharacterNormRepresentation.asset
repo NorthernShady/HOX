@@ -20,7 +20,7 @@ MonoBehaviour:
     attack: 10
     defence: 0
     speed: 5
-    attackspeed: 0.5
+    attackspeed: 2
     criticalchance: 0
     criticalmodifier: 0
     fightexp: 50
@@ -30,7 +30,7 @@ MonoBehaviour:
     attack: 12
     defence: 0
     speed: 5
-    attackspeed: 0.5
+    attackspeed: 2
     criticalchance: 0
     criticalmodifier: 0
     fightexp: 60
@@ -40,7 +40,7 @@ MonoBehaviour:
     attack: 14
     defence: 0
     speed: 5
-    attackspeed: 0.5
+    attackspeed: 2
     criticalchance: 0
     criticalmodifier: 0
     fightexp: 70
@@ -50,7 +50,7 @@ MonoBehaviour:
     attack: 17
     defence: 0
     speed: 5
-    attackspeed: 0.5
+    attackspeed: 2
     criticalchance: 0
     criticalmodifier: 0
     fightexp: 100
@@ -60,7 +60,7 @@ MonoBehaviour:
     attack: 20
     defence: 0
     speed: 5
-    attackspeed: 0.5
+    attackspeed: 2
     criticalchance: 0
     criticalmodifier: 0
     fightexp: 120
