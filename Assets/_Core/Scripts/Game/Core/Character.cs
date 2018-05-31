@@ -288,17 +288,21 @@ public class Character : Photon.PunBehaviour
         }
         if (stream.isReading)
         {
-            if ((bool)stream.ReceiveNext() && m_attackTarget != null && !m_isDead)
+            bool shouldAttack = (bool)stream.ReceiveNext();
+            bool shouldDestroy = (bool)stream.ReceiveNext();
+            m_health = (float)stream.ReceiveNext();
+
+            if (shouldAttack && m_attackTarget != null && !m_isDead)
             {
                 attack(m_attackTarget);
             }
-            bool m_shouldDestroy = (bool)stream.ReceiveNext();
-            if (m_shouldDestroy)
+
+            if (shouldDestroy)
             {
                 whenHpZero();
             }
             m_shouldDestroy = false;
-            m_health = (float)stream.ReceiveNext();
+
             if (m_data != null)
             {
                 OnHealthChanged(m_health / m_data.maxHealth);

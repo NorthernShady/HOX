@@ -133,7 +133,9 @@ public class Creep : Character, IPunObservable {
 			stream.SendNext (m_creepData.type);
 		}
 		if (stream.isReading) {
-			m_creepData = new MapCreepData ();
+            if (m_creepData == null) {
+                m_creepData = new MapCreepData();
+            }
 			m_creepData.domaine = (GameData.DomaineType)stream.ReceiveNext ();
 			m_creepData.level = (int)stream.ReceiveNext ();
 			m_creepData.position = (Vector2)stream.ReceiveNext ();
