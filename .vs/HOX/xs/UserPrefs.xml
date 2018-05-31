@@ -1,9 +1,11 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Core/Hero.cs">
     <Files>
-      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="92" Column="37" />
-      <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="39" Column="2" />
+      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="94" Column="37" />
+      <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="15" Column="30" />
+      <File FileName="Assets/_Core/Scripts/MainMenu/ConnectingToGame.cs" Line="126" Column="50" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="78" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

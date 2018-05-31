@@ -123,7 +123,7 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	public void onBackButtonClick()
 	{
 		PhotonNetwork.Disconnect ();
-        SceneManager.LoadScene(k.Scenes.GAME_SCENE);
+        SceneManager.LoadScene(k.Scenes.MAIN_MENU);
 	}
 
 	public override void OnJoinedLobby()

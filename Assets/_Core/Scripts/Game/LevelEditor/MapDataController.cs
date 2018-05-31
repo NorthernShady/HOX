@@ -91,7 +91,7 @@ public class MapDataController : MonoBehaviour {
 				}
                 var hero = PhotonHelper.InstantiateNew(m_heroPrefab.name, startPosition, Quaternion.identity, 0);
 				var heroType = (m_dataProxy.team == team) ? m_dataProxy.heroType : getRandomHeroType();
-				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, m_dataProxy.isBotGame && m_dataProxy.team == team);
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, m_dataProxy.team == team);
 				hero.transform.SetParent(map.transform, true);
 			}
 		}

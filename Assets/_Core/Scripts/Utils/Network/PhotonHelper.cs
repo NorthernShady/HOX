@@ -41,4 +41,3 @@ public class PhotonHelper {
 		return PhotonNetwork.inRoom;
 	}
 }
-m
