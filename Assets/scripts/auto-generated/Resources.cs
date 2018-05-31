@@ -22,7 +22,9 @@ namespace k
 		public const string LIGHT_SKIN_BOX = "lightSkinBox";
 		public const string SPINE_ASSET_DATABASE_MARKER = "SpineAssetDatabaseMarker";
 		public const string AUDIO_BANK = "AudioBank";
+		public const string CREEP = "Creep";
 		public const string DATA_ASSETS_HOLDER = "DataAssetsHolder";
+		public const string HERO = "Hero";
 		public const string MAP_DATA = "MapData/MapData";
 		public const string CREEP_OLD = "Prefabs/CreepOld";
 		public const string FXRECIVE_DAMAGE = "VisualEffects/FXReciveDamage";

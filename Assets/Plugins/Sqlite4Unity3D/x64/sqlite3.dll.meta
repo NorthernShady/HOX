@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: b44a10b76b19146bdb3ee2d1811be5b0
-timeCreated: 1511364831
-licenseType: Pro
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -48,7 +46,7 @@ PluginImporter:
       settings:
         CPU: x86_64
         DefaultValueInitialized: true
-        OS: AnyOS
+        OS: Windows
   - first:
       Facebook: Win
     second:
@@ -120,6 +118,7 @@ PluginImporter:
     second:
       enabled: 1
       settings:
+        AddToEmbeddedBinaries: false
         CompileFlags: 
         FrameworkDependencies: 
   - first:

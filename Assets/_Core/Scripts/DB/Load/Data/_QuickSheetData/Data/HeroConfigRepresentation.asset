@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -17,24 +17,153 @@ MonoBehaviour:
   - id: 0
     name: WARRIOR
     level: 1
-    hp: 10
-    attack: 1
-    defence: 0
-    speed: 5
-    attackspeed: 0.5
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
   - id: 1
     name: ROGUE
     level: 1
-    hp: 10
-    attack: 1
-    defence: 0
-    speed: 5
-    attackspeed: 0.5
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
   - id: 2
     name: MAGE
     level: 1
-    hp: 10
-    attack: 1
-    defence: 0
-    speed: 5
-    attackspeed: 0.5
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 3
+    name: WARRIOR
+    level: 2
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 4
+    name: ROGUE
+    level: 2
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 5
+    name: MAGE
+    level: 2
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 6
+    name: WARRIOR
+    level: 3
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 7
+    name: ROGUE
+    level: 3
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0
+  - id: 8
+    name: MAGE
+    level: 3
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0.1
+    criticalchancepercent: 0
+    criticalmodifier: 0.1
+    fightexp: 0

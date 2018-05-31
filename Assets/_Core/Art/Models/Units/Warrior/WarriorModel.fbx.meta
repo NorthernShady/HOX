@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 708da160796094a2f813be6bd8d0773a
-timeCreated: 1518090839
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -18,6 +16,23 @@ ModelImporter:
     100020: Cylinder_009
     100022: Cylinder_010
     100024: //RootNode
+    100026: Cube.002
+    100028: Cylinder.001
+    100030: Cylinder.002
+    100032: Cylinder.003
+    100034: Cylinder.004
+    100036: Cylinder.005
+    100038: Cylinder.006
+    100040: Cylinder.008
+    100042: Cylinder.009
+    100044: Cylinder.010
+    100046: Sphere.001
+    100048: hand_left
+    100050: hand_right
+    100052: head
+    100054: tusk_left
+    100056: tusk_right
+    100058: Cylinder.007
     400000: Cube
     400002: Cube_002
     400004: Cylinder
@@ -31,12 +46,31 @@ ModelImporter:
     400020: Cylinder_009
     400022: Cylinder_010
     400024: //RootNode
+    400026: Cube.002
+    400028: Cylinder.001
+    400030: Cylinder.002
+    400032: Cylinder.003
+    400034: Cylinder.004
+    400036: Cylinder.005
+    400038: Cylinder.006
+    400040: Cylinder.008
+    400042: Cylinder.009
+    400044: Cylinder.010
+    400046: Sphere.001
+    400048: hand_left
+    400050: hand_right
+    400052: head
+    400054: tusk_left
+    400056: tusk_right
+    400058: Cylinder.007
     2100000: tusk
     2100002: Material
     2100004: unnamed
     2100006: hand
     2100008: foot
     2100010: body
+    2100012: No Name
+    2100014: Material.001
     2300000: Cube
     2300002: Cube_002
     2300004: Cylinder
@@ -50,6 +84,23 @@ ModelImporter:
     2300020: Cylinder_009
     2300022: Cylinder_010
     2300024: //RootNode
+    2300026: Cube.002
+    2300028: Cylinder.001
+    2300030: Cylinder.002
+    2300032: Cylinder.003
+    2300034: Cylinder.004
+    2300036: Cylinder.005
+    2300038: Cylinder.006
+    2300040: Cylinder.008
+    2300042: Cylinder.009
+    2300044: Cylinder.010
+    2300046: Sphere.001
+    2300048: hand_left
+    2300050: hand_right
+    2300052: head
+    2300054: tusk_left
+    2300056: tusk_right
+    2300058: Cylinder.007
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -63,6 +114,23 @@ ModelImporter:
     3300020: Cylinder_009
     3300022: Cylinder_010
     3300024: //RootNode
+    3300026: Cube.002
+    3300028: Cylinder.001
+    3300030: Cylinder.002
+    3300032: Cylinder.003
+    3300034: Cylinder.004
+    3300036: Cylinder.005
+    3300038: Cylinder.006
+    3300040: Cylinder.008
+    3300042: Cylinder.009
+    3300044: Cylinder.010
+    3300046: Sphere.001
+    3300048: hand_left
+    3300050: hand_right
+    3300052: head
+    3300054: tusk_left
+    3300056: tusk_right
+    3300058: Cylinder.007
     4300000: Cylinder_010
     4300002: Cylinder_009
     4300004: Cylinder
@@ -75,6 +143,23 @@ ModelImporter:
     4300018: Cube
     4300020: Cylinder_004
     4300022: Cylinder_003
+    4300024: Cylinder.010
+    4300026: Cylinder.009
+    4300028: Sphere.001
+    4300030: Cylinder.006
+    4300032: Cylinder.002
+    4300034: Cube.002
+    4300036: Cylinder.008
+    4300038: Cylinder.005
+    4300040: Cylinder.001
+    4300042: Cylinder.004
+    4300044: Cylinder.003
+    4300046: tusk_right
+    4300048: tusk_left
+    4300050: head
+    4300052: hand_left
+    4300054: hand_right
+    4300056: Cylinder.007
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -126,6 +211,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -137,7 +223,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

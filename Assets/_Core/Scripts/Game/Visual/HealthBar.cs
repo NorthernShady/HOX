@@ -19,11 +19,13 @@ public class HealthBar : MonoBehaviour {
 	void OnEnable()
 	{
 		m_character.OnHealthChanged += onHealthChanged;
+		m_character.OnPhysicsInitialized += onPhysicsInitialized;
 	}
 
 	void OnDisable()
 	{
 		m_character.OnHealthChanged -= onHealthChanged;
+		m_character.OnPhysicsInitialized -= onPhysicsInitialized;
 	}
 
 	void Start () {
@@ -37,7 +39,17 @@ public class HealthBar : MonoBehaviour {
 
 	void onHealthChanged(float percent)
 	{
+		if (percent > 1.0f) {
+			Debug.LogError("health percent = " + percent);
+			percent = Mathf.Clamp(0.0f, 1.0f, percent);
+		}
+
 		var rect = new Rect(0.0f, 0.0f, m_texture.width * percent, m_texture.height);
 		m_fill.sprite = Sprite.Create(m_texture, rect, new Vector2(0.0f, 0.0f));
+	}
+
+	void onPhysicsInitialized(BasicPhysicalModel physicalModel)
+	{
+		transform.localPosition = physicalModel.getHealthPosition();
 	}
 }

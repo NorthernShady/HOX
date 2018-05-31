@@ -148,7 +148,7 @@ namespace BrainiacEditor
 
 						BTEditorCanvas.Current.Event.Use();
 					}
-					else if(BTEditorCanvas.Current.Event.button == CONTEXT_MOUSE_BUTTON)
+					else if(BTEditorCanvas.Current.Event.button == CONTEXT_MOUSE_BUTTON && !Event.current.alt)
 					{
 						GenericMenu menu = BTContextMenuFactory.CreateGraphContextMenu(this);
 						menu.DropDown(new Rect(BTEditorCanvas.Current.Event.mousePosition, Vector2.zero));

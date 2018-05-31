@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -17,32 +17,68 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: 5
-    attack: 1
+    hp: -5
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
     defence: 0
-    speed: 5
-    attackspeed: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
   - id: 1
     name: PEASANT
     level: 1
-    hp: 5
-    attack: 1
+    hp: -5
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
     defence: 0
-    speed: 5
-    attackspeed: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
   - id: 2
     name: SPIDER
     level: 1
-    hp: 10
-    attack: 3
+    hp: 5
+    hppercent: 0
+    attack: 2
+    attackpercent: 0
     defence: 1
-    speed: 5
-    attackspeed: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
   - id: 3
     name: DRAGON
     level: 1
-    hp: 20
-    attack: 5
+    hp: 15
+    hppercent: 0
+    attack: 4
+    attackpercent: 0
     defence: 3
-    speed: 5
-    attackspeed: 1
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0

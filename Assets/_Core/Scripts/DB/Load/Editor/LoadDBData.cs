@@ -82,8 +82,10 @@ public class LoadDBData
 
 		loadGeneralData(dataService);
 		loadUserData(dataService);
+		loadCharacterNormData(dataService);
 		loadHeroesData(dataService);
 		loadCreepsData(dataService);
+		loadItemsData(dataService);
 
 		PlayerPrefs.DeleteAll ();
 	}
@@ -93,8 +95,10 @@ public class LoadDBData
 		m_dataAssetsHolder = Resources.Load<DataAssetsHolder> (k.Resources.DATA_ASSETS_HOLDER);
 		loadGoogleSheet<UserRepresentation, UserRepresentationData> (m_dataAssetsHolder.getUserRepresentationAsset());
 		loadGoogleSheet<GeneralRepresentation, GeneralRepresentationData> (m_dataAssetsHolder.getGeneralRepresentationAsset());
+		loadGoogleSheet<CharacterNormRepresentation, CharacterNormRepresentationData>(m_dataAssetsHolder.getCharacterNormRepresentationAsset());
 		loadGoogleSheet<HeroConfigRepresentation, HeroConfigRepresentationData>(m_dataAssetsHolder.getHeroRepresentationAsset());
 		loadGoogleSheet<CreepConfigRepresentation, CreepConfigRepresentationData>(m_dataAssetsHolder.getCreepRepresentationAsset());
+		loadGoogleSheet<ItemConfigRepresentation, ItemConfigRepresentationData>(m_dataAssetsHolder.getItemRepresentationAsset());
 	}
 
 	static void loadGeneralData (DataService dataService)
@@ -130,6 +134,30 @@ public class LoadDBData
 		}
 	}
 
+	static void loadCharacterNormData(DataService dataService)
+	{
+		var characterNormDataRepresentation = m_dataAssetsHolder.getCharacterNormRepresentationAsset();
+
+		foreach (var row in characterNormDataRepresentation.dataArray) {
+			if (row.Level == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new CharacterNorm {
+					Level = row.Level,
+					Exp = row.Exp,
+					HP = row.HP,
+					Attack = row.Attack,
+					Defence = row.Defence,
+					Speed = row.Speed,
+					AttackSpeed = row.Attackspeed,
+					CriticalChance = row.Criticalchance,
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
+				}
+			});
+		}
+	}
+
 	static void loadHeroesData(DataService dataService)
 	{
 		var heroDataRepresentation = m_dataAssetsHolder.getHeroRepresentationAsset();
@@ -143,10 +171,19 @@ public class LoadDBData
 					Name = row.Name,
 					Level = row.Level,
 					HP = row.HP,
+					HpPercent = row.Hppercent,
 					Attack = row.Attack,
+					AttackPercent = row.Attackpercent,
 					Defence = row.Defence,
+					DefencePercent = row.Defencepercent,
 					Speed = row.Speed,
-					AttackSpeed = row.Attackspeed
+					SpeedPercent = row.Speedpercent,
+					AttackSpeed = row.Attackspeed,
+					AttackSpeedPercent = row.Attackspeedpercent,
+					CriticalChance = row.Criticalchance,
+					CriticalChancePercent = row.Criticalchancepercent,
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
 				}
 			});
 		}
@@ -165,10 +202,50 @@ public class LoadDBData
 					Name = row.Name,
 					Level = row.Level,
 					HP = row.HP,
+					HpPercent = row.Hppercent,
 					Attack = row.Attack,
+					AttackPercent = row.Attackpercent,
 					Defence = row.Defence,
+					DefencePercent = row.Defencepercent,
 					Speed = row.Speed,
-					AttackSpeed = row.Attackspeed
+					SpeedPercent = row.Speedpercent,
+					AttackSpeed = row.Attackspeed,
+					AttackSpeedPercent = row.Attackspeedpercent,
+					CriticalChance = row.Criticalchance,
+					CriticalChancePercent = row.Criticalchancepercent,
+					CriticalModifier = row.Criticalmodifier,
+					FightExp = row.Fightexp
+				}
+			});
+		}
+	}
+
+	static void loadItemsData(DataService dataService)
+	{
+		var itemDataRepresentation = m_dataAssetsHolder.getItemRepresentationAsset();
+
+		foreach (var row in itemDataRepresentation.dataArray) {
+			if (row.Name.Length == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new ItemConfig {
+					Id = row.Id,
+					Name = row.Name,
+					Level = row.Level,
+					HP = row.HP,
+					HpPercent = row.Hppercent,
+					Attack = row.Attack,
+					AttackPercent = row.Attackpercent,
+					Defence = row.Defence,
+					DefencePercent = row.Defencepercent,
+					Speed = row.Speed,
+					SpeedPercent = row.Speedpercent,
+					AttackSpeed = row.Attackspeed,
+					AttackSpeedPercent = row.Attackspeedpercent,
+					CriticalChance = row.Criticalchance,
+					CriticalChancePercent = row.Criticalchancepercent,
+					CriticalModifier = row.Criticalmodifier,
+					IsConsumable = row.Isconsumable
 				}
 			});
 		}

@@ -62,4 +62,16 @@ public class MathHelper  {
 		points.Add (endPos);
 		return points;
 	}
+
+	public static Vector3 zShift(Vector3 vector, float z, bool shouldAdjust = false)
+	{
+		vector.z = shouldAdjust ? vector.z + z : z;
+		return vector;
+	}
+
+	public static Vector3 yShift(Vector3 vector, float y, bool shouldAdjust = false)
+	{
+		vector.y = shouldAdjust ? vector.y + y : y;
+		return vector;
+	} 
 }

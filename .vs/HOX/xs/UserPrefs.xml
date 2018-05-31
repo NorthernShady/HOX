@@ -1,22 +1,23 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Spine/spine-unity/Asset Types/Editor/SkeletonDataAssetInspector.cs">
+﻿<Properties StartupConfiguration="{5FE688ED-F78C-DF2F-A32E-5FFDE10DA4A1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/General/Initialize.cs">
     <Files>
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/MainMenu/ConnectingToGame.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/MainMenu/MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Player/GameItem.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Player/PlayerBag.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Player/SlotBag.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Editor/HeroEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Spine/spine-unity/Asset Types/Editor/SkeletonDataAssetInspector.cs" Line="665" Column="1" />
-      <File FileName="Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditor.cs" Line="497" Column="167" />
+      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/LoadDBData.cs" Line="163" Column="17" />
+      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/ConfigSheetAccessor.cs" Line="15" Column="14" />
+      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/Config.cs" Line="9" Column="1" />
+      <File FileName="Assets/_Core/Scripts/DB/DataHelpers/ConfigDBHelper.cs" Line="26" Column="5" />
+      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/User.cs" Line="12" Column="29" />
+      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/XPLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/DB/Providers/UserDBProvider.cs" Line="29" Column="1" />
+      <File FileName="Assets/_Core/Scripts/DB/Providers/I_UserDBProvider.cs" Line="9" Column="55" />
+      <File FileName="Assets/_Core/Scripts/DB/Providers/DBProvider.cs" Line="51" Column="3" />
+      <File FileName="Assets/_Core/Scripts/DB/Providers/ConfigDBProvider.cs" Line="12" Column="36" />
+      <File FileName="Assets/_Core/Scripts/DB/DataService.cs" Line="20" Column="20" />
+      <File FileName="Assets/_Core/Scripts/DB/Load/DataAssetsHolder.cs" Line="6" Column="1" />
+      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/GenerateDBEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/General/Initialize.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.HOX PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

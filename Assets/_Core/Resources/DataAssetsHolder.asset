@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -15,7 +15,11 @@ MonoBehaviour:
     type: 2}
   generalRepresentationAsset: {fileID: 11400000, guid: 6b8b74eaf589b43218e114e87032e3e1,
     type: 2}
+  characterNormRepresentation: {fileID: 11400000, guid: 3eb120e24c752404e94661fd1e6604f2,
+    type: 2}
   heroRepresentationAsset: {fileID: 11400000, guid: decb30904c773416fbfcc4a600676a24,
     type: 2}
   creepRepresentationAsset: {fileID: 11400000, guid: de5d148f78d1c4f3192d365c801d4cf5,
+    type: 2}
+  itemRepresentationAsset: {fileID: 11400000, guid: 3215f4d7c71847c439b06b59f1c1eb7f,
     type: 2}

@@ -54,15 +54,19 @@ public partial class DBProvider : I_DBProvider
 		dataService.connection.DropTable<User> ();
 		dataService.connection.DropTable<Config> ();
 		dataService.connection.DropTable<XPLevel> ();
+		dataService.connection.DropTable<CharacterNorm>();
 		dataService.connection.DropTable<HeroConfig>();
 		dataService.connection.DropTable<CreepConfig>();
+		dataService.connection.DropTable<ItemConfig>();
 
 
 		dataService.connection.CreateTable<User> ();
 		dataService.connection.CreateTable<Config> ();
 		dataService.connection.CreateTable<XPLevel> ();
+		dataService.connection.CreateTable<CharacterNorm>();
 		dataService.connection.CreateTable<HeroConfig>();
 		dataService.connection.CreateTable<CreepConfig>();
+		dataService.connection.CreateTable<ItemConfig>();
 	}
 
 	public virtual void backupDB()

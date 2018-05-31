@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour {
 
 	MapDataController m_mapDataController = null;
 	GameDataProxy m_gameDataProxy = null;
-	public GameObject heroPrefab;
 
 	void Awake()
 	{
@@ -23,6 +22,11 @@ public class GameController : MonoBehaviour {
 		m_mapDataController = FindObjectOfType<MapDataController>();
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
 
+		FindObjectOfType<Services>().addService(this);
+	}
+
+	void Start()
+	{
 		initialize();
 		StartCoroutine (addPlayer (m_gameDataProxy.team));
 	}
@@ -48,7 +52,7 @@ public class GameController : MonoBehaviour {
 	public void onPlayerDeath(Character character)
 	{
 		character.OnDeath -= onPlayerDeath;
-		GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
+		//GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);
 		FindObjectOfType<GameInputController>().allowGameTouches = false;
 	}
 }

@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -34,19 +34,55 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 5
+    name: HPPercent
+    isEnable: 0
+    isArray: 0
+  - type: 5
     name: Attack
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: AttackPercent
     isEnable: 0
     isArray: 0
   - type: 5
     name: Defence
     isEnable: 0
     isArray: 0
-  - type: 0
+  - type: 5
+    name: DefencePercent
+    isEnable: 0
+    isArray: 0
+  - type: 5
     name: Speed
     isEnable: 0
     isArray: 0
-  - type: 0
+  - type: 5
+    name: SpeedPercent
+    isEnable: 0
+    isArray: 0
+  - type: 5
     name: AttackSpeed
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: AttackSpeedPercent
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: CriticalChance
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: CriticalChancePercent
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: CriticalModifier
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: FightExp
     isEnable: 0
     isArray: 0
   AccessCode: 

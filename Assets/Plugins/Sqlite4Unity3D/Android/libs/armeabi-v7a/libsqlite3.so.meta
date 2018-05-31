@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 7efb9b8b739614b4887d715e4080689f
-timeCreated: 1511364831
-licenseType: Pro
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -120,6 +118,7 @@ PluginImporter:
     second:
       enabled: 0
       settings:
+        AddToEmbeddedBinaries: false
         CompileFlags: 
         FrameworkDependencies: 
   - first:

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb4931813a361148a6651be452ff88e, type: 3}
+  m_Name: CharacterNorm
+  m_EditorClassIdentifier: 
+  templatePath: QuickSheet/GDataPlugin/Templates
+  scriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Representation
+  editorScriptFilePath: _Core/Scripts/DB/Load/Data/_QuickSheetData/Editor
+  sheetName: HOX
+  workSheetName: CharacterNorm
+  columnHeaderList:
+  - type: 3
+    name: Level
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: Exp
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: HP
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: Attack
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: Defence
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: Speed
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: AttackSpeed
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: CriticalChance
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: CriticalModifier
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: FightExp
+    isEnable: 0
+    isArray: 0
+  AccessCode: 

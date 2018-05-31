@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3dade70634dcd45a0e6164a44011ab, type: 3}
+  m_Name: ItemConfigRepresentation
+  m_EditorClassIdentifier: 
+  SheetName: HOX
+  WorksheetName: ItemConfig
+  dataArray:
+  - id: 0
+    name: AXE
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 2
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0.8
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 1
+    name: DAGGER
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 0.5
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0.4
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 2
+    name: HAMMER
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1.2
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 3
+    name: SPEAR
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 4
+    name: SWORD
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0.7
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 5
+    name: SHIELD
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 4
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1.1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 6
+    name: HELMET
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 2
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 7
+    name: CUIRASS
+    level: 1
+    hp: 10
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 8
+    defencepercent: 0
+    speed: -2
+    speedpercent: 0
+    attackspeed: 2
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 8
+    name: PANTS
+    level: 1
+    hp: 5
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 5
+    defencepercent: 0
+    speed: -1
+    speedpercent: 0
+    attackspeed: 1.5
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 9
+    name: BOOTS
+    level: 1
+    hp: 0
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 1
+    defencepercent: 0
+    speed: 3
+    speedpercent: 0
+    attackspeed: 1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 10
+    name: POTION_HEAL
+    level: 1
+    hp: 10
+    hppercent: 0
+    attack: 0
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 1

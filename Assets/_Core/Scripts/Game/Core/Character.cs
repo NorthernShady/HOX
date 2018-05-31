@@ -3,133 +3,307 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Character : Photon.PunBehaviour {
+public class Character : Photon.PunBehaviour
+{
+    public System.Action<int, float> OnExpChanged;
+    public System.Action<float> OnHealthChanged;
+    public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
+    public System.Action<Character> OnDeath;
 
-	public System.Action<float> OnHealthChanged;
-	public System.Action<Character> OnDeath;
+    public virtual GameData.CharacterType getType()
+    {
+        return GameData.CharacterType.NONE;
+    }
 
-	protected CharacterData m_data = null;
-	float m_health = 0.0f;
-	float m_attackTimer = 0.0f;
+    public virtual BasicPhysicalModel getPhysicalModel()
+    {
+        return null;
+    }
 
-	protected bool m_isDead = false;
-	protected bool m_shouldAttack = false;
-	protected bool m_shouldDestroy = false;
+    protected Services m_services = null;
 
-	protected Character m_attackTarget = null;
+    protected Rigidbody m_rigidbody = null;
+    public Rigidbody rigidbody {
+        get {
+            return m_rigidbody;
+        }
+    }
 
-	bool m_shouldSendAttack = false;
+    protected Inventory m_inventory = null;
+    public Inventory inventory {
+        get {
+            return m_inventory;
+        }
+    }
 
-	protected void initialize(CharacterData characterData)
-	{
-		m_data = characterData;
-		m_health = m_data.maxHealth;
-	}
+    protected CommonTraits m_data = null;
+    public CommonTraits data {
+        get {
+            return m_data;
+        }
+    }
 
-	public virtual void moveTo(Vector3 position)
-	{
-		if (!PhotonHelper.isMine(this))
-			return;
-		
-		transform.DOKill();
+    protected CommonTraits m_totalData = null;
+    public CommonTraits totalData {
+        get {
+            return m_totalData;
+        }
+    }
 
-		position.y = GetComponent<Rigidbody>().position.y;
-		GetComponent<Rigidbody>().MoveRotation(Quaternion.LookRotation(transform.position - position));
-		GetComponent<Rigidbody>().DOMove(position, m_data.moveSpeed).SetSpeedBased();
-	}
+    float m_exp = 0.0f;
+    public float expPercent {
+        get {
+            return m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp;
+        }
+    }
 
-	void Update()
-	{
-		if (!PhotonHelper.isMine(this))
-			return;
-//		if (photonView != null && !photonView.isMine)
+    float m_health = 0.0f;
+    float m_attackTimer = 0.0f;
 
-		var canAttack = updateAttackTime();
+    protected bool m_isDead = false;
+    protected bool m_shouldAttack = false;
+    protected bool m_shouldDestroy = false;
 
-		if (canAttack && m_attackTarget != null && !m_isDead) {
-			attack (m_attackTarget);
-			m_shouldSendAttack = true;
+    protected Character m_attackTarget = null;
+
+    bool m_shouldSendAttack = false;
+
+    protected virtual void Awake()
+    {
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_services = FindObjectOfType<Services>();
+    }
+
+    void OnDisable()
+    {
+        if (m_inventory != null)
+            m_inventory.OnItemsChanged -= onInventoryUpdated;
+    }
+
+    protected void initialize(CommonTraits characterData, Inventory inventory)
+    {
+        m_data = characterData;
+        m_inventory = inventory;
+        m_inventory.OnItemsChanged += onInventoryUpdated;
+
+        updateParameters();
+        m_health = m_totalData.maxHealth;
+    }
+
+    public virtual void moveTo(Vector3 position)
+    {
+        if (!PhotonHelper.isMine(this))
+            return;
+
+		m_rigidbody.DOKill();
+        position.y = m_rigidbody.position.y;
+        turnTo(position);
+
+		var direction = position - m_rigidbody.position;
+		var distance = direction.magnitude;
+		RaycastHit raycastHit;
+		if (Physics.Raycast(MathHelper.yShift(m_rigidbody.position, 1.2f), MathHelper.yShift(position - m_rigidbody.position, 1.2f), out raycastHit, (position - m_rigidbody.position).magnitude)) {
+			position = (raycastHit.distance > 0.5f) ? (raycastHit.distance - 0.5f) * (direction / distance) + m_rigidbody.position :
+				m_rigidbody.position;
 		}
-	}
 
-	bool updateAttackTime()
-	{
-		if (m_attackTimer > m_data.attackSpeed)
-			return true;
-		
-		m_attackTimer += Time.deltaTime;
-		return false;
-	}
+		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
+    }
 
-	public void attack(Character target)
-	{
-		m_attackTimer = 0.0f;
-		onAttackAnimation();
+    void Update()
+    {
+        if (!PhotonHelper.isMine(this))
+            return;
+        //		if (photonView != null && !photonView.isMine)
 
-		target.takeDamage(this, m_data.attack);
-	}
+        var canAttack = updateAttackTime();
 
-	void whenHpZero()
-	{
-		m_isDead = true;
-		if (OnDeath != null) {
-			OnDeath (this);
-		}
-		onDeathAnimation ();
-	}
+        if (canAttack && m_attackTarget != null && !m_isDead)
+        {
+            turnTo(m_attackTarget.rigidbody.position);
+            attack(m_attackTarget);
+            m_shouldSendAttack = true;
+        }
+    }
 
-	public bool takeDamage(Character target, float amount)
-	{
-		var damage = Mathf.Max(amount - m_data.defence, 1.0f);
-		m_health = Mathf.Max(0.0f, m_health - damage);
+    bool updateAttackTime()
+    {
+        if (m_attackTimer > 1.0f / m_totalData.attackSpeed)
+            return true;
 
-		if (OnHealthChanged != null)
-			OnHealthChanged(m_health / m_data.maxHealth);
+        m_attackTimer += Time.deltaTime;
+        return false;
+    }
 
-		if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
-			whenHpZero ();
-			m_shouldDestroy = true;
-			return true;
-		}
+    public void attack(Character target)
+    {
+        m_attackTimer = 0.0f;
+        onAttackAnimation();
 
-		return false;
-	}
+        var attack = m_services.getService<LogicController>().countDamage(this, target);
+        target.takeDamage(this, attack.Item2, attack.Item1);
+    }
 
-	protected virtual void onDeathAnimation()
-	{
-		PhotonHelper.Destroy(gameObject);
-	}
+    public void useItem(Item item)
+    {
+        if (item.type == GameData.ItemType.POTION_HEAL)
+            heal(item.data.maxHealth);
 
-	protected virtual void onAttackAnimation()
-	{
-		var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
-		var attack = GameObject.Instantiate(attackPrefab, transform.position, Quaternion.identity);
-		Destroy(attack, 0.5f);
-	}
+        m_inventory.consumeItem(item);
+    }
 
-	protected void photonUpdate (PhotonStream stream, PhotonMessageInfo info)
-	{
-		if (stream.isWriting) {
-			stream.SendNext (m_shouldSendAttack);
-			stream.SendNext (m_shouldDestroy);
-			stream.SendNext (m_health);
-			m_shouldSendAttack = false;
-			m_shouldDestroy = false;
-		}
-		if (stream.isReading) {
-			if ((bool)stream.ReceiveNext () && m_attackTarget != null && !m_isDead) {
-				attack (m_attackTarget);
-			}
-			bool m_shouldDestroy = (bool)stream.ReceiveNext ();
-			if (m_shouldDestroy) {
-				whenHpZero ();
-			}
-			m_shouldDestroy = false;
-			m_health = (float)stream.ReceiveNext ();
-			if (m_data != null) {
-				OnHealthChanged (m_health / m_data.maxHealth);
-			}
-		}
-	}
+    private void heal(float health)
+    {
+        m_health = Mathf.Min(m_health + health, m_totalData.maxHealth);
+
+        if (OnHealthChanged != null)
+            OnHealthChanged(m_health / m_totalData.maxHealth);
+
+        onHealAnimation();
+    }
+
+    public void exping(Character target)
+    {
+        if (m_totalData.exp < 0)
+            return;
+
+        m_exp += target.totalData.fightExp;
+
+        Debug.Log("Exp: " + m_exp);
+
+        if (m_exp >= m_totalData.exp) {
+            m_exp -= m_totalData.exp;
+            onLevelUp();
+            onLevelUpAnimation();
+        }
+
+        if (OnExpChanged != null)
+            OnExpChanged(m_data.level, m_totalData.exp < 0 ? 1.0f : m_exp / m_totalData.exp);
+    }
+
+    void whenHpZero()
+    {
+        if (m_isDead)
+            return;
+
+        m_isDead = true;
+        if (OnDeath != null)
+        {
+            OnDeath(this);
+        }
+        onDeathAction();
+        onDeathAnimation();
+    }
+
+    protected void turnTo(Vector3 position)
+    {
+        m_rigidbody.MoveRotation(Quaternion.LookRotation(m_rigidbody.position - position));
+    }
+
+    public bool takeDamage(Character target, float amount, bool isCritical)
+    {
+        Debug.Log(string.Format("{0} took {1} damage, is critical = {2}", getType(), amount, isCritical));
+        m_health = Mathf.Max(0.0f, m_health - amount);
+
+        if (OnHealthChanged != null)
+            OnHealthChanged(m_health / m_totalData.maxHealth);
+
+        if (m_health <= 0.01f && PhotonHelper.isMine(this))
+        {
+            whenHpZero();
+            m_shouldDestroy = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    protected virtual void onDeathAction()
+    {
+    }
+
+    protected virtual void onDeathAnimation()
+    {
+        PhotonHelper.Destroy(gameObject);
+        // StartCoroutine(destroyIn(0.5f));
+    }
+
+    protected virtual void onInventoryUpdated(List<Item> items)
+    {
+        updateParameters();
+    }
+
+    protected virtual void updateParameters()
+    {
+        var data = m_data + m_services.getService<LogicController>().countInventory(this);
+        m_totalData = data.resolve();
+    }
+
+    IEnumerator destroyIn(float time)
+    {
+        yield return new WaitForSeconds(time);
+        PhotonHelper.Destroy(gameObject);
+    }
+
+    public virtual void onTargetKilled(Character target)
+    {
+        exping(target);
+    }
+
+    protected virtual void onLevelUp()
+    {
+        updateParameters();
+        heal(m_totalData.maxHealth);
+        Debug.Log("Level up");
+    }
+
+    #region Action animations
+
+    protected virtual void onAttackAnimation()
+    {
+        var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
+        var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
+        Destroy(attack, 0.5f);
+    }
+
+    protected virtual void onHealAnimation()
+    {
+    }
+
+    protected virtual void onLevelUpAnimation()
+    {
+    }
+
+    #endregion
+
+    protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(m_shouldSendAttack);
+            stream.SendNext(m_shouldDestroy);
+            stream.SendNext(m_health);
+            m_shouldSendAttack = false;
+            m_shouldDestroy = false;
+        }
+        if (stream.isReading)
+        {
+            if ((bool)stream.ReceiveNext() && m_attackTarget != null && !m_isDead)
+            {
+                attack(m_attackTarget);
+            }
+            bool m_shouldDestroy = (bool)stream.ReceiveNext();
+            if (m_shouldDestroy)
+            {
+                whenHpZero();
+            }
+            m_shouldDestroy = false;
+            m_health = (float)stream.ReceiveNext();
+            if (m_data != null)
+            {
+                OnHealthChanged(m_health / m_data.maxHealth);
+            }
+        }
+    }
 }
 
