@@ -1,20 +1,21 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Core/Character.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Photon Unity Networking/Editor/PhotonNetwork/AccountService.cs">
     <Files>
       <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/MainMenu/ConnectingToGame.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="182" Column="10" />
       <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="316" Column="56" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="289" Column="6" />
       <File FileName="Assets/_Core/Scripts/GAme/Gameplay/LogicController.cs" Line="27" Column="22" />
       <File FileName="Assets/_Core/Scripts/GAme/Gameplay/GameController.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Data/MapCreepData.cs" Line="6" Column="14" />
       <File FileName="Assets/_Core/Scripts/GAme/Data/CharacterData.cs" Line="6" Column="20" />
       <File FileName="Assets/_Core/Scripts/GAme/Data/CommonTraits.cs" Line="172" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Inventory.cs" Line="89" Column="17" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Inventory.cs" Line="77" Column="34" />
       <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Item.cs" Line="6" Column="14" />
+      <File FileName="Assets/Photon Unity Networking/Editor/PhotonNetwork/AccountService.cs" Line="22" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

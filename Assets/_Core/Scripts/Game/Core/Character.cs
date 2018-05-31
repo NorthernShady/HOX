@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using Newtonsoft.Json;
 
 public class Character : Photon.PunBehaviour
 {
@@ -295,12 +292,12 @@ public class Character : Photon.PunBehaviour
 
     void traitsSerialization(PhotonStream stream)
     {
-        var dataString = JsonConvert.SerializeObject(m_data);
+        var dataString = JsonUtility.ToJson(m_data);
         stream.SendNext(dataString);
         var items = m_inventory.items;
         stream.SendNext(items.Count);
         foreach (var item in items) {
-            var itemString = JsonConvert.SerializeObject(m_data);
+            var itemString = JsonUtility.ToJson(m_data);
             stream.SendNext(itemString);
         }
     }
@@ -308,12 +305,12 @@ public class Character : Photon.PunBehaviour
     void traitsDeserialization(PhotonStream stream)
     {
         var dataString = (string)stream.ReceiveNext();
-        m_data = JsonConvert.DeserializeObject<CommonTraits>(dataString);
+        m_data = JsonUtility.FromJson<CommonTraits>(dataString);
         var itemsCount = (int)stream.ReceiveNext();
         m_inventory.resetItems();
         for (int i = 0; i < itemsCount; i++) {
             var itemString = (string)stream.ReceiveNext();
-            var item = JsonConvert.DeserializeObject<Item>(itemString);
+            var item = JsonUtility.FromJson<Item>(itemString);
             m_inventory.addItem(item);
 
         }
