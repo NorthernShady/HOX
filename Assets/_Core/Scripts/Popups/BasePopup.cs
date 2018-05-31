@@ -18,4 +18,10 @@ public class BasePopup : MonoBehaviour {
 		Destroy(this.gameObject);
 		m_gameInputController.allowGameTouches = true;
 	}
+
+	protected IEnumerator openPopup(float delay, GameObject popup)
+    {
+        yield return new WaitForSeconds(delay);
+        popup.SetActive(true);
+    }
 }
