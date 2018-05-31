@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 //		hero.GetComponent<Hero>().initialize(pos, team);
 	}
 
-	public	void onPlayerDeath(Character character)
+	public void onPlayerDeath(Character character)
 	{
 		character.OnDeath -= onPlayerDeath;
 		GameObject.Instantiate(m_gameOverPrefab, FindObjectOfType<Canvas>().transform);

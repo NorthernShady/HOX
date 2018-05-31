@@ -1,13 +1,20 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Player/SlotBag.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Spine/spine-unity/Asset Types/Editor/SkeletonDataAssetInspector.cs">
     <Files>
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/MainMenu/ConnectingToGame.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/MainMenu/MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/GameController.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Player/GameItem.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Player/PlayerBag.cs" Line="1" Column="1" />
       <File FileName="Assets/_Core/Scripts/GAme/Player/SlotBag.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Editor/HeroEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Spine/spine-unity/Asset Types/Editor/SkeletonDataAssetInspector.cs" Line="665" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditor.cs" Line="497" Column="167" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

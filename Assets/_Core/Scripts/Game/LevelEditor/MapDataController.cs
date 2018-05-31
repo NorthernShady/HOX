@@ -79,21 +79,26 @@ public class MapDataController : MonoBehaviour {
 		MapData mapData = Resources.Load<MapData> (m_mapDataName);
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
-				if (proxyData.team != team) {
+				if (!proxyData.isBotGame && proxyData.team != team) {
 					continue;
 				}
-				var hero = PhotonNetwork.Instantiate (m_heroPrefab.name, startPosition, Quaternion.identity, 0);
-				hero.GetComponent<Hero> ().initialize (startPosition, team);
+				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
+				var heroType = (proxyData.team == team) ? proxyData.heroType : getRandomHeroType();
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, proxyData.isBotGame && proxyData.team == team);
 			}
 		}
 
-		if (PhotonNetwork.isMasterClient) {
+		if (PhotonHelper.isMaster()) {
 			foreach (var creepData in mapData.mapCreepData) {
-				var creep = PhotonNetwork.Instantiate (m_creepPrefab.name, map.transform.position, Quaternion.identity, 0);
+				var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
 				creep.GetComponent<Creep>().initialize(creepData);
 			}
 		}
+	}
 
-			
+	GameData.HeroType getRandomHeroType()
+	{
+		var values = System.Enum.GetValues(typeof(GameData.HeroType));
+		return (GameData.HeroType)values.GetValue(Random.Range(0, values.Length - 2));
 	}
 }

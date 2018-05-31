@@ -28,9 +28,9 @@ public class Character : Photon.PunBehaviour {
 
 	public virtual void moveTo(Vector3 position)
 	{
-		if (!photonView.isMine) {
+		if (!PhotonHelper.isMine(this))
 			return;
-		}
+		
 		transform.DOKill();
 
 		position.y = GetComponent<Rigidbody>().position.y;
@@ -40,9 +40,10 @@ public class Character : Photon.PunBehaviour {
 
 	void Update()
 	{
-		if (photonView != null && !photonView.isMine) {
+		if (!PhotonHelper.isMine(this))
 			return;
-		}
+//		if (photonView != null && !photonView.isMine)
+
 		var canAttack = updateAttackTime();
 
 		if (canAttack && m_attackTarget != null && !m_isDead) {
@@ -85,7 +86,7 @@ public class Character : Photon.PunBehaviour {
 		if (OnHealthChanged != null)
 			OnHealthChanged(m_health / m_data.maxHealth);
 
-		if (m_health <= 0.01f && photonView.isMine) {
+		if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
 			whenHpZero ();
 			m_shouldDestroy = true;
 			return true;
@@ -96,7 +97,7 @@ public class Character : Photon.PunBehaviour {
 
 	protected virtual void onDeathAnimation()
 	{
-		PhotonNetwork.Destroy(gameObject);
+		PhotonHelper.Destroy(gameObject);
 	}
 
 	protected virtual void onAttackAnimation()

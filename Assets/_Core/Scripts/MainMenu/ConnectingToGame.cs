@@ -111,9 +111,8 @@ public class ConnectingToGame : Photon.PunBehaviour {
 
 	override public void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 	{
-		PhotonNetwork.LoadLevel (levelName);
+		PhotonNetwork.LoadLevel(levelName);
 	}
-		
 
 	override public void OnConnectedToPhoton ()
 	{
@@ -131,5 +130,11 @@ public class ConnectingToGame : Photon.PunBehaviour {
 	{
 		joinButton.SetActive (true);
 		createButton.SetActive (true);
+	}
+
+	public void playBotGame()
+	{
+		createRoom();
+		PhotonNetwork.LoadLevel(levelName);
 	}
 }

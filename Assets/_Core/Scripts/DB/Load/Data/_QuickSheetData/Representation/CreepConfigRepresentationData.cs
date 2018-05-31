@@ -32,4 +32,12 @@ public class CreepConfigRepresentationData
   float defence;
   public float Defence { get {return defence; } set { defence = value;} }
   
+  [SerializeField]
+  float speed;
+  public float Speed { get {return speed; } set { speed = value;} }
+  
+  [SerializeField]
+  float attackspeed;
+  public float Attackspeed { get {return attackspeed; } set { attackspeed = value;} }
+  
 }

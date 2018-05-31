@@ -12,4 +12,6 @@ public class CreepConfig {
 	public float HP { get; set; }
 	public float Attack { get; set; }
 	public float Defence { get; set; }
+	public float Speed { get; set; }
+	public float AttackSpeed { get; set; }
 }

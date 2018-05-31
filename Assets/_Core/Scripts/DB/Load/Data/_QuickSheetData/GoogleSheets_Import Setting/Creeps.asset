@@ -41,4 +41,12 @@ MonoBehaviour:
     name: Defence
     isEnable: 0
     isArray: 0
+  - type: 5
+    name: Speed
+    isEnable: 0
+    isArray: 0
+  - type: 5
+    name: AttackSpeed
+    isEnable: 0
+    isArray: 0
   AccessCode: 

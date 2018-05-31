@@ -661,7 +661,7 @@ namespace Spine.Unity.Editor {
 			return skeletonJSON.objectReferenceValue != null;
 		}
 
-		Texture m_previewTex = new Texture();
+		Texture m_previewTex = null;
 
 		public override void OnInteractivePreviewGUI (Rect r, GUIStyle background) {
 			this.InitPreview();
