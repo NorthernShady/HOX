@@ -59,9 +59,13 @@ public class Creep : Character, IPunObservable {
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
-		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
 
 		updateVisual();
+
+		if (!Application.isPlaying)
+			return;
+
+		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
 		isInit = true;
 	}
 
@@ -74,6 +78,8 @@ public class Creep : Character, IPunObservable {
 
 		m_activeVisual = GameObject.Instantiate(m_creepVisual[m_creepData.type], transform, false);
 		m_activePhysics = GameObject.Instantiate(m_creepPhysics[m_creepData.type], transform, false);
+
+		specializeDomaine(m_activeVisual, m_creepData.domaine);
 
 		// m_activeVisual.transform.SetParent(transform, false);
 		// m_activePhysics.transform.SetParent(transform, false);
