@@ -38,4 +38,10 @@ public partial class DBProvider : I_UserDBProvider  {
 		string cmdText = "SELECT * FROM ItemConfig WHERE Name = ?";
 		return dataService.connection.Query<ItemConfig>(cmdText, itemName)[0];
 	}
+
+	public DomaineConfig getDomaineConfig(string configName)
+	{
+		string cmdText = "SELECT * FROM DomaineConfig WHERE Name = ?";
+		return dataService.connection.Query<DomaineConfig>(cmdText, configName)[0];
+	}
 }

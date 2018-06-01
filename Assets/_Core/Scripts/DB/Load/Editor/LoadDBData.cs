@@ -86,6 +86,7 @@ public class LoadDBData
 		loadHeroesData(dataService);
 		loadCreepsData(dataService);
 		loadItemsData(dataService);
+		loadDomaineData(dataService);
 
 		PlayerPrefs.DeleteAll ();
 	}
@@ -99,6 +100,7 @@ public class LoadDBData
 		loadGoogleSheet<HeroConfigRepresentation, HeroConfigRepresentationData>(m_dataAssetsHolder.getHeroRepresentationAsset());
 		loadGoogleSheet<CreepConfigRepresentation, CreepConfigRepresentationData>(m_dataAssetsHolder.getCreepRepresentationAsset());
 		loadGoogleSheet<ItemConfigRepresentation, ItemConfigRepresentationData>(m_dataAssetsHolder.getItemRepresentationAsset());
+		loadGoogleSheet<DomaineConfigRepresentation, DomaineConfigRepresentationData>(m_dataAssetsHolder.getDomaineRepresentationAsset());
 	}
 
 	static void loadGeneralData (DataService dataService)
@@ -246,6 +248,25 @@ public class LoadDBData
 					CriticalChancePercent = row.Criticalchancepercent,
 					CriticalModifier = row.Criticalmodifier,
 					IsConsumable = row.Isconsumable
+				}
+			});
+		}
+	}
+
+	static void loadDomaineData(DataService dataService)
+	{
+		var domaineDataRepresentation = m_dataAssetsHolder.getDomaineRepresentationAsset();
+
+		foreach (var row in domaineDataRepresentation.dataArray) {
+			if (row.Name.Length == 0)
+				continue;
+			dataService.connection.InsertAll(new[] {
+				new DomaineConfig {
+					Id = row.Id,
+					Name = row.Name,
+					Disadvantage = row.Disadvantage,
+					Equal = row.Equal,
+					Advantage = row.Advantage
 				}
 			});
 		}
