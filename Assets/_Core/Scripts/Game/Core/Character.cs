@@ -131,13 +131,17 @@ public class Character : Photon.PunBehaviour
 
         var canAttack = updateAttackTime();
         var shouldAttack = m_attackTarget != null && !m_isDead;
+        attackAction(canAttack, shouldAttack);
 
+    }
+
+    void attackAction(bool canAttack, bool shouldAttack)
+    {
         if (shouldAttack && !m_isAttackAnimated) {
             StartCoroutine(startAttackAnimation());
         }
 
-        if (canAttack && shouldAttack)
-        {
+        if (canAttack && shouldAttack) {
             turnTo(m_attackTarget.rigidbody.position);
             attack(m_attackTarget);
             m_shouldSendAttack = true;
@@ -262,7 +266,7 @@ public class Character : Photon.PunBehaviour
         // StartCoroutine(destroyIn(0.5f));
         disableVisualAndLogic();
         if (!PhotonHelper.isConnected()) {
-            PhotonHelper.Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 
@@ -315,7 +319,7 @@ public class Character : Photon.PunBehaviour
         }
 
         m_isAttackAnimated = false;
-        Destroy(attackAnimation);
+        Destroy(attackAnimation.gameObject);
     }
 
     protected virtual void onAttackAnimation()
@@ -420,9 +424,9 @@ public class Character : Photon.PunBehaviour
             m_health = (float)stream.ReceiveNext();
             traitsDeserialization(stream);
 
-            if (shouldAttack && m_attackTarget != null && !m_isDead) {
-                attack(m_attackTarget);
-            }
+            bool canAttack = (m_attackTarget != null && !m_isDead);
+            attackAction(canAttack, shouldAttack);
+
 
             if (shouldDestroy) {
                 whenHpZero();

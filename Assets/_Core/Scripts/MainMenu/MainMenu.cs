@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour {
 		EventManager.Instance.Raise(new SoundEvents.Fade ((int)AudioPlayIds.MAIN_MENU,musicVolume, 2.0f ,false));
 
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
+        PhotonNetwork.Disconnect();
 	}
 
 	void startBotGame()
