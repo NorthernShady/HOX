@@ -5,10 +5,6 @@ using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
-
-    [SerializeField]
-    GameObject m_mainVisual;
-
     public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
@@ -257,20 +253,12 @@ public class Character : Photon.PunBehaviour
     {
     }
 
-    protected virtual void onDeathAnimation()
-    {
-        //PhotonHelper.Destroy(gameObject);
-        // StartCoroutine(destroyIn(0.5f));
-        disableVisualAndLogic();
-        if (!PhotonHelper.isConnected()) {
-            Destroy(gameObject, 0.5f);
-        }
-    }
-
     protected virtual void disableVisualAndLogic()
     {
         m_rigidbody.detectCollisions = false;
-        m_mainVisual.SetActive(false);
+
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(false);
     }
 
     protected virtual void onInventoryUpdated(List<Item> items)
@@ -308,11 +296,12 @@ public class Character : Photon.PunBehaviour
     {
         var delay = new WaitForEndOfFrame();
         var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
-        var attackAnimation = GameObject.Instantiate(prefab, MathHelper.yShift(rigidbody.position, 0.1f, true), Quaternion.identity);
+        var attackAnimation = GameObject.Instantiate(prefab, MathHelper.yShift(m_rigidbody.position, 0.1f, true), Quaternion.identity);
         m_isAttackAnimated = true;
 
         while (m_attackTarget != null && !m_isDead) {
             yield return delay;
+            attackAnimation.transform.position = MathHelper.yShift(m_rigidbody.position, 0.1f, true);
         }
 
         m_isAttackAnimated = false;
@@ -322,7 +311,7 @@ public class Character : Photon.PunBehaviour
     protected virtual void onAttackAnimation()
     {
         var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
-        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        var attackAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
         Destroy(attackAnimation, 1.0f);
 
         // var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
@@ -331,22 +320,33 @@ public class Character : Photon.PunBehaviour
     protected virtual void onCriticalAttackAnimation()
     {
         var prefab = Resources.Load<GameObject>(k.Resources.CRITICAL_DAMAGE);
-        var criticalAttackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        var criticalAttackAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
         Destroy(criticalAttackAnimation, 1.0f);
     }
 
     protected virtual void onHealAnimation()
     {
         var prefab = Resources.Load<GameObject>(k.Resources.HEALING_VFX);
-        var healAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        var healAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
         Destroy(healAnimation, 1.0f);
     }
 
     protected virtual void onLevelUpAnimation()
     {
         var prefab = Resources.Load<GameObject>(k.Resources.LEVEL_UP_VFX);
-        var levelUpAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        var levelUpAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
         Destroy(levelUpAnimation, 1.0f);
+    }
+
+    protected virtual void onDeathAnimation()
+    {
+        var prefab = Resources.Load<GameObject>(k.Resources.CHAR_DEATH);
+        var deathAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
+
+        disableVisualAndLogic();
+        if (!PhotonHelper.isConnected()) {
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     #endregion

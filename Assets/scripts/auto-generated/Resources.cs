@@ -26,9 +26,11 @@ namespace k
 		public const string DATA_ASSETS_HOLDER = "DataAssetsHolder";
 		public const string HERO = "Hero";
 		public const string ITEM_DATA = "ItemData";
+		public const string OBSTACLE = "Obstacle";
 		public const string MAP_DATA = "MapData/MapData";
 		public const string CREEP_OLD = "Prefabs/CreepOld";
 		public const string ATTACK_VFX = "VisualEffects/AttackVFX";
+		public const string CHAR_DEATH = "VisualEffects/CharDeath";
 		public const string CRITICAL_DAMAGE = "VisualEffects/CriticalDamage";
 		public const string FXRECIVE_DAMAGE = "VisualEffects/FXReciveDamage";
 		public const string GAME_OVER = "VisualEffects/GameOver";
