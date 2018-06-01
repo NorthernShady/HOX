@@ -24,6 +24,9 @@ ModelImporter:
     100036: Cylinder.006
     100038: Cylinder.008
     100040: Sphere.001
+    100042: DomainePart
+    100044: head
+    100046: beaard
     400000: //RootNode
     400002: Cube
     400004: Cube_002
@@ -45,6 +48,9 @@ ModelImporter:
     400036: Cylinder.006
     400038: Cylinder.008
     400040: Sphere.001
+    400042: DomainePart
+    400044: head
+    400046: beaard
     2100000: beard
     2100002: face
     2100004: unnamed
@@ -73,6 +79,9 @@ ModelImporter:
     2300036: Cylinder.006
     2300038: Cylinder.008
     2300040: Sphere.001
+    2300042: DomainePart
+    2300044: head
+    2300046: beaard
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -94,6 +103,9 @@ ModelImporter:
     3300036: Cylinder.006
     3300038: Cylinder.008
     3300040: Sphere.001
+    3300042: DomainePart
+    3300044: head
+    3300046: beaard
     4300000: Sphere
     4300002: Cylinder
     4300004: Cylinder_006
@@ -114,6 +126,9 @@ ModelImporter:
     4300034: Cylinder.001
     4300036: Cylinder.004
     4300038: Cylinder.003
+    4300040: DomainePart
+    4300042: head
+    4300044: beaard
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -128,7 +143,7 @@ ModelImporter:
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
@@ -180,7 +195,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
