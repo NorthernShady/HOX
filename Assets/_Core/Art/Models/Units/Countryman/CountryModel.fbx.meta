@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: f5593cb0f236a400abcfc6cc10096b21
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Cube
@@ -27,6 +27,7 @@ ModelImporter:
     100042: DomainePart
     100044: head
     100046: beaard
+    100048: head.001
     400000: //RootNode
     400002: Cube
     400004: Cube_002
@@ -51,6 +52,7 @@ ModelImporter:
     400042: DomainePart
     400044: head
     400046: beaard
+    400048: head.001
     2100000: beard
     2100002: face
     2100004: unnamed
@@ -58,6 +60,8 @@ ModelImporter:
     2100008: foot
     2100010: body
     2100012: No Name
+    2100014: head
+    2100016: DomainePart
     2300000: Cube
     2300002: Cube_002
     2300004: Cylinder
@@ -82,6 +86,7 @@ ModelImporter:
     2300042: DomainePart
     2300044: head
     2300046: beaard
+    2300048: head.001
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -106,6 +111,7 @@ ModelImporter:
     3300042: DomainePart
     3300044: head
     3300046: beaard
+    3300048: head.001
     4300000: Sphere
     4300002: Cylinder
     4300004: Cylinder_006
@@ -129,6 +135,7 @@ ModelImporter:
     4300040: DomainePart
     4300042: head
     4300044: beaard
+    4300046: head.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -139,6 +146,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: face
+    second: {fileID: 2100000, guid: fb50043675d9949baa89db5f0c92c8e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
     second: {fileID: 2100000, guid: fb50043675d9949baa89db5f0c92c8e3, type: 2}
   materials:
     importMaterials: 1
@@ -190,6 +202,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

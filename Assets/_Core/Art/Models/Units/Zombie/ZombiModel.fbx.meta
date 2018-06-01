@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: f9de9ec22bfd342e5bab94155d4d4769
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Cube.001
     100002: Cube.002
@@ -36,6 +36,8 @@ ModelImporter:
     2100004: limb
     2100006: foot
     2100008: hand
+    2100010: DomainePart
+    2100012: head
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cylinder.001
@@ -74,7 +76,12 @@ ModelImporter:
     4300018: Cylinder.003
     4300020: DomainePart
     4300022: head
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 0e8fb051974464e3a981ce5c8d93f0c0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -125,6 +132,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 708da160796094a2f813be6bd8d0773a
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Cube
     100002: Cube_002
@@ -34,6 +34,10 @@ ModelImporter:
     100056: tusk_right
     100058: Cylinder.007
     100060: DomainePart
+    100062: head.001
+    100064: head.002
+    100066: corn_1
+    100068: corn_2
     400000: Cube
     400002: Cube_002
     400004: Cylinder
@@ -65,6 +69,10 @@ ModelImporter:
     400056: tusk_right
     400058: Cylinder.007
     400060: DomainePart
+    400062: head.001
+    400064: head.002
+    400066: corn_1
+    400068: corn_2
     2100000: tusk
     2100002: Material
     2100004: unnamed
@@ -73,6 +81,10 @@ ModelImporter:
     2100010: body
     2100012: No Name
     2100014: Material.001
+    2100016: DomainePart
+    2100018: head
+    2100020: corn
+    2100022: corn_2
     2300000: Cube
     2300002: Cube_002
     2300004: Cylinder
@@ -104,6 +116,10 @@ ModelImporter:
     2300056: tusk_right
     2300058: Cylinder.007
     2300060: DomainePart
+    2300062: head.001
+    2300064: head.002
+    2300066: corn_1
+    2300068: corn_2
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -135,6 +151,10 @@ ModelImporter:
     3300056: tusk_right
     3300058: Cylinder.007
     3300060: DomainePart
+    3300062: head.001
+    3300064: head.002
+    3300066: corn_1
+    3300068: corn_2
     4300000: Cylinder_010
     4300002: Cylinder_009
     4300004: Cylinder
@@ -165,6 +185,10 @@ ModelImporter:
     4300054: hand_right
     4300056: Cylinder.007
     4300058: DomainePart
+    4300060: head.002
+    4300062: head.001
+    4300064: corn_1
+    4300066: corn_2
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -181,6 +205,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: corn
+    second: {fileID: 2100000, guid: b89451d2bff0e48e395f9793ca38a2cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: corn_2
+    second: {fileID: 2100000, guid: b89451d2bff0e48e395f9793ca38a2cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: foot
     second: {fileID: 2100000, guid: 2bf5ba170804b4ce1962dffa3cfa8e82, type: 2}
   - first:
@@ -188,6 +222,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: hand
     second: {fileID: 2100000, guid: e4dc1cc4155a94aa886ccb6a66b67fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 99d6c11f4d68e47ccba29fbd48752ca3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -248,6 +287,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

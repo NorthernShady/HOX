@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 71eed48bdbcef804ab76b9cfc5cc4e4e
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Cylinder
     100002: Cylinder_001
@@ -35,6 +35,16 @@ ModelImporter:
     4300006: Cylinder.001
     4300008: Sphere.001
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 163d055c6fe7b4738b6ec80372eaddc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 4b955b6739e6d40539df97c313cd5c80, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -95,8 +105,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
