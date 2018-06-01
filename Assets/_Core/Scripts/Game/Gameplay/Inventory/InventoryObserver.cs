@@ -17,12 +17,12 @@ public class InventoryObserver : MonoBehaviour {
 	// 	}
 	// }
 
-	void Awake()
+    protected virtual void Awake()
 	{
 		FindObjectOfType<Services>().addService(this);
 	}
 
-	void OnEnable()
+    protected virtual void OnEnable()
 	{
 		var itemControllers = m_inventoryVisual.getItemControllers();
 
@@ -30,7 +30,7 @@ public class InventoryObserver : MonoBehaviour {
 			controller.OnItemUsed += onItemUsed;
 	}
 
-	void OnDisable()
+    protected virtual void OnDisable()
 	{
 		m_character.inventory.OnItemsChanged -= onInventoryUpdated;
 
@@ -40,12 +40,12 @@ public class InventoryObserver : MonoBehaviour {
 			controller.OnItemUsed += onItemUsed;
 	}
 
-	private void onInventoryUpdated(List<Item> items)
+    protected virtual void onInventoryUpdated(List<Item> items)
 	{
 		m_inventoryVisual.setItems(items);
 	}
 
-	public void initialize(Character character)
+	public virtual void initialize(Character character)
 	{
 		m_character = character;
 
@@ -57,7 +57,7 @@ public class InventoryObserver : MonoBehaviour {
 		onInventoryUpdated(inventory.items);
 	}
 
-	void onItemUsed(Item item)
+    protected virtual void onItemUsed(Item item)
 	{
 		m_character.useItem(item);
 	}
