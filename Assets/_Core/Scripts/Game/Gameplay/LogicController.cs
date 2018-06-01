@@ -35,4 +35,29 @@ public class LogicController : MonoBehaviour
 
 		return traits;
 	}
+
+	public GameData.DomaineType getDomaine(Hero hero)
+	{	
+		int[] domaineCount = new int[System.Enum.GetValues(typeof(GameData.DomaineType)).Length];
+
+		foreach (var item in hero.inventory.items)
+			if (item != null && !item.data.isConsumable)
+				++domaineCount[(int)item.domaineType];
+
+		var max = Mathf.Max(domaineCount);
+
+		int numberOfValues = 0;
+		int index = 0;
+		for (var i = 0; i < domaineCount.Length; ++i) {
+			if (domaineCount[i] == max) {
+				++numberOfValues;
+				index = i;
+			}
+		}
+
+		if (numberOfValues > 1)
+			return GameData.DomaineType.NONE;
+
+		return (GameData.DomaineType)index;
+	}
 }
