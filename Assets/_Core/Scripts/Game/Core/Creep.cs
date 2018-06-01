@@ -124,24 +124,30 @@ public class Creep : Character, IPunObservable {
 		var colorDrop = CharacterConfigDBHelper.getDomaineConfig("ColorDrop");
 		var levelDrop = CharacterConfigDBHelper.getDomaineConfig("LevelDrop");
 
-		if (Random.Range(0.0f, 1.0f) < cellDrop.Disadvantage) {
+		if (Random.Range(0.0f, 1.0f) <= cellDrop.Disadvantage) {
 			var domaine = getItemDomaineDrop(colorDrop);
 			var level = Mathf.Max(0, m_creepData.level + getItemLevelDrop(levelDrop));
 			var possibleItems = CharacterConfigDBHelper.getNonConsumableItemConfigs(level);
-			var item = possibleItems[Random.Range(0, possibleItems.Count)];
-			items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+
+			if (possibleItems.Count != 0) {
+				var item = possibleItems[Random.Range(0, possibleItems.Count)];
+				items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+			}
 		}
 
-		if (Random.Range(0.0f, 1.0f) < cellDrop.Equal) {
+		if (Random.Range(0.0f, 1.0f) <= cellDrop.Equal) {
 			items.Add(new Item(GameData.ItemType.POTION_HEAL, m_creepData.domaine));
 		}
 
-		if (Random.Range(0.0f, 1.0f) < cellDrop.Advantage) {
+		if (Random.Range(0.0f, 1.0f) <= cellDrop.Advantage) {
 			var domaine = getItemDomaineDrop(colorDrop);
-			var level = Mathf.Max(0, m_creepData.level + getItemLevelDrop(levelDrop));
+			var level = Mathf.Max(1, m_creepData.level + getItemLevelDrop(levelDrop));
 			var possibleItems = CharacterConfigDBHelper.getNonConsumableItemConfigs(level);
-			var item = possibleItems[Random.Range(0, possibleItems.Count)];
-			items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+
+			if (possibleItems.Count != 0) {
+				var item = possibleItems[Random.Range(0, possibleItems.Count)];
+				items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+			}
 		}
 
 		return new Inventory(items);

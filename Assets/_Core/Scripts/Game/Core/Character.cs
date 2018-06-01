@@ -209,9 +209,6 @@ public class Character : Photon.PunBehaviour
 
     public void specializeDomaine(GameObject visual, GameData.DomaineType domaine)
     {
-        if (domaine == GameData.DomaineType.NONE)
-            return;
-
         var domainePart = visual.transform.Find("DomainePart");
 
         if (domainePart == null)

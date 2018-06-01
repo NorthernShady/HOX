@@ -102,6 +102,8 @@ public class Hero : Character, IPunObservable
             gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
             m_services.getService<ExperienceObserver>().initialize(this);
+        } else {
+            m_services.getService<EnemyInventoryObserver>().initialize(this);
         }
     }
 
