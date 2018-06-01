@@ -23,3 +23,5 @@ MonoBehaviour:
     type: 2}
   itemRepresentationAsset: {fileID: 11400000, guid: 3215f4d7c71847c439b06b59f1c1eb7f,
     type: 2}
+  domaineRepresentationAsset: {fileID: 11400000, guid: a51f84e39e9344fe484b65e22f24bbcb,
+    type: 2}
