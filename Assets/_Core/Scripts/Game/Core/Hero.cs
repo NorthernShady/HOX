@@ -156,6 +156,12 @@ public class Hero : Character, IPunObservable
         base.onLevelUp();
     }
 
+    protected override void onInventoryUpdated(List<Item> items)
+    {
+        specializeDomaine(m_activeVisual, m_services.getService<LogicController>().getDomaine(this));
+        base.onInventoryUpdated(items);
+    }
+
     protected override void onDeathAnimation()
     {
         GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
