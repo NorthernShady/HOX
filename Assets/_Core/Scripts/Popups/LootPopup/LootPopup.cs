@@ -6,6 +6,12 @@ using System.Linq;
 public class LootPopup : BasePopup {
 
 	[SerializeField]
+    GameObject m_popup = null;
+
+    [SerializeField]
+    float m_openDelay = 1.0f;
+
+	[SerializeField]
 	Tk2dInventoryVisual m_inventory = null;
 
 	[SerializeField]
@@ -30,6 +36,8 @@ public class LootPopup : BasePopup {
 		m_takeAllButton.isEnabled = enableTakeAllButton;
 		// m_takeAllButton.GetComponent<UnityEngine.UI.Button>().enabled = enableTakeAllButton;
 		// m_takeAllButton.GetComponent<UnityEngine.UI.Image>().color = enableTakeAllButton ? Color.white : new Color(0.3f, 0.3f, 0.3f, 1.0f);
+
+		StartCoroutine(openPopup(m_openDelay, m_popup));
 	}
 
 	public override void onClose()

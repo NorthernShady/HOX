@@ -24,6 +24,8 @@ public class Hero : Character, IPunObservable
     [SerializeField]
     int m_team = 0;
 
+    bool m_isInit = false;
+
     public override GameData.CharacterType getType()
     {
         return GameData.CharacterType.HERO;
@@ -139,6 +141,9 @@ public class Hero : Character, IPunObservable
 
     public override void onTargetKilled(Character target)
     {
+        if (!PhotonHelper.isMine(this)) {
+            return;
+        }
         m_services.getService<PopupController>().openLootPopup(this, target);
         base.onTargetKilled(target);
     }
@@ -169,19 +174,21 @@ public class Hero : Character, IPunObservable
         {
             m_team = (int)stream.ReceiveNext();
             type = (GameData.HeroType)stream.ReceiveNext();
+            if (!m_isInit) {
+                initialize(Vector3.zero, m_team, type, false);
+                m_isInit = true;
+            }
         }
     }
 
     public override void OnPhotonInstantiate(PhotonMessageInfo info)
     {
+        base.photonInit();
         if (photonView.isMine)
         {
             gameObject.AddComponent<Player>();
         }
-        else
-        {
-            //initialize (new Vector2 (0, 0), 0);
-        }
+
     }
 
     #endregion

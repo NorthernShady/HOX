@@ -1,10 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class Character : Photon.PunBehaviour
 {
+
+    [SerializeField]
+    GameObject m_mainVisual;
+
     public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
@@ -66,6 +70,7 @@ public class Character : Photon.PunBehaviour
     float m_attackTimer = 0.0f;
 
     protected bool m_isDead = false;
+    protected bool m_isAttackAnimated = false;
     protected bool m_shouldAttack = false;
     protected bool m_shouldDestroy = false;
 
@@ -122,8 +127,13 @@ public class Character : Photon.PunBehaviour
         //		if (photonView != null && !photonView.isMine)
 
         var canAttack = updateAttackTime();
+        var shouldAttack = m_attackTarget != null && !m_isDead;
 
-        if (canAttack && m_attackTarget != null && !m_isDead)
+        if (shouldAttack && !m_isAttackAnimated) {
+            StartCoroutine(startAttackAnimation());
+        }
+
+        if (canAttack && shouldAttack)
         {
             turnTo(m_attackTarget.rigidbody.position);
             attack(m_attackTarget);
@@ -143,10 +153,13 @@ public class Character : Photon.PunBehaviour
     public void attack(Character target)
     {
         m_attackTimer = 0.0f;
-        onAttackAnimation();
+        // onAttackAnimation();
 
         var attack = m_services.getService<LogicController>().countDamage(this, target);
         target.takeDamage(this, attack.Item2, attack.Item1);
+
+        if (attack.Item1)
+            onCriticalAttackAnimation();
     }
 
     public void useItem(Item item)
@@ -206,8 +219,7 @@ public class Character : Photon.PunBehaviour
             return;
 
         m_isDead = true;
-        if (OnDeath != null)
-        {
+        if (OnDeath != null) {
             OnDeath(this);
         }
         onDeathAction();
@@ -227,8 +239,7 @@ public class Character : Photon.PunBehaviour
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        if (m_health <= 0.01f && PhotonHelper.isMine(this))
-        {
+        if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
             whenHpZero();
             m_shouldDestroy = true;
             return true;
@@ -243,8 +254,18 @@ public class Character : Photon.PunBehaviour
 
     protected virtual void onDeathAnimation()
     {
-        PhotonHelper.Destroy(gameObject);
+        //PhotonHelper.Destroy(gameObject);
         // StartCoroutine(destroyIn(0.5f));
+        disableVisualAndLogic();
+        if (!PhotonHelper.isConnected()) {
+            PhotonHelper.Destroy(gameObject);
+        }
+    }
+
+    protected virtual void disableVisualAndLogic()
+    {
+        m_rigidbody.detectCollisions = false;
+        m_mainVisual.SetActive(false);
     }
 
     protected virtual void onInventoryUpdated(List<Item> items)
@@ -278,51 +299,151 @@ public class Character : Photon.PunBehaviour
 
     #region Action animations
 
+    IEnumerator startAttackAnimation()
+    {
+        var delay = new WaitForEndOfFrame();
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        m_isAttackAnimated = true;
+
+        while (m_attackTarget != null && !m_isDead) {
+            yield return delay;
+        }
+
+        m_isAttackAnimated = false;
+        Destroy(attackAnimation);
+    }
+
     protected virtual void onAttackAnimation()
     {
-        var attackPrefab = Resources.Load<GameObject>(k.Resources.VFXHIT);
-        var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
-        Destroy(attack, 0.5f);
+        var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
+        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(attackAnimation, 1.0f);
+
+        // var attack = GameObject.Instantiate(attackPrefab, m_attackTarget.rigidbody.position, m_attackTarget.rigidbody.rotation);
+    }
+
+    protected virtual void onCriticalAttackAnimation()
+    {
+        var prefab = Resources.Load<GameObject>(k.Resources.CRITICAL_DAMAGE);
+        var criticalAttackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(criticalAttackAnimation, 1.0f);
     }
 
     protected virtual void onHealAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.HEALING_VFX);
+        var healAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(healAnimation, 1.0f);
     }
 
     protected virtual void onLevelUpAnimation()
     {
+        var prefab = Resources.Load<GameObject>(k.Resources.LEVEL_UP_VFX);
+        var levelUpAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        Destroy(levelUpAnimation, 1.0f);
     }
 
     #endregion
 
-    protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
+    void traitsSerialization(PhotonStream stream)
     {
-        if (stream.isWriting)
-        {
-            stream.SendNext(m_shouldSendAttack);
-            stream.SendNext(m_shouldDestroy);
-            stream.SendNext(m_health);
-            m_shouldSendAttack = false;
-            m_shouldDestroy = false;
+        var dataString = "";
+        if (m_data != null) {
+            dataString = JsonUtility.ToJson(m_data);
         }
-        if (stream.isReading)
-        {
-            if ((bool)stream.ReceiveNext() && m_attackTarget != null && !m_isDead)
-            {
-                attack(m_attackTarget);
+        stream.SendNext(dataString);
+        if (m_inventory != null) {
+            var items = m_inventory.items;
+            stream.SendNext(items.Count);
+            foreach (var item in items) {
+                var itemString = JsonUtility.ToJson(m_data);
+                stream.SendNext(itemString);
             }
-            bool m_shouldDestroy = (bool)stream.ReceiveNext();
-            if (m_shouldDestroy)
-            {
-                whenHpZero();
+        } else {
+            stream.SendNext(0);
+        }
+
+    }
+
+    void traitsDeserialization(PhotonStream stream)
+    {
+        var dataString = (string)stream.ReceiveNext();
+        if (dataString != "") {
+            var data = JsonUtility.FromJson<CommonTraits>(dataString);
+            if (data != null && data.m_traits != null) {
+                m_data = data;
             }
-            m_shouldDestroy = false;
-            m_health = (float)stream.ReceiveNext();
-            if (m_data != null)
-            {
-                OnHealthChanged(m_health / m_data.maxHealth);
+        }
+        var itemsCount = (int)stream.ReceiveNext();
+        var items = new List<Item>();
+
+        for (int i = 0; i < itemsCount; i++) {
+            var itemString = (string)stream.ReceiveNext();
+            var item = JsonUtility.FromJson<Item>(itemString);
+            items.Add(item);
+        }
+
+        Debug.Log("items_count: " + itemsCount.ToString());
+
+        if (m_inventory != null) {
+            m_inventory.resetItems();
+            foreach (var item in items) {
+                m_inventory.addItem(item);
             }
         }
     }
+
+    protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting) {
+            stream.SendNext(m_shouldSendAttack);
+            stream.SendNext(m_shouldDestroy);
+            stream.SendNext(m_health);
+            traitsSerialization(stream);
+
+            if (m_shouldDestroy) {
+                StartCoroutine(timerCallback(1.5f, delegate {
+                    PhotonHelper.Destroy(gameObject);
+                }));
+            }
+           
+
+            m_shouldSendAttack = false;
+            m_shouldDestroy = false;
+        }
+        if (stream.isReading) {
+            bool shouldAttack = (bool)stream.ReceiveNext();
+            bool shouldDestroy = (bool)stream.ReceiveNext();
+            m_health = (float)stream.ReceiveNext();
+            traitsDeserialization(stream);
+
+            if (shouldAttack && m_attackTarget != null && !m_isDead) {
+                attack(m_attackTarget);
+            }
+
+            if (shouldDestroy) {
+                whenHpZero();
+            }
+            shouldDestroy = false;
+
+            if (m_data != null) {
+                OnHealthChanged?.Invoke(m_health / m_data.maxHealth);
+            }
+        }
+    }
+
+    protected void photonInit()
+    {
+        var map = FindObjectOfType<BasicGrid>();
+        gameObject.transform.SetParent(map.gameObject.transform);
+    }
+
+    IEnumerator timerCallback(float time, System.Action callback)
+    {
+        yield return new WaitForSeconds(time);
+        callback();
+    }
+
 }
 

@@ -74,9 +74,22 @@ public class Inventory {
 		broadcastUpdate();
 	}
 
+    public void addItem(Item item)
+    {
+        m_items.RemoveAll(x => x == null);
+        m_items.Add(item);
+        broadcastUpdate();
+    }
+
 	private void broadcastUpdate()
 	{
 		if (OnItemsChanged != null)
 			OnItemsChanged(m_items);
 	}
+
+    public void resetItems()
+    {
+        m_items.Clear();
+        broadcastUpdate();
+    }
 }

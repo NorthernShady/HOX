@@ -1,23 +1,20 @@
-﻿<Properties StartupConfiguration="{5FE688ED-F78C-DF2F-A32E-5FFDE10DA4A1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/General/Initialize.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Inventory.cs">
     <Files>
-      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/LoadDBData.cs" Line="163" Column="17" />
-      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/ConfigSheetAccessor.cs" Line="15" Column="14" />
-      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/Config.cs" Line="9" Column="1" />
-      <File FileName="Assets/_Core/Scripts/DB/DataHelpers/ConfigDBHelper.cs" Line="26" Column="5" />
-      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/User.cs" Line="12" Column="29" />
-      <File FileName="Assets/_Core/Scripts/DB/DB_Tables/XPLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/DB/Providers/UserDBProvider.cs" Line="29" Column="1" />
-      <File FileName="Assets/_Core/Scripts/DB/Providers/I_UserDBProvider.cs" Line="9" Column="55" />
-      <File FileName="Assets/_Core/Scripts/DB/Providers/DBProvider.cs" Line="51" Column="3" />
-      <File FileName="Assets/_Core/Scripts/DB/Providers/ConfigDBProvider.cs" Line="12" Column="36" />
-      <File FileName="Assets/_Core/Scripts/DB/DataService.cs" Line="20" Column="20" />
-      <File FileName="Assets/_Core/Scripts/DB/Load/DataAssetsHolder.cs" Line="6" Column="1" />
-      <File FileName="Assets/_Core/Scripts/DB/Load/Editor/GenerateDBEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/General/Initialize.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Data/CommonTraits.cs" Line="64" Column="41" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/GameController.cs" Line="43" Column="19" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="112" Column="25" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="147" Column="55" />
+      <File FileName="Assets/_Core/Scripts/Utils/Network/PhotonHelper.cs" Line="15" Column="52" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="352" Column="34" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/PopupController.cs" Line="22" Column="13" />
+      <File FileName="Assets/_Core/Scripts/Popups/LootPopup/LootPopup.cs" Line="21" Column="14" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Item.cs" Line="6" Column="14" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Tk2dInventoryVisual.cs" Line="10" Column="14" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Inventory.cs" Line="45" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.HOX PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

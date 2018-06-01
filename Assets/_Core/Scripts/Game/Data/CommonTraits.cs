@@ -24,11 +24,12 @@ public enum TraitsType
 [System.Serializable]
 public class CommonTraits
 {
-	int m_level = 1;
-	int m_exp = 0;
-	bool m_isConsumable = false;
+	protected int m_level = 1;
+    protected int m_exp = 0;
+    protected bool m_isConsumable = false;
 
-	private float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
+    public float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
+
 
 	public float this[TraitsType type]
 	{
@@ -60,7 +61,7 @@ public class CommonTraits
 
 	public float maxHealth {
 		get {
-			return m_traits[(int)TraitsType.MAX_HEALTH];
+            return m_traits != null ? m_traits[(int)TraitsType.MAX_HEALTH] : -1;
 		}
 	}
 
@@ -208,7 +209,7 @@ public class CommonTraits
 
 		for (var i = 0; i < result.m_traits.Length; ++i)
 			result.m_traits[i] = a.m_traits[i] * b.m_traits[i];
-
+        
 		return result;
 	}
 }
