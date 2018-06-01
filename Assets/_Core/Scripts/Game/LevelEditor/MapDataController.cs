@@ -17,6 +17,9 @@ public class MapDataController : MonoBehaviour {
 	[SerializeField]
 	Creep m_creepPrefab;
 
+	[SerializeField]
+	Obstacle m_obstaclePrefab = null;
+
 	GameDataProxy m_dataProxy = null;
 
 	public string mapDataName
@@ -32,6 +35,13 @@ public class MapDataController : MonoBehaviour {
 
 		var mapGrid = FindObjectOfType<BasicGrid>();
 		mapData.gridData = mapGrid.gridData;
+
+		var obstacles = FindObjectsOfType<Obstacle>();
+		var obstaclesData = new List<ObstacleData>();
+		foreach (var obstacle in obstacles)
+			obstaclesData.Add(obstacle.obstacleData);
+
+		mapData.obstacleData = obstaclesData;
 
 		var creeps = FindObjectsOfType<Creep>();
 		var mapCreepData = new List<MapCreepData>();
@@ -62,6 +72,12 @@ public class MapDataController : MonoBehaviour {
 		var map = GameObject.Instantiate(m_mapPrefab, Vector3.zero, Quaternion.identity);
 		map.createGrid(mapData.gridData);
 		map.gameObject.isStatic = true;
+
+		foreach (var obstacleData in mapData.obstacleData) {
+			var obstacle = GameObject.Instantiate(m_obstaclePrefab, Vector3.zero, Quaternion.identity);
+			obstacle.initialize(obstacleData);
+			obstacle.transform.SetParent(map.transform, true);
+		}
 
 		m_dataProxy = FindObjectOfType<GameDataProxy>();
 
@@ -95,6 +111,7 @@ public class MapDataController : MonoBehaviour {
                 var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
 				var heroType = (m_dataProxy.team == team) ? m_dataProxy.heroType : getRandomHeroType();
 				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, m_dataProxy.team == team);
+				hero.transform.SetParent(map.transform, true);
 			}
 		}
 
@@ -102,6 +119,7 @@ public class MapDataController : MonoBehaviour {
 			foreach (var creepData in mapData.mapCreepData) {
                 var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
 				creep.GetComponent<Creep>().initialize(creepData);
+				creep.transform.SetParent(map.transform, true);
 			}
 		}
 	}

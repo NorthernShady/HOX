@@ -9,6 +9,9 @@ public class MapData : ScriptableObject {
 	public GridData gridData;
 
 	[SerializeField]
+	public List<ObstacleData> obstacleData;
+
+	[SerializeField]
 	public List<MapCreepData> mapCreepData;
 
 	[System.Serializable]

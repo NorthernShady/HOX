@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1719081055775544}
+  m_IsPrefabAsset: 1
+--- !u!1 &1719081055775544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4028657334295322}
+  - component: {fileID: 114017515236012050}
+  m_Layer: 0
+  m_Name: Obstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &4028657334295322
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719081055775544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114017515236012050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719081055775544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2c07202d3b74c73aa5cfdd5d08f379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_obstacleVisual:
+    keys: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+    values:
+    - {fileID: 0}
+    - {fileID: 162886, guid: 8d4ad672fe2bd3d45872cc5259ceb393, type: 2}
+    - {fileID: 156138, guid: 79ac2e693257d644d9667d22a764a0e6, type: 2}
+    - {fileID: 153294, guid: 50fba2f163418df47b4f53d5eae25cf2, type: 2}
+    - {fileID: 123688, guid: 0b7331ce844897f4c9350f4242978b1e, type: 2}
+    - {fileID: 157280, guid: 30ded8fdd3abc9b40929e3fac0e665c6, type: 2}
+    - {fileID: 1143549100222518, guid: 43b7195c4a69a8548b4f8ff4107e8c80, type: 2}
+    - {fileID: 1312081656060086, guid: 8f91480ce2f1bcf49a30c4ebda1f5d26, type: 2}
+    - {fileID: 1377293284141270, guid: 424c5acf540fe064ea1781eb207e3a0f, type: 2}
+    - {fileID: 1143549100222518, guid: 53cfdbcd1c79db547b031e76083de5a7, type: 2}
+  m_obstacleData:
+    type: 0
+    position: {x: 0, y: 0, z: 0}

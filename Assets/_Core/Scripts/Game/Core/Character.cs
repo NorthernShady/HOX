@@ -92,6 +92,9 @@ public class Character : Photon.PunBehaviour
 
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
+        var map = FindObjectOfType<BasicGrid>();
+        gameObject.transform.SetParent(map.gameObject.transform);
+        
         m_data = characterData;
         m_inventory = inventory;
         m_inventory.OnItemsChanged += onInventoryUpdated;
@@ -165,19 +168,20 @@ public class Character : Photon.PunBehaviour
     public void useItem(Item item)
     {
         if (item.type == GameData.ItemType.POTION_HEAL)
-            heal(item.data.maxHealth);
+            heal(item.data.maxHealth + item.data.maxHealthPercent * m_totalData.maxHealth, true);
 
         m_inventory.consumeItem(item);
     }
 
-    private void heal(float health)
+    private void heal(float health, bool shouldAnimate)
     {
         m_health = Mathf.Min(m_health + health, m_totalData.maxHealth);
 
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        onHealAnimation();
+        if (shouldAnimate)
+            onHealAnimation();
     }
 
     public void exping(Character target)
@@ -293,7 +297,7 @@ public class Character : Photon.PunBehaviour
     protected virtual void onLevelUp()
     {
         updateParameters();
-        heal(m_totalData.maxHealth);
+        heal(m_totalData.maxHealth, false);
         Debug.Log("Level up");
     }
 
@@ -357,7 +361,7 @@ public class Character : Photon.PunBehaviour
             var items = m_inventory.items;
             stream.SendNext(items.Count);
             foreach (var item in items) {
-                var itemString = JsonUtility.ToJson(m_data);
+                var itemString = JsonUtility.ToJson(item);
                 stream.SendNext(itemString);
             }
         } else {
@@ -383,8 +387,6 @@ public class Character : Photon.PunBehaviour
             var item = JsonUtility.FromJson<Item>(itemString);
             items.Add(item);
         }
-
-        Debug.Log("items_count: " + itemsCount.ToString());
 
         if (m_inventory != null) {
             m_inventory.resetItems();
