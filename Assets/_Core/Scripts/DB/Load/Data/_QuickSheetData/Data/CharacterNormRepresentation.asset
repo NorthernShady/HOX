@@ -23,9 +23,9 @@ MonoBehaviour:
     attackspeed: 2
     criticalchance: 1.5
     criticalmodifier: 0
-    fightexp: 50
+    fightexp: 10
   - level: 2
-    exp: 30
+    exp: 100
     hp: 120
     attack: 12
     defence: 0
@@ -33,9 +33,9 @@ MonoBehaviour:
     attackspeed: 2
     criticalchance: 1.5
     criticalmodifier: 0
-    fightexp: 60
+    fightexp: 25
   - level: 3
-    exp: 50
+    exp: 150
     hp: 144
     attack: 14
     defence: 0
@@ -43,9 +43,9 @@ MonoBehaviour:
     attackspeed: 2
     criticalchance: 1.5
     criticalmodifier: 0
-    fightexp: 70
+    fightexp: 35
   - level: 4
-    exp: 100
+    exp: 200
     hp: 173
     attack: 17
     defence: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     attackspeed: 2
     criticalchance: 1.5
     criticalmodifier: 0
-    fightexp: 100
+    fightexp: 50
   - level: 5
     exp: -1
     hp: 207
@@ -63,4 +63,4 @@ MonoBehaviour:
     attackspeed: 2
     criticalchance: 1.5
     criticalmodifier: 0
-    fightexp: 120
+    fightexp: 100

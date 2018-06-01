@@ -116,6 +116,26 @@ public static class EnumExtensions
 			default: return "sword";
 		}
 	}
+
+	public static GameData.DomaineType AdvantageDomaine(this GameData.DomaineType enumValue)
+	{
+		switch (enumValue) {
+			case GameData.DomaineType.RED: return GameData.DomaineType.GREEN;
+			case GameData.DomaineType.GREEN: return GameData.DomaineType.BLUE;
+			case GameData.DomaineType.BLUE: return GameData.DomaineType.RED;
+			default: return GameData.DomaineType.NONE;
+		}
+	}
+
+	public static GameData.DomaineType DisadvantageDomaine(this GameData.DomaineType enumValue)
+	{
+		switch (enumValue) {
+			case GameData.DomaineType.RED: return GameData.DomaineType.BLUE;
+			case GameData.DomaineType.GREEN: return GameData.DomaineType.RED;
+			case GameData.DomaineType.BLUE: return GameData.DomaineType.GREEN;
+			default: return GameData.DomaineType.NONE;
+		}
+	}
 }
 
 public static class EnumHelper
