@@ -92,6 +92,9 @@ public class Character : Photon.PunBehaviour
 
     protected void initialize(CommonTraits characterData, Inventory inventory)
     {
+        var map = FindObjectOfType<BasicGrid>();
+        gameObject.transform.SetParent(map.gameObject.transform);
+        
         m_data = characterData;
         m_inventory = inventory;
         m_inventory.OnItemsChanged += onInventoryUpdated;
@@ -358,7 +361,7 @@ public class Character : Photon.PunBehaviour
             var items = m_inventory.items;
             stream.SendNext(items.Count);
             foreach (var item in items) {
-                var itemString = JsonUtility.ToJson(m_data);
+                var itemString = JsonUtility.ToJson(item);
                 stream.SendNext(itemString);
             }
         } else {
@@ -384,8 +387,6 @@ public class Character : Photon.PunBehaviour
             var item = JsonUtility.FromJson<Item>(itemString);
             items.Add(item);
         }
-
-        Debug.Log("items_count: " + itemsCount.ToString());
 
         if (m_inventory != null) {
             m_inventory.resetItems();
