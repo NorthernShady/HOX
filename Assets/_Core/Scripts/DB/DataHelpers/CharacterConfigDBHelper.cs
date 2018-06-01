@@ -19,4 +19,8 @@ public class CharacterConfigDBHelper {
 	public static ItemConfig getItemConfig(GameData.ItemType type) {
 		return DBProvider.instance<I_UserDBProvider>().getItemConfig(type.ToString());
 	}
+
+	public static DomaineConfig getDomaineConfig(string configName) {
+		return DBProvider.instance<I_UserDBProvider>().getDomaineConfig(configName);
+	}
 }

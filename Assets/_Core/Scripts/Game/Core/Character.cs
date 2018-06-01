@@ -311,7 +311,7 @@ public class Character : Photon.PunBehaviour
     {
         var delay = new WaitForEndOfFrame();
         var prefab = Resources.Load<GameObject>(k.Resources.ATTACK_VFX);
-        var attackAnimation = GameObject.Instantiate(prefab, rigidbody.position, Quaternion.identity);
+        var attackAnimation = GameObject.Instantiate(prefab, MathHelper.yShift(rigidbody.position, 0.1f, true), Quaternion.identity);
         m_isAttackAnimated = true;
 
         while (m_attackTarget != null && !m_isDead) {

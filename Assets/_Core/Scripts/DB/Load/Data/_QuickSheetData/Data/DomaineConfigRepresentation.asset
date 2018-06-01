@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d42c2d8ce7a4537a6e3d53dcce008b, type: 3}
+  m_Name: DomaineConfigRepresentation
+  m_EditorClassIdentifier: 
+  SheetName: HOX
+  WorksheetName: DomaineConfig
+  dataArray:
+  - id: 0
+    name: DomaineDamage
+    disadvantage: -0.2
+    equal: 0
+    advantage: 0.2
+  - id: 1
+    name: LevelDrop
+    disadvantage: 30
+    equal: 50
+    advantage: 20
+  - id: 2
+    name: ColorDrop
+    disadvantage: 20
+    equal: 50
+    advantage: 30
+  - id: 3
+    name: CellDrop
+    disadvantage: 1
+    equal: 0.5
+    advantage: 0.7

@@ -58,6 +58,7 @@ public partial class DBProvider : I_DBProvider
 		dataService.connection.DropTable<HeroConfig>();
 		dataService.connection.DropTable<CreepConfig>();
 		dataService.connection.DropTable<ItemConfig>();
+		dataService.connection.DropTable<DomaineConfig>();
 
 
 		dataService.connection.CreateTable<User> ();
@@ -67,6 +68,7 @@ public partial class DBProvider : I_DBProvider
 		dataService.connection.CreateTable<HeroConfig>();
 		dataService.connection.CreateTable<CreepConfig>();
 		dataService.connection.CreateTable<ItemConfig>();
+		dataService.connection.CreateTable<DomaineConfig>();
 	}
 
 	public virtual void backupDB()
