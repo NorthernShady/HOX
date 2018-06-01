@@ -18,9 +18,9 @@ public class BasicPhysicalModel : MonoBehaviour {
 		}
 	}
 
-	public virtual Vector3 getHealthPosition()
+	public virtual Vector3 getInfoPosition()
 	{
-		return new Vector3(-1.1f, 2.5f, 0.0f);
+		return new Vector3(0.0f, -1.2f, 0.0f);
 	}
 
 	void OnTriggerEnter(Collider other)

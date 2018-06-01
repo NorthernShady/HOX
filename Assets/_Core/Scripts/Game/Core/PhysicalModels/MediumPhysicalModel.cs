@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MediumPhysicalModel : BasicPhysicalModel {
 
-	public override Vector3 getHealthPosition()
+	public override Vector3 getInfoPosition()
 	{
-		return new Vector3(-1.1f, 4.5f, 0.0f);
+		return new Vector3(0.0f, -2.5f, 0.0f);
 	}
 }

@@ -776,10 +776,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 0.9208994, y: 0.3798833}
-    - {x: 0.9697256, y: 0.3798833}
-    - {x: 0.9208994, y: 0.40234327}
-    - {x: 0.9697256, y: 0.40234327}
+    - {x: 0.89062595, y: 0.40869188}
+    - {x: 0.9394522, y: 0.40869188}
+    - {x: 0.89062595, y: 0.43115187}
+    - {x: 0.9394522, y: 0.43115187}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1152,10 +1152,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 0.84082127, y: 0.3798833}
-    - {x: 0.84082127, y: 0.41015577}
-    - {x: 0.91699123, y: 0.3798833}
-    - {x: 0.91699123, y: 0.41015577}
+    - {x: 0.8105478, y: 0.40869188}
+    - {x: 0.8105478, y: 0.43896437}
+    - {x: 0.8867178, y: 0.40869188}
+    - {x: 0.8867178, y: 0.43896437}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1230,6 +1230,100 @@ MonoBehaviour:
     polygonCollider2D: []
     edgeCollider2D: []
     attachPoints: []
+  - name: hp_bar_activ
+    boundsData:
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.12, y: 0.55, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.12, y: 0.55, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -0.56, y: -0.28, z: 0}
+    - {x: 0.56, y: -0.28, z: 0}
+    - {x: -0.56, y: 0.27, z: 0}
+    - {x: 0.56, y: 0.27, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.84082127, y: 0.3798833}
+    - {x: 0.95019436, y: 0.3798833}
+    - {x: 0.84082127, y: 0.4067378}
+    - {x: 0.95019436, y: 0.4067378}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: cc2a5543d4fde9a47a9a054b55e8adde, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2b78ad5662f6c44a09ba9106ca17c34e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: hp_bar
+    boundsData:
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.12, y: 0.55, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.12, y: 0.55, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -0.56, y: -0.28, z: 0}
+    - {x: 0.56, y: -0.28, z: 0}
+    - {x: -0.56, y: 0.27, z: 0}
+    - {x: 0.56, y: 0.27, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.75293064, y: 0.39697313}
+    - {x: 0.75293064, y: 0.45165968}
+    - {x: 0.8066397, y: 0.39697313}
+    - {x: 0.8066397, y: 0.45165968}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: cc2a5543d4fde9a47a9a054b55e8adde, type: 2}
+    materialId: 0
+    sourceTextureGUID: a70ac6ed92e6d43f993a7ed991804577
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
   premultipliedAlpha: 0
   material: {fileID: 0}
   materials:
@@ -1247,7 +1341,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 50
-  buildKey: 1288859720
+  buildKey: 1422997438
   dataGuid: c05dfcb3d8676214da09ad70d4b6294f
   managedSpriteCollection: 0
   hasPlatformData: 0

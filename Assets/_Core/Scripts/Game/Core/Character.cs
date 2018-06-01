@@ -8,6 +8,7 @@ public class Character : Photon.PunBehaviour
     public System.Action<int, float> OnExpChanged;
     public System.Action<float> OnHealthChanged;
     public System.Action<BasicPhysicalModel> OnPhysicsInitialized;
+    public System.Action<Character> OnCharacterInitialized;
     public System.Action<Character> OnDeath;
 
     public virtual GameData.CharacterType getType()
@@ -97,6 +98,9 @@ public class Character : Photon.PunBehaviour
 
         updateParameters();
         m_health = m_totalData.maxHealth;
+
+        if (OnCharacterInitialized != null)
+            OnCharacterInitialized(this);
     }
 
     public virtual void moveTo(Vector3 position)

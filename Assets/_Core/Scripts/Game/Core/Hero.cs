@@ -114,6 +114,9 @@ public class Hero : Character, IPunObservable
 
         unsubscribe();
 
+        if (m_activePhysics != null)
+            DestroyImmediate(m_activePhysics.gameObject);
+
         m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
         m_activePhysics = GameObject.Instantiate(m_heroPhysics[m_type], transform, false);
 

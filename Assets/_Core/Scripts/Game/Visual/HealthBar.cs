@@ -39,6 +39,6 @@ public class HealthBar : MonoBehaviour {
 
 	void onPhysicsInitialized(BasicPhysicalModel physicalModel)
 	{
-		m_progressBar.transform.localPosition = physicalModel.getHealthPosition();
+		m_progressBar.transform.localPosition = physicalModel.getInfoPosition();
 	}
 }
