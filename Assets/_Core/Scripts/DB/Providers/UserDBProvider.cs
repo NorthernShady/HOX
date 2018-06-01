@@ -39,6 +39,12 @@ public partial class DBProvider : I_UserDBProvider  {
 		return dataService.connection.Query<ItemConfig>(cmdText, itemName)[0];
 	}
 
+	public List<ItemConfig> getNonConsumableItemConfigs(int level)
+	{
+		string cmdText = "SELECT * FROM ItemConfig WHERE Level = ? AND IsConsumable = ?";
+		return dataService.connection.Query<ItemConfig>(cmdText, level, false);
+	}
+
 	public DomaineConfig getDomaineConfig(string configName)
 	{
 		string cmdText = "SELECT * FROM DomaineConfig WHERE Name = ?";

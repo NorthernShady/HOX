@@ -58,6 +58,7 @@ public class Tk2dDragManager : MonoBehaviour {
 		var currentChild = slot.transform.GetChild(0);
 
 		currentChild.SetParent(otherSlot, false);
+		currentChild.transform.localPosition = new Vector3(0.0f, 0.0f, -0.1f);
 		observer.transform.SetParent(slot.transform);
 	}
 }

@@ -120,12 +120,76 @@ public class Creep : Character, IPunObservable {
 	{
 		var items = new List<Item>();
 
-		var itemType = EnumHelper.Random<GameData.ItemType>();
+		var cellDrop = CharacterConfigDBHelper.getDomaineConfig("CellDrop");
+		var colorDrop = CharacterConfigDBHelper.getDomaineConfig("ColorDrop");
+		var levelDrop = CharacterConfigDBHelper.getDomaineConfig("LevelDrop");
 
-		items.Add(new Item(itemType, m_creepData.domaine));
-		items.Add(new Item(GameData.ItemType.POTION_HEAL, m_creepData.domaine));
+		if (Random.Range(0.0f, 1.0f) < cellDrop.Disadvantage) {
+			var domaine = getItemDomaineDrop(colorDrop);
+			var level = Mathf.Max(0, m_creepData.level + getItemLevelDrop(levelDrop));
+			var possibleItems = CharacterConfigDBHelper.getNonConsumableItemConfigs(level);
+			var item = possibleItems[Random.Range(0, possibleItems.Count)];
+			items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+		}
+
+		if (Random.Range(0.0f, 1.0f) < cellDrop.Equal) {
+			items.Add(new Item(GameData.ItemType.POTION_HEAL, m_creepData.domaine));
+		}
+
+		if (Random.Range(0.0f, 1.0f) < cellDrop.Advantage) {
+			var domaine = getItemDomaineDrop(colorDrop);
+			var level = Mathf.Max(0, m_creepData.level + getItemLevelDrop(levelDrop));
+			var possibleItems = CharacterConfigDBHelper.getNonConsumableItemConfigs(level);
+			var item = possibleItems[Random.Range(0, possibleItems.Count)];
+			items.Add(new Item(item.Name.ToEnum(GameData.ItemType.NONE), domaine, new CommonTraits(item)));
+		}
+
 		return new Inventory(items);
 	}
+
+	int getItemLevelDrop(DomaineConfig levelDrop)
+	{
+		var random = Random.Range(0.0f, levelDrop.Disadvantage + levelDrop.Equal + levelDrop.Advantage);
+		
+		if (random < levelDrop.Disadvantage)
+			return -1;
+
+		if (random < levelDrop.Disadvantage + levelDrop.Equal)
+			return 0;
+
+		return 1;
+	}
+
+	GameData.DomaineType getItemDomaineDrop(DomaineConfig colorDrop)
+	{
+		var random = Random.Range(0.0f, colorDrop.Disadvantage + colorDrop.Equal + colorDrop.Advantage);
+
+		if (random < colorDrop.Disadvantage)
+			return m_creepData.domaine.DisadvantageDomaine();
+
+		if (random < colorDrop.Disadvantage + colorDrop.Equal)
+			return m_creepData.domaine;
+
+		return m_creepData.domaine.AdvantageDomaine();
+	}
+
+	// var total = dataDictionary.Values.Sum(item => item.dropChance);
+    //     var random = Random.Range(0, total);
+    //     float value = 0;
+
+    //     foreach (var key in dataDictionary.Keys)
+    //     {
+    //         if (random < (dataDictionary[key].dropChance + value))
+    //         {
+    //             return key;
+    //         }
+    //         else
+    //         {
+    //             value = value + dataDictionary[key].dropChance;
+    //         }
+    //     }
+
+    //     return GameData.GameElementType.TYPE_1;
 
 	#region IPunObservable implementation
 

@@ -20,6 +20,10 @@ public class CharacterConfigDBHelper {
 		return DBProvider.instance<I_UserDBProvider>().getItemConfig(type.ToString());
 	}
 
+	public static List<ItemConfig> getNonConsumableItemConfigs(int level) {
+		return DBProvider.instance<I_UserDBProvider>().getNonConsumableItemConfigs(level);
+	}
+
 	public static DomaineConfig getDomaineConfig(string configName) {
 		return DBProvider.instance<I_UserDBProvider>().getDomaineConfig(configName);
 	}
