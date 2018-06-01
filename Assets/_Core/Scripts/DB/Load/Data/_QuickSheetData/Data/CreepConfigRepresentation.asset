@@ -17,9 +17,9 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: -5
+    hp: -10
     hppercent: 0
-    attack: 0
+    attack: -5
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -32,11 +32,11 @@ MonoBehaviour:
     criticalmodifier: 0
     fightexp: 0
   - id: 1
-    name: PEASANT
+    name: SKELETON
     level: 2
-    hp: -5
+    hp: 20
     hppercent: 0
-    attack: 0
+    attack: 1
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -49,11 +49,11 @@ MonoBehaviour:
     criticalmodifier: 0
     fightexp: 0
   - id: 2
-    name: SPIDER
+    name: SKELETON
     level: 3
-    hp: 1
+    hp: 50
     hppercent: 0
-    attack: 0
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -66,11 +66,232 @@ MonoBehaviour:
     criticalmodifier: 0
     fightexp: 0
   - id: 3
+    name: SKELETON
+    level: 4
+    hp: 100
+    hppercent: 0
+    attack: 3
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 4
+    name: PEASANT
+    level: 1
+    hp: -10
+    hppercent: 0
+    attack: -5
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 5
+    name: PEASANT
+    level: 2
+    hp: 20
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 6
+    name: PEASANT
+    level: 3
+    hp: 50
+    hppercent: 0
+    attack: 2
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 7
+    name: PEASANT
+    level: 4
+    hp: 100
+    hppercent: 0
+    attack: 3
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 8
+    name: SPIDER
+    level: 1
+    hp: -10
+    hppercent: 0
+    attack: -5
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 9
+    name: SPIDER
+    level: 2
+    hp: 20
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 10
+    name: SPIDER
+    level: 3
+    hp: 50
+    hppercent: 0
+    attack: 2
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 11
+    name: SPIDER
+    level: 4
+    hp: 100
+    hppercent: 0
+    attack: 3
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 12
+    name: SPIDER
+    level: 5
+    hp: 200
+    hppercent: 0
+    attack: 5
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 13
+    name: DRAGON
+    level: 1
+    hp: -10
+    hppercent: 0
+    attack: -5
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 14
+    name: DRAGON
+    level: 2
+    hp: 20
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 15
+    name: DRAGON
+    level: 3
+    hp: 50
+    hppercent: 0
+    attack: 2
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 0
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    fightexp: 0
+  - id: 16
     name: DRAGON
     level: 4
-    hp: 1
+    hp: 100
     hppercent: 0
-    attack: 0
+    attack: 3
     attackpercent: 0
     defence: 0
     defencepercent: 0

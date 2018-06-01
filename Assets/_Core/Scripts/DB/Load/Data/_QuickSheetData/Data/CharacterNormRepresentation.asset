@@ -15,7 +15,7 @@ MonoBehaviour:
   WorksheetName: CharacterNorm
   dataArray:
   - level: 1
-    exp: 10
+    exp: 15
     hp: 100
     attack: 10
     defence: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
     criticalmodifier: 0
     fightexp: 10
   - level: 2
-    exp: 100
+    exp: 70
     hp: 120
     attack: 12
     defence: 0
