@@ -33,6 +33,7 @@ ModelImporter:
     100054: tusk_left
     100056: tusk_right
     100058: Cylinder.007
+    100060: DomainePart
     400000: Cube
     400002: Cube_002
     400004: Cylinder
@@ -63,6 +64,7 @@ ModelImporter:
     400054: tusk_left
     400056: tusk_right
     400058: Cylinder.007
+    400060: DomainePart
     2100000: tusk
     2100002: Material
     2100004: unnamed
@@ -101,6 +103,7 @@ ModelImporter:
     2300054: tusk_left
     2300056: tusk_right
     2300058: Cylinder.007
+    2300060: DomainePart
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -131,6 +134,7 @@ ModelImporter:
     3300054: tusk_left
     3300056: tusk_right
     3300058: Cylinder.007
+    3300060: DomainePart
     4300000: Cylinder_010
     4300002: Cylinder_009
     4300004: Cylinder
@@ -160,6 +164,7 @@ ModelImporter:
     4300052: hand_left
     4300054: hand_right
     4300056: Cylinder.007
+    4300058: DomainePart
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
