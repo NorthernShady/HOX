@@ -22,12 +22,12 @@ public class Tk2dDragObserver : MonoBehaviour {
 		// var position = transform.localPosition;
 		// transform.localPosition = MathHelper.zShift(position, -m_zShift, true);
 
-		// if (OnDragFinished != null)
-		// 	OnDragFinished(this);
+		if (OnDragFinished != null)
+			OnDragFinished(this);
 
-		//transform.localPosition = m_startPosition;
+		transform.localPosition = m_startPosition;
 
-		StartCoroutine(dragFinished());
+		//StartCoroutine(dragFinished());
 	}
 
 	IEnumerator dragFinished()
