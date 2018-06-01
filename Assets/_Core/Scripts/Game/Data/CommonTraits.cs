@@ -65,6 +65,12 @@ public class CommonTraits
 		}
 	}
 
+	public float maxHealthPercent {
+		get {
+			return m_traits[(int)TraitsType.MAX_HEALTH_PERCENT];
+		}
+	}
+
 	public float attack {
 		get {
 			return m_traits[(int)TraitsType.ATTACK];

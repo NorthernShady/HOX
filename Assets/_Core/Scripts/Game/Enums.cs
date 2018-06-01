@@ -52,6 +52,20 @@ namespace GameData
 		BOW,
 		POTION_HEAL
 	}
+
+	public enum ObstacleType
+	{
+		NONE,
+		CANYON_1,
+		CANYON_2,
+		CANYON_3,
+		CANYON_4,
+		CANYON_5,
+		TREE_1,
+		TREE_2,
+		TREE_3,
+		TREE_4
+	}
 }
 
 public static class StringExtensions
