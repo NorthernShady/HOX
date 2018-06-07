@@ -19,9 +19,11 @@ public class Tk2dDragObserver : MonoBehaviour {
 
 	void onDragFinished()
 	{
-
 		//if (OnDragFinished != null)
 		//	OnDragFinished(this);
+
+
+		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(GetComponent<tk2dUIItem>());
 
 		transform.localPosition = m_startPosition;
 	}
