@@ -8,6 +8,8 @@ using DG.Tweening;
 
 public class Hero : Character, IPunObservable
 {
+    [SerializeField]
+    tk2dSprite m_domaineSprite = null;
 
     [SerializeField]
     HeroPhysics m_heroPhysics = null;
@@ -97,6 +99,8 @@ public class Hero : Character, IPunObservable
 
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
+
+        m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
         if (isPlayer) {
             gameObject.AddComponent<Player>();

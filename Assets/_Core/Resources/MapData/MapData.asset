@@ -15,71 +15,397 @@ MonoBehaviour:
     gridSize: {x: 10, y: 10}
     cellSize: {x: 10, y: 10}
   obstacleData:
+  - type: 7
+    position: {x: 20.138496, y: -0.01999998, z: 43.218956}
+  - type: 7
+    position: {x: 20.059608, y: -0.01999998, z: 45.677467}
+  - type: 7
+    position: {x: 18.511475, y: -0.01999998, z: 44.680977}
+  - type: 7
+    position: {x: 15.266808, y: -0.01999998, z: 45.236916}
+  - type: 7
+    position: {x: 15.4869995, y: -0.01999998, z: 43.311516}
+  - type: 9
+    position: {x: 14.660004, y: -0.01999998, z: 27.410004}
+  - type: 9
+    position: {x: 16.254288, y: -0.01999998, z: 26.101616}
+  - type: 9
+    position: {x: 22.256927, y: -0.01999998, z: 32.203735}
+  - type: 9
+    position: {x: 17.932152, y: -0.01999998, z: 32.350975}
+  - type: 9
+    position: {x: 46.90909, y: -0.01999998, z: 29.543442}
+  - type: 9
+    position: {x: 47.29757, y: -0.01999998, z: 31.56894}
+  - type: 9
+    position: {x: 39.07, y: -0.01999998, z: 33.93}
+  - type: 9
+    position: {x: 41.005356, y: -0.01999998, z: 30.059654}
+  - type: 9
+    position: {x: 9.995079, y: -0.01999998, z: -45.068142}
+  - type: 9
+    position: {x: 12.292606, y: -0.01999998, z: -45.627964}
+  - type: 9
+    position: {x: 14.643364, y: -0.01999998, z: -46.487225}
+  - type: 8
+    position: {x: 17.46, y: -0.01999998, z: -47.23}
+  - type: 6
+    position: {x: 46.3142, y: -0.01999998, z: -31.335129}
+  - type: 6
+    position: {x: 44.199997, y: -0.01999998, z: -31.82}
+  - type: 6
+    position: {x: 46.289536, y: -0.01999998, z: -27.422388}
+  - type: 6
+    position: {x: 45.069054, y: -0.01999998, z: -25.44349}
+  - type: 6
+    position: {x: 47.268158, y: -0.01999998, z: -19.280983}
+  - type: 8
+    position: {x: 30.74804, y: -0.01999998, z: -36.130634}
+  - type: 8
+    position: {x: 29.816795, y: -0.01999998, z: -37.61614}
+  - type: 8
+    position: {x: 29.849998, y: -0.01999998, z: -40.19}
+  - type: 8
+    position: {x: 28.136314, y: -0.01999998, z: -40.92612}
+  - type: 8
+    position: {x: -11.349861, y: -0.01999998, z: -17.468666}
+  - type: 8
+    position: {x: -12.119999, y: -0.01999998, z: -15.77}
+  - type: 8
+    position: {x: -14.692684, y: -0.01999998, z: -15.854496}
+  - type: 8
+    position: {x: -16.196468, y: -0.01999998, z: -14.953049}
+  - type: 8
+    position: {x: -46.506607, y: -0.01999998, z: 4.6056175}
+  - type: 8
+    position: {x: -45.002823, y: -0.01999998, z: 3.7041702}
+  - type: 8
+    position: {x: -42.430138, y: -0.01999998, z: 3.7886658}
+  - type: 8
+    position: {x: -41.66, y: -0.01999998, z: 2.0900002}
+  - type: 9
+    position: {x: -45.622524, y: -0.01999998, z: 23.700966}
+  - type: 9
+    position: {x: -45.7, y: -0.01999998, z: 21.64}
+  - type: 9
+    position: {x: -37.209873, y: -0.01999998, z: 20.55127}
+  - type: 9
+    position: {x: -39.70868, y: -0.01999998, z: 24.084145}
+  - type: 9
+    position: {x: -11.498806, y: -0.01999998, z: 5.6328735}
+  - type: 9
+    position: {x: -9, y: -0.01999998, z: 2.0999985}
+  - type: 9
+    position: {x: -17.490128, y: -0.01999998, z: 3.1887283}
+  - type: 9
+    position: {x: -17.412651, y: -0.01999998, z: 5.249695}
+  - type: 7
+    position: {x: -4.25, y: -0.02, z: 14.209999}
+  - type: 7
+    position: {x: -2.8499985, y: -0.02, z: 15.550003}
+  - type: 7
+    position: {x: -1.3300018, y: -0.02, z: 12.629997}
+  - type: 7
+    position: {x: 0.40000153, y: -0.02, z: 12}
+  - type: 7
+    position: {x: -1.5100021, y: -0.02, z: 10.450001}
+  - type: 6
+    position: {x: -38.29, y: -0.02, z: 11.400002}
+  - type: 6
+    position: {x: -37.3, y: -0.02, z: 13.330002}
+  - type: 6
+    position: {x: -35.280003, y: -0.02, z: 8.900002}
+  - type: 6
+    position: {x: -32.98, y: -0.02, z: 8.560001}
+  - type: 6
+    position: {x: -29.68, y: -0.02, z: 2.9099998}
+  - type: 6
+    position: {x: -22.750004, y: -0.02, z: 13.380001}
+  - type: 9
+    position: {x: -24.880001, y: -0.01999998, z: 13.790001}
+  - type: 9
+    position: {x: -21.84, y: -0.01999998, z: 10.91}
+  - type: 9
+    position: {x: -26.269999, y: -0.01999998, z: 41.719994}
+  - type: 9
+    position: {x: -23.929998, y: -0.01999998, z: 45.359993}
+  - type: 9
+    position: {x: -21.759998, y: -0.01999998, z: 37.079994}
+  - type: 9
+    position: {x: -23.699999, y: -0.01999998, z: 36.379997}
+  - type: 8
+    position: {x: -13.989998, y: -0.02, z: 34.64}
+  - type: 8
+    position: {x: -12.66, y: -0.02, z: 31.439995}
+  - type: 8
+    position: {x: -16.699997, y: -0.02, z: 33.299995}
+  - type: 8
+    position: {x: -13.93, y: -0.02, z: 27.819992}
+  - type: 8
+    position: {x: -11.52, y: -0.02, z: 24.96}
+  - type: 8
+    position: {x: -40.14, y: -0.02, z: 39.079994}
+  - type: 8
+    position: {x: -38.5, y: -0.02, z: 39.699997}
+  - type: 8
+    position: {x: -36.969997, y: -0.02, z: 41.769997}
+  - type: 8
+    position: {x: -35.16, y: -0.02, z: 41.32}
+  - type: 8
+    position: {x: 38.699997, y: -0.01999998, z: -0.099998474}
+  - type: 9
+    position: {x: 35.936066, y: -0.01999998, z: -1.0196419}
+  - type: 9
+    position: {x: 33.498306, y: -0.01999998, z: -1.5868568}
+  - type: 9
+    position: {x: 31.268967, y: -0.01999998, z: -2.3755608}
+  - type: 9
+    position: {x: 16.61, y: -0.01999998, z: -25.86}
+  - type: 9
+    position: {x: 13.57, y: -0.01999998, z: -22.98}
+  - type: 6
+    position: {x: 15.699997, y: -0.02, z: -23.39}
+  - type: 6
+    position: {x: 8.77, y: -0.02, z: -33.86}
+  - type: 6
+    position: {x: 5.470001, y: -0.02, z: -28.21}
+  - type: 6
+    position: {x: 3.1699982, y: -0.02, z: -27.87}
+  - type: 6
+    position: {x: 1.1500015, y: -0.02, z: -23.44}
+  - type: 6
+    position: {x: 0.15999985, y: -0.02, z: -25.37}
+  - type: 7
+    position: {x: -38.480003, y: -0.02, z: -12.849998}
+  - type: 7
+    position: {x: -36.57, y: -0.02, z: -11.299999}
+  - type: 7
+    position: {x: -38.300003, y: -0.02, z: -10.670002}
+  - type: 7
+    position: {x: -39.82, y: -0.02, z: -7.75}
+  - type: 7
+    position: {x: -41.22, y: -0.02, z: -9.09}
+  - type: 9
+    position: {x: -48.48, y: -0.01999998, z: -21.77}
+  - type: 9
+    position: {x: -48.63, y: -0.01999998, z: -19.41}
+  - type: 9
+    position: {x: -48.51, y: -0.01999998, z: -16.91}
+  - type: 8
+    position: {x: -48.64, y: -0.02, z: -14}
+  - type: 8
+    position: {x: -35.47, y: -0.02, z: -32.559998}
+  - type: 8
+    position: {x: -37.28, y: -0.02, z: -32.11}
+  - type: 8
+    position: {x: -38.81, y: -0.02, z: -34.18}
+  - type: 8
+    position: {x: -40.45, y: -0.02, z: -34.8}
+  - type: 8
+    position: {x: -11.830002, y: -0.02, z: -48.92}
+  - type: 8
+    position: {x: -14.240002, y: -0.02, z: -46.06}
+  - type: 8
+    position: {x: -17.009998, y: -0.02, z: -40.58}
+  - type: 8
+    position: {x: -12.970001, y: -0.02, z: -42.44}
+  - type: 8
+    position: {x: -14.299999, y: -0.02, z: -39.239998}
+  - type: 9
+    position: {x: -24.01, y: -0.01999998, z: -37.5}
+  - type: 9
+    position: {x: -22.07, y: -0.01999998, z: -36.8}
+  - type: 9
+    position: {x: -24.24, y: -0.01999998, z: -28.52}
+  - type: 9
+    position: {x: -26.58, y: -0.01999998, z: -32.16}
   - type: 1
-    position: {x: 5.9000015, y: 1.11, z: 15.5}
+    position: {x: 2.5999985, y: 1.11, z: 38.199997}
+  - type: 1
+    position: {x: 2.5999985, y: 1.11, z: 47.699997}
+  - type: 5
+    position: {x: -16, y: 1.11, z: 21}
+  - type: 6
+    position: {x: 7.7700005, y: -0.02, z: 0.27999878}
+  - type: 6
+    position: {x: 0.15999985, y: -0.02, z: -0.7100029}
+  - type: 6
+    position: {x: 2.3900032, y: -0.02, z: 0.11999893}
+  - type: 6
+    position: {x: 4.920002, y: -0.02, z: 0.1800003}
+  - type: 6
+    position: {x: 5.9100037, y: -0.02, z: -1.420002}
+  - type: 6
+    position: {x: 3.8200035, y: -0.02, z: -1.6100006}
+  - type: 6
+    position: {x: 1.8300018, y: -0.02, z: -2.2800026}
+  - type: 2
+    position: {x: -4.4000015, y: 1.1099999, z: -6}
+  - type: 1
+    position: {x: -3.8100014, y: 1.11, z: -37.96}
+  - type: 9
+    position: {x: -48.97, y: -0.01999998, z: -45.48}
+  - type: 9
+    position: {x: -40.09, y: -0.01999998, z: -49.21}
+  - type: 9
+    position: {x: -49.25, y: -0.02, z: -49.4}
+  - type: 8
+    position: {x: -26.56, y: -0.02, z: -46.81}
+  - type: 7
+    position: {x: -28.6, y: -0.02, z: -4.970001}
+  - type: 1
+    position: {x: -3.4799995, y: 1.11, z: -46.01}
   - type: 3
     position: {x: 27.199997, y: 1.11, z: 22.099998}
+  - type: 6
+    position: {x: -1.2400017, y: -0.02, z: -23.78}
+  - type: 2
+    position: {x: 12.5, y: 1.1099999, z: -4.200001}
+  - type: 4
+    position: {x: -32.4, y: 1.11, z: -15.400002}
+  - type: 5
+    position: {x: 29.699997, y: 1.11, z: -23}
+  - type: 3
+    position: {x: 45.370003, y: 1.11, z: -44.32}
+  - type: 2
+    position: {x: -47, y: 1.1099999, z: 42.4}
   mapCreepData:
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: -14.207287, y: -0.3880539}
+  - type: 1
+    domaine: 2
+    level: 4
+    position: {x: -30.18718, y: 9.113766}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: -36.989998, y: 29.64}
+  - type: 2
+    domaine: 2
+    level: 3
+    position: {x: -10.57655, y: 13.869141}
+  - type: 1
+    domaine: 3
+    level: 2
+    position: {x: -31.68917, y: 32.39379}
+  - type: 1
+    domaine: 1
+    level: 3
+    position: {x: -40.483284, y: 34.91976}
+  - type: 2
+    domaine: 3
+    level: 2
+    position: {x: -40.5, y: 43.300003}
+  - type: 1
+    domaine: 1
+    level: 3
+    position: {x: -40.39865, y: 16.77884}
+  - type: 2
+    domaine: 3
+    level: 3
+    position: {x: -27.13136, y: 11.594368}
+  - type: 1
+    domaine: 2
+    level: 3
+    position: {x: -20.037693, y: -5.1510696}
+  - type: 2
+    domaine: 3
+    level: 1
+    position: {x: 31.370003, y: 6.540001}
+  - type: 2
+    domaine: 3
+    level: 2
+    position: {x: 36.9, y: 18.5}
+  - type: 1
+    domaine: 1
+    level: 2
+    position: {x: 24.089996, y: 40.28}
+  - type: 1
+    domaine: 3
+    level: 2
+    position: {x: 31.409996, y: 35.659996}
   - type: 1
     domaine: 2
     level: 2
-    position: {x: -35.8, y: 16.800003}
+    position: {x: 30.069992, y: 40.979996}
+  - type: 2
+    domaine: 1
+    level: 1
+    position: {x: 13.799999, y: 34.6}
+  - type: 2
+    domaine: 1
+    level: 1
+    position: {x: 37.410004, y: 46.739998}
   - type: 2
     domaine: 2
-    level: 2
+    level: 1
+    position: {x: 39.489998, y: 40.629997}
+  - type: 2
+    domaine: 3
+    level: 1
+    position: {x: 44.239998, y: 35.39}
+  - type: 1
+    domaine: 2
+    level: 3
+    position: {x: -35.8, y: 16.800003}
+  - type: 2
+    domaine: 3
+    level: 3
     position: {x: -28.6, y: 0.099998474}
   - type: 3
     domaine: 2
-    level: 2
-    position: {x: -15.5, y: 13.900002}
+    level: 5
+    position: {x: -25.1, y: 25.5}
   - type: 2
     domaine: 1
-    level: 2
-    position: {x: 38.199997, y: -38.7}
+    level: 3
+    position: {x: 33.800003, y: -42.03}
   - type: 3
     domaine: 3
-    level: 2
-    position: {x: 0.79999924, y: -14.900002}
+    level: 5
+    position: {x: 3.869999, y: -8.610001}
   - type: 1
     domaine: 1
-    level: 2
+    level: 3
     position: {x: -15.299999, y: -5}
   - type: 2
     domaine: 3
     level: 2
     position: {x: 22.300003, y: -14.299999}
   - type: 1
-    domaine: 3
-    level: 2
+    domaine: 1
+    level: 3
     position: {x: 22.199997, y: -31}
   - type: 1
-    domaine: 3
-    level: 2
+    domaine: 2
+    level: 3
     position: {x: 17.5, y: -41.9}
   - type: 2
     domaine: 3
     level: 2
-    position: {x: -4.200001, y: -25.3}
+    position: {x: -15.029999, y: -31.52}
   - type: 1
     domaine: 1
-    level: 2
-    position: {x: -28, y: -10.5}
+    level: 3
+    position: {x: -15.099998, y: -23.14}
   - type: 1
     domaine: 3
     level: 2
-    position: {x: -19.2, y: -19}
+    position: {x: -23.91, y: -20.67}
   - type: 2
     domaine: 1
-    level: 2
-    position: {x: 0.099998474, y: -39.9}
+    level: 3
+    position: {x: 2.6899986, y: -43.48}
   - type: 2
     domaine: 2
-    level: 2
-    position: {x: -41.7, y: 3.0999985}
-  - type: 2
+    level: 3
+    position: {x: -45.14, y: -2.2799988}
+  - type: 3
     domaine: 2
-    level: 2
-    position: {x: -40.98, y: -15.610001}
+    level: 3
+    position: {x: -42.58, y: -17.45}
   - type: 2
     domaine: 3
     level: 1
@@ -94,11 +420,11 @@ MonoBehaviour:
     position: {x: -29.66, y: -34.66}
   - type: 1
     domaine: 3
-    level: 1
+    level: 2
     position: {x: -23.12, y: -32.260002}
   - type: 1
     domaine: 1
-    level: 1
+    level: 2
     position: {x: -30.44, y: -27.64}
   - type: 2
     domaine: 3
@@ -111,13 +437,125 @@ MonoBehaviour:
   - type: 2
     domaine: 1
     level: 1
-    position: {x: -45.8, y: -38.5}
+    position: {x: -46.43, y: -36.17}
   - type: 3
     domaine: 1
     level: 5
-    position: {x: 0.5, y: -0.5999985}
+    position: {x: 38.300003, y: -29}
+  - type: 3
+    domaine: 2
+    level: 3
+    position: {x: 42.059998, y: 21.019997}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: -0.79999924, y: -29.82}
+  - type: 1
+    domaine: 2
+    level: 4
+    position: {x: 10.869999, y: -26.93}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: 22.559998, y: -38.15}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: 26.449997, y: -46.01}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: -20.2, y: -11}
+  - type: 1
+    domaine: 2
+    level: 4
+    position: {x: -25.56, y: 2.5999985}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: -41.6, y: 12}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: 5.9900017, y: -19.92}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: 37.14051, y: -16.234436}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: 17.5653, y: 10.5258255}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: 21.190002, y: 2.540001}
+  - type: 1
+    domaine: 2
+    level: 4
+    position: {x: 32.49787, y: -9.064991}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: 44.25808, y: -6.5672455}
+  - type: 2
+    domaine: 1
+    level: 3
+    position: {x: 41.227287, y: 7.201927}
+  - type: 1
+    domaine: 2
+    level: 3
+    position: {x: 26.372704, y: 6.1185226}
+  - type: 1
+    domaine: 1
+    level: 3
+    position: {x: 21.310478, y: -4.6180344}
+  - type: 2
+    domaine: 3
+    level: 2
+    position: {x: 43.620003, y: -20.47}
+  - type: 2
+    domaine: 1
+    level: 3
+    position: {x: 10.086182, y: 6.7940826}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: -15.110001, y: 35.64}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: -19, y: 43.5}
+  - type: 1
+    domaine: 2
+    level: 3
+    position: {x: -24.059998, y: 39.75}
+  - type: 2
+    domaine: 1
+    level: 3
+    position: {x: -7.7599945, y: 39.620003}
+  - type: 2
+    domaine: 1
+    level: 3
+    position: {x: 10.145775, y: 16.583763}
+  - type: 1
+    domaine: 2
+    level: 3
+    position: {x: -3.5, y: 25.5}
+  - type: 1
+    domaine: 3
+    level: 4
+    position: {x: 2.7839813, y: 25.92163}
+  - type: 1
+    domaine: 1
+    level: 4
+    position: {x: 1.8105507, y: 17.205872}
+  - type: 2
+    domaine: 3
+    level: 1
+    position: {x: -8.00882, y: 27.695702}
   heroesStartData:
   - positions:
-    - {x: -46.2, y: -47.17}
+    - {x: -43.96, y: -45.7}
   - positions:
     - {x: 47, y: 46.699997}

@@ -11,7 +11,21 @@ public class Tk2dDragManager : MonoBehaviour {
 	List<GameObject> m_dragSlots = null;
 
 	[SerializeField]
+	Tk2dDragObserver m_dragObserverPrefab = null;
+
 	List<Tk2dDragObserver> m_dragObservers = null;
+
+	void Awake()
+	{
+		m_dragObservers = new List<Tk2dDragObserver>(m_dragSlots.Count);
+
+		var position = new Vector3(0.0f, 0.0f, -0.1f);
+		foreach (var dragSlot in m_dragSlots) {
+			var dragObserver = GameObject.Instantiate(m_dragObserverPrefab, position, Quaternion.identity);
+			dragObserver.transform.SetParent(dragSlot.transform, false);
+			m_dragObservers.Add(dragObserver);
+		}
+	}
 
 	void OnEnable()
 	{

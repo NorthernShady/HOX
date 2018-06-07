@@ -37,7 +37,7 @@ public class ExperienceObserver : MonoBehaviour {
 
 	void onExpChanged(int level, float expPercent)
 	{
-		m_levelText.text = level.ToString();
+		m_levelText.text = "LVL " + level.ToString();
 		m_progressBar.Value = expPercent;
 	}
 }
