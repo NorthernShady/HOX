@@ -76,8 +76,5 @@ public class Tk2dDragManager : MonoBehaviour {
 
 		observer.transform.SetParent(slot.transform, true);
 		observer.transform.localPosition = new Vector3(0.0f, 0.0f, -0.1f);
-
-		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(currentChild.GetComponent<tk2dUIItem>());
-		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(observer.GetComponent<tk2dUIItem>());
 	}
 }
