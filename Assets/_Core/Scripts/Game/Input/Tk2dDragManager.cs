@@ -19,10 +19,10 @@ public class Tk2dDragManager : MonoBehaviour {
 	{
 		m_dragObservers = new List<Tk2dDragObserver>(m_dragSlots.Count);
 
-		var position = new Vector3(0.0f, 0.0f, -0.1f);
+		var localPosition = new Vector3(0.0f, 0.0f, -0.1f);
 		foreach (var dragSlot in m_dragSlots) {
-			var dragObserver = GameObject.Instantiate(m_dragObserverPrefab, position, Quaternion.identity);
-			dragObserver.transform.SetParent(dragSlot.transform, false);
+			var dragObserver = GameObject.Instantiate(m_dragObserverPrefab, dragSlot.transform);
+			dragObserver.transform.localPosition = localPosition;
 			m_dragObservers.Add(dragObserver);
 		}
 	}
@@ -71,9 +71,13 @@ public class Tk2dDragManager : MonoBehaviour {
 		var otherSlot = observer.transform.parent;
 		var currentChild = slot.transform.GetChild(0);
 
-		currentChild.SetParent(otherSlot, false);
+		currentChild.SetParent(otherSlot, true);
 		currentChild.transform.localPosition = new Vector3(0.0f, 0.0f, -0.1f);
-		observer.transform.SetParent(slot.transform);
+
+		observer.transform.SetParent(slot.transform, true);
 		observer.transform.localPosition = new Vector3(0.0f, 0.0f, -0.1f);
+
+		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(currentChild.GetComponent<tk2dUIItem>());
+		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(observer.GetComponent<tk2dUIItem>());
 	}
 }
