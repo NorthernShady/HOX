@@ -16,14 +16,14 @@ MonoBehaviour:
   dataArray:
   - id: 0
     name: DomaineDamage
-    disadvantage: -0.2
-    equal: 0
+    disadvantage: -1
+    equal: -0.15
     advantage: 0.2
   - id: 1
     name: LevelDrop
     disadvantage: 30
-    equal: 50
-    advantage: 20
+    equal: 60
+    advantage: 10
   - id: 2
     name: ColorDrop
     disadvantage: 20
@@ -31,6 +31,6 @@ MonoBehaviour:
     advantage: 30
   - id: 3
     name: CellDrop
-    disadvantage: 1
+    disadvantage: 0.5
     equal: 0.5
-    advantage: 0.7
+    advantage: 0.5

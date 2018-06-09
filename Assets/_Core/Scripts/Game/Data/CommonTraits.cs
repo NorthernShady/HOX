@@ -24,9 +24,9 @@ public enum TraitsType
 [System.Serializable]
 public class CommonTraits
 {
-	protected int m_level = 1;
+	public int m_level = 1;
     protected int m_exp = 0;
-    protected bool m_isConsumable = false;
+    public bool m_isConsumable = false;
 
     public float[] m_traits = new float[(int)TraitsType.TRAITS_COUNT];
 

@@ -17,41 +17,7 @@ MonoBehaviour:
   - id: 0
     name: AXE
     level: 1
-    hp: 20
-    hppercent: 0
-    attack: 7
-    attackpercent: 0
-    defence: 0
-    defencepercent: 0
-    speed: 0
-    speedpercent: 0
-    attackspeed: 0.8
-    attackspeedpercent: 0
-    criticalchance: 0
-    criticalchancepercent: 10
-    criticalmodifier: 0
-    isconsumable: 0
-  - id: 1
-    name: DAGGER
-    level: 2
-    hp: 6
-    hppercent: 0
-    attack: 7
-    attackpercent: 0
-    defence: 0
-    defencepercent: 0
-    speed: 0
-    speedpercent: 0
-    attackspeed: 0.4
-    attackspeedpercent: 0
-    criticalchance: 0
-    criticalchancepercent: 10
-    criticalmodifier: 0
-    isconsumable: 0
-  - id: 2
-    name: HAMMER
-    level: 3
-    hp: 5
+    hp: 10
     hppercent: 0
     attack: 3
     attackpercent: 0
@@ -59,15 +25,15 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1.2
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
-    criticalchancepercent: 10
+    criticalchancepercent: 0
     criticalmodifier: 0
     isconsumable: 0
-  - id: 3
-    name: SPEAR
-    level: 4
+  - id: 1
+    name: DAGGER
+    level: 2
     hp: 6
     hppercent: 0
     attack: 3
@@ -79,7 +45,41 @@ MonoBehaviour:
     attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
-    criticalchancepercent: 10
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 2
+    name: HAMMER
+    level: 3
+    hp: 5
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
+    criticalmodifier: 0
+    isconsumable: 0
+  - id: 3
+    name: SPEAR
+    level: 4
+    hp: 6
+    hppercent: 0
+    attack: 1
+    attackpercent: 0
+    defence: 0
+    defencepercent: 0
+    speed: 0
+    speedpercent: 0
+    attackspeed: 1
+    attackspeedpercent: 0
+    criticalchance: 0
+    criticalchancepercent: 0
     criticalmodifier: 0
     isconsumable: 0
   - id: 4
@@ -87,30 +87,30 @@ MonoBehaviour:
     level: 5
     hp: 7
     hppercent: 0
-    attack: 4
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0.7
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
-    criticalchancepercent: 10
+    criticalchancepercent: 0
     criticalmodifier: 0
     isconsumable: 0
   - id: 5
     name: SHIELD
     level: 1
-    hp: 20
+    hp: 10
     hppercent: 0
-    attack: 6
+    attack: 3
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1.1
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
     level: 2
     hp: 6
     hppercent: 0
-    attack: 7
+    attack: 3
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -138,13 +138,13 @@ MonoBehaviour:
     level: 3
     hp: 5
     hppercent: 0
-    attack: 3
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 2
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -155,13 +155,13 @@ MonoBehaviour:
     level: 4
     hp: 4
     hppercent: 0
-    attack: 3
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1.5
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     level: 5
     hp: 7
     hppercent: 0
-    attack: 4
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 0
+    attackspeed: 1
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
     level: 6
     hp: 8
     hppercent: 0
-    attack: 4
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0

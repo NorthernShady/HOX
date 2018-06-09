@@ -19,9 +19,9 @@ MonoBehaviour:
     level: 1
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -36,9 +36,9 @@ MonoBehaviour:
     level: 1
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -53,9 +53,9 @@ MonoBehaviour:
     level: 1
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -70,9 +70,9 @@ MonoBehaviour:
     level: 2
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -87,9 +87,9 @@ MonoBehaviour:
     level: 2
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -104,9 +104,9 @@ MonoBehaviour:
     level: 2
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -121,9 +121,9 @@ MonoBehaviour:
     level: 3
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -138,9 +138,9 @@ MonoBehaviour:
     level: 3
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
     level: 3
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -172,9 +172,9 @@ MonoBehaviour:
     level: 4
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -189,9 +189,9 @@ MonoBehaviour:
     level: 4
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -206,9 +206,9 @@ MonoBehaviour:
     level: 4
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -223,9 +223,9 @@ MonoBehaviour:
     level: 5
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -240,9 +240,9 @@ MonoBehaviour:
     level: 5
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
@@ -257,9 +257,9 @@ MonoBehaviour:
     level: 5
     hp: 0
     hppercent: 0
-    attack: 1
+    attack: 0
     attackpercent: 0
-    defence: 1
+    defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0

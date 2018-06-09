@@ -17,9 +17,9 @@ MonoBehaviour:
   - id: 0
     name: SKELETON
     level: 1
-    hp: -10
+    hp: -15
     hppercent: 0
-    attack: -5
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -34,9 +34,9 @@ MonoBehaviour:
   - id: 1
     name: SKELETON
     level: 2
-    hp: 20
+    hp: 35
     hppercent: 0
-    attack: 1
+    attack: 12
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -51,9 +51,9 @@ MonoBehaviour:
   - id: 2
     name: SKELETON
     level: 3
-    hp: 50
+    hp: 76
     hppercent: 0
-    attack: 2
+    attack: 17
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -68,9 +68,9 @@ MonoBehaviour:
   - id: 3
     name: SKELETON
     level: 4
-    hp: 100
+    hp: 91
     hppercent: 0
-    attack: 3
+    attack: 20
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -85,9 +85,9 @@ MonoBehaviour:
   - id: 4
     name: PEASANT
     level: 1
-    hp: -10
+    hp: -15
     hppercent: 0
-    attack: -5
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
   - id: 5
     name: PEASANT
     level: 2
-    hp: 20
+    hp: 35
     hppercent: 0
-    attack: 1
+    attack: 12
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -119,9 +119,9 @@ MonoBehaviour:
   - id: 6
     name: PEASANT
     level: 3
-    hp: 50
+    hp: 76
     hppercent: 0
-    attack: 2
+    attack: 17
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -136,9 +136,9 @@ MonoBehaviour:
   - id: 7
     name: PEASANT
     level: 4
-    hp: 100
+    hp: 91
     hppercent: 0
-    attack: 3
+    attack: 20
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -153,9 +153,9 @@ MonoBehaviour:
   - id: 8
     name: SPIDER
     level: 1
-    hp: -10
+    hp: -15
     hppercent: 0
-    attack: -5
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -170,9 +170,9 @@ MonoBehaviour:
   - id: 9
     name: SPIDER
     level: 2
-    hp: 20
+    hp: 35
     hppercent: 0
-    attack: 1
+    attack: 12
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -187,9 +187,9 @@ MonoBehaviour:
   - id: 10
     name: SPIDER
     level: 3
-    hp: 50
+    hp: 76
     hppercent: 0
-    attack: 2
+    attack: 17
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -204,9 +204,9 @@ MonoBehaviour:
   - id: 11
     name: SPIDER
     level: 4
-    hp: 100
+    hp: 91
     hppercent: 0
-    attack: 3
+    attack: 20
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -221,9 +221,9 @@ MonoBehaviour:
   - id: 12
     name: SPIDER
     level: 5
-    hp: 200
+    hp: 110
     hppercent: 0
-    attack: 5
+    attack: 25
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -238,9 +238,9 @@ MonoBehaviour:
   - id: 13
     name: DRAGON
     level: 1
-    hp: -10
+    hp: -15
     hppercent: 0
-    attack: -5
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -255,9 +255,9 @@ MonoBehaviour:
   - id: 14
     name: DRAGON
     level: 2
-    hp: 20
+    hp: 35
     hppercent: 0
-    attack: 1
+    attack: 12
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -272,9 +272,9 @@ MonoBehaviour:
   - id: 15
     name: DRAGON
     level: 3
-    hp: 50
+    hp: 76
     hppercent: 0
-    attack: 2
+    attack: 17
     attackpercent: 0
     defence: 0
     defencepercent: 0
@@ -289,9 +289,9 @@ MonoBehaviour:
   - id: 16
     name: DRAGON
     level: 4
-    hp: 100
+    hp: 91
     hppercent: 0
-    attack: 3
+    attack: 20
     attackpercent: 0
     defence: 0
     defencepercent: 0
