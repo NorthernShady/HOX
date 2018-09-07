@@ -125,7 +125,7 @@ public class Character : Photon.PunBehaviour
 
     void Update()
     {
-        if (!PhotonHelper.isMine(this))
+        if (!PhotonHelper.isMaster())
             return;
         //		if (photonView != null && !photonView.isMine)
 
@@ -244,7 +244,7 @@ public class Character : Photon.PunBehaviour
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
+        if (m_health <= 0.01f && PhotonHelper.isMaster()) {
             whenHpZero();
             m_shouldDestroy = true;
             return true;
