@@ -28,6 +28,11 @@ ModelImporter:
     100044: head
     100046: beaard
     100048: head.001
+    100050: DomainePart.000
+    100052: DomainePart.003
+    100054: DomainePart.004
+    100056: DomainePart.006
+    100058: DomainePart.011
     400000: //RootNode
     400002: Cube
     400004: Cube_002
@@ -53,6 +58,11 @@ ModelImporter:
     400044: head
     400046: beaard
     400048: head.001
+    400050: DomainePart.000
+    400052: DomainePart.003
+    400054: DomainePart.004
+    400056: DomainePart.006
+    400058: DomainePart.011
     2100000: beard
     2100002: face
     2100004: unnamed
@@ -87,6 +97,11 @@ ModelImporter:
     2300044: head
     2300046: beaard
     2300048: head.001
+    2300050: DomainePart.000
+    2300052: DomainePart.003
+    2300054: DomainePart.004
+    2300056: DomainePart.006
+    2300058: DomainePart.011
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -112,6 +127,11 @@ ModelImporter:
     3300044: head
     3300046: beaard
     3300048: head.001
+    3300050: DomainePart.000
+    3300052: DomainePart.003
+    3300054: DomainePart.004
+    3300056: DomainePart.006
+    3300058: DomainePart.011
     4300000: Sphere
     4300002: Cylinder
     4300004: Cylinder_006
@@ -136,6 +156,11 @@ ModelImporter:
     4300042: head
     4300044: beaard
     4300046: head.001
+    4300048: DomainePart.000
+    4300050: DomainePart.004
+    4300052: DomainePart.003
+    4300054: DomainePart.011
+    4300056: DomainePart.006
   externalObjects:
   - first:
       type: UnityEngine:Material
