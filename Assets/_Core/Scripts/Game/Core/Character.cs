@@ -408,7 +408,10 @@ public class Character : Photon.PunBehaviour
         if (stream.isWriting) {
             stream.SendNext(m_shouldSendAttack);
             stream.SendNext(m_shouldDestroy);
-            stream.SendNext(m_health);
+            if (PhotonHelper.isMine(this))
+            {
+                stream.SendNext(m_health);
+            }
             traitsSerialization(stream);
 
             if (m_shouldDestroy) {
@@ -424,7 +427,11 @@ public class Character : Photon.PunBehaviour
         if (stream.isReading) {
             bool shouldAttack = (bool)stream.ReceiveNext();
             bool shouldDestroy = (bool)stream.ReceiveNext();
-            m_health = (float)stream.ReceiveNext();
+
+            if (!PhotonHelper.isMine(this))
+            {
+                m_health = (float)stream.ReceiveNext();
+            }
             traitsDeserialization(stream);
 
             bool canAttack = (m_attackTarget != null && !m_isDead);
