@@ -125,7 +125,7 @@ public class Character : Photon.PunBehaviour
 
     void Update()
     {
-        if (!PhotonHelper.isMaster())
+        if (!PhotonHelper.isMine(this))
             return;
         //		if (photonView != null && !photonView.isMine)
 
@@ -244,7 +244,7 @@ public class Character : Photon.PunBehaviour
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        if (m_health <= 0.01f && PhotonHelper.isMaster()) {
+        if (m_health <= 0.01f && PhotonHelper.isMine(this)) {
             whenHpZero();
             m_shouldDestroy = true;
             return true;
@@ -408,10 +408,7 @@ public class Character : Photon.PunBehaviour
         if (stream.isWriting) {
             stream.SendNext(m_shouldSendAttack);
             stream.SendNext(m_shouldDestroy);
-            if (PhotonHelper.isMine(this))
-            {
-                stream.SendNext(m_health);
-            }
+            stream.SendNext(m_health);
             traitsSerialization(stream);
 
             if (m_shouldDestroy) {
@@ -419,7 +416,6 @@ public class Character : Photon.PunBehaviour
                     PhotonHelper.Destroy(gameObject);
                 }));
             }
-           
 
             m_shouldSendAttack = false;
             m_shouldDestroy = false;
@@ -427,11 +423,7 @@ public class Character : Photon.PunBehaviour
         if (stream.isReading) {
             bool shouldAttack = (bool)stream.ReceiveNext();
             bool shouldDestroy = (bool)stream.ReceiveNext();
-
-            if (!PhotonHelper.isMine(this))
-            {
-                m_health = (float)stream.ReceiveNext();
-            }
+            m_health = (float)stream.ReceiveNext();
             traitsDeserialization(stream);
 
             bool canAttack = (m_attackTarget != null && !m_isDead);

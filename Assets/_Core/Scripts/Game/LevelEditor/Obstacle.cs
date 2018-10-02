@@ -17,6 +17,7 @@ public class Obstacle : MonoBehaviour {
 	public ObstacleData obstacleData {
 		get {
 			m_obstacleData.position = transform.position;
+			m_obstacleData.rotation = transform.rotation;
 			return m_obstacleData;
 		}
 	}
@@ -25,6 +26,7 @@ public class Obstacle : MonoBehaviour {
 	{
 		m_obstacleData = obstacleData;
 		transform.position = m_obstacleData.position;
+		transform.rotation = m_obstacleData.rotation;
 
 		updateVisual();
 	}

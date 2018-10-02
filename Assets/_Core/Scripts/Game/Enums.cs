@@ -64,7 +64,8 @@ namespace GameData
 		TREE_1,
 		TREE_2,
 		TREE_3,
-		TREE_4
+		TREE_4,
+		ROCK_1
 	}
 }
 
