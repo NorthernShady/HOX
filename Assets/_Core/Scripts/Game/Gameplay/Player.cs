@@ -71,7 +71,6 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 
 			if (!m_isInitialized)
 			{
-				Debug.Log("hero");
 				findHero();
 				m_isInitialized = true;
 			}
