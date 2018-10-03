@@ -176,7 +176,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DomainePart
-    second: {fileID: 2100016, guid: f5593cb0f236a400abcfc6cc10096b21, type: 3}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -191,7 +191,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: head
-    second: {fileID: 2100000, guid: fb50043675d9949baa89db5f0c92c8e3, type: 2}
+    second: {fileID: 2100000, guid: 5fd7ddf4a39164418bfd0cf4eff09c7e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
