@@ -880,9 +880,9 @@ MonoBehaviour:
     keys: 00000000010000000200000003000000
     values:
     - {fileID: 100008, guid: 1857ba93372734dae91a282479ae9a9d, type: 3}
-    - {fileID: 100008, guid: 1857ba93372734dae91a282479ae9a9d, type: 3}
-    - {fileID: 100004, guid: f9723af5716ea471e8310b2feee22edc, type: 3}
-    - {fileID: 100004, guid: 5d667012a0a9943db9a26dc08bd0473a, type: 3}
+    - {fileID: 100024, guid: 708da160796094a2f813be6bd8d0773a, type: 3}
+    - {fileID: 100018, guid: 2bffc4b5958484cc9aaa107fdc3c5154, type: 3}
+    - {fileID: 100000, guid: ad1719eddb57c47ac964ddac714e92b5, type: 3}
   m_deathAnimationPrefab: {fileID: 1835004947575600, guid: bb54cf7f2b92a4030a4e4a220e75e2e5,
     type: 2}
   m_type: 1

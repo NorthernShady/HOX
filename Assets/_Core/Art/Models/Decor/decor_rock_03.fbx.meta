@@ -39,7 +39,12 @@ ModelImporter:
     4300008: Cube.001
     4300010: Cube
     4300012: wheel
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: f9e51556d7dcf4246bad5031c50ea460, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
