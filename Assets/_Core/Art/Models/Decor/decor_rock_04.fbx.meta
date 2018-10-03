@@ -4,13 +4,46 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: wel_01
+    100004: well_02
+    100006: well_03
     400000: //RootNode
+    400002: wel_01
+    400004: well_02
+    400006: well_03
     2100000: No Name
+    2100002: decor
+    2100004: wood
+    2100006: main
     2300000: //RootNode
+    2300002: wel_01
+    2300004: well_02
+    2300006: well_03
     3300000: //RootNode
+    3300002: wel_01
+    3300004: well_02
+    3300006: well_03
     4300000: wel
+    4300002: well_02
+    4300004: well_03
+    4300006: wel_01
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: decor
+    second: {fileID: 2100000, guid: b6a76aa727e5742298ec78b8035258d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: main
+    second: {fileID: 2100000, guid: d9ffc1b2213e1464fb33376f1bffdf5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: f9e51556d7dcf4246bad5031c50ea460, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
