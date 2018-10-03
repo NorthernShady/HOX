@@ -9,6 +9,9 @@ using DG.Tweening;
 public class Hero : Character, IPunObservable
 {
     [SerializeField]
+    Player m_playerPrefab = null;
+
+    [SerializeField]
     tk2dSprite m_domaineSprite = null;
 
     [SerializeField]
@@ -103,11 +106,20 @@ public class Hero : Character, IPunObservable
         m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
         if (isPlayer) {
-            gameObject.AddComponent<Player>();
+            // gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
             m_services.getService<ExperienceObserver>().initialize(this);
         } else {
             m_services.getService<EnemyInventoryObserver>().initialize(this);
+        }
+
+        var dataProxy = FindObjectOfType<GameDataProxy>();
+
+        if (dataProxy.team == team)
+        {
+            var player = PhotonHelper.Instantiate(m_playerPrefab, Vector3.zero, Quaternion.identity, 0);
+            player.transform.SetParent(transform, false);
+            player.GetComponent<Player>().initialize(this, m_team);
         }
     }
 
@@ -199,10 +211,10 @@ public class Hero : Character, IPunObservable
     public override void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         base.photonInit();
-        if (photonView.isMine)
-        {
-            gameObject.AddComponent<Player>();
-        }
+        // if (photonView.isMine)
+        // {
+        //     gameObject.AddComponent<Player>();
+        // }
 
     }
 

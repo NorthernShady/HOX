@@ -866,6 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb88a1d7d9f7640b68ade1433414358b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerPrefab: {fileID: 114140458991490136, guid: 39ae6a76fb3464154b5f0d933a6b9311,
+    type: 2}
   m_domaineSprite: {fileID: 114875045609608698}
   m_heroPhysics:
     keys: 00000000010000000200000003000000
