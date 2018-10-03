@@ -16,6 +16,10 @@ ModelImporter:
     100020: Cylinder_008
     100022: DomainePart
     100024: headf
+    100026: body
+    100028: Cylinder
+    100030: DomainePart.001
+    100032: hands
     400000: //RootNode
     400002: Cube
     400004: Cube_002
@@ -29,6 +33,10 @@ ModelImporter:
     400020: Cylinder_008
     400022: DomainePart
     400024: headf
+    400026: body
+    400028: Cylinder
+    400030: DomainePart.001
+    400032: hands
     2100000: unnamed
     2100002: Material
     2100004: hand
@@ -50,6 +58,10 @@ ModelImporter:
     2300020: Cylinder_008
     2300022: DomainePart
     2300024: headf
+    2300026: body
+    2300028: Cylinder
+    2300030: DomainePart.001
+    2300032: hands
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_002
@@ -63,6 +75,10 @@ ModelImporter:
     3300020: Cylinder_008
     3300022: DomainePart
     3300024: headf
+    3300026: body
+    3300028: Cylinder
+    3300030: DomainePart.001
+    3300032: hands
     4300000: Cylinder_002
     4300002: Cylinder_007
     4300004: Cylinder_006
@@ -75,8 +91,22 @@ ModelImporter:
     4300018: Cylinder_003
     4300020: DomainePart
     4300022: headf
+    4300024: Cylinder
+    4300026: DomainePart.001
+    4300028: body
+    4300030: hands
     7400000: Default Take
+    7400002: Cylinder|bodyAction
+    7400004: Cylinder|headAction
+    7400006: Cylinder|idle
+    7400008: body|bodyAction
+    7400010: body|headAction
+    7400012: body|idle
+    7400014: hands|bodyAction
+    7400016: hands|headAction
+    7400018: hands|idle
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -158,7 +188,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 100
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

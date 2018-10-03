@@ -38,6 +38,8 @@ ModelImporter:
     100064: head.002
     100066: corn_1
     100068: corn_2
+    100070: body
+    100072: hands
     400000: Cube
     400002: Cube_002
     400004: Cylinder
@@ -73,6 +75,8 @@ ModelImporter:
     400064: head.002
     400066: corn_1
     400068: corn_2
+    400070: body
+    400072: hands
     2100000: tusk
     2100002: Material
     2100004: unnamed
@@ -120,6 +124,8 @@ ModelImporter:
     2300064: head.002
     2300066: corn_1
     2300068: corn_2
+    2300070: body
+    2300072: hands
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -155,6 +161,8 @@ ModelImporter:
     3300064: head.002
     3300066: corn_1
     3300068: corn_2
+    3300070: body
+    3300072: hands
     4300000: Cylinder_010
     4300002: Cylinder_009
     4300004: Cylinder
@@ -189,7 +197,18 @@ ModelImporter:
     4300062: head.001
     4300064: corn_1
     4300066: corn_2
+    4300068: body
+    4300070: hands
     7400000: Default Take
+    7400002: head|bodyAction
+    7400004: head|headAction
+    7400006: head|idle
+    7400008: body|bodyAction
+    7400010: body|headAction
+    7400012: body|idle
+    7400014: hands|bodyAction
+    7400016: hands|headAction
+    7400018: hands|idle
     9500000: //RootNode
   externalObjects:
   - first:
@@ -287,7 +306,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

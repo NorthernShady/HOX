@@ -16,6 +16,8 @@ ModelImporter:
     100020: Sphere
     100022: DomainePart
     100024: head
+    100026: body
+    100028: hands
     400000: Cube
     400002: Cube_002
     400004: Cylinder_001
@@ -29,6 +31,8 @@ ModelImporter:
     400020: Sphere
     400022: DomainePart
     400024: head
+    400026: body
+    400028: hands
     2100000: Material
     2100002: unnamed
     2100004: hand
@@ -50,6 +54,8 @@ ModelImporter:
     2300020: //RootNode
     2300022: DomainePart
     2300024: head
+    2300026: body
+    2300028: hands
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder_001
@@ -63,6 +69,8 @@ ModelImporter:
     3300020: //RootNode
     3300022: DomainePart
     3300024: head
+    3300026: body
+    3300028: hands
     4300000: Sphere
     4300002: Cylinder_006
     4300004: Cylinder_002
@@ -75,7 +83,18 @@ ModelImporter:
     4300018: Cylinder_003
     4300020: DomainePart
     4300022: head
+    4300024: body
+    4300026: hands
     7400000: Default Take
+    7400002: head|bodyAction
+    7400004: head|headAction
+    7400006: head|idle
+    7400008: body|bodyAction
+    7400010: body|headAction
+    7400012: body|idle
+    7400014: hands|bodyAction
+    7400016: hands|headAction
+    7400018: hands|idle
     9500000: //RootNode
   externalObjects:
   - first:
@@ -158,7 +177,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 100
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

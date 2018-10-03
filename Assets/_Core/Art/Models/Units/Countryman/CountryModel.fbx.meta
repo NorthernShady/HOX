@@ -33,6 +33,8 @@ ModelImporter:
     100054: DomainePart.004
     100056: DomainePart.006
     100058: DomainePart.011
+    100060: body
+    100062: hands
     400000: //RootNode
     400002: Cube
     400004: Cube_002
@@ -63,6 +65,8 @@ ModelImporter:
     400054: DomainePart.004
     400056: DomainePart.006
     400058: DomainePart.011
+    400060: body
+    400062: hands
     2100000: beard
     2100002: face
     2100004: unnamed
@@ -102,6 +106,8 @@ ModelImporter:
     2300054: DomainePart.004
     2300056: DomainePart.006
     2300058: DomainePart.011
+    2300060: body
+    2300062: hands
     3300000: Cube
     3300002: Cube_002
     3300004: Cylinder
@@ -132,6 +138,8 @@ ModelImporter:
     3300054: DomainePart.004
     3300056: DomainePart.006
     3300058: DomainePart.011
+    3300060: body
+    3300062: hands
     4300000: Sphere
     4300002: Cylinder
     4300004: Cylinder_006
@@ -161,6 +169,8 @@ ModelImporter:
     4300052: DomainePart.003
     4300054: DomainePart.011
     4300056: DomainePart.006
+    4300058: body
+    4300060: hands
   externalObjects:
   - first:
       type: UnityEngine:Material

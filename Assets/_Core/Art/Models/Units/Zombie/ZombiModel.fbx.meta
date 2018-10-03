@@ -17,6 +17,9 @@ ModelImporter:
     100022: Empty
     100024: DomainePart
     100026: head
+    100028: body
+    100030: DomainePart.001
+    100032: hands
     400000: Cube.001
     400002: Cube.002
     400004: Cylinder.001
@@ -31,6 +34,9 @@ ModelImporter:
     400022: Empty
     400024: DomainePart
     400026: head
+    400028: body
+    400030: DomainePart.001
+    400032: hands
     2100000: Material
     2100002: Material.002
     2100004: limb
@@ -38,6 +44,7 @@ ModelImporter:
     2100008: hand
     2100010: DomainePart
     2100012: head
+    2100014: No Name
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cylinder.001
@@ -51,6 +58,9 @@ ModelImporter:
     2300020: zombie
     2300022: DomainePart
     2300024: head
+    2300026: body
+    2300028: DomainePart.001
+    2300030: hands
     3300000: Cube.001
     3300002: Cube.002
     3300004: Cylinder.001
@@ -64,6 +74,9 @@ ModelImporter:
     3300020: zombie
     3300022: DomainePart
     3300024: head
+    3300026: body
+    3300028: DomainePart.001
+    3300030: hands
     4300000: zombie
     4300002: Cylinder.001
     4300004: Cylinder.007
@@ -76,6 +89,10 @@ ModelImporter:
     4300018: Cylinder.003
     4300020: DomainePart
     4300022: head
+    4300024: DomainePart.001
+    4300026: body
+    4300028: hands
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
