@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: e4a1f3a1194934b8fa24a217d0d29eef
+guid: e86b6391226304d0c980c47beda5ff80
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.001
-    100004: Cube.002
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.001
-    400004: Cube.002
-    400006: //RootNode
-    2100000: Material
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cube.002
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cube.002
-    3300006: //RootNode
-    4300000: Cube.002
-    4300002: Cube.001
-    4300004: Cube
-    4300006: rocks_01
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -101,7 +81,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

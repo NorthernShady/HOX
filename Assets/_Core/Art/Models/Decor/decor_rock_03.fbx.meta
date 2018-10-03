@@ -24,18 +24,21 @@ ModelImporter:
     2300006: Cube.001
     2300008: Cube.002
     2300010: Cube.003
+    2300012: //RootNode
     3300000: Circle.001
     3300002: Cylinder
     3300004: Cube
     3300006: Cube.001
     3300008: Cube.002
     3300010: Cube.003
+    3300012: //RootNode
     4300000: Cylinder
     4300002: Circle.001
     4300004: Cube.003
     4300006: Cube.002
     4300008: Cube.001
     4300010: Cube
+    4300012: wheel
   externalObjects: {}
   materials:
     importMaterials: 1
