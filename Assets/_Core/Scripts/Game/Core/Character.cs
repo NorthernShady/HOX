@@ -214,8 +214,10 @@ public class Character : Photon.PunBehaviour
         if (domainePart == null)
             return;
             
-        var meshRenderer = domainePart.GetComponent<MeshRenderer>();
-        meshRenderer.material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
+        var meshRenderers = domainePart.GetComponentsInChildren<MeshRenderer>();
+        var material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
+
+        System.Array.ForEach(meshRenderers, x => x.material = material);
     }
 
     void whenHpZero()

@@ -3,6 +3,33 @@ guid: a51db8289c3c04847be2e6b428096b00
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+    100000: body
+    100002: DomainePart
+    100004: hands
+    100006: head
+    100008: //RootNode
+    400000: body
+    400002: DomainePart
+    400004: hands
+    400006: head
+    400008: //RootNode
+    2100000: Material
+    2100002: DomainePart
+    2100004: unnamed
+    2300000: body
+    2300002: DomainePart
+    2300004: hands
+    2300006: head
+    3300000: body
+    3300002: DomainePart
+    3300004: hands
+    3300006: head
+    4300000: head
+    4300002: DomainePart
+    4300004: body
+    4300006: hands
+    7400000: Default Take
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -56,7 +83,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
