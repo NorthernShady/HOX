@@ -26,6 +26,11 @@ public class Character : Photon.PunBehaviour
         return null;
     }
 
+    public virtual List<BasicSkill> getSkills()
+    {
+        return new List<BasicSkill>();
+    }
+
     protected Services m_services = null;
 
     protected Rigidbody m_rigidbody = null;
