@@ -177,7 +177,7 @@ public class Character : Photon.PunBehaviour
         m_inventory.consumeItem(item);
     }
 
-    private void heal(float health, bool shouldAnimate)
+    public void heal(float health, bool shouldAnimate)
     {
         m_health = Mathf.Min(m_health + health, m_totalData.maxHealth);
 

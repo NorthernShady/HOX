@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] class ObstacleVisual : TypedMap<GameData.ObstacleType, GameObject> {}
+[System.Serializable] class ObstacleSkills : TypedMap<GameData.ObstacleType, Skills> {}
 
 public class Obstacle : MonoBehaviour {
 
@@ -10,9 +11,13 @@ public class Obstacle : MonoBehaviour {
 	ObstacleVisual m_obstacleVisual = null;
 
 	[SerializeField]
+	ObstacleSkills m_obstacleSkills = null;
+
+	[SerializeField]
 	ObstacleData m_obstacleData;
 
 	GameObject m_activeVisual = null;
+	List<BasicSkill> m_activeSkills = new List<BasicSkill>();
 
 	public ObstacleData obstacleData {
 		get {
@@ -39,5 +44,8 @@ public class Obstacle : MonoBehaviour {
 			DestroyImmediate(m_activeVisual.gameObject);
 
 		m_activeVisual = GameObject.Instantiate(m_obstacleVisual[m_obstacleData.type], transform, false);
+
+		var skills = m_obstacleSkills[m_obstacleData.type];
+		skills.skills.ForEach(x => m_activeSkills.Add(GameObject.Instantiate(x, transform, false)));
 	}
 }
