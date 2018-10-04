@@ -835,6 +835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerPrefab: {fileID: 114140458991490136, guid: 39ae6a76fb3464154b5f0d933a6b9311,
     type: 2}
+  m_pointLight: {fileID: 1985262398589992, guid: 1dd91bf7572cc4e60b69644447516549,
+    type: 2}
   m_domaineSprite: {fileID: 114875045609608698}
   m_heroPhysics:
     keys: 00000000010000000200000003000000
