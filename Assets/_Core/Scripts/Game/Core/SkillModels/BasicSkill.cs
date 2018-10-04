@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BasicSkill : MonoBehaviour
 {
+    public virtual void activate()
+    {
+    }
 }
 
 [System.Serializable]
