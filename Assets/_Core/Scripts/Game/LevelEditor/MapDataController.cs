@@ -76,18 +76,18 @@ public class MapDataController : MonoBehaviour {
 		map.createGrid(mapData.gridData);
 		map.gameObject.isStatic = true;
 
-		foreach (var obstacleData in mapData.obstacleData) {
-			var obstacle = GameObject.Instantiate(m_obstaclePrefab, Vector3.zero, Quaternion.identity);
-			obstacle.initialize(obstacleData);
-			obstacle.transform.SetParent(map.transform, true);
-		}
-
 		m_dataProxy = FindObjectOfType<GameDataProxy>();
 
 		if (!Application.isPlaying)
 			loadCharactersEditor(mapData, map.gameObject);
 		else
 			StartCoroutine(loadCharCoroutine(mapData, map.gameObject));
+
+		foreach (var obstacleData in mapData.obstacleData) {
+			var obstacle = GameObject.Instantiate(m_obstaclePrefab, Vector3.zero, Quaternion.identity);
+			obstacle.initialize(obstacleData);
+			obstacle.transform.SetParent(map.transform, true);
+		}
 	}
 
 	void clear()
