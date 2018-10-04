@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ead82a04eb64940aa7f322e81e7d0f, type: 3}
+  m_Name: MapData_Dungeon
+  m_EditorClassIdentifier: 
+  gridData:
+    gridSize: {x: 5, y: 5}
+    cellSize: {x: 10, y: 10}
+  obstacleData:
+  - type: 1
+    position: {x: -3.4699993, y: -0.17, z: -19.79}
+    scale: {x: 0.87372, y: 1, z: 0.8340429}
+    rotation: {x: 0.029768256, y: -0.006178049, z: -0.043794055, w: 0.9985779}
+  - type: 3
+    position: {x: 9.59, y: 1, z: -7.25}
+    scale: {x: 0.5, y: 0.49999994, z: 0.49999994}
+    rotation: {x: -0.5337131, y: 0.27751824, z: 0.055369325, w: 0.7969116}
+  - type: 2
+    position: {x: 9.809998, y: -1.98, z: -4.66}
+    scale: {x: 2.1880732, y: 0.78211343, z: 1.7731031}
+    rotation: {x: -0.01752701, y: 0.07514363, z: 0.031725015, w: 0.99651384}
+  - type: 2
+    position: {x: 10.27, y: -0.29, z: -5.549999}
+    scale: {x: 1.1889, y: 1.1032, z: 1.2687}
+    rotation: {x: 0.009888873, y: -0.21285947, z: -0.045341473, w: 0.97598016}
+  - type: 3
+    position: {x: -11.33, y: -0.11, z: -5.5300007}
+    scale: {x: 0.5, y: 0.5, z: 0.5}
+    rotation: {x: 0.084855944, y: -0, z: -0, w: 0.9963933}
+  - type: 2
+    position: {x: -8.23, y: -0.63, z: -15.06}
+    scale: {x: 2.1786613, y: 1.3336097, z: 2.1635852}
+    rotation: {x: -0.032533206, y: 0.285372, z: 0.028027019, w: 0.9574544}
+  - type: 2
+    position: {x: 3.9500008, y: -0.25, z: -5.51}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+  mapCreepData: []
+  heroesStartData:
+  - positions:
+    - {x: -20.1, y: -21.7}
+  - positions:
+    - {x: 19, y: 21.3}
