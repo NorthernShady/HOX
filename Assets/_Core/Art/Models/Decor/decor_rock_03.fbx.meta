@@ -124,9 +124,9 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 8
+    normalSmoothAngle: 0
     normalImportMode: 1
-    tangentImportMode: 3
+    tangentImportMode: 2
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
