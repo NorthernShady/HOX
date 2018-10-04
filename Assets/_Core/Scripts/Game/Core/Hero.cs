@@ -189,7 +189,8 @@ public class Hero : Character, IPunObservable
 
     protected override void onDeathAnimation()
     {
-        GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+        var deathAnimation = GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+        Destroy(deathAnimation, 2.0f);
         base.onDeathAnimation();
     }
 

@@ -120,7 +120,7 @@ public class Character : Photon.PunBehaviour
 				m_rigidbody.position;
 		}
 
-		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased();
+		GetComponent<Rigidbody>().DOMove(position, m_totalData.moveSpeed).SetSpeedBased().SetEase(Ease.Linear);
     }
 
     void Update()

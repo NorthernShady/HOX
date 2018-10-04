@@ -19,7 +19,7 @@ MonoBehaviour:
     hp: 47
     attack: 5
     defence: 0
-    speed: 5
+    speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     hp: 56
     attack: 6
     defence: 0
-    speed: 5
+    speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     hp: 67
     attack: 7
     defence: 0
-    speed: 5
+    speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     hp: 81
     attack: 9
     defence: 0
-    speed: 5
+    speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     hp: 97
     attack: 10
     defence: 0
-    speed: 5
+    speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
