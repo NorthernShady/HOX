@@ -109,6 +109,7 @@ public class MapDataController : MonoBehaviour {
 		if (!PhotonHelper.isMaster())
 			return;
 
+        int characterId = 0;
 		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
 				// if (!m_dataProxy.isBotGame && m_dataProxy.team != team) {
@@ -116,34 +117,39 @@ public class MapDataController : MonoBehaviour {
 				// }
                 var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
 				var heroType = (m_dataProxy.team == team) ? m_dataProxy.heroType : getRandomHeroType();
-				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, m_dataProxy.team == team);
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, characterId, m_dataProxy.team == team);
 				hero.transform.SetParent(map.transform, true);
-			}
+                characterId++;
+            }
 		}
 
 		foreach (var creepData in mapData.mapCreepData) {
 			var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
-			creep.GetComponent<Creep>().initialize(creepData);
+			creep.GetComponent<Creep>().initialize(creepData, characterId);
 			creep.transform.SetParent(map.transform, true);
-		}
+            characterId++;
+        }
 	}
 
 	void loadCharactersEditor(MapData mapData, GameObject map)
 	{
-		for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
+        int characterId = 0;
+        for (var team = 0; team < mapData.heroesStartData.Length; ++team) {
 			foreach (var startPosition in mapData.heroesStartData[team].positions) {
 				var hero = PhotonHelper.Instantiate(m_heroPrefab, startPosition, Quaternion.identity, 0);
 				var heroType = getRandomHeroType();
-				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, true);
+				hero.GetComponent<Hero>().initialize(startPosition, team, heroType, characterId, true);
 				hero.transform.SetParent(map.transform, true);
-			}
+                characterId++;
+            }
 		}
 
 		foreach (var creepData in mapData.mapCreepData) {
 			var creep = PhotonHelper.Instantiate (m_creepPrefab, map.transform.position, Quaternion.identity, 0);
-			creep.GetComponent<Creep>().initialize(creepData);
+			creep.GetComponent<Creep>().initialize(creepData, characterId);
 			creep.transform.SetParent(map.transform, true);
-		}
+            characterId++;
+        }
 	}
 
 	GameData.HeroType getRandomHeroType()

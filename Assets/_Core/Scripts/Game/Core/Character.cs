@@ -74,6 +74,7 @@ public class Character : Photon.PunBehaviour
     protected Character m_attackTarget = null;
 
     bool m_shouldSendAttack = false;
+    public int characterId = -1;
 
     protected virtual void Awake()
     {
@@ -87,7 +88,7 @@ public class Character : Photon.PunBehaviour
             m_inventory.OnItemsChanged -= onInventoryUpdated;
     }
 
-    protected void initialize(CommonTraits characterData, Inventory inventory)
+    protected void initialize(CommonTraits characterData, Inventory inventory, int characterId)
     {
         var map = FindObjectOfType<BasicGrid>();
         gameObject.transform.SetParent(map.gameObject.transform);
@@ -98,6 +99,8 @@ public class Character : Photon.PunBehaviour
 
         updateParameters();
         m_health = m_totalData.maxHealth;
+
+        this.characterId = characterId;
 
         if (OnCharacterInitialized != null)
             OnCharacterInitialized(this);

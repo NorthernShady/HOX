@@ -55,7 +55,7 @@ public class Creep : Character, IPunObservable {
 		}
 	}
 
-	public void initialize(MapCreepData creepData)
+	public void initialize(MapCreepData creepData, int characterId)
 	{
 		m_creepData = creepData;
 		transform.position = new Vector3(m_creepData.position.x, 0.0f, m_creepData.position.y);
@@ -65,7 +65,7 @@ public class Creep : Character, IPunObservable {
 		if (!Application.isPlaying)
 			return;
 
-		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory());
+		initialize(CommonTraits.create(m_creepData.type, m_creepData.level), createInventory(), characterId);
 		isInit = true;
 	}
 
@@ -207,6 +207,7 @@ public class Creep : Character, IPunObservable {
 			stream.SendNext (m_creepData.level);
 			stream.SendNext (m_creepData.position);
 			stream.SendNext (m_creepData.type);
+            stream.SendNext(characterId);
 		}
 		if (stream.isReading) {
             if (m_creepData == null) {
@@ -216,8 +217,9 @@ public class Creep : Character, IPunObservable {
 			m_creepData.level = (int)stream.ReceiveNext ();
 			m_creepData.position = (Vector2)stream.ReceiveNext ();
 			m_creepData.type = (GameData.CreepType)stream.ReceiveNext ();
+            characterId = (int)stream.ReceiveNext();
 			if (!isInit) {
-				initialize (m_creepData);
+				initialize (m_creepData, characterId);
 			}
 		}
 	}
