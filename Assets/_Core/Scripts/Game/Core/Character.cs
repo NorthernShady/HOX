@@ -349,6 +349,7 @@ public class Character : Photon.PunBehaviour
     {
         var prefab = Resources.Load<GameObject>(k.Resources.CHAR_DEATH);
         var deathAnimation = GameObject.Instantiate(prefab, m_rigidbody.position, Quaternion.identity);
+        Destroy(deathAnimation, 1.0f);
 
         disableVisualAndLogic();
         if (!PhotonHelper.isConnected()) {
