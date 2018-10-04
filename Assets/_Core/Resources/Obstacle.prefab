@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_obstacleVisual:
-    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
     values:
     - {fileID: 0}
     - {fileID: 100006, guid: e4a1f3a1194934b8fa24a217d0d29eef, type: 3}
@@ -64,8 +64,30 @@ MonoBehaviour:
     - {fileID: 1312081656060086, guid: 8f91480ce2f1bcf49a30c4ebda1f5d26, type: 2}
     - {fileID: 1377293284141270, guid: 424c5acf540fe064ea1781eb207e3a0f, type: 2}
     - {fileID: 1143549100222518, guid: 53cfdbcd1c79db547b031e76083de5a7, type: 2}
-    - {fileID: 0}
+    - {fileID: 100006, guid: e4a1f3a1194934b8fa24a217d0d29eef, type: 3}
+    - {fileID: 100006, guid: 5e99c4d26c6724b0aa854f1ca7e29f27, type: 3}
+    - {fileID: 100004, guid: 8e49995b17ea64acfb66fcab986de5ec, type: 3}
+    - {fileID: 100000, guid: 899b33c25b3de401abb115e0a8c01771, type: 3}
+  m_obstacleSkills:
+    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
+    values:
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills: []
+    - skills:
+      - {fileID: 114993223618495086, guid: 534639057c4284c84b444630ce1771d8, type: 2}
   m_obstacleData:
     type: 3
     position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
     rotation: {x: 0, y: 0, z: 0, w: 1}
