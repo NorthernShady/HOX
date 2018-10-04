@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour {
 	GameDataProxy m_fakeGameDataProxy = null;
 
 	[SerializeField]
+	GameObject m_directionalLight = null;
+
+	[SerializeField]
+	GameObject m_shine = null;
+
+	[SerializeField]
 	GameObject m_gameOverPrefab;
 
 	MapDataController m_mapDataController = null;
@@ -21,6 +27,11 @@ public class GameController : MonoBehaviour {
 
 		m_mapDataController = FindObjectOfType<MapDataController>();
 		m_gameDataProxy = FindObjectOfType<GameDataProxy>();
+
+		if (m_gameDataProxy.lightType != LightType.Directional) {
+			m_directionalLight.SetActive(false);
+			m_shine.SetActive(false);
+		}
 
 		FindObjectOfType<Services>().addService(this);
 	}

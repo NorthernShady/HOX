@@ -16,6 +16,9 @@ public class Hero : Character, IPunObservable
     Player m_playerPrefab = null;
 
     [SerializeField]
+    GameObject m_pointLight = null;
+
+    [SerializeField]
     tk2dSprite m_domaineSprite = null;
 
     [SerializeField]
@@ -125,6 +128,10 @@ public class Hero : Character, IPunObservable
 
         if (m_dataProxy.team == team)
         {
+            if (dataProxy.lightType == LightType.Point) {
+                var light = GameObject.Instantiate(m_pointLight);
+                light.transform.SetParent(transform, false);
+            }
             var player = PhotonHelper.Instantiate(m_playerPrefab, Vector3.zero, Quaternion.identity, 0);
             player.transform.SetParent(transform, false);
             player.GetComponent<Player>().initialize(this, m_team);
@@ -213,7 +220,8 @@ public class Hero : Character, IPunObservable
 
     protected override void onDeathAnimation()
     {
-        GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+        var deathAnimation = GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
+        Destroy(deathAnimation, 2.0f);
         base.onDeathAnimation();
     }
 

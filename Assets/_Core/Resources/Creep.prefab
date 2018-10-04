@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560606634523624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4616214816472122}
@@ -798,7 +798,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1.57, y: 1.47, z: 1}
-  _spriteId: 25
+  _spriteId: 35
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -808,7 +808,7 @@ MonoBehaviour:
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
   _clipBottomLeft: {x: 0, y: 0}
-  _clipTopRight: {x: 1.02, y: 1}
+  _clipTopRight: {x: 1, y: 1}
   _createBoxCollider: 0
 --- !u!114 &114926714006419660
 MonoBehaviour:
