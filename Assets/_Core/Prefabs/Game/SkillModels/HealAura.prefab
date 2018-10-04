@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4707062634763462}
   - component: {fileID: 135387230812914602}
   - component: {fileID: 114993223618495086}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

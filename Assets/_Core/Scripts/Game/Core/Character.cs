@@ -179,12 +179,13 @@ public class Character : Photon.PunBehaviour
 
     public void heal(float health, bool shouldAnimate)
     {
+        bool isHealthFull = m_totalData.maxHealth - m_health <= 0.01f;
         m_health = Mathf.Min(m_health + health, m_totalData.maxHealth);
 
         if (OnHealthChanged != null)
             OnHealthChanged(m_health / m_totalData.maxHealth);
 
-        if (shouldAnimate)
+        if (shouldAnimate && !isHealthFull)
             onHealAnimation();
     }
 
