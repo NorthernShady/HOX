@@ -128,7 +128,7 @@ public class Hero : Character, IPunObservable
 
         if (m_dataProxy.team == team)
         {
-            if (dataProxy.lightType == LightType.Point) {
+            if (m_dataProxy.lightType == LightType.Point) {
                 var light = GameObject.Instantiate(m_pointLight);
                 light.transform.SetParent(transform, false);
             }
@@ -202,7 +202,7 @@ public class Hero : Character, IPunObservable
         var list = FindObjectsOfType<Character>().ToList();
         var target = list.Find(x => x.characterId == charId);
         if (target != null) {
-            m_services.getService<PopupController>().openLootPopup(this, target);
+            m_services.getService<PopupController>().openLootPopup(this, target, m_player);
         }
     }
 
