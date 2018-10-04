@@ -43,9 +43,18 @@ public class Obstacle : MonoBehaviour {
 		if (m_activeVisual != null)
 			DestroyImmediate(m_activeVisual.gameObject);
 
+		if (!Application.isPlaying)
+			deleteAllChildren();
+
 		m_activeVisual = GameObject.Instantiate(m_obstacleVisual[m_obstacleData.type], transform, false);
 
 		var skills = m_obstacleSkills[m_obstacleData.type];
 		skills.skills.ForEach(x => m_activeSkills.Add(GameObject.Instantiate(x, transform, false)));
+	}
+
+	private void deleteAllChildren()
+	{
+		foreach (Transform child in transform)
+			DestroyImmediate(child.gameObject);
 	}
 }
