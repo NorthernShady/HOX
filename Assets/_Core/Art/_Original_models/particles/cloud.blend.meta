@@ -1,41 +1,10 @@
 fileFormatVersion: 2
-guid: e4a1f3a1194934b8fa24a217d0d29eef
+guid: eb32cd6bfc5cc490db69aa6b5116aae4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.001
-    100004: Cube.002
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.001
-    400004: Cube.002
-    400006: //RootNode
-    2100000: Material
-    2100002: No Name
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cube.002
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cube.002
-    3300006: //RootNode
-    4300000: Cube.002
-    4300002: Cube.001
-    4300004: Cube
-    4300006: rocks_01
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 3e44ccad27d0c4bc186554af118d7117, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: b6a76aa727e5742298ec78b8035258d9, type: 2}
+    2186277476908879412: ImportLogs
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -89,9 +58,9 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
-    tangentImportMode: 2
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
@@ -112,7 +81,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
