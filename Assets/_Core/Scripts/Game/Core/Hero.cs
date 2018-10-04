@@ -8,6 +8,9 @@ using DG.Tweening;
 
 public class Hero : Character, IPunObservable
 {
+    public System.Action OnFightStarted = null;
+    public System.Action OnFightFinished = null;
+
     [SerializeField]
     Player m_playerPrefab = null;
 
@@ -149,19 +152,22 @@ public class Hero : Character, IPunObservable
     void onTriggerEnter(Collider other, GameObject otherObject)
     {
         var character = otherObject.GetComponent<Character>();
-        if (character != null)
+        if (character != null) {
             m_attackTarget = character;
+            OnFightStarted?.Invoke();
+        }
     }
 
     void onTriggerExit(Collider other, GameObject otherObject)
     {
         if (m_attackTarget != null && otherObject == m_attackTarget.gameObject) {
-            m_attackTarget = null;
+            loseAttackTarget();
         }
     }
 
     public override void onTargetKilled(Character target)
     {
+        loseAttackTarget();
         if (!PhotonHelper.isMine(this)) {
             return;
         }
@@ -185,6 +191,12 @@ public class Hero : Character, IPunObservable
     {
         GameObject.Instantiate(m_deathAnimationPrefab, transform.position, Quaternion.identity);
         base.onDeathAnimation();
+    }
+
+    private void loseAttackTarget()
+    {
+        m_attackTarget = null;
+        OnFightFinished?.Invoke();
     }
 
     #region IPunObservable implementation

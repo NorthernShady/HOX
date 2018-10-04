@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour {
 
@@ -16,13 +17,31 @@ public class CameraController : MonoBehaviour {
 	[SerializeField]
 	float m_cameraSpeed = 0.01f;
 
+	[SerializeField]
+	bool m_isViewCamera = true;
+
+	[SerializeField]
+	float m_nearCameraSize = 1.0f;
+
+	[SerializeField]
+	float m_viewChangeTime = 1.0f;
+
+	private Camera m_camera = null;
+	private float m_farCameraSize = 1.0f;
 	float m_cameraShift = 0;
 	Vector2 m_drag = Vector2.zero;
 	int m_dragIndex = -1;
+	float m_cameraSize = 0.0f;
 
 	CameraType m_cameraType = CameraType.FOLLOWING;
 
 	GameInputController m_gameInputController = null;
+
+	public bool isViewCamera {
+		get {
+			return m_isViewCamera;
+		}
+	}
 
 	public Vector3 position {
 		get {
@@ -38,6 +57,8 @@ public class CameraController : MonoBehaviour {
 
 	void Awake()
 	{
+		m_camera = GetComponent<Camera>();
+		m_cameraSize = m_farCameraSize = m_camera.orthographicSize;
 		m_cameraShift = transform.position.y / Mathf.Tan(transform.eulerAngles.x * Mathf.Deg2Rad);
 		transform.position = new Vector3(0.0f, transform.position.y, -m_cameraShift);
 		onUpdatePosition();
@@ -126,5 +147,23 @@ public class CameraController : MonoBehaviour {
 		var drag = m_cameraSpeed * (m_drag - position);
 		m_drag = position;
 		transform.position += new Vector3(drag.x, 0.0f, drag.y);
+	}
+
+	public void runCloseAnimation()
+	{
+		transform.DOKill();
+		DOVirtual.Float(m_cameraSize, m_nearCameraSize, m_viewChangeTime, x => distanceCamera(x));
+	}
+
+	public void runDistanceAnimation()
+	{
+		transform.DOKill();
+		DOVirtual.Float(m_cameraSize, m_farCameraSize, m_viewChangeTime, x => distanceCamera(x));
+	}
+
+	private void distanceCamera(float value)
+	{
+		m_cameraSize = value;
+		m_camera.orthographicSize = m_cameraSize;
 	}
 }

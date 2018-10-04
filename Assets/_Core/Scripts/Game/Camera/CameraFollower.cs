@@ -7,14 +7,14 @@ public class CameraFollower : MonoBehaviour {
 
 	public System.Action<Vector3> OnPositionChanged;
 
-	Vector3 m_position;
+	private Vector3 m_position;
+	private List<CameraController> m_viewCameras = new List<CameraController>();
 
 	void Awake() {
 		m_position = transform.position;
-		System.Array.ForEach(FindObjectsOfType<CameraController>(), x => x.setFollower(this));
-	}
-
-	void Start() {
+		var cameras = FindObjectsOfType<CameraController>().ToList();
+		cameras.ForEach(x => x.setFollower(this));
+		m_viewCameras = cameras.FindAll(x => x.isViewCamera);
 	}
 	
 	// Update is called once per frame
@@ -25,5 +25,15 @@ public class CameraFollower : MonoBehaviour {
 			if (OnPositionChanged != null)
 				OnPositionChanged(m_position);
 		}
+	}
+
+	public void runCloseAnimation()
+	{
+		m_viewCameras.ForEach(x => x.runCloseAnimation());
+	}
+
+	public void runDistanceAnimation()
+	{
+		m_viewCameras.ForEach(x => x.runDistanceAnimation());
 	}
 }

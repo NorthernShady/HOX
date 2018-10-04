@@ -7,7 +7,7 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 
 	private GameInputController m_gameInputController = null;
 	private Hero m_hero = null;
-
+	private CameraFollower m_cameraFollower = null;
 	private bool m_shouldSendPosition = false;
 	private Vector3 m_position = Vector3.zero;
 	private int m_team = -1;
@@ -22,11 +22,15 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 	{
 		m_gameInputController.OnTap -= onTap;
 		m_gameInputController.OnTap += onTap;
+		m_hero.OnFightStarted += onFightStarted;
+		m_hero.OnFightFinished += onFightFinished;
 	}
 
 	void OnDisable()
 	{
 		m_gameInputController.OnTap -= onTap;
+		m_hero.OnFightFinished -= onFightFinished;
+		m_hero.OnFightStarted -= onFightStarted;
 	}
 
 	public void initialize(Hero hero, int team)
@@ -37,7 +41,7 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 		if (PhotonHelper.isMine(this))
 		{
 			subscribe();
-			gameObject.AddComponent<CameraFollower>();
+			m_cameraFollower = gameObject.AddComponent<CameraFollower>();
 		}
 	}
 	
@@ -50,6 +54,16 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 			m_shouldSendPosition = true;
 			m_position = position;
 		}
+	}
+
+	void onFightStarted()
+	{
+		m_cameraFollower.runCloseAnimation();
+	}
+
+	void onFightFinished()
+	{
+		m_cameraFollower.runDistanceAnimation();
 	}
 
 	#region PUN callbacks
