@@ -3,6 +3,38 @@ guid: c99071652ef464791835abaf2c3c38f0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+    100000: body
+    100002: Cylinder
+    100004: DomainePart
+    100006: DomainePart_001
+    100008: hands
+    100010: //RootNode
+    400000: body
+    400002: Cylinder
+    400004: DomainePart
+    400006: DomainePart_001
+    400008: hands
+    400010: //RootNode
+    2100000: Material
+    2100002: DomainePart
+    2100004: unnamed
+    2300000: body
+    2300002: Cylinder
+    2300004: DomainePart
+    2300006: DomainePart_001
+    2300008: hands
+    3300000: body
+    3300002: Cylinder
+    3300004: DomainePart
+    3300006: DomainePart_001
+    3300008: hands
+    4300000: Cylinder
+    4300002: DomainePart_001
+    4300004: DomainePart
+    4300006: body
+    4300008: hands
+    7400000: Default Take
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -56,7 +88,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

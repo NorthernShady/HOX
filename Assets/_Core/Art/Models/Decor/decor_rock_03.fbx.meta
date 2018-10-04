@@ -10,6 +10,9 @@ ModelImporter:
     100008: Cube.001
     100010: Cube.002
     100012: Cube.003
+    100014: wheel
+    100016: wheel.001
+    100018: wheel.002
     400000: Circle.001
     400002: Cylinder
     400004: //RootNode
@@ -17,7 +20,12 @@ ModelImporter:
     400008: Cube.001
     400010: Cube.002
     400012: Cube.003
+    400014: wheel
+    400016: wheel.001
+    400018: wheel.002
     2100000: No Name
+    2100002: metal.001
+    2100004: mainPart
     2300000: Circle.001
     2300002: Cylinder
     2300004: Cube
@@ -25,6 +33,9 @@ ModelImporter:
     2300008: Cube.002
     2300010: Cube.003
     2300012: //RootNode
+    2300014: wheel
+    2300016: wheel.001
+    2300018: wheel.002
     3300000: Circle.001
     3300002: Cylinder
     3300004: Cube
@@ -32,6 +43,9 @@ ModelImporter:
     3300008: Cube.002
     3300010: Cube.003
     3300012: //RootNode
+    3300014: wheel
+    3300016: wheel.001
+    3300018: wheel.002
     4300000: Cylinder
     4300002: Circle.001
     4300004: Cube.003
@@ -39,12 +53,24 @@ ModelImporter:
     4300008: Cube.001
     4300010: Cube
     4300012: wheel
+    4300014: wheel.002
+    4300016: wheel.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: f9e51556d7dcf4246bad5031c50ea460, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mainPart
+    second: {fileID: 2100000, guid: 84ab3e6ea52bd4c41a77e0458a1ad4c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal.001
+    second: {fileID: 2100000, guid: 3e2c29cb585554b139bf4840babcf5cf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -98,8 +124,8 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 8
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
