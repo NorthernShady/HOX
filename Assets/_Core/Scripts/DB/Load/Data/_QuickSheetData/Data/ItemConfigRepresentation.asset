@@ -17,15 +17,15 @@ MonoBehaviour:
   - id: 0
     name: AXE
     level: 1
-    hp: 10
+    hp: 0
     hppercent: 0
-    attack: 3
+    attack: 4
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -34,15 +34,15 @@ MonoBehaviour:
   - id: 1
     name: DAGGER
     level: 2
-    hp: 6
+    hp: 0
     hppercent: 0
-    attack: 3
+    attack: 2
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -51,15 +51,15 @@ MonoBehaviour:
   - id: 2
     name: HAMMER
     level: 3
-    hp: 5
+    hp: 0
     hppercent: 0
-    attack: 1
+    attack: 10
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -68,15 +68,15 @@ MonoBehaviour:
   - id: 3
     name: SPEAR
     level: 4
-    hp: 6
+    hp: 0
     hppercent: 0
-    attack: 1
+    attack: 5
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -85,15 +85,15 @@ MonoBehaviour:
   - id: 4
     name: SWORD
     level: 5
-    hp: 7
+    hp: 0
     hppercent: 0
-    attack: 2
+    attack: 7
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -102,15 +102,15 @@ MonoBehaviour:
   - id: 5
     name: SHIELD
     level: 1
-    hp: 10
+    hp: 20
     hppercent: 0
-    attack: 3
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -119,15 +119,15 @@ MonoBehaviour:
   - id: 6
     name: HELMET
     level: 2
-    hp: 6
+    hp: 25
     hppercent: 0
-    attack: 3
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -136,15 +136,15 @@ MonoBehaviour:
   - id: 7
     name: CUIRASS
     level: 3
-    hp: 5
+    hp: 30
     hppercent: 0
-    attack: 2
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -153,15 +153,15 @@ MonoBehaviour:
   - id: 8
     name: PANTS
     level: 4
-    hp: 4
+    hp: 35
     hppercent: 0
-    attack: 2
+    attack: 0
     attackpercent: 0
     defence: 0
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     defencepercent: 0
     speed: 0
     speedpercent: 0
-    attackspeed: 1
+    attackspeed: 0
     attackspeedpercent: 0
     criticalchance: 0
     criticalchancepercent: 0
