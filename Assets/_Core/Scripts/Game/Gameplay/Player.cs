@@ -158,13 +158,6 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 		}
 
 		if (stream.isReading) {
-
-            m_networkPlayerCopy?.addCommands(commands);
-            if (commands.Count > 0) {
-                Debug.Log(string.Format("MY_DEBUG: Player.cs stream.isReading, cmds > 0, networkCopy: {0}", m_networkPlayerCopy == null ? "null" : "notNull"));
-            }
-            commands.Clear();
-
 			m_team = (int)stream.ReceiveNext();
 			var positionChanged = (bool)stream.ReceiveNext();
 			var position = (Vector3)stream.ReceiveNext();
@@ -206,4 +199,24 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 	}
 
 	#endregion
+
+    void update()
+    {
+        sendDataToCopy();
+    }
+
+    void sendDataToCopy()
+    {
+        if (PhotonHelper.isMine(this)) {
+            return;
+        }
+        if (commands.Count == 0) {
+            return;
+        }
+        m_networkPlayerCopy?.addCommands(commands);
+        if (commands.Count > 0) {
+            Debug.Log(string.Format("MY_DEBUG: Player.cs stream.isReading, cmds > 0, networkCopy: {0}", m_networkPlayerCopy == null ? "null" : "notNull"));
+        }
+        commands.Clear();
+    }
 }
