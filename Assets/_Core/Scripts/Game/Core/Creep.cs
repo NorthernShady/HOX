@@ -109,7 +109,7 @@ public class Creep : Character, IPunObservable {
 	protected override void onDeathAction()
     {
         base.onDeathAction();
-		m_attackTarget.onTargetKilled(this);
+		m_attackTarget?.onTargetKilled(this);
     }
 
 	void runAnimation()
