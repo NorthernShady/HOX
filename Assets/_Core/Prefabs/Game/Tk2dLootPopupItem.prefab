@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918354906121942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.79, y: 0.76, z: -0.2}
+  m_LocalPosition: {x: 0.88522243, y: 0.86193967, z: -0.20000076}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4950790050934380}
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449116121424826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: -11.125603, y: 3.1659853, z: -39.911507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4413041164869864}
@@ -404,9 +404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 114588426637053672, guid: c05dfcb3d8676214da09ad70d4b6294f,
     type: 2}
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 33
+  _color: {r: 0.7924528, g: 0.58963686, b: 0.42986828, a: 1}
+  _scale: {x: 1.4285396, y: 1.4302095, z: 1}
+  _spriteId: 41
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
