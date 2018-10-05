@@ -76,7 +76,7 @@ MonoBehaviour:
   atlasWidth: 1024
   atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 31.33831
+  atlasWastage: 32.739544
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -1474,11 +1474,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: ingame_hud_plate
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 805c74b6dfcfe4c7aaa98ec6117d97f7, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0

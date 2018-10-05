@@ -57,24 +57,24 @@ MonoBehaviour:
   spriteDefinitions:
   - name: button_idle
     boundsData:
-    - {x: 0.004999995, y: -0.004999995, z: 0}
-    - {x: 1.13, y: 1.0699999, z: 0}
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.14, y: 1.17, z: 0}
     untrimmedBoundsData:
-    - {x: 0.004999995, y: -0.004999995, z: 0}
-    - {x: 1.13, y: 1.0699999, z: 0}
+    - {x: 0, y: -0.004999995, z: 0}
+    - {x: 1.14, y: 1.17, z: 0}
     texelSize: {x: 0.01, y: 0.01}
     positions:
-    - {x: -0.56, y: -0.53999996, z: 0}
-    - {x: 0.57, y: -0.53999996, z: 0}
-    - {x: -0.56, y: 0.53, z: 0}
-    - {x: 0.57, y: 0.53, z: 0}
+    - {x: -0.57, y: -0.59, z: 0}
+    - {x: 0.57, y: -0.59, z: 0}
+    - {x: -0.57, y: 0.58, z: 0}
+    - {x: 0.57, y: 0.58, z: 0}
     normals: []
     tangents: []
     uvs:
     - {x: 0.007816406, y: 0.007816406}
-    - {x: 0.44921485, y: 0.007816406}
-    - {x: 0.007816406, y: 0.42577735}
-    - {x: 0.44921485, y: 0.42577735}
+    - {x: 0.4531211, y: 0.007816406}
+    - {x: 0.007816406, y: 0.46483985}
+    - {x: 0.4531211, y: 0.46483985}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -118,14 +118,14 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 0.46484765, y: 0.007816406}
-    - {x: 0.9570273, y: 0.007816406}
-    - {x: 0.46484765, y: 0.34765235}
-    - {x: 0.9570273, y: 0.34765235}
+    - {x: 0.007816406, y: 0.48047265}
+    - {x: 0.007816406, y: 0.9726523}
+    - {x: 0.34765235, y: 0.48047265}
+    - {x: 0.34765235, y: 0.9726523}
     normalizedUvs:
     - {x: 0, y: 0}
-    - {x: 1, y: 0}
     - {x: 0, y: 1}
+    - {x: 1, y: 0}
     - {x: 1, y: 1}
     indices: 000000000300000001000000020000000300000000000000
     material: {fileID: 2100000, guid: ec3a6853d59a3824db79c09eb6db8f33, type: 2}
@@ -136,7 +136,7 @@ MonoBehaviour:
     regionY: 0
     regionW: 0
     regionH: 0
-    flipped: 0
+    flipped: 1
     complexGeometry: 0
     physicsEngine: 0
     colliderType: 0
@@ -165,14 +165,14 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 0.46484765, y: 0.36328515}
-    - {x: 0.81249607, y: 0.36328515}
-    - {x: 0.46484765, y: 0.70312107}
-    - {x: 0.81249607, y: 0.70312107}
+    - {x: 0.36328515, y: 0.48047265}
+    - {x: 0.36328515, y: 0.82812107}
+    - {x: 0.70312107, y: 0.48047265}
+    - {x: 0.70312107, y: 0.82812107}
     normalizedUvs:
     - {x: 0, y: 0}
-    - {x: 1, y: 0}
     - {x: 0, y: 1}
+    - {x: 1, y: 0}
     - {x: 1, y: 1}
     indices: 000000000300000001000000020000000300000000000000
     material: {fileID: 2100000, guid: ec3a6853d59a3824db79c09eb6db8f33, type: 2}
@@ -183,7 +183,7 @@ MonoBehaviour:
     regionY: 0
     regionW: 0
     regionH: 0
-    flipped: 0
+    flipped: 1
     complexGeometry: 0
     physicsEngine: 0
     colliderType: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 50
-  buildKey: 304640745
+  buildKey: 537366998
   dataGuid: cbeb85c8debfed147afad78cee962003
   managedSpriteCollection: 0
   hasPlatformData: 0
