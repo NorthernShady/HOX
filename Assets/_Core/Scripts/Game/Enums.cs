@@ -36,6 +36,16 @@ namespace GameData
 		DRAGON
 	}
 
+	public enum SkillType
+	{
+		NONE,
+		RAGE,
+		SHIELD,
+		SPEED_UP,
+		FIREBALL,
+		HEAL_AURA
+	}
+
 	public enum ItemType
 	{
 		NONE,

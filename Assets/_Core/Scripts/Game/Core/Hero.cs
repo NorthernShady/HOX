@@ -101,6 +101,11 @@ public class Hero : Character, IPunObservable
             m_activePhysics.OnEnterTrigger -= onTriggerEnter;
             m_activePhysics.OnExitTrigger -= onTriggerExit;
         }
+
+        foreach (var skill in m_activeSkills) {
+            skill.OnActivated -= onSkillStateChanged;
+            skill.OnDeactivated -= onSkillStateChanged;
+        }
     }
 
     public void initialize(Vector2 position, int team, GameData.HeroType type, bool isPlayer = false)
@@ -158,7 +163,12 @@ public class Hero : Character, IPunObservable
         m_activePhysics = GameObject.Instantiate(m_heroPhysics[m_type], transform, false);
 
         var skills = m_heroSkills[m_type].skills;
-        skills.ForEach(x => m_activeSkills.Add(GameObject.Instantiate(x, transform, false)));
+        skills.ForEach(x => {
+            var activeSkill = GameObject.Instantiate(x, transform, false);
+            activeSkill.OnActivated += onSkillStateChanged;
+            activeSkill.OnDeactivated += onSkillStateChanged;
+            m_activeSkills.Add(activeSkill);
+        });
 
         specializeDomaine(m_activeVisual, GameData.DomaineType.NONE);
 

@@ -181,7 +181,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: cc2a5543d4fde9a47a9a054b55e8adde, type: 2}
+  - {fileID: 2100000, guid: aa7a9108c75934a8f8057d8c1602abbe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,11 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fac570381f34f647b768dc5a5aa1364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 114588426637053672, guid: c05dfcb3d8676214da09ad70d4b6294f,
+  collection: {fileID: 114829502724170176, guid: a44e7181306334746a8494b356aa27d2,
     type: 2}
   _color: {r: 1, g: 0.898142, b: 0.495283, a: 0.5176471}
-  _scale: {x: 12, y: 12, z: 12}
-  _spriteId: 34
+  _scale: {x: 3.6, y: 3.6, z: 3.6}
+  _spriteId: 1
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c8a3f6e120045279944fac3b3c2aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_type: 5
   m_healAmount: 1
   m_healTime: 1
 --- !u!135 &135387230812914602

@@ -54,6 +54,13 @@ public class Character : Photon.PunBehaviour
         }
     }
 
+    protected CommonTraits m_skillData = null;
+    public CommonTraits skillData {
+        get {
+            return m_skillData;
+        }
+    }
+
     protected CommonTraits m_totalData = null;
     public CommonTraits totalData {
         get {
@@ -278,10 +285,16 @@ public class Character : Photon.PunBehaviour
         updateParameters();
     }
 
+    protected virtual void onSkillStateChanged()
+    {
+        updateParameters();
+    }
+
     protected virtual void updateParameters()
     {
-        var data = m_data + m_services.getService<LogicController>().countInventory(this);
-        m_totalData = data.resolve();
+        var logicController = m_services.getService<LogicController>();
+        m_skillData = (m_data + logicController.countSkills(this)).resolve();
+        m_totalData = (m_skillData + logicController.countInventory(this)).resolve();
     }
 
     IEnumerator destroyIn(float time)
