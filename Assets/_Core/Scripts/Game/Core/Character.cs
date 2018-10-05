@@ -11,6 +11,9 @@ public class Character : Photon.PunBehaviour
     public System.Action<Character> OnCharacterInitialized;
     public System.Action<Character> OnDeath;
 
+    [SerializeField]
+    tk2dBaseSprite m_domaineRing = null;
+
     public virtual GameData.CharacterType getType()
     {
         return GameData.CharacterType.NONE;
@@ -222,13 +225,15 @@ public class Character : Photon.PunBehaviour
 
     public void specializeDomaine(GameObject visual, GameData.DomaineType domaine)
     {
+        var data = Resources.Load<ItemData>(k.Resources.ITEM_DATA);
+        m_domaineRing.color = data.domaineColor[domaine];
         var domainePart = visual.transform.Find("DomainePart");
 
         if (domainePart == null)
             return;
             
         var meshRenderers = domainePart.GetComponentsInChildren<MeshRenderer>();
-        var material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
+        var material = data.domaineMaterial[domaine];
 
         System.Array.ForEach(meshRenderers, x => x.material = material);
     }

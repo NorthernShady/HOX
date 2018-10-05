@@ -46,7 +46,7 @@ public class SkillFeature : ActiveFeature
 		switch (heroType)
 		{
 			case GameData.HeroType.WARRIOR: return "ability_warrior";
-			case GameData.HeroType.ROGUE: return "ability_rogue";
+			case GameData.HeroType.ROGUE: return "ability_rouge";
 			case GameData.HeroType.MAGE: return "icon_magic_shield";//"ability_wizzard";
 			default: return "ability_warrior";
 		}
