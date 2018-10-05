@@ -136,7 +136,7 @@ public class Creep : Character, IPunObservable {
 		}
 
 		if (Random.Range(0.0f, 1.0f) <= cellDrop.Equal) {
-			items.Add(new Item(GameData.ItemType.POTION_HEAL, GameData.DomaineType.NONE));
+			items.Add(new Item(GameData.ItemType.POTION_HEAL, GameData.DomaineType.INDIFFERENT));
 		}
 
 		if (Random.Range(0.0f, 1.0f) <= cellDrop.Advantage) {

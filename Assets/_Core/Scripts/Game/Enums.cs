@@ -10,7 +10,9 @@ namespace GameData
 		RED,
 		GREEN,
 		BLUE,
+		INDIFFERENT
 	}
+
 
 	public enum CharacterType
 	{

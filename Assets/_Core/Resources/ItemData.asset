@@ -12,19 +12,21 @@ MonoBehaviour:
   m_Name: ItemData
   m_EditorClassIdentifier: 
   domaineColor:
-    keys: 00000000010000000200000003000000
+    keys: 0000000001000000020000000300000004000000
     values:
     - {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.3019608}
     - {r: 1, g: 0.35963944, b: 0.2028302, a: 0.78431374}
     - {r: 0.62352943, g: 1, b: 0, a: 0.5176471}
     - {r: 0.2688679, g: 0.3541521, b: 1, a: 0.81960785}
+    - {r: 1, g: 0, b: 1, a: 1}
   domaineMaterial:
-    keys: 00000000010000000200000003000000
+    keys: 0000000001000000020000000300000004000000
     values:
     - {fileID: 2100000, guid: f5c9eee03a5e14c26953df5e6be3a545, type: 2}
     - {fileID: 2100000, guid: d9362255f40d44e5abb2d6b85b6b0b5b, type: 2}
     - {fileID: 2100000, guid: e3248b10148fe453e98631ed3a5db6ac, type: 2}
     - {fileID: 2100000, guid: 549ff2354bfee48e1b58bbd101960af1, type: 2}
+    - {fileID: 0}
   itemImage:
     keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
     values:
