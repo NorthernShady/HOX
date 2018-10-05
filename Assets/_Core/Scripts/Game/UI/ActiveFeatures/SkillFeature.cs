@@ -34,9 +34,11 @@ public class SkillFeature : ActiveFeature
 		{
 			case BasicSkill.State.AVAILABLE:
 				enableTouches(true);
+				changeAlpha(m_icon, 1.0f);
 				break;
 			default:
 				enableTouches(false);
+				changeAlpha(m_icon, 0.3f);
 				break;
 		}
 	}
@@ -50,5 +52,12 @@ public class SkillFeature : ActiveFeature
 			case GameData.HeroType.MAGE: return "icon_magic_shield";//"ability_wizzard";
 			default: return "ability_warrior";
 		}
+	}
+
+	private void changeAlpha(tk2dBaseSprite sprite, float alpha)
+	{
+		var color = sprite.color;
+		color.a = alpha;
+		sprite.color = color;
 	}
 }
