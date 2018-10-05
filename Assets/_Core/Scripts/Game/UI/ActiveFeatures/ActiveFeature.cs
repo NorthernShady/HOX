@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class ActiveFeature : MonoBehaviour
 {
-	protected enum State
-	{
-		ABSENT,
-		LOCKED,
-		COUNTDOWN,
-		ACTIVE
-	}
-
-	protected State m_state = State.ABSENT;
 	protected Character m_character = null;
 
 	public virtual void initialize(Character character)
@@ -27,5 +18,10 @@ public class ActiveFeature : MonoBehaviour
 
 	protected virtual void onFeatureActivated()
 	{
+	}
+
+	protected void enableTouches(bool shouldEnable)
+	{
+		GetComponent<Collider>().enabled = shouldEnable;
 	}
 }

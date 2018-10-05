@@ -199,6 +199,14 @@ public class CommonTraits
 		m_traits[(int)TraitsType.FIGHT_EXP] = config.FightExp;
 	}
 
+	public CommonTraits add(CommonTraits a)
+	{
+		for (var i = 0; i < m_traits.Length; ++i)
+			m_traits[i] += a.m_traits[i];
+
+		return this;
+	}
+
 	public static CommonTraits operator +(CommonTraits a, CommonTraits b)
 	{
 		var result = new CommonTraits(a.level, a.exp);

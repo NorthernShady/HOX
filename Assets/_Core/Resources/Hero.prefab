@@ -852,6 +852,16 @@ MonoBehaviour:
     - {fileID: 1767625142513406, guid: 4f78f09244f8e437a8835721f39f359b, type: 2}
     - {fileID: 1387580051818820, guid: 03035bfa1e55d41c3b9e168164b90fcf, type: 2}
     - {fileID: 1833677358286006, guid: c0eed982f22a04142bc6ef9bac441ac8, type: 2}
+  m_heroSkills:
+    keys: 00000000010000000200000003000000
+    values:
+    - skills: []
+    - skills:
+      - {fileID: 114590715195948262, guid: aa2d6a2b21e774733a4bfafc2b8056e3, type: 2}
+    - skills:
+      - {fileID: 114590715195948262, guid: a6645a81f68d141f68cb197fb806f5fe, type: 2}
+    - skills:
+      - {fileID: 114590715195948262, guid: 9fd9779e90bf8483584de1f4e0cfcc94, type: 2}
   m_deathAnimationPrefab: {fileID: 1835004947575600, guid: bb54cf7f2b92a4030a4e4a220e75e2e5,
     type: 2}
   m_type: 1
