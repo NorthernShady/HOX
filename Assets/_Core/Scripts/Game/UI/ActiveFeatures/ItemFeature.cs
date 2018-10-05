@@ -8,7 +8,7 @@ public class ItemFeature : ActiveFeature
 
 	protected override void onFeatureActivated()
 	{
-		m_character.useItem(m_item);
+		m_character?.useItem(m_item);
 		m_item = null;
 	}
 }

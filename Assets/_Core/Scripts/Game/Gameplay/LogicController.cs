@@ -11,11 +11,13 @@ public class LogicController : MonoBehaviour
 
 	public System.Tuple<bool, float> countDamage(Character attacker, Character defender)
 	{
-		var attack = attacker.data + countInventory(attacker);
-		var defence = defender.data + countInventory(defender);
+		// var attack = attacker.data + countInventory(attacker);
+		// var defence = defender.data + countInventory(defender);
 
-		attack = attack.resolve();
-		defence = defence.resolve();
+		// attack = attack.resolve();
+		// defence = defence.resolve();
+		var attack = attacker.totalData;
+		var defence = defender.totalData;
 
 		bool isCritical = 1.0f / attack.criticalChance < Random.Range(0.0f, 1.0f);
 		var trueDamage = attack.attack * (isCritical ? attack.criticalModifier : 1.0f);
@@ -32,6 +34,16 @@ public class LogicController : MonoBehaviour
 			foreach (var item in character.inventory.items)
 				if (item != null && !item.data.isConsumable)
 					traits += item.data;
+
+		return traits;
+	}
+
+	public CommonTraits countSkills(Character character)
+	{
+		var traits = new CommonTraits();
+
+		foreach (var skill in character.getSkills())
+			skill.enhanceTraits(traits);
 
 		return traits;
 	}

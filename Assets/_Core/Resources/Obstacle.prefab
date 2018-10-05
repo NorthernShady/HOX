@@ -74,7 +74,8 @@ MonoBehaviour:
     - skills: []
     - skills: []
     - skills: []
-    - skills: []
+    - skills:
+      - {fileID: 114993223618495086, guid: 534639057c4284c84b444630ce1771d8, type: 2}
     - skills: []
     - skills: []
     - skills: []
