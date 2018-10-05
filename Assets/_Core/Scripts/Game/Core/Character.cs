@@ -226,7 +226,7 @@ public class Character : Photon.PunBehaviour
     public void specializeDomaine(GameObject visual, GameData.DomaineType domaine)
     {
         var data = Resources.Load<ItemData>(k.Resources.ITEM_DATA);
-        m_domaineRing.color = data.domaineColor[domaine];
+        m_domaineRing.color = data.ringColor[domaine];
         var domainePart = visual.transform.Find("DomainePart");
 
         if (domainePart == null)

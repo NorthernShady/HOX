@@ -13,6 +13,9 @@ public class ItemData : ScriptableObject {
 	public DomaineColor domaineColor = null;
 
 	[SerializeField]
+	public DomaineColor ringColor = null;
+
+	[SerializeField]
 	public DomaineMaterial domaineMaterial = null;
 
 	[SerializeField]
