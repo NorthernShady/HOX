@@ -80,6 +80,7 @@ public class Hero : Character, IPunObservable
     GameObject m_activeVisual = null;
     BasicPhysicalModel m_activePhysics = null;
     List<BasicSkill> m_activeSkills = new List<BasicSkill>();
+    Animator m_animator = null;
 
     public override BasicPhysicalModel getPhysicalModel()
     {
@@ -172,6 +173,7 @@ public class Hero : Character, IPunObservable
 		m_activePhysics.targetObject = gameObject;
         m_activePhysics.OnEnterTrigger += onTriggerEnter;
         m_activePhysics.OnExitTrigger += onTriggerExit;
+        m_animator = m_activeVisual.GetComponent<Animator>();
 
         if (OnPhysicsInitialized != null)
             OnPhysicsInitialized(m_activePhysics);
@@ -182,6 +184,7 @@ public class Hero : Character, IPunObservable
         var character = otherObject.GetComponent<Character>();
         if (character != null) {
             m_attackTarget = character;
+            m_animator.SetTrigger("Attack");
             OnFightStarted?.Invoke();
         }
     }
@@ -225,6 +228,7 @@ public class Hero : Character, IPunObservable
     private void loseAttackTarget()
     {
         m_attackTarget = null;
+        m_animator.SetTrigger("Attack");
         OnFightFinished?.Invoke();
     }
 
