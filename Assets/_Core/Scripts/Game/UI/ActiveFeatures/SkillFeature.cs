@@ -32,7 +32,7 @@ public class SkillFeature : ActiveFeature
 	{
 		switch (state)
 		{
-			case BasicSkill.State.ACTIVE:
+			case BasicSkill.State.AVAILABLE:
 				enableTouches(true);
 				break;
 			default:

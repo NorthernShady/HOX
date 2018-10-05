@@ -10,6 +10,8 @@ public class SelfEnhancement : BasicSkill
 	float m_cooldown = 10.0f;
 	[SerializeField]
 	float m_duration = 5.0f;
+	[SerializeField]
+	float m_multiplier = 0.3f;
 
 	CommonTraits m_traits = new CommonTraits();
 	GameObject m_visualEffect = null;
@@ -21,17 +23,16 @@ public class SelfEnhancement : BasicSkill
 
 	public override void activate()
     {
-		setState(State.ACTIVE);
+		setState(State.COOLDOWN);
 		m_visualEffect = GameObject.Instantiate(m_visualEffectPrefab, Vector3.zero, Quaternion.identity);
 		m_visualEffect.transform.SetParent(transform, false);
+		StartCoroutine(workingTime());
+		StartCoroutine(cooldown());
     }
 
     public override void deactivate()
     {
-		setState(State.COOLDOWN);
 		Destroy(m_visualEffect);
-		StartCoroutine(workingTime());
-		StartCoroutine(cooldown());
     }
 
     public override CommonTraits getTraits()
@@ -50,13 +51,13 @@ public class SelfEnhancement : BasicSkill
 		switch (m_type)
 		{
 			case GameData.SkillType.RAGE:
-				m_traits[TraitsType.ATTACK_PERCENT] = 0.3f;
+				m_traits[TraitsType.ATTACK_PERCENT] = m_multiplier;
 				break;
 			case GameData.SkillType.SHIELD:
-				m_traits[TraitsType.DEFENCE_PERCENT] = 0.3f;
+				m_traits[TraitsType.DEFENCE_PERCENT] = m_multiplier;
 				break;
 			case GameData.SkillType.SPEED_UP:
-				m_traits[TraitsType.MOVE_SPEED_PERCENT] = 0.3f;
+				m_traits[TraitsType.MOVE_SPEED_PERCENT] = m_multiplier;
 				break;
 			default:
 				break;
