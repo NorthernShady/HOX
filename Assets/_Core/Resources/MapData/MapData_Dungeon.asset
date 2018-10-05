@@ -226,11 +226,11 @@ MonoBehaviour:
   mapCreepData:
   - type: 3
     domaine: 3
-    level: 1
+    level: 3
     position: {x: 23.23, y: -12.75}
   - type: 1
     domaine: 3
-    level: 1
+    level: 2
     position: {x: 14.630001, y: 7.16}
   - type: 2
     domaine: 1
@@ -246,7 +246,7 @@ MonoBehaviour:
     position: {x: -4.6399994, y: -16.36}
   - type: 1
     domaine: 1
-    level: 1
+    level: 2
     position: {x: 4.3199997, y: 11.139999}
   - type: 1
     domaine: 3
@@ -254,15 +254,15 @@ MonoBehaviour:
     position: {x: 9.529999, y: -9.35}
   - type: 2
     domaine: 2
-    level: 1
+    level: 2
     position: {x: -1.7999992, y: 1.4200001}
   - type: 1
     domaine: 2
-    level: 1
+    level: 2
     position: {x: -21.02, y: 2.3400002}
   - type: 3
     domaine: 3
-    level: 1
+    level: 3
     position: {x: -23.06, y: 15.689999}
   heroesStartData:
   - positions:

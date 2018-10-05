@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_type: 5
-  m_healAmount: 1
+  m_healAmount: 5
   m_healTime: 1
 --- !u!135 &135387230812914602
 SphereCollider:
