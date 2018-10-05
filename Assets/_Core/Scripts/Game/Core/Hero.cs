@@ -181,7 +181,7 @@ public class Hero : Character, IPunObservable
     public override void onTargetKilled(Character target)
     {
         loseAttackTarget();
-        if (!PhotonHelper.isMine(this)) {
+        if (!PhotonHelper.isMaster()) {
             return;
         }
         sendCommandOpenLootPopup(target);
