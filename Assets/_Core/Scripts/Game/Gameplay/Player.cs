@@ -91,7 +91,7 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 
     public void addCommand(int cmd, List<object> parameters)
     {
-        Debug.Log(string.Format("MY_DEBUG: Added command to player, team: {0}", m_team));
+        Debug.Log(string.Format("MY_DEBUG: Player.cs Added command to player, team: {0}, cmd {1}", m_team, cmd));
         commands.Add(new KeyValuePair<int, List<object>>(cmd, parameters.ToList<object>()));
     }
 

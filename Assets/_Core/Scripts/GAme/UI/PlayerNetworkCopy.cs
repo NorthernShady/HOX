@@ -15,7 +15,7 @@ public class PlayerNetworkCopy : Photon.PunBehaviour, IPunObservable
     {
         commands.AddRange(cmds.ToList());
         if (cmds.Count > 0) {
-            Debug.Log(string.Format("MY_DEBUG: Added command to player, team: {0}", team));
+            Debug.Log(string.Format("MY_DEBUG: PlayerNetworkCopy.cs Added command to player, team: {0}", team));
         }
     }
 
