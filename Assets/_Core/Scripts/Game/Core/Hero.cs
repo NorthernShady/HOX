@@ -115,6 +115,7 @@ public class Hero : Character, IPunObservable
 
     public void initialize(Vector2 position, int team, GameData.HeroType type, int characterId, bool isPlayer = false)
     {
+        m_dataProxy = FindObjectOfType<GameDataProxy>();
         m_type = type;
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
@@ -139,8 +140,6 @@ public class Hero : Character, IPunObservable
         } else {
             m_services.getService<EnemyInventoryObserver>().initialize(this);
         }
-
-        m_dataProxy = FindObjectOfType<GameDataProxy>();
 
         if (m_dataProxy.team == team)
         {
