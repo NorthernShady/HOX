@@ -51,6 +51,7 @@ public class PlayerNetworkCopy : Photon.PunBehaviour, IPunObservable
             var cmdsCount = (int)stream.ReceiveNext();
             for (int i = 0; i < cmdsCount; i++) {
                 int cmd = (int)stream.ReceiveNext();
+                Debug.Log("Get command from origin PLayer, cmd: " + cmd.ToString());
                 player?.handleCommand(cmd, stream);
             }
 
