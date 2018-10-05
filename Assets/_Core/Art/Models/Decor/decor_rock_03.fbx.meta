@@ -55,6 +55,9 @@ ModelImporter:
     4300012: wheel
     4300014: wheel.002
     4300016: wheel.001
+    6400000: wheel
+    6400002: wheel.001
+    6400004: wheel.002
   externalObjects:
   - first:
       type: UnityEngine:Material
