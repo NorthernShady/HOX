@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33357491190145332}
   - component: {fileID: 114519884696028334}
   m_Layer: 0
-  m_Name: Domaine
+  m_Name: DomaineRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b136efb2f7cf46a6b4ed0ac85d059b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_domaineRing: {fileID: 114519884696028334}
   m_creepPhysics:
     keys: 0000000001000000020000000300000004000000
     values:
@@ -753,7 +754,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 3, y: 3, z: 1}
-  _spriteId: 30
+  _spriteId: 42
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []

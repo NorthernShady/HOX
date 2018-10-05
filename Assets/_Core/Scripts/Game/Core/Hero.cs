@@ -19,9 +19,6 @@ public class Hero : Character, IPunObservable
     GameObject m_pointLight = null;
 
     [SerializeField]
-    tk2dSprite m_domaineSprite = null;
-
-    [SerializeField]
     HeroPhysics m_heroPhysics = null;
 
     [SerializeField]
@@ -124,7 +121,7 @@ public class Hero : Character, IPunObservable
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
 
-        m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
+        // m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
         if (isPlayer) {
             // gameObject.AddComponent<Player>();
