@@ -203,16 +203,16 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 
 	#endregion
 
-    void update()
+    void Update()
     {
         sendDataToCopy();
     }
 
     void sendDataToCopy()
     {
-        //if (PhotonHelper.isMine(this)) {
-        //    return;
-        //}
+        if (PhotonHelper.isMine(this)) {
+            return;
+        }
         if (commands.Count == 0) {
             return;
         }
