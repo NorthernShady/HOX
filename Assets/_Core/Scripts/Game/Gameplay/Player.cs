@@ -5,13 +5,18 @@ using System.Linq;
 
 public class Player : Photon.PunBehaviour, IPunObservable {
 
-	private GameInputController m_gameInputController = null;
+    [SerializeField]
+    PlayerNetworkCopy m_playerNetworkCopyPrefab = null;
+
+    private GameInputController m_gameInputController = null;
 	private Hero m_hero = null;
 	private CameraFollower m_cameraFollower = null;
 	private bool m_shouldSendPosition = false;
 	private Vector3 m_position = Vector3.zero;
-	private int m_team = -1;
+	public int m_team = -1;
 	private bool m_isInitialized = false;
+    private PlayerNetworkCopy m_networkPlayerCopy = null;
+
 
     public const int CMD_OPEN_LOOT_POPUP = 1;
     public const int CMD_UPDATE_INVENTORY = 2;
@@ -71,7 +76,7 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 		m_cameraFollower.runDistanceAnimation();
 	}
 
-    void handleCommand(int cmd, PhotonStream stream)
+    public void handleCommand(int cmd, PhotonStream stream)
     {
         switch (cmd) {
             case CMD_OPEN_LOOT_POPUP:
@@ -120,11 +125,20 @@ public class Player : Photon.PunBehaviour, IPunObservable {
         setItemToHero(items);
     }
 
+    void initNetworkCopy()
+    {
+        var playerCopy = PhotonHelper.Instantiate(m_playerNetworkCopyPrefab, Vector3.zero, Quaternion.identity);
+        playerCopy.transform.SetParent(transform);
+        m_networkPlayerCopy = playerCopy.GetComponent<PlayerNetworkCopy>();
+        m_networkPlayerCopy.team = m_team;
+        m_networkPlayerCopy.player = this;
+    }
+
     #region PUN callbacks
 
     protected void photonUpdate(PhotonStream stream, PhotonMessageInfo info)
 	{
-		if (stream.isWriting && !PhotonHelper.isMaster()) {
+		if (stream.isWriting) {
 			stream.SendNext(m_team);
 			stream.SendNext(m_shouldSendPosition);
 			stream.SendNext(m_position);
@@ -142,7 +156,11 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 			return;
 		}
 
-		if (stream.isReading && PhotonHelper.isMaster()) {
+		if (stream.isReading) {
+
+            m_networkPlayerCopy?.addCommands(commands);
+            commands.Clear();
+
 			m_team = (int)stream.ReceiveNext();
 			var positionChanged = (bool)stream.ReceiveNext();
 			var position = (Vector3)stream.ReceiveNext();
@@ -155,8 +173,9 @@ public class Player : Photon.PunBehaviour, IPunObservable {
             if (!m_isInitialized)
 			{
 				findHero();
-				m_isInitialized = true;
-			}
+                initNetworkCopy();
+                m_isInitialized = true;
+            }
 
 			if (positionChanged)
 			{

@@ -1,18 +1,13 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{A8CF6654-3A00-2B85-AC5B-2766D76D62FE}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/Gameplay/PopupController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Scripts/GAme/UI/PlayerNetworkCopy.cs">
     <Files>
       <File FileName="Assets/_Core/Scripts/GAme/Enums.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="147" Column="52" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/LogicController.cs" Line="5" Column="14" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="131" Column="28" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Player.cs" Line="92" Column="25" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Creep.cs" Line="112" Column="27" />
-      <File FileName="Assets/_Core/Scripts/GAme/Core/Character.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Core/Scripts/Popups/LootPopup/LootPopup.cs" Line="57" Column="37" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Inventory/Inventory.cs" Line="70" Column="14" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/CanvasController.cs" Line="16" Column="3" />
-      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/PopupController.cs" Line="22" Column="32" />
+      <File FileName="Assets/_Core/Scripts/GAme/LevelEditor/MapDataController.cs" Line="139" Column="37" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/LogicController.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Core/Hero.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Core/Scripts/GAme/Gameplay/Player.cs" Line="171" Column="40" />
+      <File FileName="Assets/_Core/Scripts/GAme/UI/PlayerNetworkCopy.cs" Line="29" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
