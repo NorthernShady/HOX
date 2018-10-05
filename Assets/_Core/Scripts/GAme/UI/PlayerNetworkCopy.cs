@@ -14,9 +14,6 @@ public class PlayerNetworkCopy : Photon.PunBehaviour, IPunObservable
     public void addCommands(List<KeyValuePair<int, List<object>>> cmds)
     {
         commands.AddRange(cmds.ToList());
-        if (cmds.Count > 0) {
-            Debug.Log(string.Format("MY_DEBUG: PlayerNetworkCopy.cs Added command to player, team: {0}", team));
-        }
     }
 
     void findPlayer()
@@ -54,7 +51,6 @@ public class PlayerNetworkCopy : Photon.PunBehaviour, IPunObservable
             var cmdsCount = (int)stream.ReceiveNext();
             for (int i = 0; i < cmdsCount; i++) {
                 int cmd = (int)stream.ReceiveNext();
-                Debug.Log("MY_DEBUG: Get command from origin PLayer, cmd: " + cmd.ToString());
                 player?.handleCommand(cmd, stream);
             }
 

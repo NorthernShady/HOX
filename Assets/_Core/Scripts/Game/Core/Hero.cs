@@ -131,7 +131,7 @@ public class Hero : Character, IPunObservable
 
         m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
-        if (isPlayer) {
+        if (m_dataProxy.team == team) {
             // gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
             m_services.getService<ExperienceObserver>().initialize(this);

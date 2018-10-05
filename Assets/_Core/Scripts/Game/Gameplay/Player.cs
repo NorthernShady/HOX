@@ -150,9 +150,6 @@ public class Player : Photon.PunBehaviour, IPunObservable {
                     stream.SendNext(p);
                 }
             }
-            if (commands.Count > 0) {
-                Debug.Log(string.Format("MY_DEBUG: Player.cs stream.isWriting, send cmds to player"));
-            }
             commands.Clear();
 
 
@@ -217,9 +214,6 @@ public class Player : Photon.PunBehaviour, IPunObservable {
             return;
         }
         m_networkPlayerCopy?.addCommands(commands);
-        if (commands.Count > 0) {
-            Debug.Log(string.Format("MY_DEBUG: Player.cs stream.isReading, cmds > 0, networkCopy: {0}", m_networkPlayerCopy == null ? "null" : "notNull"));
-        }
         commands.Clear();
     }
 }
