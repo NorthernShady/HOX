@@ -113,6 +113,7 @@ public class Hero : Character, IPunObservable
 
     public void initialize(Vector2 position, int team, GameData.HeroType type, int characterId, bool isPlayer = false)
     {
+        m_dataProxy = FindObjectOfType<GameDataProxy>();
         m_type = type;
         m_team = team;
         transform.position = new Vector3(position.x, 0.0f, position.y);
@@ -129,7 +130,7 @@ public class Hero : Character, IPunObservable
 
         // m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
-        if (isPlayer) {
+        if (m_dataProxy.team == team) {
             // gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
             m_services.getService<ExperienceObserver>().initialize(this);
@@ -138,11 +139,9 @@ public class Hero : Character, IPunObservable
             m_services.getService<EnemyInventoryObserver>().initialize(this);
         }
 
-        m_dataProxy = FindObjectOfType<GameDataProxy>();
-
         if (m_dataProxy.team == team)
         {
-            if (dataProxy.lightType == LightType.Point) {
+            if (m_dataProxy.lightType == LightType.Point) {
                 var light = GameObject.Instantiate(m_pointLight);
                 light.transform.SetParent(transform, false);
             }
@@ -205,7 +204,7 @@ public class Hero : Character, IPunObservable
     public override void onTargetKilled(Character target)
     {
         loseAttackTarget();
-        if (!PhotonHelper.isMine(this)) {
+        if (!PhotonHelper.isMaster()) {
             return;
         }
         sendCommandOpenLootPopup(target);
@@ -226,7 +225,7 @@ public class Hero : Character, IPunObservable
         var list = FindObjectsOfType<Character>().ToList();
         var target = list.Find(x => x.characterId == charId);
         if (target != null) {
-            m_services.getService<PopupController>().openLootPopup(this, target);
+            m_services.getService<PopupController>().openLootPopup(this, target, m_player);
         }
     }
 
