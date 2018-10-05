@@ -23,7 +23,8 @@ public class SelfEnhancement : BasicSkill
 
 	public override void activate()
     {
-		setState(State.COOLDOWN);
+		setState(State.ACTIVE);
+		OnActivated?.Invoke();
 		m_visualEffect = GameObject.Instantiate(m_visualEffectPrefab, Vector3.zero, Quaternion.identity);
 		m_visualEffect.transform.SetParent(transform, false);
 		StartCoroutine(workingTime());
@@ -32,6 +33,8 @@ public class SelfEnhancement : BasicSkill
 
     public override void deactivate()
     {
+		setState(State.COOLDOWN);
+		OnDeactivated?.Invoke();
 		Destroy(m_visualEffect);
     }
 
