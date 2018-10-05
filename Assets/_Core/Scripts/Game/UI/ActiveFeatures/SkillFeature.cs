@@ -4,10 +4,32 @@ using UnityEngine;
 
 public class SkillFeature : ActiveFeature
 {
+	[SerializeField]
+	tk2dBaseSprite m_icon = null;
+
 	protected BasicSkill m_skill = null;
+
+	public override void initialize(Character character)
+	{
+		base.initialize(character);
+		var skills = character.getSkills();
+		m_skill = skills.Count > 0 ? skills[0] : null;
+		m_icon.SetSprite(getIconName(character.getHero().type));
+	}
 
 	protected override void onFeatureActivated()
 	{
-		m_skill.activate();
+		m_skill?.activate();
+	}
+
+	private string getIconName(GameData.HeroType heroType)
+	{
+		switch (heroType)
+		{
+			case GameData.HeroType.WARRIOR: return "ability_warrior";
+			case GameData.HeroType.ROGUE: return "ability_rogue";
+			case GameData.HeroType.MAGE: return "ability_wizzard";
+			default: return "ability_warrior";
+		}
 	}
 }

@@ -15,6 +15,11 @@ public class ActiveFeature : MonoBehaviour
 	protected State m_state = State.ABSENT;
 	protected Character m_character = null;
 
+	public virtual void initialize(Character character)
+	{
+		m_character = character;
+	}
+
 	private void onActivate()
 	{
 		onFeatureActivated();
