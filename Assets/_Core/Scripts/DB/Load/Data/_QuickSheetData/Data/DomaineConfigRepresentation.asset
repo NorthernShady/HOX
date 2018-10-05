@@ -31,6 +31,6 @@ MonoBehaviour:
     advantage: 30
   - id: 3
     name: CellDrop
-    disadvantage: 0.5
+    disadvantage: 1
     equal: 0.5
     advantage: 0.5

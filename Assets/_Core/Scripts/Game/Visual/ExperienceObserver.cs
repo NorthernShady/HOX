@@ -8,7 +8,7 @@ public class ExperienceObserver : MonoBehaviour {
 	tk2dUIProgressBar m_progressBar = null;
 
 	[SerializeField]
-	tk2dTextMesh m_levelText = null;
+	TMPro.TextMeshPro m_levelText = null;
 
 	[SerializeField]
 	tk2dSprite m_icon = null;
@@ -37,7 +37,7 @@ public class ExperienceObserver : MonoBehaviour {
 
 	void onExpChanged(int level, float expPercent)
 	{
-		m_levelText.text = "LVL " + level.ToString();
+		m_levelText.text = level.ToString();
 		m_progressBar.Value = expPercent;
 	}
 }

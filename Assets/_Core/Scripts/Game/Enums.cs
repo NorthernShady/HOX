@@ -10,7 +10,9 @@ namespace GameData
 		RED,
 		GREEN,
 		BLUE,
+		INDIFFERENT
 	}
+
 
 	public enum CharacterType
 	{
@@ -34,6 +36,16 @@ namespace GameData
 		PEASANT,
 		SPIDER,
 		DRAGON
+	}
+
+	public enum SkillType
+	{
+		NONE,
+		RAGE,
+		SHIELD,
+		SPEED_UP,
+		FIREBALL,
+		HEAL_AURA
 	}
 
 	public enum ItemType

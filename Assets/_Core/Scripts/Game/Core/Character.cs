@@ -11,6 +11,9 @@ public class Character : Photon.PunBehaviour
     public System.Action<Character> OnCharacterInitialized;
     public System.Action<Character> OnDeath;
 
+    [SerializeField]
+    tk2dBaseSprite m_domaineRing = null;
+
     public virtual GameData.CharacterType getType()
     {
         return GameData.CharacterType.NONE;
@@ -24,6 +27,11 @@ public class Character : Photon.PunBehaviour
     public virtual BasicPhysicalModel getPhysicalModel()
     {
         return null;
+    }
+
+    public virtual List<BasicSkill> getSkills()
+    {
+        return new List<BasicSkill>();
     }
 
     protected Services m_services = null;
@@ -46,6 +54,13 @@ public class Character : Photon.PunBehaviour
     public CommonTraits data {
         get {
             return m_data;
+        }
+    }
+
+    protected CommonTraits m_skillData = null;
+    public CommonTraits skillData {
+        get {
+            return m_skillData;
         }
     }
 
@@ -213,13 +228,15 @@ public class Character : Photon.PunBehaviour
 
     public void specializeDomaine(GameObject visual, GameData.DomaineType domaine)
     {
+        var data = Resources.Load<ItemData>(k.Resources.ITEM_DATA);
+        m_domaineRing.color = data.ringColor[domaine];
         var domainePart = visual.transform.Find("DomainePart");
 
         if (domainePart == null)
             return;
             
         var meshRenderers = domainePart.GetComponentsInChildren<MeshRenderer>();
-        var material = Resources.Load<ItemData>(k.Resources.ITEM_DATA).domaineMaterial[domaine];
+        var material = data.domaineMaterial[domaine];
 
         System.Array.ForEach(meshRenderers, x => x.material = material);
     }
@@ -276,10 +293,16 @@ public class Character : Photon.PunBehaviour
         updateParameters();
     }
 
+    protected virtual void onSkillStateChanged()
+    {
+        updateParameters();
+    }
+
     protected virtual void updateParameters()
     {
-        var data = m_data + m_services.getService<LogicController>().countInventory(this);
-        m_totalData = data.resolve();
+        var logicController = m_services.getService<LogicController>();
+        m_skillData = (m_data + logicController.countSkills(this)).resolve();
+        m_totalData = (m_skillData + logicController.countInventory(this)).resolve();
     }
 
     IEnumerator destroyIn(float time)

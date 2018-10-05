@@ -6,6 +6,7 @@ using System.Linq;
 
 [System.Serializable] class HeroVisual : TypedMap<GameData.HeroType, GameObject> { }
 [System.Serializable] class HeroPhysics : TypedMap<GameData.HeroType, BasicPhysicalModel> { }
+[System.Serializable] class HeroSkills : TypedMap<GameData.HeroType, Skills> { }
 
 public class Hero : Character, IPunObservable
 {
@@ -19,13 +20,13 @@ public class Hero : Character, IPunObservable
     GameObject m_pointLight = null;
 
     [SerializeField]
-    tk2dSprite m_domaineSprite = null;
-
-    [SerializeField]
     HeroPhysics m_heroPhysics = null;
 
     [SerializeField]
     HeroVisual m_heroVisual = null;
+
+    [SerializeField]
+    HeroSkills m_heroSkills = null;
 
     [SerializeField]
     GameObject m_deathAnimationPrefab;
@@ -83,10 +84,17 @@ public class Hero : Character, IPunObservable
 
     GameObject m_activeVisual = null;
     BasicPhysicalModel m_activePhysics = null;
+    List<BasicSkill> m_activeSkills = new List<BasicSkill>();
+    Animator m_animator = null;
 
     public override BasicPhysicalModel getPhysicalModel()
     {
         return m_activePhysics;
+    }
+
+    public override List<BasicSkill> getSkills()
+    {
+        return m_activeSkills;
     }
 
     void unsubscribe()
@@ -95,6 +103,11 @@ public class Hero : Character, IPunObservable
         {
             m_activePhysics.OnEnterTrigger -= onTriggerEnter;
             m_activePhysics.OnExitTrigger -= onTriggerExit;
+        }
+
+        foreach (var skill in m_activeSkills) {
+            skill.OnActivated -= onSkillStateChanged;
+            skill.OnDeactivated -= onSkillStateChanged;
         }
     }
 
@@ -114,12 +127,13 @@ public class Hero : Character, IPunObservable
         var gameController = FindObjectOfType<GameController>();
         this.OnDeath += gameController.onPlayerDeath;
 
-        m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
+        // m_domaineSprite.SetSprite(isPlayer ? "color_heros copy" : "color_enemies_heros copy");
 
         if (isPlayer) {
             // gameObject.AddComponent<Player>();
             m_services.getService<InventoryObserver>().initialize(this);
             m_services.getService<ExperienceObserver>().initialize(this);
+            m_services.getService<FeaturesObserver>().initialize(this);
         } else {
             m_services.getService<EnemyInventoryObserver>().initialize(this);
         }
@@ -152,11 +166,20 @@ public class Hero : Character, IPunObservable
         m_activeVisual = GameObject.Instantiate(m_heroVisual[m_type], transform, false);
         m_activePhysics = GameObject.Instantiate(m_heroPhysics[m_type], transform, false);
 
+        var skills = m_heroSkills[m_type].skills;
+        skills.ForEach(x => {
+            var activeSkill = GameObject.Instantiate(x, transform, false);
+            activeSkill.OnActivated += onSkillStateChanged;
+            activeSkill.OnDeactivated += onSkillStateChanged;
+            m_activeSkills.Add(activeSkill);
+        });
+
         specializeDomaine(m_activeVisual, GameData.DomaineType.NONE);
 
 		m_activePhysics.targetObject = gameObject;
         m_activePhysics.OnEnterTrigger += onTriggerEnter;
         m_activePhysics.OnExitTrigger += onTriggerExit;
+        m_animator = m_activeVisual.GetComponent<Animator>();
 
         if (OnPhysicsInitialized != null)
             OnPhysicsInitialized(m_activePhysics);
@@ -167,6 +190,7 @@ public class Hero : Character, IPunObservable
         var character = otherObject.GetComponent<Character>();
         if (character != null) {
             m_attackTarget = character;
+            m_animator.SetTrigger("Attack");
             OnFightStarted?.Invoke();
         }
     }
@@ -228,6 +252,7 @@ public class Hero : Character, IPunObservable
     private void loseAttackTarget()
     {
         m_attackTarget = null;
+        m_animator.SetTrigger("Attack");
         OnFightFinished?.Invoke();
     }
 

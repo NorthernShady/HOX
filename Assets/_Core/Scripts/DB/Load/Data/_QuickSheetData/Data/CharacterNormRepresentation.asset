@@ -16,51 +16,51 @@ MonoBehaviour:
   dataArray:
   - level: 1
     exp: 20
-    hp: 47
-    attack: 5
+    hp: 0
+    attack: 0
     defence: 0
     speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
-    fightexp: 10
+    fightexp: 0
   - level: 2
     exp: 75
-    hp: 56
-    attack: 6
+    hp: 0
+    attack: 0
     defence: 0
     speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
-    fightexp: 25
+    fightexp: 0
   - level: 3
     exp: 150
-    hp: 67
-    attack: 7
+    hp: 0
+    attack: 0
     defence: 0
     speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
-    fightexp: 50
+    fightexp: 0
   - level: 4
     exp: 200
-    hp: 81
-    attack: 9
+    hp: 0
+    attack: 0
     defence: 0
     speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
-    fightexp: 50
+    fightexp: 0
   - level: 5
     exp: -1
-    hp: 97
-    attack: 10
+    hp: 0
+    attack: 0
     defence: 0
     speed: 10
     attackspeed: 2
     criticalchance: 1.2
     criticalmodifier: 0
-    fightexp: 100
+    fightexp: 0
