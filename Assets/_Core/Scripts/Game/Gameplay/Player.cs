@@ -210,9 +210,9 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 
     void sendDataToCopy()
     {
-        if (PhotonHelper.isMine(this)) {
-            return;
-        }
+        //if (PhotonHelper.isMine(this)) {
+        //    return;
+        //}
         if (commands.Count == 0) {
             return;
         }
