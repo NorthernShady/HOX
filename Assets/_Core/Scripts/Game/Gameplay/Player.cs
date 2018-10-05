@@ -160,6 +160,9 @@ public class Player : Photon.PunBehaviour, IPunObservable {
 		if (stream.isReading) {
 
             m_networkPlayerCopy?.addCommands(commands);
+            if (commands.Count > 0) {
+                Debug.Log(string.Format("MY_DEBUG: Player.cs stream.isReading, cmds > 0, networkCopy: {0}", m_networkPlayerCopy == null ? "null" : "notNull"));
+            }
             commands.Clear();
 
 			m_team = (int)stream.ReceiveNext();
