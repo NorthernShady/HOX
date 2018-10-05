@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834635020441304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -0.28, z: -0.1}
+  m_LocalPosition: {x: -1.213, y: -0.654, z: -0.099999905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4576605357380964}
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256083175940828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00000023841858, y: -0.016118348, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726212570852818}
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240002684771630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502819, y: -0.009203166, z: -0.1}
+  m_LocalPosition: {x: 0.40201008, y: -0.007877052, z: -0.099999905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4576605357380964}
@@ -205,7 +205,7 @@ MonoBehaviour:
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 28
+  _spriteId: 19
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -214,12 +214,12 @@ MonoBehaviour:
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
-  _dimensions: {x: 100, y: 18.686262}
+  _dimensions: {x: 80.35976, y: 19.403633}
   _anchor: 3
   _borderOnly: 0
   legacyMode: 0
-  borderTop: 0.8588236
-  borderBottom: 0.28058824
+  borderTop: 0.3791667
+  borderBottom: 0.20833333
   borderLeft: 0.3529412
   borderRight: 0.3529412
   _createBoxCollider: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
   collection: {fileID: 114588426637053672, guid: c05dfcb3d8676214da09ad70d4b6294f,
     type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 0.82844156, y: 0.828568, z: 1}
-  _spriteId: 27
+  _scale: {x: 1.0348603, y: 0.90109324, z: 1}
+  _spriteId: 20
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a677072d2a0bc494abd400e1dd1a0918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -0.040625013, z: 0}
-  bMax: {x: 0.8, y: 0, z: 0}
+  bMin: {x: 0, y: -0.0354442, z: 0}
+  bMax: {x: 0.76150537, y: 0, z: 0}
   layoutItems:
   - sprite: {fileID: 114196182337496156}
     UIMask: {fileID: 0}
@@ -298,21 +298,7 @@ MonoBehaviour:
     sizeProportion: 1
     inLayoutList: 1
     childDepth: 0
-    oldPos: {x: -0.9865403, y: -0.5063896, z: 0.02}
-  - sprite: {fileID: 0}
-    UIMask: {fileID: 0}
-    layout: {fileID: 0}
-    gameObj: {fileID: 0}
-    snapLeft: 1
-    snapRight: 1
-    snapTop: 1
-    snapBottom: 1
-    fixedSize: 255
-    fillPercentage: -1
-    sizeProportion: 1
-    inLayoutList: 1
-    childDepth: 0
-    oldPos: {x: -0.97956, y: -0.5063896, z: 0}
+    oldPos: {x: -5.266509, y: 2.1533036, z: -0.15999985}
   autoResizeCollider: 0
 --- !u!114 &114857947717236024
 MonoBehaviour:
